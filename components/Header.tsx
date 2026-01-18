@@ -299,7 +299,7 @@ export default function Header() {
                             onClick={closeMenu}
                             className="block text-[7px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                           >
-                            {service.title}
+                            {service.description}
                           </Link>
                         ))}
                       </div>
@@ -315,7 +315,7 @@ export default function Header() {
                             onClick={closeMenu}
                             className="block text-[7px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                           >
-                            {service.title}
+                            {service.description}
                           </Link>
                         ))}
                       </div>

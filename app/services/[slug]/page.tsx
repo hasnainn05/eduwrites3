@@ -1410,28 +1410,28 @@ export default function ServiceDetail() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.reviews.map((review, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-lg p-5 border border-border hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      size={20}
+                      size={16}
                       className="fill-accent text-accent"
                     />
                   ))}
                 </div>
 
-                <p className="text-foreground/80 leading-relaxed mb-6">
+                <p className="text-foreground/80 leading-relaxed mb-4 text-sm">
                   "{review.text}"
                 </p>
 
-                <div className="flex items-center gap-4 pt-6 border-t border-border">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center font-bold text-white flex-shrink-0">
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 text-xs">
                     {review.avatar}
                   </div>
                   <div>

@@ -331,7 +331,7 @@ export default function LiveChat() {
           {!isMinimized && (
             <>
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-background to-background/50">
+              <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-gradient-to-b from-background to-background/50">
                 {messages.map((message) => (
                   <div key={message.id}>
                     <div

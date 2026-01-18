@@ -490,17 +490,17 @@ export default function Home() {
       {/* Pricing Section */}
       <section
         id="pricing"
-        className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
+        className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               PRICING
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Transparent, Affordable Pricing
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               Choose the perfect plan for your academic needs across our
               services
             </p>

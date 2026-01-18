@@ -398,21 +398,21 @@ export default function LiveChat() {
               </div>
 
               {/* Quick Contact Options */}
-              <div className="px-4 py-3 border-t border-white/10 flex gap-2">
+              <div className="px-3 py-2 border-t border-white/10 flex gap-1.5">
                 <button
                   onClick={handleWhatsAppContact}
-                  className="flex-1 flex items-center justify-center gap-2 bg-green-500/20 hover:bg-green-500/30 text-green-300 rounded-lg py-2 transition-colors text-xs font-medium border border-green-500/30"
+                  className="flex-1 flex items-center justify-center gap-1 bg-green-500/20 hover:bg-green-500/30 text-green-300 rounded py-1.5 transition-colors text-[10px] font-medium border border-green-500/30"
                   title="Contact via WhatsApp"
                 >
-                  <MessageSquare size={14} />
+                  <MessageSquare size={12} />
                   WhatsApp
                 </button>
                 <button
                   onClick={handleEmailContact}
-                  className="flex-1 flex items-center justify-center gap-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 rounded-lg py-2 transition-colors text-xs font-medium border border-blue-500/30"
+                  className="flex-1 flex items-center justify-center gap-1 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 rounded py-1.5 transition-colors text-[10px] font-medium border border-blue-500/30"
                   title="Contact via Email"
                 >
-                  <Mail size={14} />
+                  <Mail size={12} />
                   Email
                 </button>
               </div>

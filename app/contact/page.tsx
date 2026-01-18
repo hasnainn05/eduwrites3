@@ -254,17 +254,17 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Please describe your inquiry or issue..."
-                    rows={4}
-                    className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
+                    placeholder="Tell us what's on your mind..."
+                    rows={3}
+                    className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full gradient-primary text-white py-2 rounded-lg font-bold text-xs hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
+                  className="w-full gradient-primary text-white py-1.5 rounded-lg font-bold text-[10px] hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
                 >
-                  Send Message <Send size={14} />
+                  Send Message <Send size={12} />
                 </button>
               </form>
             </div>

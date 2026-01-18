@@ -718,10 +718,10 @@ export default function Home() {
                   {/* Footer */}
                   <div className="border-t border-border pt-3 flex items-center justify-between">
                     <div>
-                      <p className="text-xs text-foreground/60 mb-1">
+                      <p className="text-xs text-foreground/60 mb-0.5">
                         Client Organization
                       </p>
-                      <p className="text-sm font-semibold text-foreground">
+                      <p className="text-xs font-semibold text-foreground">
                         {project.client}
                       </p>
                     </div>

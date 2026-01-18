@@ -390,11 +390,11 @@ export default function Signup() {
                 </form>
 
                 {/* Divider */}
-                <div className="relative my-6">
+                <div className="relative my-3">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-white/10"></div>
                   </div>
-                  <div className="relative flex justify-center text-sm">
+                  <div className="relative flex justify-center text-[9px]">
                     <span className="px-2 bg-gradient-to-b from-background to-background/80 text-foreground/50">
                       Or sign up with
                     </span>
@@ -402,19 +402,19 @@ export default function Signup() {
                 </div>
 
                 {/* Social Signup */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={handleGoogleSignup}
                     disabled={isLoading}
-                    className="border-4 border-border bg-white hover:shadow-md rounded-lg py-3 font-bold text-foreground transition-all flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="border-2 border-border bg-white hover:shadow-md rounded-lg py-2 font-bold text-xs text-foreground transition-all flex items-center justify-center gap-1 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     ) : (
                       <>
                         <svg
-                          className="w-4 h-4"
+                          className="w-3 h-3"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                         >
@@ -435,7 +435,7 @@ export default function Signup() {
                             fill="#EA4335"
                           />
                         </svg>
-                        <span className="hidden sm:inline text-sm">Google</span>
+                        <span className="hidden sm:inline">Google</span>
                       </>
                     )}
                   </button>
@@ -443,22 +443,22 @@ export default function Signup() {
                     type="button"
                     onClick={handleAppleSignup}
                     disabled={isLoading}
-                    className="border-4 border-border bg-white hover:shadow-md rounded-lg py-3 font-bold text-foreground transition-all flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="border-2 border-border bg-white hover:shadow-md rounded-lg py-2 font-bold text-xs text-foreground transition-all flex items-center justify-center gap-1 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     ) : (
                       <>
-                        <Apple size={18} />
-                        <span className="hidden sm:inline text-sm">Apple</span>
+                        <Apple size={14} />
+                        <span className="hidden sm:inline">Apple</span>
                       </>
                     )}
                   </button>
                 </div>
 
                 {/* Login Link */}
-                <div className="text-center mt-6">
-                  <p className="text-foreground/70 text-sm">
+                <div className="text-center mt-4">
+                  <p className="text-foreground/70 text-xs">
                     Already have an account?{" "}
                     <Link
                       href="/login"

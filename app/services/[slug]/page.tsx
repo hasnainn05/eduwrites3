@@ -868,13 +868,13 @@ export default function ServiceDetail() {
                       packageId: service.pricingPackages[0]?.id || "basic",
                     })
                   }
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
                 >
-                  Get Started Now <ArrowRight size={20} />
+                  Get Started Now <ArrowRight size={18} />
                 </button>
                 <button
                   onClick={() => setIsSupportModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/5 transition-all duration-300"
                 >
                   Message Us
                 </button>

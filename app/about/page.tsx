@@ -245,6 +245,62 @@ export default function About() {
         </div>
       </section>
 
+      {/* Send us a Message Section */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl mx-auto">
+          <div className="bg-white border-2 border-border p-5 sm:p-6 rounded-lg shadow-lg">
+            <h2 className="text-sm font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
+              Send us a Message
+            </h2>
+            <p className="text-foreground/85 mb-4 text-xs font-medium">
+              Have a question? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            </p>
+
+            <form className="space-y-3">
+              <div>
+                <label className="block text-xs font-bold text-foreground/95 mb-1">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-foreground/95 mb-1">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="john@example.com"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-foreground/95 mb-1">
+                  Message
+                </label>
+                <textarea
+                  placeholder="Tell us what's on your mind..."
+                  rows={3}
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full gradient-primary text-white py-2 rounded-lg font-bold text-xs hover:shadow-glow transition-all transform hover:scale-105 duration-300"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background Effects */}

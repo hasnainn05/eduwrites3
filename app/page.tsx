@@ -509,54 +509,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    name: "Basic",
-                    price: "$100",
-                    features: [
-                      "2000 words",
-                      "Basic research",
-                      "Standard formatting",
-                      "1 revision",
-                      "5-7 days delivery",
-                    ],
-                  },
-                  {
-                    name: "Standard",
-                    price: "$250",
-                    features: [
-                      "5000 words",
-                      "In-depth research",
-                      "Premium formatting",
-                      "2 revisions",
-                      "3-5 days delivery",
-                    ],
-                    highlighted: true,
-                  },
-                  {
-                    name: "Premium",
-                    price: "$450",
-                    features: [
-                      "10000 words",
-                      "Expert research",
-                      "Complete editing",
-                      "Unlimited revisions",
-                      "2-3 days delivery",
-                    ],
-                  },
-                  {
-                    name: "Custom",
-                    price: "Custom",
-                    features: [
-                      "Any word count",
-                      "Specialized topics",
-                      "Rush delivery",
-                      "Priority support",
-                      "Flexible timeline",
-                    ],
-                    isCustom: true,
-                  },
-                ].map((plan) => (
+                {GENERAL_PRICING_PLANS.map((plan) => (
                   <div
                     key={plan.name}
                     className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${

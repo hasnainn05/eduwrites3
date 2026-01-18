@@ -38,6 +38,7 @@ Netlify provides excellent support for Next.js applications with automatic deplo
    - Check logs for any build errors
 
 **Benefits:**
+
 - Zero-config deployments
 - Automatic HTTPS
 - CDN for global performance
@@ -65,6 +66,7 @@ Vercel is the company behind Next.js, providing the best integration.
    - Update DNS records as instructed
 
 **Benefits:**
+
 - Purpose-built for Next.js
 - Edge middleware support
 - Automatic image optimization
@@ -109,15 +111,18 @@ If your app requires environment variables for production:
 ## Troubleshooting
 
 **Build Fails:**
+
 - Check that `npm run build` succeeds locally
 - Verify all environment variables are set
 - Review build logs in your hosting platform
 
 **Hydration Errors in Production:**
+
 - Already fixed with `suppressHydrationWarning` on body tag
 - If issues persist, check browser console for extension conflicts
 
 **Slow Performance:**
+
 - Review 3D canvas usage on pages
 - Check image sizes and optimize
 - Enable caching in hosting platform
@@ -137,6 +142,7 @@ If your app requires environment variables for production:
 ## Support
 
 For platform-specific questions:
+
 - Netlify Support: https://www.netlify.com/support/
 - Vercel Support: https://vercel.com/support
 - Builder.io Docs: https://www.builder.io/c/docs/projects

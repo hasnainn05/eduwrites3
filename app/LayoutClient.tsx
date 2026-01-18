@@ -1,10 +1,10 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LiveChat from "@/components/LiveChat";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
+import { usePathname } from "next/navigation";
 
 export default function LayoutClient({
   children,
@@ -15,9 +15,9 @@ export default function LayoutClient({
   const isAdminRoute = pathname.startsWith("/admin");
 
   return (
-    <div className={!isAdminRoute ? "light" : ""} suppressHydrationWarning>
+    <div className="light">
       <>
-        {!isAdminRoute && <Canvas3DWrapper />}
+        <Canvas3DWrapper />
         <div className="flex flex-col min-h-screen">
           {!isAdminRoute && <Header />}
           <main className="flex-grow mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">{children}</main>

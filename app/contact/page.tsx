@@ -239,7 +239,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
-                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                     />
                   </div>
                 </div>

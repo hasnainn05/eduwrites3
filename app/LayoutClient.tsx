@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LiveChat from "@/components/LiveChat";
@@ -12,15 +12,10 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [isAdminRoute, setIsAdminRoute] = useState(false);
-
-  // Use effect to set state after hydration to prevent mismatch
-  useEffect(() => {
-    setIsAdminRoute(pathname.startsWith("/admin"));
-  }, [pathname]);
+  const isAdminRoute = pathname.startsWith("/admin");
 
   return (
-    <div className={!isAdminRoute ? "light" : ""}>
+    <div className={!isAdminRoute ? "light" : ""} suppressHydrationWarning>
       <>
         {!isAdminRoute && <Canvas3DWrapper />}
         <div className="flex flex-col min-h-screen">

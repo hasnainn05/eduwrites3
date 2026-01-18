@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#0891b2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9333ea;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- E Letter - Dark Navy Blue -->
+  <g>
+    <!-- Vertical bar of E -->
+    <rect x="20" y="30" width="35" height="140" rx="6" fill="#1e3a8a" />
+    <!-- Top horizontal bar -->
+    <rect x="55" y="30" width="50" height="32" rx="5" fill="#1e3a8a" />
+    <!-- Middle horizontal bar -->
+    <rect x="55" y="98" width="45" height="28" rx="5" fill="#1e3a8a" />
+    <!-- Bottom horizontal bar -->
+    <rect x="55" y="138" width="50" height="32" rx="5" fill="#1e3a8a" />
+  </g>
+  
+  <!-- W Letter - Gradient -->
+  <g>
+    <!-- W is made of two V shapes -->
+    <!-- Left V shape -->
+    <path d="M 110 170 L 130 30 L 145 90 L 160 30 L 180 170" stroke="url(#wGradient)" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>

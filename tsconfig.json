@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": true,
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "client/components/Canvas3D.tsx",
+    "client/components/Canvas3DWrapper.tsx",
+    "client/components/TiltCard.tsx",
+    "client/components/AdminSidebar.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "client/pages",
+    "client/lib",
+    "client/hooks",
+    "client/components/ui",
+    "client/components/Footer.tsx",
+    "client/components/Header.tsx",
+    "client/components/SearchBar.tsx",
+    "client/components/Sidebar.tsx",
+    "client/components/Canvas3DWaves.tsx",
+    "client/components/Canvas3DMorphing.tsx",
+    "client/components/Canvas3DGrid.tsx",
+    "client/components/Canvas3DEducation.tsx",
+    "client/components/Canvas3DGradientBackdrop.tsx",
+    "client/components/Canvas3DMinimal.tsx",
+    "client/components/Canvas3DHolographic.tsx",
+    "client/components/Canvas3DLearningPaths.tsx"
+  ]
+}

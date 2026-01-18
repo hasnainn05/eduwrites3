@@ -1,0 +1,418 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Premium Theme - Navy & Gold */
+    --background: 40 44% 97%;
+    --foreground: 215 32% 20%;
+
+    --card: 40 20% 98%;
+    --card-foreground: 215 32% 20%;
+
+    --popover: 40 20% 98%;
+    --popover-foreground: 215 32% 20%;
+
+    --primary: 215 32% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 215 32% 20%;
+
+    --muted: 40 18% 88%;
+    --muted-foreground: 215 12% 50%;
+
+    --accent: 48 97% 52%;
+    --accent-foreground: 215 32% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 16% 93%;
+    --input: 40 12% 97%;
+    --ring: 215 32% 28%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 215 32% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 48 97% 52%;
+    --sidebar-accent-foreground: 215 32% 20%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 215 32% 28%;
+  }
+
+  .light {
+    --background: 40 44% 97%;
+    --foreground: 215 32% 20%;
+    --card: 40 20% 98%;
+    --card-foreground: 215 32% 20%;
+    --popover: 40 20% 98%;
+    --popover-foreground: 215 32% 20%;
+    --primary: 215 32% 28%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 215 32% 20%;
+    --muted: 40 18% 88%;
+    --muted-foreground: 215 12% 50%;
+    --accent: 48 97% 52%;
+    --accent-foreground: 215 32% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 16% 93%;
+    --input: 40 12% 97%;
+    --ring: 215 32% 28%;
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 215 32% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 48 97% 52%;
+    --sidebar-accent-foreground: 215 32% 20%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 215 32% 28%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+/* Glass-Morphism Effect */
+@layer components {
+  .glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-purple-500 via-violet-500 to-cyan-500;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-cyan-400 to-purple-500;
+  }
+
+  .shadow-3d {
+    @apply shadow-2xl;
+    box-shadow:
+      0 20px 40px rgba(260, 100, 60, 0.2),
+      0 0 40px rgba(180, 100, 50, 0.1);
+  }
+
+  .shadow-glow {
+    @apply shadow-lg;
+    box-shadow: 0 0 30px rgba(260, 100, 60, 0.15);
+  }
+
+  /* Professional Card Styling for Light Theme */
+  .card-premium {
+    @apply rounded-2xl border border-border shadow-sm hover:shadow-md transition-all duration-300;
+    background-color: hsl(var(--card));
+  }
+
+  .card-elevated {
+    @apply rounded-2xl border border-border shadow-md hover:shadow-lg transition-all duration-300;
+    background-color: hsl(var(--card));
+  }
+
+  .group-hover-lift:hover {
+    @apply translate-y-[-8px] transition-all duration-300;
+  }
+
+  /* Card Background Utility */
+  .card-bg {
+    background-color: hsl(var(--card));
+  }
+
+  .blur-gradient {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(260, 100, 60, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(260, 100, 60, 0.5);
+  }
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce-animation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animate-pulse-bounce {
+    animation: pulse-bounce 2s ease-in-out infinite;
+  }
+
+  .animate-bounce-animation {
+    animation: bounce-animation 2.5s ease-in-out infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Removed global button animations from content boxes */
+  /* Use .animate-button-pulse class if needed on specific buttons */
+  .animate-button-pulse {
+    animation: pulse-bounce 2s ease-in-out infinite;
+  }
+
+  .animate-button-pulse:hover {
+    animation: bounce-animation 2.5s ease-in-out infinite;
+  }
+
+  /* Scroll Animation Utilities */
+  .scroll-animate {
+    opacity: 0;
+  }
+
+  .scroll-animate.animate-in {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .scroll-animate-left {
+    opacity: 0;
+  }
+
+  .scroll-animate-left.animate-in {
+    animation: slideInFromLeft 0.6s ease-out forwards;
+  }
+
+  .scroll-animate-right {
+    opacity: 0;
+  }
+
+  .scroll-animate-right.animate-in {
+    animation: slideInFromRight 0.6s ease-out forwards;
+  }
+
+  .scroll-animate-fade {
+    opacity: 0;
+  }
+
+  .scroll-animate-fade.animate-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .scroll-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .scroll-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .scroll-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .scroll-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .scroll-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  /* Text Hover Effects - 2D Version */
+  .heading-3d {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .heading-3d:hover {
+    transform: scale(1.02) translateY(-4px);
+    text-shadow:
+      -5px -5px 15px rgba(0, 100, 120, 0.5),
+      5px 5px 15px rgba(168, 85, 247, 0.3);
+  }
+
+  .heading-3d-light {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .heading-3d-light:hover {
+    transform: scale(1.02) translateY(-4px);
+    filter: drop-shadow(-3px -3px 8px rgba(0, 100, 120, 0.4))
+      drop-shadow(3px 3px 8px rgba(168, 85, 247, 0.2));
+  }
+
+  /* Service Card Hover Effects - 2D Version */
+  .service-card-3d {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+  }
+
+  .service-card-3d:hover {
+    box-shadow:
+      0 25px 50px rgba(0, 217, 255, 0.25),
+      0 15px 30px rgba(168, 85, 247, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .service-card-3d::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 217, 255, 0.1) 0%,
+      rgba(168, 85, 247, 0.12) 50%,
+      rgba(0, 217, 255, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .service-card-3d:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Hide global footer on profile page */
+main:has(.profile-layout) ~ footer {
+  display: none;
+}

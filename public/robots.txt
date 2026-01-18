@@ -1,0 +1,51 @@
+# EduWrites Robots.txt - White-hat SEO Configuration
+# Last updated: 2025-01-17
+
+User-agent: *
+Allow: /
+Allow: /services/
+Allow: /about
+Allow: /contact
+Allow: /order
+Allow: /privacy
+Allow: /terms
+
+# Disallow private/admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /profile/
+
+# Disallow sensitive search parameters
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*page=
+Disallow: /*?*search=
+
+# Crawl delay and request rate (ms)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://eduwrites.com/sitemap.xml
+
+# Allow Google-specific crawlers
+User-agent: Googlebot
+Allow: /
+
+# Allow Bing-specific crawlers
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

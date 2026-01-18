@@ -464,8 +464,18 @@ export default function Profile() {
               )}
 
               {activeTab === "chat" && (
-                <div className="h-full flex flex-col px-4 md:px-8 py-4 md:py-6">
-                  <SupportChat />
+                <div className="h-full flex flex-col">
+                  <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 border-b-2 border-indigo-100 px-4 md:px-8 py-6">
+                    <h2 className="text-2xl font-bold text-foreground">
+                      Live Chat Support
+                    </h2>
+                    <p className="text-foreground/60 mt-2 text-sm">
+                      Chat with our support team in real-time
+                    </p>
+                  </div>
+                  <div className="flex-1 overflow-hidden px-4 md:px-8 py-6">
+                    <SupportChat />
+                  </div>
                 </div>
               )}
 

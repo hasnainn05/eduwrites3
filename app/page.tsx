@@ -28,6 +28,9 @@ import { PricingSwitch } from "@/client/components/PricingSwitch";
 export default function Home() {
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const [pricingType, setPricingType] = useState<"writing" | "proofreading">(
+    "writing",
+  );
 
   const services = [
     {

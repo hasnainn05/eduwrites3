@@ -16,6 +16,7 @@ import {
   BarChart3,
   BookMarked,
   Pencil,
+  X,
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";

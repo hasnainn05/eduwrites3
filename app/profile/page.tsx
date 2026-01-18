@@ -561,46 +561,46 @@ export default function Profile() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <label className="flex items-center gap-3 p-3 border-2 border-border rounded hover:bg-gray-50 cursor-pointer transition-all">
+                      <label className="flex items-center gap-4 p-4 border-2 border-border rounded-lg bg-gradient-to-r from-gray-50 to-white hover:border-cyan-200 cursor-pointer transition-all">
                         <input
                           type="checkbox"
                           defaultChecked
-                          className="w-4 h-4 rounded border-border bg-white accent-cyan-600"
+                          className="w-5 h-5 rounded-md border-2 border-border bg-white accent-cyan-600 cursor-pointer"
                         />
                         <div className="flex-1">
                           <p className="font-semibold text-foreground text-xs">
                             Order Updates
                           </p>
-                          <p className="text-[10px] text-foreground/60 mt-0.5">
+                          <p className="text-[10px] text-foreground/60 mt-1">
                             Get notified when your orders are updated
                           </p>
                         </div>
                       </label>
-                      <label className="flex items-center gap-3 p-3 border-2 border-border rounded hover:bg-gray-50 cursor-pointer transition-all">
+                      <label className="flex items-center gap-4 p-4 border-2 border-border rounded-lg bg-gradient-to-r from-gray-50 to-white hover:border-cyan-200 cursor-pointer transition-all">
                         <input
                           type="checkbox"
-                          className="w-4 h-4 rounded border-border bg-white accent-cyan-600"
+                          className="w-5 h-5 rounded-md border-2 border-border bg-white accent-cyan-600 cursor-pointer"
                         />
                         <div className="flex-1">
                           <p className="font-semibold text-foreground text-xs">
                             Marketing Emails
                           </p>
-                          <p className="text-[10px] text-foreground/60 mt-0.5">
+                          <p className="text-[10px] text-foreground/60 mt-1">
                             Receive promotions and special offers
                           </p>
                         </div>
                       </label>
-                      <label className="flex items-center gap-3 p-3 border-2 border-border rounded hover:bg-gray-50 cursor-pointer transition-all">
+                      <label className="flex items-center gap-4 p-4 border-2 border-border rounded-lg bg-gradient-to-r from-gray-50 to-white hover:border-cyan-200 cursor-pointer transition-all">
                         <input
                           type="checkbox"
                           defaultChecked
-                          className="w-4 h-4 rounded border-border bg-white accent-cyan-600"
+                          className="w-5 h-5 rounded-md border-2 border-border bg-white accent-cyan-600 cursor-pointer"
                         />
                         <div className="flex-1">
                           <p className="font-semibold text-foreground text-xs">
                             Support Messages
                           </p>
-                          <p className="text-[10px] text-foreground/60 mt-0.5">
+                          <p className="text-[10px] text-foreground/60 mt-1">
                             Get replies from our support team
                           </p>
                         </div>

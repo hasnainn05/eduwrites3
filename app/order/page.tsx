@@ -19,7 +19,7 @@ export default function Order() {
               Order
             </span>
           </h1>
-          <p className="text-sm text-foreground/70">
+          <p className="text-xs text-foreground/70">
             Fill in your details and we'll get started on your academic work
             right away
           </p>

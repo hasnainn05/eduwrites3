@@ -119,32 +119,32 @@ export default function AdminDashboard() {
             </div>
 
             {/* Quick Actions */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
               {/* Recent Activity */}
-              <div className="glass p-4 sm:p-6 rounded-2xl border border-white/10">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <h2 className="text-lg sm:text-xl font-bold text-foreground">
+              <div className="bg-white rounded-lg border-2 border-border p-3">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 mb-3">
+                  <h2 className="text-sm font-bold text-foreground">
                     Recent Activity
                   </h2>
                   <Link
                     href="/admin/messages"
-                    className="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-1"
+                    className="text-primary hover:text-primary/80 text-xs font-medium flex items-center gap-1"
                   >
-                    View All <ArrowRight size={16} />
+                    View All <ArrowRight size={12} />
                   </Link>
                 </div>
-                <div className="space-y-2 sm:space-y-4">
+                <div className="space-y-2">
                   {recentActivities.map((activity, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                      className="flex items-start sm:items-center gap-2 p-2 rounded-lg bg-white hover:bg-primary/5 transition-colors border border-border"
                     >
-                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-purple-400 flex-shrink-0 mt-1 sm:mt-0"></div>
+                      <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-0.5 sm:mt-0"></div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-foreground text-sm font-medium truncate sm:truncate">
+                        <p className="text-foreground text-xs font-medium truncate">
                           {activity.action}
                         </p>
-                        <p className="text-foreground/50 text-xs mt-1">
+                        <p className="text-foreground/50 text-[10px] mt-0.5">
                           {activity.date}
                         </p>
                       </div>
@@ -154,84 +154,84 @@ export default function AdminDashboard() {
               </div>
 
               {/* Quick Links */}
-              <div className="glass p-4 sm:p-6 rounded-2xl border border-white/10">
-                <h2 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">
+              <div className="bg-white rounded-lg border-2 border-border p-3">
+                <h2 className="text-sm font-bold text-foreground mb-3">
                   Quick Actions
                 </h2>
-                <div className="space-y-2 sm:space-y-3">
+                <div className="space-y-2">
                   <Link
                     href="/admin/orders"
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 rounded-lg bg-gradient-to-r from-orange-600/20 to-amber-500/20 border border-orange-500/20 hover:border-orange-500/50 transition-all group gap-3 sm:gap-0"
+                    className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-orange-50 transition-all group border-2 border-border"
                   >
                     <div>
-                      <p className="font-semibold text-foreground text-sm sm:text-base">
+                      <p className="font-semibold text-foreground text-xs">
                         Manage Orders
                       </p>
-                      <p className="text-xs text-foreground/60">
-                        View and manage customer orders
+                      <p className="text-[10px] text-foreground/60">
+                        View and manage orders
                       </p>
                     </div>
-                    <ArrowRight className="text-orange-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    <ArrowRight size={14} className="text-primary flex-shrink-0" />
                   </Link>
 
                   <Link
                     href="/admin/services"
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 rounded-lg bg-gradient-to-r from-indigo-600/20 to-cyan-500/20 border border-indigo-500/20 hover:border-indigo-500/50 transition-all group gap-3 sm:gap-0"
+                    className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-indigo-50 transition-all group border-2 border-border"
                   >
                     <div>
-                      <p className="font-semibold text-foreground text-sm sm:text-base">
+                      <p className="font-semibold text-foreground text-xs">
                         Manage Services
                       </p>
-                      <p className="text-xs text-foreground/60">
-                        Add, edit, or delete services
+                      <p className="text-[10px] text-foreground/60">
+                        Add, edit, delete
                       </p>
                     </div>
-                    <ArrowRight className="text-indigo-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    <ArrowRight size={14} className="text-primary flex-shrink-0" />
                   </Link>
 
                   <Link
                     href="/admin/packages"
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 rounded-lg bg-gradient-to-r from-purple-600/20 to-pink-500/20 border border-purple-500/20 hover:border-purple-500/50 transition-all group gap-3 sm:gap-0"
+                    className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-purple-50 transition-all group border-2 border-border"
                   >
                     <div>
-                      <p className="font-semibold text-foreground text-sm sm:text-base">
+                      <p className="font-semibold text-foreground text-xs">
                         Package Pricing
                       </p>
-                      <p className="text-xs text-foreground/60">
-                        Update package details & pricing
+                      <p className="text-[10px] text-foreground/60">
+                        Update details & pricing
                       </p>
                     </div>
-                    <ArrowRight className="text-purple-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    <ArrowRight size={14} className="text-primary flex-shrink-0" />
                   </Link>
 
                   <Link
                     href="/admin/reviews"
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 rounded-lg bg-gradient-to-r from-yellow-600/20 to-orange-500/20 border border-yellow-500/20 hover:border-yellow-500/50 transition-all group gap-3 sm:gap-0"
+                    className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-yellow-50 transition-all group border-2 border-border"
                   >
                     <div>
-                      <p className="font-semibold text-foreground text-sm sm:text-base">
+                      <p className="font-semibold text-foreground text-xs">
                         Reviews & Ratings
                       </p>
-                      <p className="text-xs text-foreground/60">
-                        Manage customer reviews
+                      <p className="text-[10px] text-foreground/60">
+                        Manage reviews
                       </p>
                     </div>
-                    <ArrowRight className="text-yellow-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    <ArrowRight size={14} className="text-primary flex-shrink-0" />
                   </Link>
 
                   <Link
                     href="/admin/messages"
-                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 rounded-lg bg-gradient-to-r from-green-600/20 to-emerald-500/20 border border-green-500/20 hover:border-green-500/50 transition-all group gap-3 sm:gap-0"
+                    className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-green-50 transition-all group border-2 border-border"
                   >
                     <div>
-                      <p className="font-semibold text-foreground text-sm sm:text-base">
+                      <p className="font-semibold text-foreground text-xs">
                         Messages & Chat
                       </p>
-                      <p className="text-xs text-foreground/60">
+                      <p className="text-[10px] text-foreground/60">
                         23 unread messages
                       </p>
                     </div>
-                    <ArrowRight className="text-green-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    <ArrowRight size={14} className="text-primary flex-shrink-0" />
                   </Link>
                 </div>
               </div>

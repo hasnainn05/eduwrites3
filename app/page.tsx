@@ -446,30 +446,30 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {services.map((service) => (
               <Link
                 key={service.id}
                 href={`/services/${service.slug}`}
-                className="group relative bg-white rounded-2xl p-8 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-xl p-5 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
                 {/* Icon Background Circle */}
                 <div className="absolute -right-20 -top-20 w-40 h-40 bg-accent/8 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-6 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-accent/15 transition-all">
+                  <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-accent/15 transition-all">
                     <service.Icon
-                      size={32}
+                      size={24}
                       className="text-primary group-hover:text-accent transition-colors"
                     />
                   </div>
 
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-base font-bold text-foreground mb-2">
                     {service.title}
                   </h3>
 
-                  <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+                  <p className="text-foreground/70 mb-4 text-xs leading-relaxed">
                     {service.description}
                   </p>
 

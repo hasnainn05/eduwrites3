@@ -20,7 +20,7 @@ export default function LayoutClient({
         {!isAdminRoute && <Canvas3DWrapper />}
         <div className="flex flex-col min-h-screen">
           {!isAdminRoute && <Header />}
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-12">{children}</main>
           {!isAdminRoute && <Footer />}
           {!isAdminRoute && <LiveChat />}
         </div>

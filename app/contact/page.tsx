@@ -201,11 +201,11 @@ export default function Contact() {
               </Link>
             </div>
           ) : (
-            <div className="bg-white border-2 border-border p-6 sm:p-8 rounded-lg shadow-lg">
-              <h2 className="text-sm font-bold text-foreground mb-2 font-poppins uppercase tracking-wider">
+            <div className="bg-white border-2 border-border p-4 sm:p-5 rounded-lg shadow-lg">
+              <h2 className="text-xs font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
                 Send us a Message
               </h2>
-              <p className="text-foreground/85 mb-5 text-xs font-medium">
+              <p className="text-foreground/85 mb-3 text-[10px] font-medium">
                 Fill out the form below and we'll respond to you within 24
                 hours.
               </p>

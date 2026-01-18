@@ -273,26 +273,26 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center font-poppins">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center font-poppins">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-2.5 sm:space-y-3">
             {faqItems.map((item, index) => (
               <details
                 key={index}
                 className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all group cursor-pointer shadow-sm"
               >
-                <summary className="flex gap-2 items-start text-xs font-bold text-foreground hover:text-cyan-400 transition-colors">
+                <summary className="flex gap-2 items-start text-[10px] sm:text-xs font-bold text-foreground hover:text-cyan-400 transition-colors">
                   <MessageSquare
-                    size={16}
+                    size={14}
                     className="flex-shrink-0 mt-0.5 text-cyan-400"
                   />
                   <span>{item.question}</span>
                 </summary>
-                <p className="text-foreground/85 mt-2 ml-5 leading-relaxed text-xs font-medium">
+                <p className="text-foreground/85 mt-2 ml-4 sm:ml-5 leading-relaxed text-[10px] sm:text-xs font-medium">
                   {item.answer}
                 </p>
               </details>

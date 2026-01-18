@@ -440,54 +440,7 @@ const servicesData: Record<string, ServiceData> = {
       "Detailed feedback report",
       "Line-by-line editing",
     ],
-    pricing: [
-      {
-        name: "Basic",
-        price: "$50",
-        features: [
-          "2000 words",
-          "Grammar and spelling only",
-          "Standard turnaround",
-          "5-7 days delivery",
-        ],
-        cta: "Order Now",
-      },
-      {
-        name: "Standard",
-        price: "$150",
-        features: [
-          "5000 words",
-          "Comprehensive editing",
-          "Style and clarity improvement",
-          "3-5 days delivery",
-        ],
-        cta: "Order Now",
-        highlighted: true,
-      },
-      {
-        name: "Premium",
-        price: "$250",
-        features: [
-          "10000 words",
-          "In-depth editing",
-          "Structural improvement",
-          "2-3 days delivery",
-        ],
-        cta: "Order Now",
-      },
-      {
-        name: "Custom",
-        price: "Custom",
-        features: [
-          "Custom editing scope",
-          "Specialized document types",
-          "Rush service available",
-          "Direct editor communication",
-        ],
-        cta: "Request Quote",
-        isCustom: true,
-      },
-    ],
+    pricingPackages: PROOFREADING_PRICING_PLANS,
     ctaText: "Polish Your Document Today",
     ctaSubtext:
       "Get professional proofreading and editing to perfect your work",

@@ -181,14 +181,14 @@ export default function OrderForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       {/* Personal Information Section */}
       <div>
-        <h2 className="text-3xl font-bold text-foreground mb-8 font-poppins">
+        <h2 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
           Personal Information
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Full Name */}
           <div>
             <label className="block text-base font-bold text-foreground/95 mb-2">

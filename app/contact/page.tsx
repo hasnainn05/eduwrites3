@@ -317,16 +317,16 @@ export default function Contact() {
             {faqItems.map((item, index) => (
               <details
                 key={index}
-                className="bg-white rounded-xl border-3 border-border p-6 hover:shadow-md transition-all group cursor-pointer shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-4 hover:shadow-md transition-all group cursor-pointer shadow-sm"
               >
-                <summary className="flex gap-4 items-start text-xl font-bold text-foreground hover:text-cyan-400 transition-colors">
+                <summary className="flex gap-3 items-start text-base font-bold text-foreground hover:text-cyan-400 transition-colors">
                   <MessageSquare
-                    size={24}
-                    className="flex-shrink-0 mt-1 text-cyan-400"
+                    size={20}
+                    className="flex-shrink-0 mt-0.5 text-cyan-400"
                   />
                   <span>{item.question}</span>
                 </summary>
-                <p className="text-foreground/85 mt-4 ml-6 leading-relaxed text-lg font-medium">
+                <p className="text-foreground/85 mt-3 ml-6 leading-relaxed text-sm font-medium">
                   {item.answer}
                 </p>
               </details>

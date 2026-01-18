@@ -1017,24 +1017,24 @@ export default function ServiceDetail() {
               >
                 <div className="relative z-10 p-5 h-full flex flex-col">
                   {plan.highlighted && (
-                    <div className="mb-4">
-                      <span className="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold inline-block">
+                    <div className="mb-3">
+                      <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold inline-block">
                         ⭐ Most Popular
                       </span>
                     </div>
                   )}
 
                   <h3
-                    className={`text-2xl font-bold mb-2 ${
+                    className={`text-lg font-bold mb-1 ${
                       plan.highlighted ? "text-white" : "text-foreground"
                     }`}
                   >
                     {plan.name}
                   </h3>
 
-                  <div className="mb-8">
+                  <div className="mb-5">
                     <span
-                      className={`text-5xl font-bold ${
+                      className={`text-3xl font-bold ${
                         plan.highlighted ? "text-accent" : "text-primary"
                       }`}
                     >
@@ -1042,7 +1042,7 @@ export default function ServiceDetail() {
                     </span>
                   </div>
 
-                  <ul className="space-y-3 mb-8 flex-grow">
+                  <ul className="space-y-2 mb-5 flex-grow">
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <CheckCircle

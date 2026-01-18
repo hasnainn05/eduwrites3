@@ -125,16 +125,16 @@ export default function Contact() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold text-foreground mb-6 font-poppins leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-3 font-poppins leading-tight">
               Get in Touch with{" "}
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 EduWrites
               </span>
             </h1>
-            <p className="text-2xl text-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+            <p className="text-sm text-foreground/90 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
               Have questions about our services? Want to discuss your academic
               needs? We're here to help. Get in touch with our team today.
             </p>
@@ -143,9 +143,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {contactMethods.map((method, index) => {
               const isExternal = method.link.startsWith("http");
               return (

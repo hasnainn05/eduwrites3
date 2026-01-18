@@ -296,9 +296,9 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full gradient-primary text-white py-2.5 rounded-lg font-bold text-sm hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
+                  className="w-full gradient-primary text-white py-2 rounded-lg font-bold text-xs hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
                 >
-                  Send Message <Send size={18} />
+                  Send Message <Send size={14} />
                 </button>
               </form>
             </div>
@@ -307,26 +307,26 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-16 text-center font-poppins">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center font-poppins">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqItems.map((item, index) => (
               <details
                 key={index}
-                className="bg-white rounded-lg border-2 border-border p-4 hover:shadow-md transition-all group cursor-pointer shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all group cursor-pointer shadow-sm"
               >
-                <summary className="flex gap-3 items-start text-base font-bold text-foreground hover:text-cyan-400 transition-colors">
+                <summary className="flex gap-2 items-start text-xs font-bold text-foreground hover:text-cyan-400 transition-colors">
                   <MessageSquare
-                    size={20}
+                    size={16}
                     className="flex-shrink-0 mt-0.5 text-cyan-400"
                   />
                   <span>{item.question}</span>
                 </summary>
-                <p className="text-foreground/85 mt-3 ml-6 leading-relaxed text-sm font-medium">
+                <p className="text-foreground/85 mt-2 ml-5 leading-relaxed text-xs font-medium">
                   {item.answer}
                 </p>
               </details>
@@ -336,17 +336,17 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 blur-gradient bg-gradient-to-r from-purple-600 to-transparent opacity-40 top-0 left-0 -z-10"></div>
         <div className="absolute inset-0 blur-gradient bg-gradient-to-l from-cyan-600 to-transparent opacity-40 bottom-0 right-0 -z-10"></div>
 
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins">
             Ready to Get Started?
           </h2>
 
-          <p className="text-lg text-foreground/80 mb-12">
+          <p className="text-xs text-foreground/80 mb-6">
             Don't let academic stress hold you back. Let EduWrites help you
             achieve your academic goals.
           </p>

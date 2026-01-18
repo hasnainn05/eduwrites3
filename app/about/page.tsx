@@ -225,17 +225,17 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
               <TiltCard key={index} className="h-full">
-                <div className="bg-white rounded-2xl border-4 border-border p-8 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-md">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                <div className="bg-white rounded-lg border-2 border-border p-5 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-sm">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-3 flex items-center justify-center text-white text-lg font-bold">
                     {member.name.charAt(0)}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-base font-bold text-foreground mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-base text-cyan-400 font-bold mb-4">
+                  <p className="text-sm text-cyan-400 font-bold mb-3">
                     {member.role}
                   </p>
-                  <p className="text-base text-foreground/85 leading-relaxed font-medium">
+                  <p className="text-xs text-foreground/85 leading-relaxed font-medium">
                     {member.bio}
                   </p>
                 </div>

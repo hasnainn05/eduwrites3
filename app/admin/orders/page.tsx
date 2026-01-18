@@ -196,45 +196,45 @@ export default function AdminOrders() {
   };
 
   return (
-    <div className="p-3 sm:p-4 md:p-6 space-y-4 sm:space-y-6 md:space-y-8">
-          {/* Stats Overview - No Background, Bottom Line */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
-            <div className="border-b-2 border-blue-400/40 pb-3 sm:pb-4 md:pb-6 hover:border-blue-400/60 transition-all">
-              <p className="text-foreground/70 text-xs sm:text-sm font-medium truncate">
+    <div className="p-3 sm:p-4 md:p-4 space-y-3 sm:space-y-4">
+          {/* Stats Overview */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+              <p className="text-foreground/70 text-xs font-medium truncate">
                 Total Orders
               </p>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-foreground mt-1 sm:mt-2">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
                 {stats.total}
               </h3>
             </div>
-            <div className="border-b-2 border-orange-400/40 pb-3 sm:pb-4 md:pb-6 hover:border-orange-400/60 transition-all">
-              <p className="text-foreground/70 text-xs sm:text-sm font-medium truncate">
+            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+              <p className="text-foreground/70 text-xs font-medium truncate">
                 Pending Orders
               </p>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-orange-400 mt-1 sm:mt-2">
+              <h3 className="text-lg sm:text-xl font-bold text-orange-600 mt-1">
                 {stats.pending}
               </h3>
             </div>
-            <div className="border-b-2 border-yellow-400/40 pb-3 sm:pb-4 md:pb-6 hover:border-yellow-400/60 transition-all">
-              <p className="text-foreground/70 text-xs sm:text-sm font-medium truncate">
+            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+              <p className="text-foreground/70 text-xs font-medium truncate">
                 In Progress
               </p>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-yellow-400 mt-1 sm:mt-2">
+              <h3 className="text-lg sm:text-xl font-bold text-yellow-600 mt-1">
                 {stats.in_progress}
               </h3>
             </div>
-            <div className="border-b-2 border-green-400/40 pb-3 sm:pb-4 md:pb-6 hover:border-green-400/60 transition-all">
-              <p className="text-foreground/70 text-xs sm:text-sm font-medium truncate">
+            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+              <p className="text-foreground/70 text-xs font-medium truncate">
                 Completed
               </p>
-              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-green-400 mt-1 sm:mt-2">
+              <h3 className="text-lg sm:text-xl font-bold text-green-600 mt-1">
                 {stats.completed}
               </h3>
             </div>
           </div>
 
           {/* Orders Section */}
-          <div className="border-b border-white/10 overflow-hidden">
+          <div className="bg-white rounded-lg border-2 border-border overflow-hidden">
             {/* Tabs */}
             <OrderStatusTabs
               activeStatus={activeStatus}

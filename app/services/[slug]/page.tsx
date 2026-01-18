@@ -520,54 +520,7 @@ const servicesData: Record<string, ServiceData> = {
       "Citation and formatting expertise",
       "Dissertation defense preparation",
     ],
-    pricing: [
-      {
-        name: "Basic",
-        price: "$100",
-        features: [
-          "2000 words",
-          "Expert guidance and feedback",
-          "Chapter reviews",
-          "5-7 days delivery",
-        ],
-        cta: "Order Now",
-      },
-      {
-        name: "Standard",
-        price: "$250",
-        features: [
-          "5000 words",
-          "Comprehensive support",
-          "Chapter writing assistance",
-          "3-5 days delivery",
-        ],
-        cta: "Order Now",
-        highlighted: true,
-      },
-      {
-        name: "Premium",
-        price: "$450",
-        features: [
-          "10000 words",
-          "End-to-end support",
-          "Expert editing",
-          "2-3 days delivery",
-        ],
-        cta: "Order Now",
-      },
-      {
-        name: "Custom",
-        price: "Custom",
-        features: [
-          "Customized support level",
-          "Flexible timeline",
-          "Specialized expertise",
-          "Dedicated team support",
-        ],
-        cta: "Request Quote",
-        isCustom: true,
-      },
-    ],
+    pricingPackages: GENERAL_PRICING_PLANS,
     ctaText: "Begin Your Dissertation Journey",
     ctaSubtext:
       "Get expert support from experienced doctoral researchers and writers",

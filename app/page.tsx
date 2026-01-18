@@ -299,9 +299,9 @@ export default function Home() {
                   <WhatsAppButton
                     phoneNumber="13658291551"
                     message="Hi, I'm interested in EduWrites services"
-                    className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/5 transition-all duration-300"
                     showIcon={false}
-                    iconSize={20}
+                    iconSize={18}
                   >
                     Message Us
                   </WhatsAppButton>

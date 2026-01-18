@@ -174,27 +174,27 @@ export default function Signup() {
               </div>
             </div>
 
-            <div className="bg-white border-4 border-border p-8 rounded-2xl shadow-md">
-              <p className="text-base text-foreground/90 mb-4 font-medium">
-                <strong className="text-cyan-600 block mb-2 text-lg">
+            <div className="bg-white border-2 border-border p-4 rounded-lg shadow-md">
+              <p className="text-xs text-foreground/90 mb-2 font-medium">
+                <strong className="text-cyan-600 block mb-1 text-sm">
                   📊 By the Numbers
                 </strong>
               </p>
-              <div className="grid grid-cols-2 gap-4 text-sm text-foreground/80 font-bold">
+              <div className="grid grid-cols-2 gap-3 text-[9px] text-foreground/80 font-bold">
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">50K+</div>
+                  <div className="text-lg font-bold text-cyan-400">50K+</div>
                   <p>Happy Students</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">98%</div>
+                  <div className="text-lg font-bold text-cyan-400">98%</div>
                   <p>Satisfaction Rate</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">50+</div>
+                  <div className="text-lg font-bold text-cyan-400">50+</div>
                   <p>Expert Writers</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">24/7</div>
+                  <div className="text-lg font-bold text-cyan-400">24/7</div>
                   <p>Support Team</p>
                 </div>
               </div>
@@ -202,25 +202,25 @@ export default function Signup() {
           </div>
 
           {/* Right Side - Registration Form */}
-          <div className="w-full max-w-md mx-auto lg:mx-0">
+          <div className="w-full max-w-sm mx-auto lg:mx-0">
             {/* Logo */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-5">
               <Link href="/" className="inline-block">
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
                   EduWrites
                 </h2>
-                <p className="text-foreground/60 text-sm mt-1">
+                <p className="text-foreground/60 text-xs mt-0.5">
                   Join Our Community
                 </p>
               </Link>
             </div>
 
             {step === "form" && (
-              <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 shadow-lg hover:shadow-xl transition-shadow">
-                <h1 className="text-3xl font-bold text-foreground mb-2 font-poppins">
-                  Create Your Academic Writing Account
+              <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 shadow-lg hover:shadow-xl transition-shadow">
+                <h1 className="text-sm font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
+                  Create Account
                 </h1>
-                <p className="text-foreground/85 text-base mb-6 font-medium">
+                <p className="text-foreground/85 text-xs mb-4 font-medium">
                   Start your academic success journey today
                 </p>
 

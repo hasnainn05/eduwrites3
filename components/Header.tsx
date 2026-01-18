@@ -180,10 +180,10 @@ export default function Header() {
           </nav>
 
           {/* Right: Contact Info and Profile */}
-          <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-            <div className="hidden lg:flex flex-col gap-1 text-xs">
-              <div className="flex items-center gap-1.5 text-foreground/80 hover:text-primary transition-colors">
-                <Mail size={14} />
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-shrink-0">
+            <div className="hidden lg:flex flex-col gap-1.5 text-[9px]">
+              <div className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors">
+                <Mail size={12} />
                 <a
                   href="mailto:info@eduwrites.com"
                   className="whitespace-nowrap font-medium"
@@ -191,50 +191,50 @@ export default function Header() {
                   info@eduwrites.com
                 </a>
               </div>
-              <div className="flex items-center gap-1.5 text-foreground/80 hover:text-[#25D366] transition-colors">
+              <div className="flex items-center gap-1 text-foreground/80 hover:text-[#25D366] transition-colors">
                 <WhatsAppLink
                   phoneNumber="13658291551"
-                  className="flex items-center gap-1.5 whitespace-nowrap font-medium"
+                  className="flex items-center gap-1 whitespace-nowrap font-medium"
                 />
               </div>
             </div>
 
             {/* Auth Buttons and WhatsApp */}
-            <div className="hidden sm:flex gap-1.5 items-center">
+            <div className="hidden sm:flex gap-1 items-center">
               <Link
                 href="/login"
-                className="px-2 py-1 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-xs font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"
+                className="px-1.5 sm:px-2 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[8px] sm:text-[9px] font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"
               >
                 <span>Login</span>
-                <User size={12} />
+                <User size={10} />
               </Link>
               <Link
                 href="/profile"
-                className="p-1.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all hover:scale-105 flex-shrink-0"
+                className="p-1 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all hover:scale-105 flex-shrink-0"
                 title="User Profile"
               >
-                <User size={16} />
+                <User size={14} />
               </Link>
             </div>
           </div>
 
           {/* Mobile: Menu Button + Login (visible on small screens) */}
-          <div className="md:hidden flex items-center gap-1">
+          <div className="md:hidden flex items-center gap-0.5">
             {/* Mobile WhatsApp Button */}
             <WhatsAppButton
               phoneNumber="13658291551"
-              className="p-1 bg-[#25D366] text-white rounded hover:bg-[#20BA5B] transition-all flex-shrink-0"
+              className="p-0.5 bg-[#25D366] text-white rounded-md hover:bg-[#20BA5B] transition-all flex-shrink-0"
               showIcon={true}
-              iconSize={16}
+              iconSize={12}
             />
 
             {/* Mobile Login Button */}
             <Link
               href="/login"
-              className="px-2 py-1 border-2 border-primary text-primary rounded hover:bg-primary/5 transition-all text-xs font-medium flex items-center gap-1 flex-shrink-0"
+              className="px-1 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[7px] font-medium flex items-center gap-0.5 flex-shrink-0"
             >
               <span>Login</span>
-              <User size={12} />
+              <User size={8} />
             </Link>
 
             <details

@@ -51,8 +51,6 @@ export default function ServiceLayout({
   children: ReactNode;
   params: Promise<{ slug: string }>;
 }) {
-  const resolvedParams = Promise.resolve(params).then((p) => p);
-
   return (
     <>
       <ServiceSchemaInjector params={params}>{children}</ServiceSchemaInjector>

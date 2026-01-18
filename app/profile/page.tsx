@@ -252,30 +252,33 @@ export default function Profile() {
                   </div>
 
                   {/* Stats Grid */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {stats.map((stat, index) => {
-                      const Icon = stat.icon;
-                      return (
-                        <div
-                          key={index}
-                          className="p-4 border-2 border-border rounded-lg bg-white shadow-sm hover:shadow-md transition-all"
-                        >
-                          <div className="flex items-start justify-between mb-2">
-                            <div
-                              className={`inline-flex p-1.5 rounded bg-gradient-to-r ${stat.color}`}
-                            >
-                              <Icon size={14} className="text-white" />
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wider text-foreground/70">Quick Stats</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {stats.map((stat, index) => {
+                        const Icon = stat.icon;
+                        return (
+                          <div
+                            key={index}
+                            className="p-5 border-2 border-border rounded-xl bg-white shadow-sm hover:shadow-lg hover:border-cyan-200 transition-all"
+                          >
+                            <div className="flex items-center justify-between mb-3">
+                              <div
+                                className={`inline-flex p-2.5 rounded-lg bg-gradient-to-r ${stat.color}`}
+                              >
+                                <Icon size={18} className="text-white" />
+                              </div>
                             </div>
+                            <p className="text-foreground/60 text-[10px] font-semibold mb-2 uppercase tracking-wider">
+                              {stat.label}
+                            </p>
+                            <p className="text-2xl font-bold text-foreground">
+                              {stat.value}
+                            </p>
                           </div>
-                          <p className="text-foreground/60 text-[10px] font-medium mb-1">
-                            {stat.label}
-                          </p>
-                          <p className="text-xl font-bold text-foreground">
-                            {stat.value}
-                          </p>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
 
                   {/* Two Column Layout */}

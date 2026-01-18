@@ -360,13 +360,13 @@ export default function LiveChat() {
 
                     {/* Suggested Replies */}
                     {message.sender === "bot" && message.suggestedReplies && (
-                      <div className="flex flex-wrap gap-2 mt-2 ml-1">
+                      <div className="flex flex-wrap gap-1.5 mt-1.5 ml-1">
                         {message.suggestedReplies.map((reply, idx) => (
                           <button
                             key={idx}
                             onClick={() => handleQuickReply(reply)}
                             disabled={isLoading}
-                            className="text-xs bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 px-3 py-1 rounded-full transition-colors disabled:opacity-50 border border-cyan-500/30"
+                            className="text-[10px] bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 px-2 py-0.5 rounded-full transition-colors disabled:opacity-50 border border-cyan-500/30"
                           >
                             {reply}
                           </button>

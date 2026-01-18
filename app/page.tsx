@@ -743,9 +743,9 @@ export default function Home() {
             </p>
             <Link
               href="/order"
-              className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-glow transition-all transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all transform hover:scale-105"
             >
-              Start Your Project <ArrowRight size={18} />
+              Start Your Project <ArrowRight size={16} />
             </Link>
           </div>
         </div>

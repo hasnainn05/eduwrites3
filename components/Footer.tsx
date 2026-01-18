@@ -52,43 +52,43 @@ export default function Footer() {
               Professional academic writing services trusted by 50,000+
               students.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Facebook size={20} />
+                <Facebook size={16} />
               </a>
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Twitter size={20} />
+                <Twitter size={16} />
               </a>
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Linkedin size={20} />
+                <Linkedin size={16} />
               </a>
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Instagram size={20} />
+                <Instagram size={16} />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">Services</h4>
+            <ul className="space-y-1">
               {services.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className="text-foreground/70 hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-primary transition-colors text-xs"
                   >
                     {item.label}
                   </Link>
@@ -99,13 +99,13 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">Company</h4>
+            <ul className="space-y-1">
               {company.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className="text-foreground/70 hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-primary transition-colors text-xs"
                   >
                     {item.label}
                   </Link>
@@ -116,13 +116,13 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">Legal</h4>
+            <ul className="space-y-1">
               {legal.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className="text-foreground/70 hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-primary transition-colors text-xs"
                   >
                     {item.label}
                   </Link>
@@ -133,8 +133,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
-            <div className="space-y-3 text-foreground/70 text-sm">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">Contact</h4>
+            <div className="space-y-2 text-foreground/70 text-xs">
               <div className="flex items-start gap-2">
                 <Mail size={16} className="mt-1 flex-shrink-0 text-primary" />
                 <span>info@eduwrites.com</span>

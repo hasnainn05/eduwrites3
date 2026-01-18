@@ -946,10 +946,10 @@ export default function ServiceDetail() {
               <h2 className="text-3xl font-bold text-foreground mb-4 font-poppins">
                 {service.aboutTitle}
               </h2>
-              <p className="text-foreground/80 leading-relaxed mb-4">
+              <p className="text-foreground/80 leading-relaxed mb-4 text-sm">
                 {service.aboutContent}
               </p>
-              <p className="text-foreground/80 leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed text-sm">
                 At EduWrites, we pride ourselves on delivering exceptional
                 quality and maintaining the highest standards of academic
                 integrity. Every piece of work goes through rigorous quality

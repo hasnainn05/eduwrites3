@@ -1069,17 +1069,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Background gradient */}
           <div className="absolute -inset-20 bg-gradient-to-r from-primary/10 via-accent/8 to-primary/10 rounded-3xl -z-10"></div>
 
-          <div className="bg-white rounded-3xl border border-border p-12 sm:p-16 text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+          <div className="bg-white rounded-3xl border border-border p-8 sm:p-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 font-poppins">
               Ready to Achieve Academic Excellence?
             </h2>
 
-            <p className="text-lg text-foreground/70 mb-12 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 mb-8 max-w-2xl mx-auto">
               Join 50,000+ students who've improved their grades with EduWrites.
               Get started with a free consultation today.
             </p>

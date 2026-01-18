@@ -76,6 +76,12 @@ export async function generateMetadata({
   };
 }
 
-export default function ServicesLayout({ children }: { children: ReactNode }) {
+export default function ServicesLayout({
+  children,
+  params,
+}: {
+  children: ReactNode;
+  params: Promise<{ slug: string }>;
+}) {
   return <>{children}</>;
 }

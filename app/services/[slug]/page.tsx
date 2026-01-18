@@ -1065,12 +1065,7 @@ export default function ServiceDetail() {
                   </ul>
 
                   <button
-                    onClick={() =>
-                      setSelectedPlan({
-                        name: plan.name,
-                        packageId: plan.id,
-                      })
-                    }
+                    onClick={() => handleOrderNow(plan.id)}
                     className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all ${
                       plan.highlighted
                         ? "bg-accent text-primary hover:bg-accent/90"

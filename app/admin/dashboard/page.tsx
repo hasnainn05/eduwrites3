@@ -82,34 +82,34 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="p-4 sm:p-6 space-y-6 sm:space-y-8">
+    <div className="p-3 sm:p-4 space-y-4 sm:space-y-5">
             {/* Stats Grid */}
             <div>
-              <h2 className="text-lg sm:text-xl font-bold text-foreground mb-4 sm:mb-6">
+              <h2 className="text-sm sm:text-base font-bold text-foreground mb-3">
                 Key Metrics
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {stats.map((stat, idx) => {
                   const Icon = stat.icon;
                   return (
                     <div
                       key={idx}
-                      className="group glass p-4 sm:p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-all hover:bg-white/10 cursor-pointer"
+                      className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all cursor-pointer"
                     >
-                      <div className="flex items-start justify-between mb-3 sm:mb-4">
+                      <div className="flex items-start justify-between mb-2">
                         <div
-                          className={`p-2 sm:p-3 rounded-xl bg-gradient-to-br ${stat.color} bg-opacity-20 group-hover:scale-110 transition-transform`}
+                          className={`p-2 rounded-lg bg-gradient-to-br ${stat.color} bg-opacity-20`}
                         >
-                          <Icon className="w-5 sm:w-6 h-5 sm:h-6 text-white" />
+                          <Icon className="w-4 h-4 text-foreground/70" />
                         </div>
                       </div>
-                      <p className="text-foreground/70 text-xs sm:text-sm font-medium">
+                      <p className="text-foreground/70 text-xs font-medium">
                         {stat.label}
                       </p>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-foreground mt-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
                         {stat.value}
                       </h3>
-                      <p className="text-xs text-foreground/50 mt-2 sm:mt-3">
+                      <p className="text-[10px] text-foreground/50 mt-1">
                         {stat.change}
                       </p>
                     </div>

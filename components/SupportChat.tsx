@@ -102,50 +102,50 @@ export default function SupportChat() {
   };
 
   return (
-    <div className="flex flex-col w-full h-full bg-gradient-to-b from-slate-900/50 to-slate-800/50 rounded-xl border border-white/10">
+    <div className="flex flex-col w-full h-full bg-white rounded-xl border-2 border-border shadow-lg">
       {/* Header */}
-      <div className="p-4 border-b border-white/10 flex-shrink-0">
+      <div className="px-6 py-4 border-b-2 border-border flex-shrink-0 bg-gradient-to-r from-indigo-50 to-cyan-50">
         <h2 className="text-sm font-bold text-foreground">Support Chat</h2>
         <p className="text-foreground/60 text-xs mt-1">
-          Get help from our support team
+          Get help from our support team (Available 24/7)
         </p>
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-2 min-h-0">
+      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-3 min-h-0 bg-gradient-to-b from-white to-gray-50">
         {messages.map((msg) => (
           <div
             key={msg.id}
             className={`flex ${msg.user === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-md lg:max-w-lg ${
+              className={`max-w-sm lg:max-w-md ${
                 msg.user === "user"
-                  ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white rounded-lg rounded-tr-none"
-                  : "bg-white/10 text-foreground rounded-lg rounded-tl-none border border-white/20"
+                  ? "bg-gradient-to-r from-primary to-accent text-white rounded-2xl rounded-tr-none shadow-md"
+                  : "bg-white text-foreground rounded-2xl rounded-tl-none border-2 border-border shadow-sm"
               } p-4`}
             >
-              <p className="text-sm">{msg.message}</p>
+              <p className="text-sm leading-relaxed">{msg.message}</p>
 
               {msg.file && (
-                <div className="mt-2 flex items-center gap-2 bg-white/10 p-2 rounded">
-                  <File size={12} className="flex-shrink-0" />
+                <div className="mt-3 flex items-center gap-2 bg-black/5 dark:bg-white/10 p-3 rounded-lg">
+                  <File size={14} className={`flex-shrink-0 ${msg.user === "user" ? "text-white/70" : "text-primary"}`} />
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-medium truncate">
+                    <p className="text-xs font-semibold truncate">
                       {msg.file.name}
                     </p>
-                    <p className="text-xs opacity-70">{msg.file.size}</p>
+                    <p className={`text-xs ${msg.user === "user" ? "text-white/70" : "text-foreground/60"}`}>{msg.file.size}</p>
                   </div>
                   <a
                     href="#"
-                    className="text-xs underline hover:opacity-80 flex-shrink-0"
+                    className={`text-xs font-semibold underline hover:opacity-70 flex-shrink-0 ${msg.user === "user" ? "text-white" : "text-primary"}`}
                   >
                     Download
                   </a>
                 </div>
               )}
 
-              <p className="text-xs opacity-70 mt-1">{msg.timestamp}</p>
+              <p className={`text-xs mt-2 ${msg.user === "user" ? "text-white/70" : "text-foreground/60"}`}>{msg.timestamp}</p>
             </div>
           </div>
         ))}
@@ -153,7 +153,7 @@ export default function SupportChat() {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-white/10 p-4 flex-shrink-0">
+      <div className="border-t-2 border-border px-6 py-4 flex-shrink-0 bg-white">
         {/* File Preview */}
         {selectedFile && (
           <div className="mb-3 flex items-center gap-2 bg-white/5 p-3 rounded border border-white/10 mr-24">

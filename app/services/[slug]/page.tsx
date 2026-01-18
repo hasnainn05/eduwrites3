@@ -16,12 +16,10 @@ import {
   BarChart3,
   BookMarked,
   Pencil,
-  X,
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
-import OrderForm from "@/components/OrderForm";
 import { GENERAL_PRICING_PLANS, PROOFREADING_PRICING_PLANS } from "@/lib/pricing";
 import type { PricingPackage } from "@/lib/pricing";
 

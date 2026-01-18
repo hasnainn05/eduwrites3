@@ -156,20 +156,20 @@ export default function Contact() {
                       target: "_blank",
                       rel: "noopener noreferrer",
                     })}
-                    className="bg-white border-4 border-border p-8 rounded-2xl hover:shadow-lg transition-all text-center group h-full flex flex-col justify-center shadow-md"
+                    className="bg-white border-2 border-border p-4 rounded-lg hover:shadow-lg transition-all text-center group h-full flex flex-col justify-center shadow-md"
                   >
-                    <div className="flex justify-center mb-6">
-                      <div className="text-cyan-400 group-hover:scale-110 transition-transform text-5xl">
+                    <div className="flex justify-center mb-3">
+                      <div className="text-cyan-400 group-hover:scale-110 transition-transform text-3xl">
                         {method.icon}
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3">
+                    <h3 className="text-sm font-bold text-foreground mb-2">
                       {method.title}
                     </h3>
-                    <p className="text-base text-foreground/80 mb-4 font-medium">
+                    <p className="text-xs text-foreground/80 mb-2 font-medium">
                       {method.description}
                     </p>
-                    <p className="text-lg font-bold text-cyan-400">
+                    <p className="text-xs font-bold text-cyan-400">
                       {method.contact}
                     </p>
                   </a>

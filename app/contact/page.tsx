@@ -247,40 +247,6 @@ export default function Contact() {
                 <div>
                   <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
                     <MessageCircle size={14} />
-                    WhatsApp Number{" "}
-                    <span className="text-foreground/60 font-medium">
-                      (Optional)
-                    </span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="whatsapp"
-                    value={formData.whatsapp}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 123-4567"
-                    className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
-                    <FileText size={14} />
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="How can we help you?"
-                    className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
-                    <MessageCircle size={14} />
                     Message *
                   </label>
                   <textarea

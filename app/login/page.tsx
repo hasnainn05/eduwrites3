@@ -74,7 +74,7 @@ export default function Login() {
       <div className="w-full max-w-4xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left Side - Service Details */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block max-w-sm">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins leading-tight">
               Master Your Academics with EduWrites
             </h2>

@@ -41,8 +41,13 @@ export default function OrderForm({
     { value: "assignment", label: "Assignment Writing" },
     { value: "research", label: "Research Paper" },
     { value: "thesis", label: "Thesis & Dissertation" },
-    { value: "proofreading", label: "Proofreading & Editing" },
     { value: "dissertation", label: "Dissertation Writing" },
+    { value: "proofreading", label: "Proofreading & Editing (General)" },
+    { value: "essay-proofreading", label: "Essay Proofreading & Editing" },
+    { value: "assignment-proofreading", label: "Assignment Proofreading & Editing" },
+    { value: "thesis-proofreading", label: "Thesis Proofreading & Editing" },
+    { value: "research-proofreading", label: "Research Paper Proofreading & Editing" },
+    { value: "dissertation-proofreading", label: "Dissertation Proofreading & Editing" },
   ];
 
   const academicLevels = [

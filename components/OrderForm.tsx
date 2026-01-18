@@ -251,7 +251,7 @@ export default function OrderForm({
                 <option
                   key={level.value}
                   value={level.value}
-                  className="bg-slate-900"
+                  className="bg-slate-900 text-white"
                 >
                   {level.label}
                 </option>
@@ -283,7 +283,7 @@ export default function OrderForm({
                 <option
                   key={service.value}
                   value={service.value}
-                  className="bg-slate-900"
+                  className="bg-slate-900 text-white"
                 >
                   {service.label}
                 </option>
@@ -303,7 +303,7 @@ export default function OrderForm({
               className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
             >
               {getServicePricing(formData.serviceType)?.packages.map((pkg) => (
-                <option key={pkg.id} value={pkg.id} className="bg-slate-900">
+                <option key={pkg.id} value={pkg.id} className="bg-slate-900 text-white">
                   {pkg.name}
                 </option>
               ))}

@@ -3,7 +3,7 @@ import { OrderClient } from "./OrderClient";
 
 export default function Order() {
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>
@@ -12,14 +12,14 @@ export default function Order() {
 
       <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+        <div className="text-center mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-poppins">
             Place Your{" "}
             <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Order
             </span>
           </h1>
-          <p className="text-lg text-foreground/70">
+          <p className="text-sm text-foreground/70">
             Fill in your details and we'll get started on your academic work
             right away
           </p>

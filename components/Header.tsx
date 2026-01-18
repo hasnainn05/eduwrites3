@@ -284,13 +284,13 @@ export default function Header() {
 
                 {/* Mobile Services Dropdown */}
                 <details className="group">
-                  <summary className="cursor-pointer block text-[9px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
+                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
                     Services
                   </summary>
-                  <div className="pl-3 space-y-1 mt-0.5">
+                  <div className="pl-2 space-y-0.5 mt-0.5">
                     {/* Writing Services */}
                     <div>
-                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">
+                      <p className="text-[7px] font-bold text-primary uppercase mb-0.5">
                         Writing
                       </p>
                       <div className="pl-2 space-y-0.5">
@@ -299,7 +299,7 @@ export default function Header() {
                             key={service.id}
                             href={`/services/${service.slug}`}
                             onClick={closeMenu}
-                            className="block text-[7px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                            className="block text-[6px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                           >
                             {service.description}
                           </Link>
@@ -307,8 +307,8 @@ export default function Header() {
                       </div>
                     </div>
                     {/* Proofreading Services */}
-                    <div className="mt-1 pt-1 border-t border-border">
-                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">
+                    <div className="mt-0.5 pt-0.5 border-t border-border">
+                      <p className="text-[7px] font-bold text-primary uppercase mb-0.5">
                         Proofreading
                       </p>
                       <div className="pl-2 space-y-0.5">
@@ -317,7 +317,7 @@ export default function Header() {
                             key={service.id}
                             href={`/services/${service.slug}`}
                             onClick={closeMenu}
-                            className="block text-[7px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                            className="block text-[6px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                           >
                             {service.description}
                           </Link>

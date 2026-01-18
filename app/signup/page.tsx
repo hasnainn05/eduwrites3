@@ -130,45 +130,45 @@ export default function Signup() {
             </p>
 
             <div className="space-y-3 mb-4">
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Quality
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Quality
                   Guaranteed
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   100% plagiarism-free, original content written by expert
                   writers
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Fast
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Fast
                   Turnaround
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   On-time delivery with flexible deadline options to suit your
                   needs
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Expert
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Expert
                   Support
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   24/7 customer support and unlimited revisions until you're
                   satisfied
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Affordable
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Affordable
                   Pricing
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   Competitive rates with flexible payment options for students
                 </p>
               </div>

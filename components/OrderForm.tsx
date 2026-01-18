@@ -262,12 +262,12 @@ export default function OrderForm({
       </div>
 
       {/* Service Details Section */}
-      <div className="border-t-4 border-border pt-8">
-        <h2 className="text-3xl font-bold text-foreground mb-8 font-poppins">
+      <div className="border-t-2 border-border pt-5">
+        <h2 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
           Service Details
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Service Type */}
           <div>
             <label className="block text-base font-bold text-foreground/95 mb-2">

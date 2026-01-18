@@ -9,7 +9,7 @@ export function OrderClient() {
   const pkg = searchParams.get("package");
 
   return (
-    <div className="card-bg rounded-2xl border-2 border-border p-8 sm:p-12 shadow-sm">
+    <div className="card-bg rounded-lg border-2 border-border p-5 sm:p-8 shadow-sm">
       <OrderForm
         preSelectedService={service || undefined}
         preSelectedPackage={pkg || undefined}
@@ -17,7 +17,7 @@ export function OrderClient() {
           // Optional: handle post-submission
         }}
       />
-      <p className="text-center text-sm text-foreground/60 mt-4">
+      <p className="text-center text-xs text-foreground/60 mt-3">
         * Required fields. We'll contact you within 1 hour to confirm your
         order.
       </p>

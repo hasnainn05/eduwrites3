@@ -5,40 +5,33 @@ import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle,
-  X,
+  Star,
+  Briefcase,
+  TrendingUp,
+  Award,
+  BookOpen,
+  Zap,
+  Users,
   FileText,
   BarChart3,
-  BookOpen,
-  Pencil,
   BookMarked,
+  Pencil,
   type LucideIcon,
 } from "lucide-react";
-import { TiltCard } from "@/client/components/TiltCard";
-import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
 import OrderForm from "@/components/OrderForm";
-import { getServicePricing, GENERAL_PRICING_PLANS, PROOFREADING_PRICING_PLANS } from "@/lib/pricing";
+import { GENERAL_PRICING_PLANS, PROOFREADING_PRICING_PLANS } from "@/lib/pricing";
 import type { PricingPackage } from "@/lib/pricing";
 
 interface ServiceData {
   title: string;
+  serviceTitle: string;
   subtitle: string;
   Icon: LucideIcon;
-  heroGradient: string;
   aboutTitle: string;
   aboutContent: string;
-  featuresTitle: string;
-  features: string[];
   pricingPackages: PricingPackage[];
-  ctaText: string;
-  ctaSubtext: string;
-  stats: {
-    projectsCompleted: number;
-    customerReviews: number;
-    averageRating: number;
-    clientSatisfaction: string;
-  };
   reviews: {
     author: string;
     avatar: string;
@@ -51,34 +44,14 @@ interface ServiceData {
 
 const servicesData: Record<string, ServiceData> = {
   essay: {
-    title: "Essay Writing",
+    title: "Expert Essay Writing Service for Students Worldwide",
+    serviceTitle: "Essay Writing",
     subtitle: "Professional Academic Writing Services",
     Icon: FileText,
-    heroGradient: "from-blue-50 to-indigo-50",
     aboutTitle: "About Our Professional Essay Writing Service",
     aboutContent:
       "Our professional essay writing service provides high-quality, plagiarism-free essays for all academic levels, from high school to graduate programs. We understand the pressure students face when juggling multiple assignments, and our expert essay writing team is here to help you succeed. Our professional essay writers have advanced degrees across various disciplines and specialize in crafting compelling, original essays that showcase your academic potential. Whether you need help with argumentative essays, analytical papers, narrative compositions, or research-based essays, our professional writers have the expertise to deliver work that exceeds expectations and demonstrates deep understanding of your subject matter. With fast essay writing turnaround times and affordable essay writing rates, we make professional academic support accessible to all students seeking essay help online.",
-    featuresTitle: "What's Included in Our Service",
-    features: [
-      "Original, plagiarism-free content",
-      "Expert writers with subject expertise",
-      "Proper citation and referencing",
-      "Multiple revision rounds",
-      "On-time delivery guarantee",
-      "Confidential and secure process",
-      "24/7 customer support",
-      "Quality assurance checks",
-    ],
     pricingPackages: GENERAL_PRICING_PLANS,
-    ctaText: "Ready to Order Your Essay?",
-    ctaSubtext:
-      "Get started today and receive your professionally written essay",
-    stats: {
-      projectsCompleted: 5700,
-      customerReviews: 4468,
-      averageRating: 4.9,
-      clientSatisfaction: "97%",
-    },
     reviews: [
       {
         author: "Sarah Mitchell",
@@ -131,34 +104,14 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   research: {
-    title: "Research Paper",
+    title: "Expert Research Paper Writing Service for Academic Excellence",
+    serviceTitle: "Research Paper",
     subtitle: "In-Depth Research and Academic Excellence",
     Icon: BarChart3,
-    heroGradient: "from-purple-50 to-pink-50",
-    aboutTitle: "Professional Research Paper Writing Service",
+    aboutTitle: "About Our Professional Research Paper Writing Service",
     aboutContent:
       "Our professional research paper writing service specializes in comprehensive academic research projects that require rigorous investigation and scholarly analysis. We provide expert research paper help with experienced research writers who have expertise across all major academic disciplines including sciences, humanities, social sciences, business, and technology. Our research paper writing process involves conducting extensive literature reviews using peer-reviewed sources, developing original research arguments, and presenting well-structured research analyses. Each research paper is meticulously documented with proper citations and references, whether you require APA, MLA, Chicago, or any other format. We excel at identifying credible research sources, synthesizing complex research information, and producing research papers that demonstrate advanced critical thinking and original contribution to your field of study. Get professional research paper help online with affordable research paper writing services.",
-    featuresTitle: "What's Included in Our Service",
-    features: [
-      "Comprehensive literature review",
-      "Original research and analysis",
-      "Proper academic citations (APA, MLA, Chicago)",
-      "Peer-reviewed source integration",
-      "Detailed outlines and drafts",
-      "Multiple revision rounds",
-      "Plagiarism scanning",
-      "Expert academic writers",
-    ],
     pricingPackages: GENERAL_PRICING_PLANS,
-    ctaText: "Commission Your Research Paper",
-    ctaSubtext:
-      "Get a comprehensive research paper written by academic experts",
-    stats: {
-      projectsCompleted: 3300,
-      customerReviews: 2640,
-      averageRating: 4.8,
-      clientSatisfaction: "96%",
-    },
     reviews: [
       {
         author: "Ahmed Hassan",
@@ -211,35 +164,14 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   thesis: {
-    title: "Thesis Writing",
+    title: "Expert Thesis Writing Service for Graduate Students",
+    serviceTitle: "Thesis Writing",
     subtitle: "Complete Support for Your Academic Journey",
     Icon: BookOpen,
-    heroGradient: "from-green-50 to-emerald-50",
-    aboutTitle:
-      "Professional Thesis Writing Service for Masters & PhD Students",
+    aboutTitle: "About Our Professional Thesis Writing Service",
     aboutContent:
       "Our professional thesis writing service provides comprehensive, end-to-end thesis support for graduate-level research projects at Master's and PhD levels. We understand that thesis writing represents a culmination of your academic journey and requires exceptional quality, originality, and depth. Our team of experienced thesis writers and researchers work closely with you throughout every stage of the thesis writing process, from initial research design and literature review through data analysis, thesis writing, comprehensive editing, and defense preparation. We provide detailed thesis feedback, chapter-by-chapter thesis guidance, and ensure your thesis meets all institutional requirements while maintaining the highest standards of academic integrity. Whether you need professional help developing your research methodology, analyzing complex data, writing specific thesis chapters, preparing your thesis defense, or getting comprehensive thesis editing, our thesis help experts are committed to your success with affordable thesis writing services.",
-    featuresTitle: "What's Included in Our Service",
-    features: [
-      "Research proposal development",
-      "Literature review assistance",
-      "Research methodology guidance",
-      "Data analysis support",
-      "Chapter-by-chapter writing",
-      "Comprehensive editing and proofreading",
-      "Proper formatting (APA, MLA, Chicago)",
-      "Defense preparation materials",
-    ],
     pricingPackages: GENERAL_PRICING_PLANS,
-    ctaText: "Start Your Thesis Journey Today",
-    ctaSubtext:
-      "Get expert assistance with your thesis or dissertation project from start to finish",
-    stats: {
-      projectsCompleted: 1890,
-      customerReviews: 1512,
-      averageRating: 4.9,
-      clientSatisfaction: "98%",
-    },
     reviews: [
       {
         author: "James Chen",
@@ -292,33 +224,14 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   assignment: {
-    title: "Assignment Writing",
+    title: "Expert Assignment Writing Service for Academic Success",
+    serviceTitle: "Assignment Writing",
     subtitle: "Complete Assignment Solutions",
     Icon: CheckCircle,
-    heroGradient: "from-purple-50 to-pink-50",
-    aboutTitle: "Professional Assignment Writing Help Online",
+    aboutTitle: "About Our Professional Assignment Writing Service",
     aboutContent:
       "Our comprehensive assignment writing service provides complete assignment solutions for all types of academic assignments. Whether you need assignment help with essays, reports, projects, case studies, or problem sets, our experienced assignment writers deliver high-quality work that meets your assignment specifications and academic standards. We handle assignments across all disciplines and academic levels, ensuring that each assignment is original, plagiarism-free, well-researched, and tailored to your specific assignment requirements. Our assignment help experts work closely with you to understand the assignment guidelines and deliver assignment solutions that demonstrate your understanding of the subject matter. Get affordable assignment writing help online today with guaranteed on-time delivery.",
-    featuresTitle: "What's Included in Our Service",
-    features: [
-      "Complete assignment solutions",
-      "Adherence to assignment guidelines",
-      "Original and plagiarism-free work",
-      "Expert writers in all disciplines",
-      "On-time delivery guarantee",
-      "Multiple revisions included",
-      "Detailed explanations and workings",
-      "24/7 customer support",
-    ],
     pricingPackages: GENERAL_PRICING_PLANS,
-    ctaText: "Submit Your Assignment Now",
-    ctaSubtext: "Get expert help with your assignment and improve your grades",
-    stats: {
-      projectsCompleted: 6840,
-      customerReviews: 5780,
-      averageRating: 4.8,
-      clientSatisfaction: "95%",
-    },
     reviews: [
       {
         author: "Lisa Thompson",
@@ -371,34 +284,14 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   proofreading: {
-    title: "Proofreading & Editing",
+    title: "Expert Proofreading & Editing Service for Document Excellence",
+    serviceTitle: "Proofreading & Editing",
     subtitle: "Professional Document Refinement",
     Icon: Pencil,
-    heroGradient: "from-yellow-50 to-orange-50",
-    aboutTitle: "Professional Proofreading and Editing Services",
+    aboutTitle: "About Our Professional Proofreading and Editing Service",
     aboutContent:
       "Our professional proofreading and editing services help polish your academic work to perfection. We provide comprehensive editing services that include grammar correction, punctuation refinement, style improvement, clarity enhancement, and proofreading. Our experienced proofreading editors review your work for consistency, flow, and academic tone while preserving your unique voice and original ideas. Whether you need professional proofreading services, professional editing services, or comprehensive proofreading and editing, our proofreading experts ensure your document meets the highest professional standards. We provide proofreading help and editing support for essays, research papers, theses, dissertations, and any other academic documents to ensure they are polished and ready for submission. Get affordable proofreading and editing services online with quick turnaround times.",
-    featuresTitle: "What's Included in Our Service",
-    features: [
-      "Comprehensive grammar and spelling check",
-      "Punctuation and syntax corrections",
-      "Style and tone improvement",
-      "Consistency and clarity enhancement",
-      "Formatting review and correction",
-      "Citation style verification",
-      "Detailed feedback report",
-      "Line-by-line editing",
-    ],
     pricingPackages: PROOFREADING_PRICING_PLANS,
-    ctaText: "Polish Your Document Today",
-    ctaSubtext:
-      "Get professional proofreading and editing to perfect your work",
-    stats: {
-      projectsCompleted: 8240,
-      customerReviews: 6912,
-      averageRating: 4.9,
-      clientSatisfaction: "99%",
-    },
     reviews: [
       {
         author: "Victoria Scott",
@@ -451,34 +344,14 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   dissertation: {
-    title: "Dissertation Writing",
+    title: "Expert Dissertation Writing Service for PhD Success",
+    serviceTitle: "Dissertation Writing",
     subtitle: "Complete Doctoral Support",
     Icon: BookMarked,
-    heroGradient: "from-indigo-50 to-purple-50",
-    aboutTitle: "Professional Dissertation Writing Service for PhD Students",
+    aboutTitle: "About Our Professional Dissertation Writing Service",
     aboutContent:
       "Our professional dissertation writing service provides expert dissertation support for doctoral candidates pursuing PhD and professional doctorates. We understand the complexity and challenges involved in dissertation research and dissertation writing. Our team of experienced dissertation writers and academic researchers works with you at every stage of the dissertation process: from research proposal development and literature review through data collection analysis, dissertation writing, comprehensive dissertation editing, and final submission. We provide comprehensive dissertation help that maintains academic integrity while ensuring your dissertation meets the highest scholarly standards. Our dissertation writing expertise spans multiple disciplines and we have successfully supported hundreds of doctoral candidates in completing their dissertations with professional dissertation assistance and advancing their academic careers. Get professional dissertation writing help online with affordable dissertation services.",
-    featuresTitle: "What's Included in Our Service",
-    features: [
-      "Research proposal development",
-      "Comprehensive literature review",
-      "Research design and methodology",
-      "Data analysis and interpretation",
-      "Chapter writing and organization",
-      "Advanced academic editing",
-      "Citation and formatting expertise",
-      "Dissertation defense preparation",
-    ],
     pricingPackages: GENERAL_PRICING_PLANS,
-    ctaText: "Begin Your Dissertation Journey",
-    ctaSubtext:
-      "Get expert support from experienced doctoral researchers and writers",
-    stats: {
-      projectsCompleted: 1564,
-      customerReviews: 1290,
-      averageRating: 4.9,
-      clientSatisfaction: "98%",
-    },
     reviews: [
       {
         author: "Dr. Eleanor White",
@@ -532,6 +405,39 @@ const servicesData: Record<string, ServiceData> = {
   },
 };
 
+const whyChooseUs = [
+  {
+    title: "Expert Academic Writers",
+    description: "Professionals with advanced degrees and proven expertise",
+    icon: "👨‍🎓",
+  },
+  {
+    title: "100% Original Content",
+    description: "Plagiarism-free work guaranteed with quality checks",
+    icon: "✓",
+  },
+  {
+    title: "Affordable Pricing",
+    description: "Competitive rates without compromising on quality",
+    icon: "💰",
+  },
+  {
+    title: "On-Time Delivery",
+    description: "We respect your deadlines with guaranteed timely completion",
+    icon: "⏰",
+  },
+  {
+    title: "Unlimited Revisions",
+    description: "Get it perfect with as many revisions as you need",
+    icon: "🔄",
+  },
+  {
+    title: "24/7 Support",
+    description: "Always available to answer your questions and concerns",
+    icon: "💬",
+  },
+];
+
 export default function ServiceDetail() {
   const params = useParams();
   const slug = params.slug as string;
@@ -542,6 +448,40 @@ export default function ServiceDetail() {
     packageId: string;
   } | null>(null);
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "Is your work plagiarism-free?",
+      answer:
+        "Yes, absolutely. We guarantee 100% original content. Every paper is written from scratch by our expert writers and checked with advanced plagiarism detection software before delivery.",
+    },
+    {
+      question: "How long does it take to complete an order?",
+      answer:
+        "We offer flexible deadlines ranging from 24 hours to several weeks, depending on your needs. Rush orders are available for urgent submissions.",
+    },
+    {
+      question: "Can I request revisions?",
+      answer:
+        "Yes! We offer unlimited revisions until you're completely satisfied with the work. Your satisfaction is our priority.",
+    },
+    {
+      question: "How do you maintain confidentiality?",
+      answer:
+        "Your privacy is paramount. We keep all personal information and order details strictly confidential. Your work will never be shared with anyone.",
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer:
+        "We accept all major credit cards, debit cards, and secure payment platforms. All transactions are encrypted for your security.",
+    },
+    {
+      question: "Can you write in different academic styles?",
+      answer:
+        "Absolutely! Our writers are experienced in APA, MLA, Chicago, Harvard, and other citation styles. Just specify your requirements.",
+    },
+  ];
 
   if (!service) {
     return (
@@ -566,261 +506,183 @@ export default function ServiceDetail() {
 
   return (
     <div className="w-full">
-      {/* 3D Canvas Background */}
-      <Canvas3DWrapper />
-
-      {/* Animated Background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>
-        <div className="blur-gradient absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500 to-transparent animation-delay-2000"></div>
-      </div>
-
       {/* Hero Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Title and Description */}
-            <div>
-              <div className="mb-8 animate-float">
-                <service.Icon size={96} className="text-cyan-400" />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            {/* Left Content */}
+            <div className="lg:col-span-3">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-accent/15 border border-accent/40 rounded-full px-3 py-1.5 mb-4">
+                <Star size={12} className="text-accent fill-accent" />
+                <span className="text-xs font-semibold text-foreground">
+                  Trusted by 50,000+ Students
+                </span>
               </div>
 
-              <h1 className="heading-3d text-5xl sm:text-7xl font-bold text-foreground mb-6 font-poppins">
+              {/* Main Headline */}
+              <h1 className="font-bold mb-8 leading-tight font-poppins text-foreground text-2xl sm:text-3xl lg:text-4xl">
                 {service.title}
               </h1>
 
-              <p className="text-xl text-foreground/70 mb-6 leading-relaxed">
-                {service.subtitle}
+              {/* Subheading */}
+              <p className="text-sm text-foreground/70 mb-8 leading-relaxed max-w-2xl">
+                Professional, plagiarism-free academic writing from Ph.D.
+                experts. Delivered on time, every time with guaranteed quality.
               </p>
 
-              <p className="text-lg text-foreground/60 leading-relaxed mb-8">
-                Transform your academic journey with our comprehensive{" "}
-                {service.title.toLowerCase()} solutions. Our team of expert
-                writers and editors are dedicated to helping you achieve
-                academic excellence through professionally crafted content that
-                meets the highest standards of quality and originality.
-              </p>
+              {/* Trust Indicators */}
+              <div className="flex gap-2 mb-12">
+                <div>
+                  <div className="text-2xl font-bold text-primary mb-1">
+                    98%
+                  </div>
+                  <p className="text-xs text-foreground/70 whitespace-nowrap">
+                    Customer Satisfaction
+                  </p>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary mb-1">
+                    24/7
+                  </div>
+                  <p className="text-xs text-foreground/70 whitespace-nowrap">
+                    Expert Support
+                  </p>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary mb-1">
+                    50+
+                  </div>
+                  <p className="text-xs text-foreground/70 whitespace-nowrap">
+                    Expert Writers
+                  </p>
+                </div>
+              </div>
 
-              <div className="flex flex-wrap gap-4">
-                <div className="glass-dark px-6 py-4 rounded-xl">
-                  <div className="text-sm text-cyan-400 font-semibold mb-1">
-                    Guarantee
-                  </div>
-                  <p className="text-foreground/80">100% Original Content</p>
-                </div>
-                <div className="glass-dark px-6 py-4 rounded-xl">
-                  <div className="text-sm text-cyan-400 font-semibold mb-1">
-                    Delivery
-                  </div>
-                  <p className="text-foreground/80">On-Time Guarantee</p>
-                </div>
-                <div className="glass-dark px-6 py-4 rounded-xl">
-                  <div className="text-sm text-cyan-400 font-semibold mb-1">
-                    Support
-                  </div>
-                  <p className="text-foreground/80">24/7 Available</p>
-                </div>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() =>
+                    setSelectedPlan({
+                      name: service.pricingPackages[0]?.name || "Basic",
+                      packageId: service.pricingPackages[0]?.id || "basic",
+                    })
+                  }
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                >
+                  Get Started Now <ArrowRight size={20} />
+                </button>
+                <button
+                  onClick={() => setIsSupportModalOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300"
+                >
+                  Message Us
+                </button>
               </div>
             </div>
 
-            {/* Right Side - Visual Element */}
-            <div className="hidden lg:flex justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-3xl blur-3xl"></div>
-                <div className="relative glass-dark p-12 rounded-3xl border border-white/20">
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <CheckCircle
-                        className="text-cyan-400 flex-shrink-0 mt-1"
-                        size={24}
-                      />
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">
-                          Expert Writers
-                        </h3>
-                        <p className="text-foreground/60 text-sm">
-                          Qualified professionals with subject matter expertise
-                        </p>
-                      </div>
+            {/* Right Trust Cards */}
+            <div className="flex flex-col gap-6 lg:mt-32 lg:col-span-2">
+              {/* Small Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white rounded-2xl p-5 shadow-md border border-border hover:shadow-lg transition-all">
+                  <div className="text-4xl font-bold text-primary mb-2">
+                    50K+
+                  </div>
+                  <p className="text-sm text-foreground/80 font-medium">
+                    Satisfied Students
+                  </p>
+                  <p className="text-xs text-foreground/60 mt-2">
+                    Students trust us
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-5 shadow-md border border-border hover:shadow-lg transition-all">
+                  <div className="text-4xl font-bold text-accent mb-2">
+                    100%
+                  </div>
+                  <p className="text-sm text-foreground/80 font-medium">
+                    Original Content
+                  </p>
+                  <p className="text-xs text-foreground/60 mt-2">
+                    Plagiarism-free
+                  </p>
+                </div>
+              </div>
+
+              {/* Rating Card */}
+              <div className="bg-white rounded-2xl p-8 shadow-md border border-border hover:shadow-lg transition-all">
+                <div className="flex items-center gap-4">
+                  <div>
+                    <div className="flex gap-1 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={20}
+                          className="fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
                     </div>
-                    <div className="flex items-start gap-4">
-                      <CheckCircle
-                        className="text-cyan-400 flex-shrink-0 mt-1"
-                        size={24}
-                      />
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">
-                          Quality Assurance
-                        </h3>
-                        <p className="text-foreground/60 text-sm">
-                          Rigorous checks and multiple revision rounds
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <CheckCircle
-                        className="text-cyan-400 flex-shrink-0 mt-1"
-                        size={24}
-                      />
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">
-                          Confidential Service
-                        </h3>
-                        <p className="text-foreground/60 text-sm">
-                          Your privacy and security are our top priority
-                        </p>
-                      </div>
-                    </div>
+                    <p className="text-foreground/80 font-medium">
+                      4.9/5 Average Rating
+                    </p>
+                    <p className="text-sm text-foreground/60 mt-2">
+                      From 2,500+ verified reviews
+                    </p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="glass p-8 rounded-xl text-center">
-              <div className="text-4xl font-bold text-cyan-400 mb-2">
-                {service.stats.projectsCompleted}
-              </div>
-              <p className="text-foreground/70">Projects Completed</p>
-            </div>
-            <div className="glass p-8 rounded-xl text-center">
-              <div className="text-4xl font-bold text-cyan-400 mb-2">
-                {service.stats.customerReviews}
-              </div>
-              <p className="text-foreground/70">Customer Reviews</p>
-            </div>
-            <div className="glass p-8 rounded-xl text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">
-                {service.stats.averageRating}
-              </div>
-              <p className="text-foreground/70">Average Rating</p>
-            </div>
-            <div className="glass p-8 rounded-xl text-center">
-              <div className="text-4xl font-bold text-green-400 mb-2">
-                {service.stats.clientSatisfaction}
-              </div>
-              <p className="text-foreground/70">Client Satisfaction</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto space-y-8">
-          <div className="glass p-12 rounded-2xl">
-            <h2 className="text-4xl font-bold text-foreground mb-8 font-poppins">
-              {service.aboutTitle}
-            </h2>
-            <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-              {service.aboutContent}
-            </p>
-            <p className="text-lg text-foreground/80 leading-relaxed">
-              At EduWrites, we pride ourselves on delivering exceptional quality
-              and maintaining the highest standards of academic integrity. Every
-              piece of work goes through rigorous quality assurance checks to
-              ensure it meets your expectations and exceeds academic
-              requirements. Our team is dedicated to your success and committed
-              to providing you with work that truly makes a difference in your
-              academic journey.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-foreground mb-4 font-poppins">
-                Why Choose This Service?
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex gap-3">
-                  <span className="text-cyan-400 font-bold">✓</span>
-                  <span className="text-foreground/80">
-                    Expert writers with advanced degrees in relevant fields
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-cyan-400 font-bold">✓</span>
-                  <span className="text-foreground/80">
-                    100% plagiarism-free original work guaranteed
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-cyan-400 font-bold">✓</span>
-                  <span className="text-foreground/80">
-                    On-time delivery with revision guarantees
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-cyan-400 font-bold">✓</span>
-                  <span className="text-foreground/80">
-                    Flexible turnaround times to fit your schedule
-                  </span>
-                </li>
-              </ul>
+      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+                {service.aboutTitle}
+              </h2>
+              <p className="text-foreground/80 leading-relaxed mb-4">
+                {service.aboutContent}
+              </p>
+              <p className="text-foreground/80 leading-relaxed">
+                At EduWrites, we pride ourselves on delivering exceptional
+                quality and maintaining the highest standards of academic
+                integrity. Every piece of work goes through rigorous quality
+                assurance checks to ensure it meets your expectations and
+                exceeds academic requirements.
+              </p>
             </div>
 
-            <div className="glass p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-foreground mb-4 font-poppins">
-                Our Process
-              </h3>
-              <ol className="space-y-3">
-                <li className="flex gap-3">
-                  <span className="text-purple-400 font-bold">1.</span>
-                  <span className="text-foreground/80">
-                    <strong>Submit Details:</strong> Share your requirements and
-                    specifications
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-purple-400 font-bold">2.</span>
-                  <span className="text-foreground/80">
-                    <strong>Expert Assignment:</strong> We match you with the
-                    best writer
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-purple-400 font-bold">3.</span>
-                  <span className="text-foreground/80">
-                    <strong>Quality Check:</strong> Multiple rounds of review
-                    for excellence
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-purple-400 font-bold">4.</span>
-                  <span className="text-foreground/80">
-                    <strong>Delivery:</strong> Receive your work on time, every
-                    time
-                  </span>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="heading-3d-light text-4xl sm:text-5xl font-bold text-foreground mb-16 text-center font-poppins">
-            {service.featuresTitle}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {service.features.map((feature, index) => (
-              <div
-                key={index}
-                className="glass p-6 rounded-xl flex gap-4 items-start hover:bg-white/20 transition-all transform hover:scale-105 hover:-translate-y-1"
-              >
-                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-1 w-5 h-5" />
-                <p className="text-foreground/90 font-medium">{feature}</p>
+            {/* Right Stats */}
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-8 border border-border">
+                <div className="text-4xl font-bold text-primary mb-2">
+                  50,000+
+                </div>
+                <p className="text-foreground/80 font-medium">
+                  Students Worldwide
+                </p>
               </div>
-            ))}
+
+              <div className="bg-white rounded-xl p-8 border border-border">
+                <div className="text-4xl font-bold text-accent mb-2">98%</div>
+                <p className="text-foreground/80 font-medium">
+                  Satisfaction Rate
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 border border-border">
+                <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                <p className="text-foreground/80 font-medium">
+                  Expert Writers (PhDs)
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -828,7 +690,7 @@ export default function ServiceDetail() {
       {/* Pricing Section */}
       <section
         id="pricing"
-        className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
+        className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -836,10 +698,10 @@ export default function ServiceDetail() {
               PRICING
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
-              Simple, Transparent Pricing
+              Transparent, Affordable Pricing
             </h2>
-            <p className="text-lg text-foreground/70">
-              Choose the perfect plan for your academic needs
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Choose the perfect plan for your {service.serviceTitle.toLowerCase()}
             </p>
           </div>
 
@@ -853,7 +715,6 @@ export default function ServiceDetail() {
                     : "bg-white border-border hover:shadow-lg hover:border-accent/30"
                 }`}
               >
-                {/* Content */}
                 <div className="relative z-10 p-8 h-full flex flex-col">
                   {plan.highlighted && (
                     <div className="mb-4">
@@ -864,16 +725,20 @@ export default function ServiceDetail() {
                   )}
 
                   <h3
-                    className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
+                    className={`text-2xl font-bold mb-2 ${
+                      plan.highlighted ? "text-white" : "text-foreground"
+                    }`}
                   >
                     {plan.name}
                   </h3>
 
                   <div className="mb-8">
                     <span
-                      className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
+                      className={`text-5xl font-bold ${
+                        plan.highlighted ? "text-accent" : "text-primary"
+                      }`}
                     >
-                      {plan.price === 0 ? "Custom" : `$${plan.price}`}
+                      ${plan.price}
                     </span>
                   </div>
 
@@ -882,7 +747,9 @@ export default function ServiceDetail() {
                       <li key={index} className="flex items-start gap-3">
                         <CheckCircle
                           className={`flex-shrink-0 mt-0.5 w-4 h-4 ${
-                            plan.highlighted ? "text-accent" : "text-primary"
+                            plan.highlighted
+                              ? "text-accent"
+                              : "text-primary"
                           }`}
                           size={16}
                         />
@@ -921,86 +788,307 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 blur-gradient bg-gradient-to-r from-purple-600 to-transparent opacity-40 top-0 left-0 -z-10"></div>
-        <div className="absolute inset-0 blur-gradient bg-gradient-to-l from-cyan-600 to-transparent opacity-40 bottom-0 right-0 -z-10"></div>
+      {/* Portfolio Section */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+              SUCCESS STORIES
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+              Our Impact
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              See how we've helped students achieve academic excellence
+            </p>
+          </div>
 
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 className="heading-3d text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins">
-            {service.ctaText}
-          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Enterprise Leadership Development",
+                subtitle: "C-Suite Executive Strategy",
+                client: "Fortune 500 Tech Company",
+                metric: "3 Executive Promotions",
+                description:
+                  "Developed comprehensive leadership documentation and strategic white papers for executive team members.",
+                Icon: Briefcase,
+              },
+              {
+                title: "Academic Research Excellence",
+                subtitle: "Peer-Reviewed Publications",
+                client: "Stanford University Research Lab",
+                metric: "12 Published Papers",
+                description:
+                  "Supported research documentation and manuscript preparation across multiple disciplines.",
+                Icon: BookOpen,
+              },
+              {
+                title: "Corporate Innovation Strategy",
+                subtitle: "Strategic Documentation",
+                client: "Global Consulting Firm",
+                metric: "$15M Client Value",
+                description:
+                  "Elevated consulting deliverables with professionally crafted strategic reports.",
+                Icon: TrendingUp,
+              },
+              {
+                title: "Graduate Excellence Program",
+                subtitle: "Advanced Degree Completion",
+                client: "International MBA Cohort",
+                metric: "98% Distinction Rate",
+                description:
+                  "Supported 200+ graduate students in thesis and dissertation completion.",
+                Icon: Award,
+              },
+            ].map((project, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 overflow-hidden transition-all duration-500"
+              >
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-accent/15 transition-all">
+                      <project.Icon size={28} className="text-primary" />
+                    </div>
+                    <div className="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/30">
+                      {project.metric}
+                    </div>
+                  </div>
 
-          <p className="text-lg text-foreground/80 mb-12">
-            {service.ctaSubtext}
-          </p>
+                  <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-foreground/70 mb-4 font-medium">
+                    {project.subtitle}
+                  </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/order"
-              className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-10 py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105 animate-pulse-bounce"
-            >
-              Order Now <ArrowRight size={20} />
-            </Link>
+                  <p className="text-foreground/80 text-sm mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="border-t border-border pt-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-foreground/60 mb-1">
+                        Client Organization
+                      </p>
+                      <p className="text-sm font-semibold text-foreground">
+                        {project.client}
+                      </p>
+                    </div>
+                    <ArrowRight
+                      size={18}
+                      className="text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/5 to-transparent">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
-              What Our Clients Say
+      {/* Education Levels & Fields Section */}
+      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+              EXPERTISE
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+              Coverage Across All Levels & Disciplines
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Join thousands of satisfied students who have benefited from our
-              professional writing services
+            <p className="text-lg text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+              From high school essays to PhD dissertations, we support every
+              academic level and discipline
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {service.reviews.map((review, index) => (
-              <div
-                key={index}
-                className="glass p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col animate-float"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {/* Top Section: Author Profile with Moving Animation */}
-                <div className="flex items-center gap-3 mb-5 pb-5 border-b border-white/10">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 animate-float">
-                    {review.avatar}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-foreground text-sm animate-pulse">
-                      {review.author}
-                    </p>
-                    <p className="text-foreground/60 text-xs">
-                      {review.course}
-                    </p>
-                  </div>
+          {/* Education Levels */}
+          <div className="mb-32">
+            <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
+              Education Levels
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {[
+                {
+                  level: "High School",
+                  description: "Essays, reports, projects",
+                  icon: "🎒",
+                },
+                {
+                  level: "Undergraduate",
+                  description: "Essays, assignments, projects",
+                  icon: "🎓",
+                },
+                {
+                  level: "Master's Degree",
+                  description: "Thesis, research papers, projects",
+                  icon: "📚",
+                },
+                {
+                  level: "PhD & Doctorate",
+                  description: "Dissertations, research papers",
+                  icon: "🏆",
+                },
+                {
+                  level: "Professional",
+                  description: "Certifications, reports, publications",
+                  icon: "💼",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                >
+                  <div className="text-5xl mb-4">{item.icon}</div>
+                  <h4 className="font-bold text-foreground text-lg mb-3">
+                    {item.level}
+                  </h4>
+                  <p className="text-sm text-foreground/70 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Stars and Verified Badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-400">
-                        ★
-                      </span>
+          {/* Top Universities */}
+          <div className="mb-32">
+            <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
+              Trusted by Top University Students
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  region: "United States",
+                  icon: "🇺🇸",
+                  universities: [
+                    "Harvard",
+                    "Stanford",
+                    "MIT",
+                    "Yale",
+                    "Princeton",
+                    "UC Berkeley",
+                  ],
+                },
+                {
+                  region: "United Kingdom",
+                  icon: "🇬🇧",
+                  universities: [
+                    "Oxford",
+                    "Cambridge",
+                    "LSE",
+                    "Imperial",
+                    "UCL",
+                    "Edinburgh",
+                  ],
+                },
+                {
+                  region: "Europe",
+                  icon: "🇪🇺",
+                  universities: [
+                    "ETH Zurich",
+                    "Sorbonne",
+                    "TU Munich",
+                    "Amsterdam",
+                    "Copenhagen",
+                    "Uppsala",
+                  ],
+                },
+                {
+                  region: "International",
+                  icon: "🌍",
+                  universities: [
+                    "University of Toronto",
+                    "University of Melbourne",
+                    "NUS Singapore",
+                    "University of Tokyo",
+                    "ANU",
+                    "Seoul National",
+                  ],
+                },
+              ].map((region, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <span className="text-5xl">{region.icon}</span>
+                    <h4 className="font-bold text-foreground text-xl">
+                      {region.region}
+                    </h4>
+                  </div>
+                  <div className="space-y-3">
+                    {region.universities.map((uni, uIdx) => (
+                      <div key={uIdx} className="flex items-center gap-3">
+                        <span className="w-2 h-2 bg-accent rounded-full"></span>
+                        <span className="text-sm text-foreground/85">{uni}</span>
+                      </div>
                     ))}
                   </div>
-                  {review.verified && (
-                    <span className="text-cyan-400 text-xs font-bold">
-                      ✓ Verified
-                    </span>
-                  )}
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Review Text */}
-                <p className="text-foreground/90 text-sm leading-relaxed flex-grow">
-                  "{review.text}"
+          {/* Language Support */}
+          <div>
+            <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
+              Multi-Language Support
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+              {[
+                { lang: "English (US)", flag: "🇺🇸" },
+                { lang: "English (UK)", flag: "🇬🇧" },
+                { lang: "French", flag: "🇫🇷" },
+                { lang: "German", flag: "🇩🇪" },
+                { lang: "Italian", flag: "🇮🇹" },
+                { lang: "Dutch", flag: "🇳🇱" },
+              ].map((lang, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white rounded-2xl p-6 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center"
+                >
+                  <p className="text-5xl mb-3">{lang.flag}</p>
+                  <p className="font-semibold text-foreground text-sm">
+                    {lang.lang}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+              WHY CHOOSE US
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+              Why EduWrites?
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              We combine expertise, reliability, and dedication to your academic
+              success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseUs.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+              >
+                <div className="flex-shrink-0 text-5xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-foreground mb-3 text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-foreground/70 leading-relaxed">
+                  {item.description}
                 </p>
               </div>
             ))}
@@ -1008,118 +1096,129 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      {/* Testimonials */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
-              FAQ
+              TESTIMONIALS
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
-              Frequently Asked Questions
+              What Our Students Say
             </h2>
-            <p className="text-lg text-foreground/70">
-              Get answers to common questions about our academic writing
-              services
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Real feedback from students who've improved their grades
             </p>
           </div>
 
-          <div className="space-y-4">
-            {[
-              {
-                question:
-                  "Is the work completely original and plagiarism-free?",
-                answer:
-                  "Absolutely. Every piece of work we deliver is 100% original and written specifically for you. We use advanced plagiarism detection tools to ensure originality, and all sources are properly cited according to your required format (APA, MLA, Chicago, etc.).",
-              },
-              {
-                question: "How long does it take to complete an order?",
-                answer:
-                  "Turnaround times vary depending on the service and complexity. We offer rush options starting from 2-3 days, standard delivery in 5-7 days, and extended timelines for comprehensive projects. You can specify your deadline when placing an order.",
-              },
-              {
-                question: "What qualifications do your writers have?",
-                answer:
-                  "Our team consists of experienced academic writers with Master's and PhD degrees in their respective fields. Each writer is carefully selected and vetted to ensure they meet our high standards for expertise, writing quality, and academic integrity.",
-              },
-              {
-                question: "Can I request revisions if I'm not satisfied?",
-                answer:
-                  "Yes, revisions are included in all our services. We're committed to your satisfaction and will work with you until the final product meets your expectations and academic requirements.",
-              },
-              {
-                question: "How is my privacy protected?",
-                answer:
-                  "Your privacy is our top priority. All client information is kept confidential and encrypted. We never share personal details or disclose the nature of orders to third parties. Your work is completely anonymous in our system.",
-              },
-              {
-                question: "What if I need to communicate with my writer?",
-                answer:
-                  "You can communicate directly with your assigned writer through our secure platform. Our 24/7 support team is also available to answer questions, provide updates, or address any concerns about your order.",
-              },
-              {
-                question: "Do you offer guarantees on quality and delivery?",
-                answer:
-                  "Yes, we guarantee on-time delivery and top-quality work. If we miss a deadline, you'll receive a full refund. If the quality doesn't meet our standards, we'll continue revising until you're satisfied.",
-              },
-              {
-                question: "What payment methods do you accept?",
-                answer:
-                  "We accept all major credit cards, debit cards, and PayPal. Payments are processed securely through our encrypted payment gateway. You can also choose to pay in installments for larger projects.",
-              },
-              {
-                question: "Can I use this work for multiple submissions?",
-                answer:
-                  "Our work is written specifically for your unique assignment and requirements. We don't recommend using the same paper for multiple submissions. However, you can use the work as a study guide or reference for your own writing.",
-              },
-              {
-                question: "What if my institution has specific requirements?",
-                answer:
-                  "We accommodate any specific requirements your institution has, including formatting guidelines, citation styles, required sources, and specific content requirements. Just let us know during the ordering process.",
-              },
-            ].map((faq, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {service.reviews.map((review, index) => (
               <div
                 key={index}
-                className="bg-white border border-border rounded-xl overflow-hidden hover:shadow-md hover:border-accent/30 transition-all"
+                className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg transition-all duration-300"
               >
-                <button
-                  onClick={() => {
-                    const element = document.getElementById(`faq-${index}`);
-                    if (element) {
-                      element.classList.toggle("hidden");
-                    }
-                  }}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-primary/5 transition-all"
-                >
-                  <h3 className="font-semibold text-foreground text-base">
-                    {faq.question}
-                  </h3>
-                  <span className="text-primary text-2xl flex-shrink-0">+</span>
-                </button>
-                <div
-                  id={`faq-${index}`}
-                  className="hidden px-6 pb-4 border-t border-border bg-primary/2"
-                >
-                  <p className="text-foreground/80 text-sm leading-relaxed">
-                    {faq.answer}
-                  </p>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      size={20}
+                      className="fill-accent text-accent"
+                    />
+                  ))}
+                </div>
+
+                <p className="text-foreground/80 leading-relaxed mb-6">
+                  "{review.text}"
+                </p>
+
+                <div className="flex items-center gap-4 pt-6 border-t border-border">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center font-bold text-white flex-shrink-0">
+                    {review.avatar}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground text-sm">
+                      {review.author}
+                    </h4>
+                    <p className="text-xs text-foreground/60">{review.course}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* FAQ CTA */}
-          <div className="mt-12 p-8 bg-white rounded-2xl border border-border text-center">
-            <h3 className="text-xl font-bold text-foreground mb-3">
-              Still Have Questions?
-            </h3>
+      {/* FAQs */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+              FREQUENTLY ASKED QUESTIONS
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+              Common Questions
+            </h2>
+            <p className="text-lg text-foreground/70">
+              Find answers to common questions about our services
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all duration-300"
+              >
+                <button
+                  onClick={() =>
+                    setExpandedFAQ(expandedFAQ === index ? null : index)
+                  }
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-primary/5 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-foreground pr-4">
+                    {faq.question}
+                  </h3>
+                  <div className="flex-shrink-0">
+                    <div
+                      className={`w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center transition-transform duration-300 ${
+                        expandedFAQ === index ? "rotate-180" : ""
+                      }`}
+                    >
+                      <svg
+                        className="w-4 h-4 text-accent"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+
+                {expandedFAQ === index && (
+                  <div className="px-6 pb-6 border-t border-border">
+                    <p className="text-foreground/80 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
             <p className="text-foreground/70 mb-6">
-              Our support team is available 24/7 to help answer any questions
-              you may have about our services.
+              Still have questions? Our support team is here to help.
             </p>
             <button
               onClick={() => setIsSupportModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-all"
+              className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300"
             >
               Contact Support
             </button>

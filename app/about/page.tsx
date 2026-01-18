@@ -247,12 +247,12 @@ export default function About() {
 
       {/* Send us a Message Section */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-xl mx-auto">
-          <div className="bg-white border-2 border-border p-5 sm:p-6 rounded-lg shadow-lg">
-            <h2 className="text-sm font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
+        <div className="max-w-md mx-auto">
+          <div className="bg-white border-2 border-border p-4 sm:p-5 rounded-lg shadow-lg">
+            <h2 className="text-xs font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
               Send us a Message
             </h2>
-            <p className="text-foreground/85 mb-4 text-xs font-medium">
+            <p className="text-foreground/85 mb-3 text-[10px] font-medium">
               Have a question? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
 
@@ -264,7 +264,7 @@ export default function About() {
                 <input
                   type="text"
                   placeholder="John Doe"
-                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                 />
               </div>
 
@@ -275,7 +275,7 @@ export default function About() {
                 <input
                   type="email"
                   placeholder="john@example.com"
-                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                 />
               </div>
 
@@ -286,13 +286,13 @@ export default function About() {
                 <textarea
                   placeholder="Tell us what's on your mind..."
                   rows={3}
-                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full gradient-primary text-white py-2 rounded-lg font-bold text-xs hover:shadow-glow transition-all transform hover:scale-105 duration-300"
+                className="w-full gradient-primary text-white py-1.5 rounded-lg font-bold text-[10px] hover:shadow-glow transition-all transform hover:scale-105 duration-300"
               >
                 Send Message
               </button>

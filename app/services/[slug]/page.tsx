@@ -1238,13 +1238,13 @@ export default function ServiceDetail() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                  className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="text-5xl mb-4">{item.icon}</div>
-                  <h4 className="font-bold text-foreground text-lg mb-3">
+                  <div className="text-3xl mb-3">{item.icon}</div>
+                  <h4 className="font-bold text-foreground text-sm mb-2">
                     {item.level}
                   </h4>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
+                  <p className="text-xs text-foreground/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -1257,7 +1257,7 @@ export default function ServiceDetail() {
             <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
               Trusted by Top University Students
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 {
                   region: "United States",
@@ -1310,19 +1310,19 @@ export default function ServiceDetail() {
               ].map((region, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                  className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-5xl">{region.icon}</span>
-                    <h4 className="font-bold text-foreground text-xl">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{region.icon}</span>
+                    <h4 className="font-bold text-foreground text-sm">
                       {region.region}
                     </h4>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {region.universities.map((uni, uIdx) => (
-                      <div key={uIdx} className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full"></span>
-                        <span className="text-sm text-foreground/85">{uni}</span>
+                      <div key={uIdx} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                        <span className="text-xs text-foreground/85">{uni}</span>
                       </div>
                     ))}
                   </div>
@@ -1336,7 +1336,7 @@ export default function ServiceDetail() {
             <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
               Multi-Language Support
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
               {[
                 { lang: "English (US)", flag: "🇺🇸" },
                 { lang: "English (UK)", flag: "🇬🇧" },
@@ -1347,10 +1347,10 @@ export default function ServiceDetail() {
               ].map((lang, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-6 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center"
+                  className="bg-white rounded-lg p-4 border border-border hover:shadow-md hover:border-accent/30 transition-all duration-300 text-center"
                 >
-                  <p className="text-5xl mb-3">{lang.flag}</p>
-                  <p className="font-semibold text-foreground text-sm">
+                  <p className="text-3xl mb-2">{lang.flag}</p>
+                  <p className="font-semibold text-foreground text-xs">
                     {lang.lang}
                   </p>
                 </div>

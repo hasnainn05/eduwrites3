@@ -5,8 +5,13 @@ import { useSearchParams } from "next/navigation";
 
 export function OrderClient() {
   const searchParams = useSearchParams();
-  const service = searchParams.get("service");
+  let service = searchParams.get("service");
   const pkg = searchParams.get("package");
+
+  // Map proofreading variants to main proofreading service
+  if (service && service.includes("-proofreading")) {
+    service = "proofreading";
+  }
 
   return (
     <div className="card-bg rounded-lg border-2 border-border p-5 sm:p-8 shadow-sm">

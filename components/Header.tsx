@@ -26,10 +26,10 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur-sm">
       {/* Main Header */}
-      <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3">
-        <div className="max-w-5xl mx-auto w-full flex items-center justify-between gap-1 sm:gap-2 md:gap-3">
+      <div className="px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 lg:py-4">
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2 sm:gap-3 md:gap-4">
           {/* Left: Logo and Branding */}
           <Link
             href="/"

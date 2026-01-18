@@ -334,43 +334,44 @@ export default function Profile() {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-3">
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider text-foreground/70">Quick Actions</h3>
                       <Link
                         href="/order"
-                        className="p-3 border-2 border-border rounded-lg bg-white hover:shadow-md transition-all group"
+                        className="p-4 border-2 border-border rounded-xl bg-gradient-to-br from-cyan-50 to-white hover:shadow-lg hover:border-cyan-300 transition-all group"
                       >
-                        <div className="text-lg mb-1">📝</div>
-                        <h4 className="font-semibold text-foreground text-xs mb-1">
+                        <div className="text-2xl mb-2">📝</div>
+                        <h4 className="font-semibold text-foreground text-xs mb-2">
                           New Order
                         </h4>
                         <p className="text-cyan-600 text-[10px] flex items-center gap-1 font-semibold">
-                          Create <ArrowRight size={10} />
+                          Create Order <ArrowRight size={12} />
                         </p>
                       </Link>
 
                       <Link
                         href="/#services"
-                        className="p-3 border-2 border-border rounded-lg bg-white hover:shadow-md transition-all group"
+                        className="p-4 border-2 border-border rounded-xl bg-gradient-to-br from-indigo-50 to-white hover:shadow-lg hover:border-indigo-300 transition-all group"
                       >
-                        <div className="text-lg mb-1">🎓</div>
-                        <h4 className="font-semibold text-foreground text-xs mb-1">
+                        <div className="text-2xl mb-2">🎓</div>
+                        <h4 className="font-semibold text-foreground text-xs mb-2">
                           Services
                         </h4>
                         <p className="text-indigo-600 text-[10px] flex items-center gap-1 font-semibold">
-                          View <ArrowRight size={10} />
+                          View All <ArrowRight size={12} />
                         </p>
                       </Link>
 
                       <button
                         onClick={() => setIsSupportModalOpen(true)}
-                        className="p-3 border-2 border-border rounded-lg bg-white hover:shadow-md transition-all group w-full text-left"
+                        className="p-4 border-2 border-border rounded-xl bg-gradient-to-br from-pink-50 to-white hover:shadow-lg hover:border-pink-300 transition-all group w-full text-left"
                       >
-                        <div className="text-lg mb-1">💬</div>
-                        <h4 className="font-semibold text-foreground text-xs mb-1">
+                        <div className="text-2xl mb-2">💬</div>
+                        <h4 className="font-semibold text-foreground text-xs mb-2">
                           Support
                         </h4>
                         <p className="text-pink-600 text-[10px] flex items-center gap-1 font-semibold">
-                          Contact <ArrowRight size={10} />
+                          Get Help <ArrowRight size={12} />
                         </p>
                       </button>
                     </div>

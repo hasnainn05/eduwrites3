@@ -291,9 +291,9 @@ export default function Home() {
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="#services"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
-                  >
+                  href="#services"
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                >
                     Get Started Now <ArrowRight size={20} />
                   </a>
                   <WhatsAppButton

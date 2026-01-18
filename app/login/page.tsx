@@ -141,7 +141,7 @@ export default function Login() {
           </div>
 
           {/* Right Side - Login Form */}
-          <div className="w-full max-w-sm mx-auto lg:mx-0">
+          <div className="w-full max-w-xs mx-auto lg:mx-0">
             {/* Logo */}
             <div className="text-center mb-5">
               <Link href="/" className="inline-block">

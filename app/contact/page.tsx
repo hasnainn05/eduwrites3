@@ -296,9 +296,9 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full gradient-primary text-white py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
+                  className="w-full gradient-primary text-white py-2.5 rounded-lg font-bold text-sm hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
                 >
-                  Send Message <Send size={20} />
+                  Send Message <Send size={18} />
                 </button>
               </form>
             </div>

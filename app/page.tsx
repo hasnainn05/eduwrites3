@@ -1087,13 +1087,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/order"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-10 py-4 rounded-lg font-bold hover:bg-primary/90 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-primary/90 transition-all duration-300"
               >
-                Start Your Project <ArrowRight size={20} />
+                Start Your Project <ArrowRight size={16} />
               </Link>
               <button
                 onClick={() => setIsSupportModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-10 py-4 rounded-lg font-bold hover:bg-primary/5 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-primary/5 transition-all duration-300"
               >
                 Chat Now
               </button>

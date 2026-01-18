@@ -148,7 +148,9 @@ export default function Login() {
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
                   EduWrites
                 </h2>
-                <p className="text-foreground/60 text-xs mt-0.5">Welcome Back</p>
+                <p className="text-foreground/60 text-xs mt-0.5">
+                  Welcome Back
+                </p>
               </Link>
             </div>
 

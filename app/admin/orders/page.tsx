@@ -197,58 +197,58 @@ export default function AdminOrders() {
 
   return (
     <div className="p-3 sm:p-4 md:p-4 space-y-3 sm:space-y-4">
-          {/* Stats Overview */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-              <p className="text-foreground/70 text-xs font-medium truncate">
-                Total Orders
-              </p>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
-                {stats.total}
-              </h3>
-            </div>
-            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-              <p className="text-foreground/70 text-xs font-medium truncate">
-                Pending Orders
-              </p>
-              <h3 className="text-lg sm:text-xl font-bold text-orange-600 mt-1">
-                {stats.pending}
-              </h3>
-            </div>
-            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-              <p className="text-foreground/70 text-xs font-medium truncate">
-                In Progress
-              </p>
-              <h3 className="text-lg sm:text-xl font-bold text-yellow-600 mt-1">
-                {stats.in_progress}
-              </h3>
-            </div>
-            <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-              <p className="text-foreground/70 text-xs font-medium truncate">
-                Completed
-              </p>
-              <h3 className="text-lg sm:text-xl font-bold text-green-600 mt-1">
-                {stats.completed}
-              </h3>
-            </div>
-          </div>
+      {/* Stats Overview */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+          <p className="text-foreground/70 text-xs font-medium truncate">
+            Total Orders
+          </p>
+          <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
+            {stats.total}
+          </h3>
+        </div>
+        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+          <p className="text-foreground/70 text-xs font-medium truncate">
+            Pending Orders
+          </p>
+          <h3 className="text-lg sm:text-xl font-bold text-orange-600 mt-1">
+            {stats.pending}
+          </h3>
+        </div>
+        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+          <p className="text-foreground/70 text-xs font-medium truncate">
+            In Progress
+          </p>
+          <h3 className="text-lg sm:text-xl font-bold text-yellow-600 mt-1">
+            {stats.in_progress}
+          </h3>
+        </div>
+        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
+          <p className="text-foreground/70 text-xs font-medium truncate">
+            Completed
+          </p>
+          <h3 className="text-lg sm:text-xl font-bold text-green-600 mt-1">
+            {stats.completed}
+          </h3>
+        </div>
+      </div>
 
-          {/* Orders Section */}
-          <div className="bg-white rounded-lg border-2 border-border overflow-hidden">
-            {/* Tabs */}
-            <OrderStatusTabs
-              activeStatus={activeStatus}
-              onStatusChange={setActiveStatus}
-              stats={stats}
-            />
+      {/* Orders Section */}
+      <div className="bg-white rounded-lg border-2 border-border overflow-hidden">
+        {/* Tabs */}
+        <OrderStatusTabs
+          activeStatus={activeStatus}
+          onStatusChange={setActiveStatus}
+          stats={stats}
+        />
 
-            {/* Orders List */}
-            <OrdersList
-              orders={filteredOrders}
-              onStatusChange={handleStatusChange}
-              status={activeStatus}
-            />
-          </div>
+        {/* Orders List */}
+        <OrdersList
+          orders={filteredOrders}
+          onStatusChange={handleStatusChange}
+          status={activeStatus}
+        />
+      </div>
     </div>
   );
 }

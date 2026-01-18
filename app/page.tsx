@@ -248,7 +248,8 @@ export default function Home() {
                 <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
                   Achieve Academic
                   <br className="hidden sm:block" />
-                  <span className="text-accent">Excellence</span> with Professional
+                  <span className="text-accent">Excellence</span> with
+                  Professional
                   <br className="hidden sm:block" />
                   Academic Writing Services
                 </h1>
@@ -291,9 +292,9 @@ export default function Home() {
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                  href="#services"
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
-                >
+                    href="#services"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                  >
                     Get Started Now <ArrowRight size={20} />
                   </a>
                   <WhatsAppButton

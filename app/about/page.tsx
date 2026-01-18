@@ -253,7 +253,8 @@ export default function About() {
               Send us a Message
             </h2>
             <p className="text-foreground/85 mb-3 text-[10px] font-medium">
-              Have a question? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              Have a question? We'd love to hear from you. Send us a message and
+              we'll respond as soon as possible.
             </p>
 
             <form className="space-y-3">

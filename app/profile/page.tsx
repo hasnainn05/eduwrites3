@@ -154,7 +154,9 @@ export default function Profile() {
         {/* Mobile Navigation */}
         <div className="md:hidden flex flex-col gap-2 p-4 border-b-2 border-border bg-white">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-lg font-bold text-foreground">{user.fullName}</h1>
+            <h1 className="text-lg font-bold text-foreground">
+              {user.fullName}
+            </h1>
             <button
               onClick={handleLogout}
               className="px-3 py-1.5 text-xs rounded-lg bg-red-500/20 text-red-600 hover:bg-red-500/30 transition-all font-medium border border-red-500/30"
@@ -253,7 +255,9 @@ export default function Profile() {
 
                   {/* Stats Grid */}
                   <div>
-                    <h3 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wider text-foreground/70">Quick Stats</h3>
+                    <h3 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wider text-foreground/70">
+                      Quick Stats
+                    </h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {stats.map((stat, index) => {
                         const Icon = stat.icon;
@@ -288,7 +292,9 @@ export default function Profile() {
                       <h3 className="text-sm font-bold text-foreground mb-1 uppercase tracking-wider text-foreground/70">
                         Recent Activity
                       </h3>
-                      <p className="text-xs text-foreground/50 mb-6">Your latest orders and updates</p>
+                      <p className="text-xs text-foreground/50 mb-6">
+                        Your latest orders and updates
+                      </p>
                       <div className="space-y-4">
                         {orders.length > 0 ? (
                           orders.map((order, index) => (
@@ -327,7 +333,9 @@ export default function Profile() {
                           ))
                         ) : (
                           <div className="text-center py-8">
-                            <p className="text-xs text-foreground/60">No orders yet. Start by creating your first order!</p>
+                            <p className="text-xs text-foreground/60">
+                              No orders yet. Start by creating your first order!
+                            </p>
                           </div>
                         )}
                       </div>
@@ -335,7 +343,9 @@ export default function Profile() {
 
                     {/* Quick Actions */}
                     <div className="flex flex-col gap-3">
-                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider text-foreground/70">Quick Actions</h3>
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-wider text-foreground/70">
+                        Quick Actions
+                      </h3>
                       <Link
                         href="/order"
                         className="p-4 border-2 border-border rounded-xl bg-gradient-to-br from-cyan-50 to-white hover:shadow-lg hover:border-cyan-300 transition-all group"
@@ -487,7 +497,8 @@ export default function Profile() {
                       Settings
                     </h2>
                     <p className="text-foreground/60 mt-2 text-sm">
-                      Manage your account preferences, security, and notifications
+                      Manage your account preferences, security, and
+                      notifications
                     </p>
                   </div>
 
@@ -501,7 +512,9 @@ export default function Profile() {
                         <h3 className="text-sm font-bold text-foreground">
                           Security & Privacy
                         </h3>
-                        <p className="text-[10px] text-foreground/60 mt-0.5">Protect your account</p>
+                        <p className="text-[10px] text-foreground/60 mt-0.5">
+                          Protect your account
+                        </p>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -557,7 +570,9 @@ export default function Profile() {
                         <h3 className="text-sm font-bold text-foreground">
                           Notifications
                         </h3>
-                        <p className="text-[10px] text-foreground/60 mt-0.5">Manage your preferences</p>
+                        <p className="text-[10px] text-foreground/60 mt-0.5">
+                          Manage your preferences
+                        </p>
                       </div>
                     </div>
                     <div className="space-y-2">

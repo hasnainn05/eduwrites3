@@ -82,7 +82,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-2 text-xs text-foreground">Services</h4>
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Services
+            </h4>
             <ul className="space-y-1">
               {services.map((item) => (
                 <li key={item.path}>
@@ -99,7 +101,9 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-2 text-xs text-foreground">Company</h4>
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Company
+            </h4>
             <ul className="space-y-1">
               {company.map((item) => (
                 <li key={item.path}>
@@ -116,7 +120,9 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-2 text-xs text-foreground">Legal</h4>
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Legal
+            </h4>
             <ul className="space-y-1">
               {legal.map((item) => (
                 <li key={item.path}>
@@ -133,7 +139,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-2 text-xs text-foreground">Contact</h4>
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Contact
+            </h4>
             <div className="space-y-1.5 text-foreground/70 text-[10px]">
               <div className="flex items-start gap-1.5">
                 <Mail size={12} className="mt-0.5 flex-shrink-0 text-primary" />

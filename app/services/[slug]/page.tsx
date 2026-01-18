@@ -20,7 +20,10 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
-import { GENERAL_PRICING_PLANS, PROOFREADING_PRICING_PLANS } from "@/lib/pricing";
+import {
+  GENERAL_PRICING_PLANS,
+  PROOFREADING_PRICING_PLANS,
+} from "@/lib/pricing";
 import type { PricingPackage } from "@/lib/pricing";
 
 interface ServiceData {
@@ -163,7 +166,8 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   research: {
-    title: "Professional Research Paper Writing Services for All Academic Levels",
+    title:
+      "Professional Research Paper Writing Services for All Academic Levels",
     serviceTitle: "Research Paper",
     subtitle: "In-Depth Research and Academic Excellence",
     Icon: BarChart3,
@@ -403,11 +407,13 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   "assignment-proofreading": {
-    title: "Expert Assignment Proofreading & Editing Service for Students Worldwide",
+    title:
+      "Expert Assignment Proofreading & Editing Service for Students Worldwide",
     serviceTitle: "Assignment Proofreading & Editing",
     subtitle: "Professional Document Refinement",
     Icon: Pencil,
-    aboutTitle: "About Our Professional Assignment Proofreading and Editing Service",
+    aboutTitle:
+      "About Our Professional Assignment Proofreading and Editing Service",
     aboutContent:
       "Our professional proofreading and editing services help polish your assignment to perfection. We provide comprehensive editing services that include grammar correction, punctuation refinement, style improvement, clarity enhancement, and proofreading. Our experienced proofreading editors review your assignment for consistency, flow, and academic tone while preserving your unique voice and original ideas. Whether you need professional proofreading services, professional editing services, or comprehensive proofreading and editing, our proofreading experts ensure your assignment meets the highest professional standards. We provide proofreading help and editing support for assignments to ensure they are polished and ready for submission. Get affordable proofreading and editing services online with quick turnaround times.",
     pricingPackages: PROOFREADING_PRICING_PLANS,
@@ -463,11 +469,13 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   "thesis-proofreading": {
-    title: "Professional Thesis Proofreading & Editing Service for Master's & PhD Students",
+    title:
+      "Professional Thesis Proofreading & Editing Service for Master's & PhD Students",
     serviceTitle: "Thesis Proofreading & Editing",
     subtitle: "Professional Document Refinement",
     Icon: Pencil,
-    aboutTitle: "About Our Professional Thesis Proofreading and Editing Service",
+    aboutTitle:
+      "About Our Professional Thesis Proofreading and Editing Service",
     aboutContent:
       "Our professional proofreading and editing services help polish your thesis to perfection. We provide comprehensive editing services that include grammar correction, punctuation refinement, style improvement, clarity enhancement, and proofreading. Our experienced proofreading editors review your thesis for consistency, flow, and academic tone while preserving your unique voice and original ideas. Whether you need professional proofreading services, professional editing services, or comprehensive proofreading and editing, our proofreading experts ensure your thesis meets the highest professional standards. We provide proofreading help and editing support for theses to ensure they are polished and ready for submission. Get affordable proofreading and editing services online with quick turnaround times.",
     pricingPackages: PROOFREADING_PRICING_PLANS,
@@ -523,11 +531,13 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   "research-proofreading": {
-    title: "Professional Research Paper Proofreading & Editing Service for All Academic Levels",
+    title:
+      "Professional Research Paper Proofreading & Editing Service for All Academic Levels",
     serviceTitle: "Research Paper Proofreading & Editing",
     subtitle: "Professional Document Refinement",
     Icon: Pencil,
-    aboutTitle: "About Our Professional Research Paper Proofreading and Editing Service",
+    aboutTitle:
+      "About Our Professional Research Paper Proofreading and Editing Service",
     aboutContent:
       "Our professional proofreading and editing services help polish your research paper to perfection. We provide comprehensive editing services that include grammar correction, punctuation refinement, style improvement, clarity enhancement, and proofreading. Our experienced proofreading editors review your research paper for consistency, flow, and academic tone while preserving your unique voice and original ideas. Whether you need professional proofreading services, professional editing services, or comprehensive proofreading and editing, our proofreading experts ensure your research paper meets the highest professional standards. We provide proofreading help and editing support for research papers to ensure they are polished and ready for submission. Get affordable proofreading and editing services online with quick turnaround times.",
     pricingPackages: PROOFREADING_PRICING_PLANS,
@@ -583,11 +593,13 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   "dissertation-proofreading": {
-    title: "Expert Dissertation Proofreading & Editing Service for Master's & PhD Students",
+    title:
+      "Expert Dissertation Proofreading & Editing Service for Master's & PhD Students",
     serviceTitle: "Dissertation Proofreading & Editing",
     subtitle: "Professional Document Refinement",
     Icon: Pencil,
-    aboutTitle: "About Our Professional Dissertation Proofreading and Editing Service",
+    aboutTitle:
+      "About Our Professional Dissertation Proofreading and Editing Service",
     aboutContent:
       "Our professional proofreading and editing services help polish your dissertation to perfection. We provide comprehensive editing services that include grammar correction, punctuation refinement, style improvement, clarity enhancement, and proofreading. Our experienced proofreading editors review your dissertation for consistency, flow, and academic tone while preserving your unique voice and original ideas. Whether you need professional proofreading services, professional editing services, or comprehensive proofreading and editing, our proofreading experts ensure your dissertation meets the highest professional standards. We provide proofreading help and editing support for dissertations to ensure they are polished and ready for submission. Get affordable proofreading and editing services online with quick turnaround times.",
     pricingPackages: PROOFREADING_PRICING_PLANS,
@@ -822,11 +834,11 @@ export default function ServiceDetail() {
 
               {/* Main Headline */}
               <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
-                {service.title.split(' ').map((word, idx) => {
-                  const mainWord = service.serviceTitle.split(' ')[0];
+                {service.title.split(" ").map((word, idx) => {
+                  const mainWord = service.serviceTitle.split(" ")[0];
                   return word === mainWord ? (
                     <span key={idx} className="text-yellow-400">
-                      {word}{' '}
+                      {word}{" "}
                     </span>
                   ) : (
                     <span key={idx}>{word} </span>
@@ -836,7 +848,9 @@ export default function ServiceDetail() {
 
               {/* Subheading */}
               <p className="text-xs text-foreground/70 mb-6 leading-relaxed max-w-2xl">
-                Professional, plagiarism-free academic {service.serviceTitle.toLowerCase()} from Ph.D. experts. Delivered on time, every time with guaranteed quality.
+                Professional, plagiarism-free academic{" "}
+                {service.serviceTitle.toLowerCase()} from Ph.D. experts.
+                Delivered on time, every time with guaranteed quality.
               </p>
 
               {/* Trust Indicators */}
@@ -1006,7 +1020,8 @@ export default function ServiceDetail() {
               Transparent, Affordable Pricing
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Choose the perfect plan for your {service.serviceTitle.toLowerCase()}
+              Choose the perfect plan for your{" "}
+              {service.serviceTitle.toLowerCase()}
             </p>
           </div>
 
@@ -1052,9 +1067,7 @@ export default function ServiceDetail() {
                       <li key={index} className="flex items-start gap-2">
                         <CheckCircle
                           className={`flex-shrink-0 mt-0.5 w-3 h-3 ${
-                            plan.highlighted
-                              ? "text-accent"
-                              : "text-primary"
+                            plan.highlighted ? "text-accent" : "text-primary"
                           }`}
                           size={12}
                         />
@@ -1199,7 +1212,8 @@ export default function ServiceDetail() {
               Coverage Across All Levels & Disciplines
             </h2>
             <p className="text-lg text-foreground/70 max-w-3xl mx-auto leading-relaxed">
-              From high school to PhD, we support every academic level and discipline
+              From high school to PhD, we support every academic level and
+              discipline
             </p>
           </div>
 
@@ -1322,7 +1336,9 @@ export default function ServiceDetail() {
                     {region.universities.map((uni, uIdx) => (
                       <div key={uIdx} className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-                        <span className="text-xs text-foreground/85">{uni}</span>
+                        <span className="text-xs text-foreground/85">
+                          {uni}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -1438,7 +1454,9 @@ export default function ServiceDetail() {
                     <h4 className="font-bold text-foreground text-xs">
                       {review.author}
                     </h4>
-                    <p className="text-xs text-foreground/60">{review.course}</p>
+                    <p className="text-xs text-foreground/60">
+                      {review.course}
+                    </p>
                   </div>
                 </div>
               </div>

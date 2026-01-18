@@ -129,12 +129,19 @@ export default function SupportChat() {
 
               {msg.file && (
                 <div className="mt-3 flex items-center gap-2 bg-black/5 dark:bg-white/10 p-3 rounded-lg">
-                  <File size={14} className={`flex-shrink-0 ${msg.user === "user" ? "text-white/70" : "text-primary"}`} />
+                  <File
+                    size={14}
+                    className={`flex-shrink-0 ${msg.user === "user" ? "text-white/70" : "text-primary"}`}
+                  />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-semibold truncate">
                       {msg.file.name}
                     </p>
-                    <p className={`text-xs ${msg.user === "user" ? "text-white/70" : "text-foreground/60"}`}>{msg.file.size}</p>
+                    <p
+                      className={`text-xs ${msg.user === "user" ? "text-white/70" : "text-foreground/60"}`}
+                    >
+                      {msg.file.size}
+                    </p>
                   </div>
                   <a
                     href="#"
@@ -145,7 +152,11 @@ export default function SupportChat() {
                 </div>
               )}
 
-              <p className={`text-xs mt-2 ${msg.user === "user" ? "text-white/70" : "text-foreground/60"}`}>{msg.timestamp}</p>
+              <p
+                className={`text-xs mt-2 ${msg.user === "user" ? "text-white/70" : "text-foreground/60"}`}
+              >
+                {msg.timestamp}
+              </p>
             </div>
           </div>
         ))}

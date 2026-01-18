@@ -26,7 +26,10 @@ export default function Order() {
           onClick={handleBack}
           className="flex items-center gap-2 text-primary hover:text-accent transition-colors mb-6 font-semibold text-sm group"
         >
-          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+          <ArrowLeft
+            size={18}
+            className="group-hover:-translate-x-1 transition-transform"
+          />
           Back
         </button>
 

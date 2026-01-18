@@ -128,7 +128,9 @@ export function OrdersList({
                     </p>
                     <div className="space-y-1">
                       <div>
-                        <p className="text-foreground/60 text-[10px] mb-0.5">Email</p>
+                        <p className="text-foreground/60 text-[10px] mb-0.5">
+                          Email
+                        </p>
                         <p className="text-foreground text-xs break-all">
                           {order.email}
                         </p>

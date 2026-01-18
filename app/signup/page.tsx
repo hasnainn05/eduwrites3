@@ -383,7 +383,8 @@ export default function Signup() {
                       </>
                     ) : (
                       <>
-                        <span className="text-sm">Create Account</span> <ArrowRight size={14} />
+                        <span className="text-sm">Create Account</span>{" "}
+                        <ArrowRight size={14} />
                       </>
                     )}
                   </button>

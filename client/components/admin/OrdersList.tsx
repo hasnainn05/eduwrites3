@@ -59,22 +59,22 @@ export function OrdersList({
             >
               {/* Card Header */}
               <div
-                className="p-3 sm:p-4 cursor-pointer hover:bg-white/10 transition-colors active:bg-white/10"
+                className="p-2 sm:p-3 cursor-pointer hover:bg-primary/5 transition-colors active:bg-primary/5"
                 onClick={() => toggleExpand(order.id)}
               >
-                <div className="flex items-start justify-between gap-2 sm:gap-3">
+                <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1 sm:gap-2 mb-2 flex-wrap">
-                      <span className="text-foreground font-mono text-xs sm:text-xs font-medium">
+                    <div className="flex items-center gap-1 mb-1 flex-wrap">
+                      <span className="text-foreground font-mono text-xs font-medium">
                         #{order.id.split("-").pop()}
                       </span>
                       <span
-                        className={`inline-block px-2 py-0.5 rounded text-xs font-medium flex-shrink-0 ${
+                        className={`inline-block px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 ${
                           order.status === "pending"
-                            ? "bg-green-500/20 text-green-400"
+                            ? "bg-green-100 text-green-700"
                             : order.status === "in_progress"
-                              ? "bg-yellow-500/20 text-yellow-400"
-                              : "bg-green-500/20 text-green-400"
+                              ? "bg-yellow-100 text-yellow-700"
+                              : "bg-blue-100 text-blue-700"
                         }`}
                       >
                         {order.status === "pending"
@@ -84,10 +84,10 @@ export function OrdersList({
                             : "Completed"}
                       </span>
                     </div>
-                    <h3 className="text-foreground font-semibold text-sm sm:text-base truncate">
+                    <h3 className="text-foreground font-semibold text-xs sm:text-sm truncate">
                       {order.fullName}
                     </h3>
-                    <p className="text-foreground/60 text-xs sm:text-xs mt-1 line-clamp-2">
+                    <p className="text-foreground/60 text-[10px] sm:text-xs mt-0.5 line-clamp-2">
                       {order.service} • {order.wordCount.toLocaleString()} words
                       • ${order.price}
                     </p>

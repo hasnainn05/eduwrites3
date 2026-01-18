@@ -106,8 +106,13 @@ export default function OrderForm({
       assignment: "Assignment Writing",
       research: "Research Paper",
       thesis: "Thesis & Dissertation",
-      proofreading: "Proofreading & Editing",
       dissertation: "Dissertation Writing",
+      proofreading: "Proofreading & Editing",
+      "essay-proofreading": "Essay Proofreading & Editing",
+      "assignment-proofreading": "Assignment Proofreading & Editing",
+      "thesis-proofreading": "Thesis Proofreading & Editing",
+      "research-proofreading": "Research Paper Proofreading & Editing",
+      "dissertation-proofreading": "Dissertation Proofreading & Editing",
     };
 
     const paperTypeMap: { [key: string]: string } = {
@@ -115,8 +120,13 @@ export default function OrderForm({
       assignment: "Assignment",
       research: "Research Paper",
       thesis: "Thesis",
-      proofreading: "Edited Document",
       dissertation: "Dissertation",
+      proofreading: "Edited Document",
+      "essay-proofreading": "Essay (Edited)",
+      "assignment-proofreading": "Assignment (Edited)",
+      "thesis-proofreading": "Thesis (Edited)",
+      "research-proofreading": "Research Paper (Edited)",
+      "dissertation-proofreading": "Dissertation (Edited)",
     };
 
     const newOrder: Order = {

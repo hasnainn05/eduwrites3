@@ -200,10 +200,10 @@ export default function About() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl border-3 border-border p-6 flex gap-4 items-start hover:shadow-md transition-all shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-4 flex gap-3 items-start hover:shadow-md transition-all shadow-sm"
               >
-                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-1 w-8 h-8" />
-                <p className="text-foreground/90 font-bold text-lg">{item}</p>
+                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-0.5 w-6 h-6" />
+                <p className="text-foreground/90 font-bold text-sm">{item}</p>
               </div>
             ))}
           </div>

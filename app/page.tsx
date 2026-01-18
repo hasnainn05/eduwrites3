@@ -611,21 +611,21 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               SUCCESS STORIES
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Our Impact
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               See how we've helped students achieve academic excellence
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {[
               {
                 title: "Enterprise Leadership Development",

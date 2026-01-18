@@ -992,20 +992,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 style={{ animationDelay: `${(index % 3) * 0.1}s` }}
               >
-                <div className="flex-shrink-0 text-5xl mb-4">{item.icon}</div>
+                <div className="flex-shrink-0 text-3xl mb-3">{item.icon}</div>
 
-                <h3 className="font-bold text-foreground mb-3 text-lg">
+                <h3 className="font-bold text-foreground mb-2 text-sm">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-foreground/70 leading-relaxed">
+                <p className="text-xs text-foreground/70 leading-relaxed">
                   {item.description}
                 </p>
               </div>

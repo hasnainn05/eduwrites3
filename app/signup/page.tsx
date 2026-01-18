@@ -120,7 +120,7 @@ export default function Signup() {
       <div className="w-full max-w-4xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left Side - Benefits */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block max-w-sm">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins leading-tight">
               Join the Academic Success Community
             </h2>

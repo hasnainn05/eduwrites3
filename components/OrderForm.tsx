@@ -381,12 +381,12 @@ export default function OrderForm({
       </div>
 
       {/* Assignment Details Section */}
-      <div className="border-t-4 border-border pt-8">
-        <h2 className="text-3xl font-bold text-foreground mb-8 font-poppins">
+      <div className="border-t-2 border-border pt-5">
+        <h2 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
           Assignment Details
         </h2>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Subject */}
           <div>
             <label className="block text-base font-bold text-foreground/95 mb-2">

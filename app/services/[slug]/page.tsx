@@ -1005,17 +1005,17 @@ export default function ServiceDetail() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {service.pricingPackages.map((plan) => (
               <div
                 key={plan.id}
-                className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
+                className={`relative rounded-lg transition-all duration-300 overflow-hidden border ${
                   plan.highlighted
                     ? "bg-primary text-white border-primary scale-105 shadow-xl"
                     : "bg-white border-border hover:shadow-lg hover:border-accent/30"
                 }`}
               >
-                <div className="relative z-10 p-8 h-full flex flex-col">
+                <div className="relative z-10 p-5 h-full flex flex-col">
                   {plan.highlighted && (
                     <div className="mb-4">
                       <span className="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold inline-block">

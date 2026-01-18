@@ -368,12 +368,12 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+              <h2 className="text-3xl font-bold text-foreground mb-4 font-poppins">
                 Professional Academic Writing Support for Every Challenge
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-4">

@@ -864,10 +864,7 @@ export default function ServiceDetail() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() =>
-                    setSelectedPlan({
-                      name: service.pricingPackages[0]?.name || "Basic",
-                      packageId: service.pricingPackages[0]?.id || "basic",
-                    })
+                    handleOrderNow(service.pricingPackages[0]?.id || "basic")
                   }
                   className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
                 >

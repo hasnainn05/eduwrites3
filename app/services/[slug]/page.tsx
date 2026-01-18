@@ -1361,13 +1361,13 @@ export default function ServiceDetail() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               WHY CHOOSE US
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Why EduWrites?
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">

@@ -472,17 +472,17 @@ export default function Signup() {
             )}
 
             {step === "verify" && (
-              <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 shadow-lg hover:shadow-xl transition-shadow">
-                <h2 className="text-3xl font-bold text-foreground mb-2 font-poppins">
+              <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 shadow-lg hover:shadow-xl transition-shadow">
+                <h2 className="text-sm font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
                   Verify Your Email
                 </h2>
-                <p className="text-foreground/85 text-base mb-6 font-medium">
+                <p className="text-foreground/85 text-xs mb-4 font-medium">
                   We've sent a verification code to {formData.email}
                 </p>
 
-                <form onSubmit={handleVerify} className="space-y-4">
+                <form onSubmit={handleVerify} className="space-y-3">
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Verification Code
                     </label>
                     <input
@@ -492,23 +492,23 @@ export default function Signup() {
                       placeholder="000000"
                       maxLength={6}
                       required
-                      className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-center text-2xl tracking-widest text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-mono font-bold"
+                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-center text-lg tracking-widest text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-mono font-bold"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isLoading ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Verifying...
+                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span className="text-xs">Verifying...</span>
                       </>
                     ) : (
                       <>
-                        Verify Email <ArrowRight size={18} />
+                        <span>Verify Email</span> <ArrowRight size={14} />
                       </>
                     )}
                   </button>
@@ -516,7 +516,7 @@ export default function Signup() {
                   <button
                     type="button"
                     onClick={() => setStep("form")}
-                    className="w-full border-2 border-white/20 text-foreground py-3 rounded-lg font-semibold hover:bg-white/10 transition-all"
+                    className="w-full border-2 border-white/20 text-foreground py-2 rounded-lg font-semibold text-xs hover:bg-white/10 transition-all"
                   >
                     Back
                   </button>
@@ -525,35 +525,35 @@ export default function Signup() {
             )}
 
             {step === "success" && (
-              <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 text-center shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex justify-center mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                    <CheckCircle size={40} className="text-white" />
+              <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 text-center shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                    <CheckCircle size={28} className="text-white" />
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-bold text-foreground mb-3 font-poppins">
+                <h2 className="text-sm font-bold text-foreground mb-2 font-poppins">
                   Welcome to EduWrites!
                 </h2>
-                <p className="text-foreground/85 text-base mb-8 font-medium">
+                <p className="text-foreground/85 text-xs mb-4 font-medium">
                   Your account has been successfully created. You can now place
                   orders and access all our services.
                 </p>
 
                 <Link
                   href="/login"
-                  className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all transform hover:scale-105 inline-flex items-center justify-center gap-2"
+                  className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all transform hover:scale-105 inline-flex items-center justify-center gap-2"
                 >
-                  Go to Login <ArrowRight size={18} />
+                  Go to Login <ArrowRight size={14} />
                 </Link>
               </div>
             )}
 
             {/* Back to Home */}
-            <div className="text-center">
+            <div className="text-center mt-4">
               <Link
                 href="/"
-                className="text-foreground/60 hover:text-foreground text-sm transition-colors inline-flex items-center gap-2"
+                className="text-foreground/60 hover:text-foreground text-xs transition-colors inline-flex items-center gap-1"
               >
                 ← Back to Home
               </Link>

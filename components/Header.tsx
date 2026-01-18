@@ -74,16 +74,38 @@ export default function Header() {
                 />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
               </button>
-              <div className="absolute left-0 mt-0 w-max bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50 shadow-lg">
-                {services.map((service) => (
-                  <Link
-                    key={service.id}
-                    href={`/services/${service.slug}`}
-                    className="block px-4 py-2 text-[9px] lg:text-[10px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap"
-                  >
-                    {service.title}
-                  </Link>
-                ))}
+              <div className="absolute left-0 mt-0 bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-lg">
+                {/* Writing Services Section */}
+                <div className="px-4 py-3 border-b border-border">
+                  <h3 className="text-[9px] lg:text-[10px] font-bold text-primary mb-2 uppercase tracking-wider">
+                    {serviceGroups.writing.label}
+                  </h3>
+                  {serviceGroups.writing.services.map((service) => (
+                    <Link
+                      key={service.id}
+                      href={`/services/${service.slug}`}
+                      className="block px-2 py-1.5 text-[8px] lg:text-[9px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap"
+                    >
+                      {service.title} <span className="text-foreground/60">({service.description})</span>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Proofreading Services Section */}
+                <div className="px-4 py-3">
+                  <h3 className="text-[9px] lg:text-[10px] font-bold text-primary mb-2 uppercase tracking-wider">
+                    {serviceGroups.proofreading.label}
+                  </h3>
+                  {serviceGroups.proofreading.services.map((service) => (
+                    <Link
+                      key={service.id}
+                      href={`/services/${service.slug}`}
+                      className="block px-2 py-1.5 text-[8px] lg:text-[9px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap"
+                    >
+                      {service.title} <span className="text-foreground/60">({service.description})</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 

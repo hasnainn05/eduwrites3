@@ -420,23 +420,23 @@ export default function LiveChat() {
               {/* Input */}
               <form
                 onSubmit={handleSendMessage}
-                className="p-4 border-t border-white/10"
+                className="p-3 border-t border-white/10"
               >
-                <div className="flex gap-2">
+                <div className="flex gap-1.5">
                   <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Type a message..."
                     disabled={isLoading}
-                    className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 disabled:opacity-50 transition-all text-sm"
+                    className="flex-1 bg-white/10 border border-white/20 rounded px-3 py-1.5 text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 disabled:opacity-50 transition-all text-xs"
                   />
                   <button
                     type="submit"
                     disabled={!inputValue.trim() || isLoading}
-                    className="gradient-primary text-white p-2 rounded-lg hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="gradient-primary text-white p-1.5 rounded hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
-                    <Send size={16} />
+                    <Send size={14} />
                   </button>
                 </div>
               </form>

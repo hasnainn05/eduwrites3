@@ -80,6 +80,71 @@ export const GENERAL_PRICING_PLANS: PricingPackage[] = [
   },
 ];
 
+export const PROOFREADING_PRICING_PLANS: PricingPackage[] = [
+  {
+    id: "basic",
+    name: "Basic",
+    words: 2000,
+    price: 50,
+    delivery: "3 days",
+    revisions: "Unlimited revisions",
+    features: [
+      "2000 words",
+      "Basic proofreading",
+      "Unlimited revisions",
+      "3 days delivery",
+      "Email support",
+    ],
+  },
+  {
+    id: "standard",
+    name: "Standard",
+    words: 5000,
+    price: 120,
+    delivery: "5-7 days",
+    revisions: "Unlimited revisions",
+    features: [
+      "5000 words",
+      "In-depth editing",
+      "Unlimited revisions",
+      "5-7 days delivery",
+      "Priority support",
+    ],
+    highlighted: true,
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    words: 10000,
+    price: 200,
+    delivery: "12-15 days",
+    revisions: "Unlimited revisions",
+    features: [
+      "10000 words",
+      "Expert editing & formatting",
+      "Unlimited revisions",
+      "12-15 days delivery",
+      "24/7 dedicated support",
+    ],
+  },
+  {
+    id: "custom",
+    name: "Custom",
+    words: 0,
+    price: 0,
+    delivery: "Custom",
+    revisions: "Unlimited revisions",
+    features: [
+      "Any word count",
+      "Custom requirements",
+      "Unlimited revisions",
+      "Rush delivery available",
+      "Personal editor assignment",
+    ],
+    highlighted: false,
+  },
+];
+
 export const SERVICES_PRICING: ServicePricing[] = [
   {
     id: "essay",

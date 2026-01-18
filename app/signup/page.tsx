@@ -225,20 +225,20 @@ export default function Signup() {
                 </p>
 
                 {error && (
-                  <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-3 mb-6">
-                    <p className="text-red-300 text-sm">{error}</p>
+                  <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-2 mb-3">
+                    <p className="text-red-300 text-xs">{error}</p>
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Full Name
                     </label>
                     <div className="relative">
                       <User
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -248,19 +248,19 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="John Doe"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Email Address
                     </label>
                     <div className="relative">
                       <Mail
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -270,19 +270,19 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="you@example.com"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Password */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Password
                     </label>
                     <div className="relative">
                       <Lock
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -292,7 +292,7 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="••••••••"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-10 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-9 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                       <button
                         type="button"
@@ -300,9 +300,9 @@ export default function Signup() {
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-foreground/50 hover:text-foreground transition-colors"
                       >
                         {showPassword ? (
-                          <EyeOff size={18} />
+                          <EyeOff size={14} />
                         ) : (
-                          <Eye size={18} />
+                          <Eye size={14} />
                         )}
                       </button>
                     </div>
@@ -310,12 +310,12 @@ export default function Signup() {
 
                   {/* Confirm Password */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Confirm Password
                     </label>
                     <div className="relative">
                       <Lock
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -325,7 +325,7 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="••••••••"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-10 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-9 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                       <button
                         type="button"
@@ -335,24 +335,24 @@ export default function Signup() {
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-foreground/50 hover:text-foreground transition-colors"
                       >
                         {showConfirmPassword ? (
-                          <EyeOff size={18} />
+                          <EyeOff size={14} />
                         ) : (
-                          <Eye size={18} />
+                          <Eye size={14} />
                         )}
                       </button>
                     </div>
                   </div>
 
                   {/* Terms */}
-                  <label className="flex items-start gap-3 cursor-pointer mt-4">
+                  <label className="flex items-start gap-2 cursor-pointer mt-2">
                     <input
                       type="checkbox"
                       name="agreeToTerms"
                       checked={formData.agreeToTerms}
                       onChange={handleFormChange}
-                      className="w-5 h-5 rounded border-border border-2 bg-white accent-cyan-400 mt-0.5"
+                      className="w-4 h-4 rounded border-border border-2 bg-white accent-cyan-400 mt-0.5"
                     />
-                    <span className="text-foreground/85 text-base font-bold">
+                    <span className="text-foreground/85 text-xs font-bold">
                       I agree to the{" "}
                       <Link
                         href="/terms"
@@ -374,16 +374,16 @@ export default function Signup() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-6 animate-pulse-bounce"
+                    className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4 animate-pulse-bounce"
                   >
                     {isLoading ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Creating account...
+                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span className="text-xs">Creating account...</span>
                       </>
                     ) : (
                       <>
-                        Create Account <ArrowRight size={18} />
+                        <span className="text-sm">Create Account</span> <ArrowRight size={14} />
                       </>
                     )}
                   </button>

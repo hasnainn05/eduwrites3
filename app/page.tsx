@@ -502,7 +502,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-16">
-            {/* Essay Writing Pricing */}
+            {/* Pricing Section */}
             <div>
               <div className="mb-12">
                 <h3 className="text-3xl font-bold text-foreground mb-2 text-center font-poppins">
@@ -512,8 +512,12 @@ export default function Home() {
                   Choose the perfect plan for your academic needs
                 </p>
               </div>
+              <PricingSwitch onSwitch={setPricingType} />
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {GENERAL_PRICING_PLANS.map((plan) => (
+                {(pricingType === "writing"
+                  ? GENERAL_PRICING_PLANS
+                  : PROOFREADING_PRICING_PLANS
+                ).map((plan) => (
                   <div
                     key={plan.id}
                     className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${

@@ -511,7 +511,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {GENERAL_PRICING_PLANS.map((plan) => (
                   <div
-                    key={plan.name}
+                    key={plan.id}
                     className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
                       plan.highlighted
                         ? "bg-primary text-white border-primary scale-105 shadow-xl"

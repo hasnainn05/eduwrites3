@@ -470,19 +470,19 @@ export default function Profile() {
               )}
 
               {activeTab === "settings" && (
-                <div className="flex-1 flex flex-col overflow-y-auto space-y-4">
+                <div className="flex-1 flex flex-col overflow-y-auto space-y-6">
                   {/* Header */}
-                  <div>
+                  <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 border-2 border-indigo-100 rounded-xl p-6">
                     <h2 className="text-2xl font-bold text-foreground">
                       Settings
                     </h2>
-                    <p className="text-foreground/60 mt-1 text-sm">
-                      Manage your account preferences and security
+                    <p className="text-foreground/60 mt-2 text-sm">
+                      Manage your account preferences, security, and notifications
                     </p>
                   </div>
 
                   {/* Security Section */}
-                  <div className="p-4 border-2 border-border rounded-lg bg-white shadow-sm">
+                  <div className="p-6 border-2 border-border rounded-xl bg-white shadow-md hover:shadow-lg transition-all">
                     <div className="flex items-center gap-2 mb-4">
                       <Shield size={16} className="text-cyan-600" />
                       <h3 className="text-sm font-bold text-foreground">

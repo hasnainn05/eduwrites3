@@ -1042,22 +1042,22 @@ export default function ServiceDetail() {
                     </span>
                   </div>
 
-                  <ul className="space-y-2 mb-5 flex-grow">
+                  <ul className="space-y-1.5 mb-5 flex-grow">
                     {plan.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
+                      <li key={index} className="flex items-start gap-2">
                         <CheckCircle
-                          className={`flex-shrink-0 mt-0.5 w-4 h-4 ${
+                          className={`flex-shrink-0 mt-0.5 w-3 h-3 ${
                             plan.highlighted
                               ? "text-accent"
                               : "text-primary"
                           }`}
-                          size={16}
+                          size={12}
                         />
                         <span
                           className={
                             plan.highlighted
-                              ? "text-white/90 text-sm"
-                              : "text-foreground/80 text-sm"
+                              ? "text-white/90 text-xs"
+                              : "text-foreground/80 text-xs"
                           }
                         >
                           {feature}

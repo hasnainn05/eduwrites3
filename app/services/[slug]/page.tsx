@@ -1466,25 +1466,25 @@ export default function ServiceDetail() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all duration-300"
+                className="bg-white rounded-lg border border-border overflow-hidden hover:shadow-md transition-all duration-300"
               >
                 <button
                   onClick={() =>
                     setExpandedFAQ(expandedFAQ === index ? null : index)
                   }
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-primary/5 transition-colors"
+                  className="w-full flex items-center justify-between p-4 text-left hover:bg-primary/5 transition-colors"
                 >
-                  <h3 className="text-lg font-semibold text-foreground pr-4">
+                  <h3 className="text-base font-semibold text-foreground pr-4">
                     {faq.question}
                   </h3>
                   <div className="flex-shrink-0">
                     <div
-                      className={`w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center transition-transform duration-300 ${
+                      className={`w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center transition-transform duration-300 ${
                         expandedFAQ === index ? "rotate-180" : ""
                       }`}
                     >
                       <svg
-                        className="w-4 h-4 text-accent"
+                        className="w-3.5 h-3.5 text-accent"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

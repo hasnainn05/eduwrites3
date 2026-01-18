@@ -99,15 +99,10 @@ export default function OrderForm({
     const serviceTypeMap: { [key: string]: string } = {
       essay: "Essay Writing",
       assignment: "Assignment Writing",
-      research: "Research Paper",
-      thesis: "Thesis & Dissertation",
+      research: "Research Paper Writing",
+      thesis: "Thesis Writing",
       dissertation: "Dissertation Writing",
-      proofreading: "Proofreading & Editing",
-      "essay-proofreading": "Essay Proofreading & Editing",
-      "assignment-proofreading": "Assignment Proofreading & Editing",
-      "thesis-proofreading": "Thesis Proofreading & Editing",
-      "research-proofreading": "Research Paper Proofreading & Editing",
-      "dissertation-proofreading": "Dissertation Proofreading & Editing",
+      proofreading: "Proofreading and Editing of Document",
     };
 
     const paperTypeMap: { [key: string]: string } = {
@@ -117,11 +112,6 @@ export default function OrderForm({
       thesis: "Thesis",
       dissertation: "Dissertation",
       proofreading: "Edited Document",
-      "essay-proofreading": "Essay (Edited)",
-      "assignment-proofreading": "Assignment (Edited)",
-      "thesis-proofreading": "Thesis (Edited)",
-      "research-proofreading": "Research Paper (Edited)",
-      "dissertation-proofreading": "Dissertation (Edited)",
     };
 
     const newOrder: Order = {

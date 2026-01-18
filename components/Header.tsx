@@ -290,7 +290,9 @@ export default function Header() {
                   <div className="pl-3 space-y-1 mt-0.5">
                     {/* Writing Services */}
                     <div>
-                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">Writing</p>
+                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">
+                        Writing
+                      </p>
                       <div className="pl-2 space-y-0.5">
                         {serviceGroups.writing.services.map((service) => (
                           <Link
@@ -306,7 +308,9 @@ export default function Header() {
                     </div>
                     {/* Proofreading Services */}
                     <div className="mt-1 pt-1 border-t border-border">
-                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">Proofreading</p>
+                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">
+                        Proofreading
+                      </p>
                       <div className="pl-2 space-y-0.5">
                         {serviceGroups.proofreading.services.map((service) => (
                           <Link

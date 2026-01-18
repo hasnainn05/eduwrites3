@@ -22,7 +22,10 @@ import { TiltCard } from "../client/components/TiltCard";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
 import { WhatsAppButton } from "@/components/WhatsAppIcon";
-import { GENERAL_PRICING_PLANS, PROOFREADING_PRICING_PLANS } from "@/lib/pricing";
+import {
+  GENERAL_PRICING_PLANS,
+  PROOFREADING_PRICING_PLANS,
+} from "@/lib/pricing";
 import { PricingSwitch } from "@/client/components/PricingSwitch";
 
 export default function Home() {

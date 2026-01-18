@@ -389,7 +389,7 @@ export default function OrderForm({
         <div className="space-y-4">
           {/* Subject */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Subject/Topic *
             </label>
             <input
@@ -399,12 +399,12 @@ export default function OrderForm({
               onChange={handleChange}
               required
               placeholder="e.g., Shakespeare's Impact on Modern Literature"
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Assignment Details & Requirements *
             </label>
             <textarea
@@ -413,8 +413,8 @@ export default function OrderForm({
               onChange={handleChange}
               required
               placeholder="Describe your assignment, requirements, guidelines, and any specific instructions..."
-              rows={6}
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors resize-none font-medium"
+              rows={4}
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
             />
           </div>
 

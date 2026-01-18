@@ -1,7 +1,17 @@
+"use client";
+
 import { Suspense } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { OrderClient } from "./OrderClient";
 
 export default function Order() {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       {/* Animated Background */}
@@ -11,6 +21,15 @@ export default function Order() {
       </div>
 
       <div className="max-w-xl mx-auto">
+        {/* Back Button */}
+        <button
+          onClick={handleBack}
+          className="flex items-center gap-2 text-primary hover:text-accent transition-colors mb-6 font-semibold text-sm group"
+        >
+          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+          Back
+        </button>
+
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="text-xl sm:text-2xl font-bold text-foreground mb-2 font-poppins">

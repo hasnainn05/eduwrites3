@@ -694,9 +694,9 @@ export default function Home() {
               >
                 <div className="relative z-10">
                   {/* Header with Icon */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-accent/15 transition-all">
-                      <project.Icon size={20} className="text-primary" />
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="p-1.5 rounded-lg bg-primary/10 group-hover:bg-accent/15 transition-all">
+                      <project.Icon size={18} className="text-primary" />
                     </div>
                     <div className="px-2 py-0.5 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/30">
                       {project.metric}

@@ -285,17 +285,39 @@ export default function Header() {
                   <summary className="cursor-pointer block text-[9px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
                     Services
                   </summary>
-                  <div className="pl-3 space-y-0.5 mt-0.5">
-                    {services.map((service) => (
-                      <a
-                        key={service.id}
-                        href="/#pricing"
-                        onClick={closeMenu}
-                        className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
-                      >
-                        {service.title}
-                      </a>
-                    ))}
+                  <div className="pl-3 space-y-1 mt-0.5">
+                    {/* Writing Services */}
+                    <div>
+                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">Writing</p>
+                      <div className="pl-2 space-y-0.5">
+                        {serviceGroups.writing.services.map((service) => (
+                          <Link
+                            key={service.id}
+                            href={`/services/${service.slug}`}
+                            onClick={closeMenu}
+                            className="block text-[7px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                          >
+                            {service.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    {/* Proofreading Services */}
+                    <div className="mt-1 pt-1 border-t border-border">
+                      <p className="text-[8px] font-bold text-primary uppercase mb-0.5">Proofreading</p>
+                      <div className="pl-2 space-y-0.5">
+                        {serviceGroups.proofreading.services.map((service) => (
+                          <Link
+                            key={service.id}
+                            href={`/services/${service.slug}`}
+                            onClick={closeMenu}
+                            className="block text-[7px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                          >
+                            {service.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </details>
 

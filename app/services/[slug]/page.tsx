@@ -822,7 +822,16 @@ export default function ServiceDetail() {
 
               {/* Main Headline */}
               <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
-                {service.title}
+                {service.title.split(' ').map((word, idx) => {
+                  const mainWord = service.serviceTitle.split(' ')[0];
+                  return word === mainWord ? (
+                    <span key={idx} className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                      {word}{' '}
+                    </span>
+                  ) : (
+                    <span key={idx}>{word} </span>
+                  );
+                })}
               </h1>
 
               {/* Subheading */}

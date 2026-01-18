@@ -822,12 +822,12 @@ export default function ServiceDetail() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-bold mb-8 leading-tight font-poppins text-foreground text-2xl sm:text-3xl lg:text-4xl">
+              <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
                 {service.title}
               </h1>
 
               {/* Subheading */}
-              <p className="text-sm text-foreground/70 mb-8 leading-relaxed max-w-2xl">
+              <p className="text-xs text-foreground/70 mb-6 leading-relaxed max-w-2xl">
                 Professional, plagiarism-free academic {service.serviceTitle.toLowerCase()} from Ph.D. experts. Delivered on time, every time with guaranteed quality.
               </p>
 

@@ -30,14 +30,7 @@ interface ServiceData {
   aboutContent: string;
   featuresTitle: string;
   features: string[];
-  pricing: {
-    name: string;
-    price: string;
-    features: string[];
-    cta: string;
-    highlighted?: boolean;
-    isCustom?: boolean;
-  }[];
+  pricingPackages: PricingPackage[];
   ctaText: string;
   ctaSubtext: string;
   stats: {

@@ -36,23 +36,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-card border-t border-border text-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:ml-0">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6 py-8 md:ml-0">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-5 mb-5">
           {/* Brand Section */}
           <div className="col-span-1 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-1.5 mb-3">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
                 alt="EduWrites Logo"
-                className="w-[46px] h-[46px] sm:w-[51px] sm:h-[51px] flex-shrink-0"
+                className="w-[32px] h-[32px] sm:w-[36px] sm:h-[36px] flex-shrink-0"
               />
-              <span className="font-bold text-lg text-primary">EduWrites</span>
+              <span className="font-bold text-xs text-primary">EduWrites</span>
             </Link>
-            <p className="text-foreground/70 text-sm mb-4">
+            <p className="text-foreground/70 text-[10px] mb-3">
               Professional academic writing services trusted by 50,000+
               students.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"

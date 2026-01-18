@@ -353,7 +353,7 @@ export default function Contact() {
 
           <Link
             href="/order"
-            className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-10 py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:shadow-glow transition-all transform hover:scale-105"
           >
             Place an Order Now
           </Link>

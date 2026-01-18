@@ -690,33 +690,33 @@ export default function Home() {
             ].map((project, index) => (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 overflow-hidden transition-all duration-500"
+                className="group relative bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 overflow-hidden transition-all duration-500"
               >
                 <div className="relative z-10">
                   {/* Header with Icon */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-accent/15 transition-all">
-                      <project.Icon size={28} className="text-primary" />
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-accent/15 transition-all">
+                      <project.Icon size={20} className="text-primary" />
                     </div>
-                    <div className="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/30">
+                    <div className="px-2 py-0.5 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/30">
                       {project.metric}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-foreground/70 mb-4 font-medium">
+                  <p className="text-xs text-foreground/70 mb-2 font-medium">
                     {project.subtitle}
                   </p>
 
-                  <p className="text-foreground/80 text-sm mb-6 leading-relaxed">
+                  <p className="text-foreground/80 text-xs mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
                   {/* Footer */}
-                  <div className="border-t border-border pt-4 flex items-center justify-between">
+                  <div className="border-t border-border pt-3 flex items-center justify-between">
                     <div>
                       <p className="text-xs text-foreground/60 mb-1">
                         Client Organization

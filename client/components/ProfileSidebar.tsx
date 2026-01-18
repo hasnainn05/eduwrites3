@@ -73,10 +73,10 @@ export function ProfileSidebar({
       </div>
 
       {/* Logout */}
-      <div className="p-2 border-t border-border flex-shrink-0">
+      <div className="p-1.5 border-t border-border flex-shrink-0">
         <button
           onClick={onLogout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all font-medium text-xs md:text-sm text-red-600 hover:bg-red-500/20 hover:border-red-500/30 border border-transparent"
+          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all font-medium text-xs md:text-sm text-red-600 hover:bg-red-500/20 hover:border-red-500/30 border border-transparent"
         >
           <LogOut size={16} className="md:w-4.5 md:h-4.5" />
           Logout

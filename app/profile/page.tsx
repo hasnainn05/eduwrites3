@@ -533,7 +533,7 @@ export default function Profile() {
                   </div>
 
                   {/* Notifications Section */}
-                  <div className="p-4 border-2 border-border rounded-lg bg-white shadow-sm">
+                  <div className="p-6 border-2 border-border rounded-xl bg-white shadow-md hover:shadow-lg transition-all">
                     <div className="flex items-center gap-2 mb-4">
                       <Bell size={16} className="text-indigo-600" />
                       <h3 className="text-sm font-bold text-foreground">

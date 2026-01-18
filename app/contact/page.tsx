@@ -210,8 +210,8 @@ export default function Contact() {
                 hours.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid grid-cols-1 gap-3">
                   <div>
                     <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
                       <User size={14} />

@@ -264,7 +264,7 @@ export default function Header() {
                     key={item.path}
                     href={item.path}
                     onClick={closeMenu}
-                    className="block text-[9px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                    className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                   >
                     {item.label}
                   </Link>
@@ -277,7 +277,7 @@ export default function Header() {
                 <a
                   href="/#pricing"
                   onClick={closeMenu}
-                  className="block text-[9px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                  className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                 >
                   Pricing
                 </a>

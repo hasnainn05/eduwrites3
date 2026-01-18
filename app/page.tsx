@@ -518,7 +518,7 @@ export default function Home() {
                 </p>
               </div>
               <PricingSwitch onSwitch={setPricingType} />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {(pricingType === "writing"
                   ? GENERAL_PRICING_PLANS
                   : PROOFREADING_PRICING_PLANS
@@ -531,30 +531,30 @@ export default function Home() {
                         : "bg-white border-border hover:shadow-lg hover:border-accent/30"
                     }`}
                   >
-                    <div className="relative z-10 p-8 h-full flex flex-col">
+                    <div className="relative z-10 p-5 h-full flex flex-col">
                       {plan.highlighted && (
-                        <div className="mb-4">
-                          <span className="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold inline-block">
+                        <div className="mb-3">
+                          <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold inline-block">
                             ⭐ Most Popular
                           </span>
                         </div>
                       )}
 
                       <h4
-                        className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
+                        className={`text-lg font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
                       >
                         {plan.name}
                       </h4>
 
-                      <div className="mb-8">
+                      <div className="mb-6">
                         <span
-                          className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
+                          className={`text-4xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
                         >
                           {plan.price === 0 ? "Custom" : `$${plan.price}`}
                         </span>
                       </div>
 
-                      <ul className="space-y-3 mb-8 flex-grow">
+                      <ul className="space-y-2 mb-6 flex-grow">
                         {plan.features.map((feature, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <CheckCircle
@@ -580,7 +580,7 @@ export default function Home() {
 
                       <Link
                         href="/order"
-                        className={`w-full py-3 rounded-lg font-bold transition-all text-center ${
+                        className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all text-center ${
                           plan.highlighted
                             ? "bg-accent text-primary hover:bg-accent/90"
                             : "bg-primary text-white hover:bg-primary/90"

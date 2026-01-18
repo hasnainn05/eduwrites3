@@ -537,7 +537,7 @@ export default function Home() {
                         <span
                           className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
                         >
-                          {plan.price}
+                          {plan.price === 0 ? "Custom" : `$${plan.price}`}
                         </span>
                       </div>
 

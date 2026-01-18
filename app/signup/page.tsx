@@ -110,26 +110,26 @@ export default function Signup() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-6">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>
         <div className="blur-gradient absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500 to-transparent"></div>
       </div>
 
-      <div className="w-full max-w-5xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <div className="w-full max-w-4xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left Side - Benefits */}
           <div className="hidden lg:block">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins leading-tight">
               Join the Academic Success Community
             </h2>
-            <p className="text-foreground/90 mb-8 leading-relaxed text-lg font-medium">
+            <p className="text-foreground/90 mb-4 leading-relaxed text-xs font-medium">
               Get access to professional academic writing services that help you
               achieve your educational goals.
             </p>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3 mb-4">
               <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
                 <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
                   <CheckCircle size={24} className="text-cyan-400" /> Quality

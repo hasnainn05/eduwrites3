@@ -644,6 +644,66 @@ const servicesData: Record<string, ServiceData> = {
       },
     ],
   },
+  proofreading: {
+    title: "Expert Proofreading & Editing Services for Students Worldwide",
+    serviceTitle: "Proofreading & Editing",
+    subtitle: "Professional Document Refinement",
+    Icon: Pencil,
+    aboutTitle: "About Our Professional Proofreading and Editing Services",
+    aboutContent:
+      "Our professional proofreading and editing services help polish your academic work to perfection. We provide comprehensive editing services that include grammar correction, punctuation refinement, style improvement, clarity enhancement, and proofreading. Our experienced proofreading editors review your work for consistency, flow, and academic tone while preserving your unique voice and original ideas. Whether you need professional proofreading services, professional editing services, or comprehensive proofreading and editing, our proofreading experts ensure your document meets the highest professional standards. We provide proofreading help and editing support for essays, research papers, theses, dissertations, and any other academic documents to ensure they are polished and ready for submission. Get affordable proofreading and editing services online with quick turnaround times.",
+    pricingPackages: PROOFREADING_PRICING_PLANS,
+    reviews: [
+      {
+        author: "Victoria Scott",
+        avatar: "VS",
+        rating: 5,
+        text: "Excellent proofreading! Every error was caught and corrections enhanced readability. Professional and thorough!",
+        course: "Document Editing",
+        verified: true,
+      },
+      {
+        author: "Henry Adams",
+        avatar: "HA",
+        rating: 5,
+        text: "Outstanding editing service. The feedback report was incredibly detailed and helpful for improving my writing!",
+        course: "Writing Excellence",
+        verified: true,
+      },
+      {
+        author: "Sophie Martin",
+        avatar: "SM",
+        rating: 5,
+        text: "Perfect proofreading! Grammar, style, and formatting all improved. Ready for submission after this service!",
+        course: "Academic Polish",
+        verified: true,
+      },
+      {
+        author: "Benjamin Hall",
+        avatar: "BH",
+        rating: 5,
+        text: "Professional editing with great attention to detail. My document reads so much better now!",
+        course: "Professional Writing",
+        verified: true,
+      },
+      {
+        author: "Grace Williams",
+        avatar: "GW",
+        rating: 5,
+        text: "Meticulous proofreading service. Every aspect of my document was refined. Excellent quality control!",
+        course: "Final Polish",
+        verified: true,
+      },
+      {
+        author: "Alexander Green",
+        avatar: "AG",
+        rating: 5,
+        text: "Comprehensive editing that transformed my document. Fast turnaround with premium quality results!",
+        course: "Document Perfection",
+        verified: true,
+      },
+    ],
+  },
 };
 
 const whyChooseUs = [

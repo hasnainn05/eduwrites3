@@ -1073,7 +1073,7 @@ export default function ServiceDetail() {
                         packageId: plan.id,
                       })
                     }
-                    className={`w-full py-3 rounded-lg font-bold transition-all ${
+                    className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all ${
                       plan.highlighted
                         ? "bg-accent text-primary hover:bg-accent/90"
                         : "bg-primary text-white hover:bg-primary/90"

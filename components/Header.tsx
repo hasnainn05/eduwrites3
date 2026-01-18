@@ -244,7 +244,7 @@ export default function Header() {
             >
               <summary className="cursor-pointer text-foreground hover:text-primary transition-colors list-none flex-shrink-0">
                 <svg
-                  className="w-2.5 h-2.5 sm:w-3 sm:h-3"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -257,27 +257,27 @@ export default function Header() {
                   />
                 </svg>
               </summary>
-              <div className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
+              <div className="absolute top-full right-0 mt-2 bg-white border-2 border-border rounded-lg p-2 space-y-1 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg w-56">
                 {/* Navigation Links */}
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     href={item.path}
                     onClick={closeMenu}
-                    className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                    className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 rounded hover:bg-primary/5"
                   >
                     {item.label}
                   </Link>
                 ))}
 
                 {/* Divider */}
-                <div className="border-t border-border my-0.5"></div>
+                <div className="border-t border-border my-1"></div>
 
                 {/* Mobile Pricing Link */}
                 <a
                   href="/#pricing"
                   onClick={closeMenu}
-                  className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                  className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 rounded hover:bg-primary/5"
                 >
                   Pricing
                 </a>

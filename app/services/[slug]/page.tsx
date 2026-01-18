@@ -1156,18 +1156,18 @@ export default function ServiceDetail() {
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="text-sm font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-foreground/70 mb-2 font-medium">
+                  <p className="text-xs text-foreground/70 mb-1.5 font-medium">
                     {project.subtitle}
                   </p>
 
-                  <p className="text-foreground/80 text-xs mb-4 leading-relaxed">
+                  <p className="text-foreground/80 text-xs mb-3 leading-tight">
                     {project.description}
                   </p>
 
-                  <div className="border-t border-border pt-3 flex items-center justify-between">
+                  <div className="border-t border-border pt-2 flex items-center justify-between">
                     <div>
                       <p className="text-xs text-foreground/60 mb-0.5">
                         Client Organization

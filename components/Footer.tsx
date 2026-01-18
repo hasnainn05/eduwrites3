@@ -134,16 +134,16 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-semibold mb-2 text-xs text-foreground">Contact</h4>
-            <div className="space-y-2 text-foreground/70 text-xs">
-              <div className="flex items-start gap-2">
-                <Mail size={16} className="mt-1 flex-shrink-0 text-primary" />
+            <div className="space-y-1.5 text-foreground/70 text-[10px]">
+              <div className="flex items-start gap-1.5">
+                <Mail size={12} className="mt-0.5 flex-shrink-0 text-primary" />
                 <span>info@eduwrites.com</span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-1.5">
                 <WhatsAppLink
                   phoneNumber="13658291551"
-                  className="flex items-center gap-2 hover:text-[#25D366] transition-colors"
-                  iconSize={16}
+                  className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors"
+                  iconSize={12}
                 />
               </div>
             </div>
@@ -151,27 +151,27 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border pt-8 mt-8">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <p className="text-foreground/70 text-sm text-center">
+        <div className="border-t border-border pt-4 mt-4">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <p className="text-foreground/70 text-xs text-center">
               &copy; {currentYear} EduWrites. All rights reserved.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-3 justify-center">
               <a
                 href="#"
-                className="text-foreground/70 hover:text-primary text-sm transition-colors"
+                className="text-foreground/70 hover:text-primary text-xs transition-colors"
               >
                 Status
               </a>
               <a
                 href="#"
-                className="text-foreground/70 hover:text-primary text-sm transition-colors"
+                className="text-foreground/70 hover:text-primary text-xs transition-colors"
               >
                 Support
               </a>
               <a
                 href="#"
-                className="text-foreground/70 hover:text-primary text-sm transition-colors"
+                className="text-foreground/70 hover:text-primary text-xs transition-colors"
               >
                 Feedback
               </a>

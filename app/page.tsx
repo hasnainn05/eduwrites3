@@ -261,9 +261,9 @@ export default function Home() {
                 </p>
 
                 {/* Trust Indicators - Compact Row */}
-                <div className="flex gap-2 mb-12">
+                <div className="flex gap-2 mb-8">
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">
+                    <div className="text-xl font-bold text-primary mb-1">
                       98%
                     </div>
                     <p className="text-xs text-foreground/70 whitespace-nowrap">
@@ -271,7 +271,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">
+                    <div className="text-xl font-bold text-primary mb-1">
                       24/7
                     </div>
                     <p className="text-xs text-foreground/70 whitespace-nowrap">
@@ -279,7 +279,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">
+                    <div className="text-xl font-bold text-primary mb-1">
                       50+
                     </div>
                     <p className="text-xs text-foreground/70 whitespace-nowrap">

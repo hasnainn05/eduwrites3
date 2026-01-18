@@ -221,29 +221,34 @@ export default function Profile() {
               className={`w-full ${activeTab === "chat" ? "h-full" : "md:px-8 md:py-6 px-4 py-4"} flex flex-col`}
             >
               {activeTab === "overview" && (
-                <div className="flex-1 flex flex-col overflow-y-auto space-y-4">
-                  {/* Profile Hero Section */}
-                  <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between p-4 border-2 border-border rounded-lg bg-white shadow-sm">
-                    <div className="flex gap-4 items-start sm:items-center flex-1">
-                      <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-lg flex items-center justify-center text-white text-lg font-bold flex-shrink-0">
-                        {user.avatar}
+                <div className="flex-1 flex flex-col overflow-y-auto space-y-6">
+                  {/* Profile Header Section */}
+                  <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 border-2 border-indigo-100 rounded-xl p-6">
+                    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                      <div className="flex gap-4 items-start sm:items-center flex-1">
+                        <div className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0 shadow-md">
+                          {user.avatar}
+                        </div>
+                        <div className="flex-1">
+                          <h2 className="text-2xl font-bold text-foreground">
+                            {user.fullName}
+                          </h2>
+                          <p className="text-xs text-foreground/60 mt-2">
+                            {user.email}
+                          </p>
+                          <p className="text-xs text-foreground/50 mt-1">
+                            Member since {user.joinDate}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-lg font-bold text-foreground">
-                          {user.fullName}
-                        </h2>
-                        <p className="text-xs text-foreground/60 mt-1">
-                          {user.email}
-                        </p>
-                      </div>
+                      <button
+                        onClick={() => setIsEditing(!isEditing)}
+                        className="gradient-primary text-white px-5 py-2.5 rounded-lg font-semibold text-xs hover:shadow-glow transition-all flex items-center gap-2 whitespace-nowrap shadow-md"
+                      >
+                        <Edit size={16} />
+                        Edit Profile
+                      </button>
                     </div>
-                    <button
-                      onClick={() => setIsEditing(!isEditing)}
-                      className="gradient-primary text-white px-4 py-1.5 rounded-lg font-semibold text-xs hover:shadow-glow transition-all flex items-center gap-2 whitespace-nowrap"
-                    >
-                      <Edit size={14} />
-                      Edit
-                    </button>
                   </div>
 
                   {/* Stats Grid */}

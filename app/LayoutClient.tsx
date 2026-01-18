@@ -15,11 +15,11 @@ export default function LayoutClient({
   const isAdminRoute = pathname.startsWith("/admin");
 
   return (
-    <div className="light">
+    <div className="light" suppressHydrationWarning>
       <Canvas3DWrapper />
       <div className="flex flex-col min-h-screen">
         {!isAdminRoute && <Header />}
-        <main className="flex-grow mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+        <main className="flex-grow mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10">
           {children}
         </main>
         {!isAdminRoute && <Footer />}

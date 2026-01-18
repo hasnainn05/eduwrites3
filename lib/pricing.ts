@@ -169,7 +169,7 @@ export const SERVICES_PRICING: ServicePricing[] = [
   {
     id: "proofreading",
     name: "Proofreading & Editing",
-    packages: GENERAL_PRICING_PLANS,
+    packages: PROOFREADING_PRICING_PLANS,
   },
   {
     id: "dissertation",

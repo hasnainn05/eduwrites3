@@ -195,7 +195,7 @@ export default function Contact() {
               </p>
               <Link
                 href="/"
-                className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-glow transition-all"
+                className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all"
               >
                 Back to Home
               </Link>

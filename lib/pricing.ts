@@ -176,6 +176,32 @@ export const SERVICES_PRICING: ServicePricing[] = [
     name: "Proofreading and Editing of Document",
     packages: PROOFREADING_PRICING_PLANS,
   },
+  // Proofreading variants (not shown in dropdown, but kept for service detail pages)
+  {
+    id: "essay-proofreading",
+    name: "Essay Proofreading and Editing of Document",
+    packages: PROOFREADING_PRICING_PLANS,
+  },
+  {
+    id: "assignment-proofreading",
+    name: "Assignment Proofreading and Editing of Document",
+    packages: PROOFREADING_PRICING_PLANS,
+  },
+  {
+    id: "thesis-proofreading",
+    name: "Thesis Proofreading and Editing of Document",
+    packages: PROOFREADING_PRICING_PLANS,
+  },
+  {
+    id: "research-proofreading",
+    name: "Research Paper Proofreading and Editing of Document",
+    packages: PROOFREADING_PRICING_PLANS,
+  },
+  {
+    id: "dissertation-proofreading",
+    name: "Dissertation Proofreading and Editing of Document",
+    packages: PROOFREADING_PRICING_PLANS,
+  },
 ];
 
 export function getServicePricing(

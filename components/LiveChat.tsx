@@ -293,14 +293,14 @@ export default function LiveChat() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-80 max-w-[calc(100vw-3rem)] h-[480px] max-h-[calc(100vh-3rem)] glass rounded-lg shadow-lg flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5">
           {/* Header */}
-          <div className="gradient-primary p-4 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <MessageCircle size={20} className="text-white" />
+          <div className="gradient-primary p-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                <MessageCircle size={16} className="text-white" />
               </div>
               <div className="text-white">
-                <h3 className="font-bold text-sm">EduWrites Support</h3>
-                <p className="text-xs opacity-90">Always here to help</p>
+                <h3 className="font-bold text-xs">EduWrites Support</h3>
+                <p className="text-[10px] opacity-90">Always here to help</p>
               </div>
             </div>
             <div className="flex gap-2">

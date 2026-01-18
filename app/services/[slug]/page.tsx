@@ -741,15 +741,16 @@ const whyChooseUs = [
 
 export default function ServiceDetail() {
   const params = useParams();
+  const router = useRouter();
   const slug = params.slug as string;
   const service = slug ? servicesData[slug] : null;
 
-  const [selectedPlan, setSelectedPlan] = useState<{
-    name: string;
-    packageId: string;
-  } | null>(null);
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+
+  const handleOrderNow = (packageId: string) => {
+    router.push(`/order?service=${slug}&package=${packageId}`);
+  };
 
   const faqs = [
     {

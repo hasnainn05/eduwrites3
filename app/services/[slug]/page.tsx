@@ -18,6 +18,8 @@ import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
 import OrderForm from "@/components/OrderForm";
+import { getServicePricing, GENERAL_PRICING_PLANS, PROOFREADING_PRICING_PLANS } from "@/lib/pricing";
+import type { PricingPackage } from "@/lib/pricing";
 
 interface ServiceData {
   title: string;

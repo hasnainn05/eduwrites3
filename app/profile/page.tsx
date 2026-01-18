@@ -549,11 +549,16 @@ export default function Profile() {
 
                   {/* Notifications Section */}
                   <div className="p-6 border-2 border-border rounded-xl bg-white shadow-md hover:shadow-lg transition-all">
-                    <div className="flex items-center gap-2 mb-4">
-                      <Bell size={16} className="text-indigo-600" />
-                      <h3 className="text-sm font-bold text-foreground">
-                        Notifications
-                      </h3>
+                    <div className="flex items-center gap-3 mb-6 pb-4 border-b-2 border-border">
+                      <div className="p-2.5 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-lg">
+                        <Bell size={18} className="text-indigo-600" />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-foreground">
+                          Notifications
+                        </h3>
+                        <p className="text-[10px] text-foreground/60 mt-0.5">Manage your preferences</p>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="flex items-center gap-3 p-3 border-2 border-border rounded hover:bg-gray-50 cursor-pointer transition-all">

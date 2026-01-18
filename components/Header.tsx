@@ -57,7 +57,7 @@ export default function Header() {
               <Link
                 key={item.path}
                 href={item.path}
-                className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative group whitespace-nowrap"
+                className="text-xs lg:text-sm font-medium text-foreground hover:text-primary transition-colors relative group whitespace-nowrap"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
@@ -66,10 +66,10 @@ export default function Header() {
 
             {/* Services Dropdown */}
             <div className="relative group">
-              <button className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative whitespace-nowrap flex items-center gap-1 py-2">
+              <button className="text-xs lg:text-sm font-medium text-foreground hover:text-primary transition-colors relative whitespace-nowrap flex items-center gap-1 py-2">
                 Services
                 <ChevronDown
-                  size={12}
+                  size={14}
                   className="transform group-hover:rotate-180 transition-transform"
                 />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>

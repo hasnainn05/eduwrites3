@@ -802,13 +802,13 @@ export default function Home() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                  className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="text-5xl mb-4">{item.icon}</div>
-                  <h4 className="font-bold text-foreground text-lg mb-3">
+                  <div className="text-3xl mb-3">{item.icon}</div>
+                  <h4 className="font-bold text-foreground text-sm mb-2">
                     {item.level}
                   </h4>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
+                  <p className="text-xs text-foreground/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

@@ -219,22 +219,22 @@ export default function Header() {
           </div>
 
           {/* Mobile: Menu Button + Login (visible on small screens) */}
-          <div className="md:hidden flex items-center gap-1">
+          <div className="md:hidden flex items-center gap-0.5">
             {/* Mobile WhatsApp Button */}
             <WhatsAppButton
               phoneNumber="13658291551"
-              className="p-1 bg-[#25D366] text-white rounded-md hover:bg-[#20BA5B] transition-all flex-shrink-0"
+              className="p-0.5 bg-[#25D366] text-white rounded-md hover:bg-[#20BA5B] transition-all flex-shrink-0"
               showIcon={true}
-              iconSize={14}
+              iconSize={12}
             />
 
             {/* Mobile Login Button */}
             <Link
               href="/login"
-              className="px-1.5 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[8px] font-medium flex items-center gap-0.5 flex-shrink-0"
+              className="px-1 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[7px] font-medium flex items-center gap-0.5 flex-shrink-0"
             >
               <span>Login</span>
-              <User size={10} />
+              <User size={8} />
             </Link>
 
             <details
@@ -244,7 +244,7 @@ export default function Header() {
             >
               <summary className="cursor-pointer text-foreground hover:text-primary transition-colors list-none flex-shrink-0">
                 <svg
-                  className="w-3 h-3 sm:w-3.5 sm:h-3.5"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -257,7 +257,7 @@ export default function Header() {
                   />
                 </svg>
               </summary>
-              <div className="absolute top-full right-0 mt-1.5 bg-white border border-border rounded-lg p-1.5 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
+              <div className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
                 {/* Navigation Links */}
                 {navItems.map((item) => (
                   <Link

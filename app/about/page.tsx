@@ -138,17 +138,17 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border-2 border-border p-5 hover:shadow-lg transition-all transform hover:scale-105 hover:-translate-y-1 shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-lg transition-all transform hover:scale-105 hover:-translate-y-1 shadow-sm"
               >
-                <div className="text-cyan-400 mb-3 text-3xl">{value.icon}</div>
-                <h3 className="text-lg font-bold text-foreground mb-2">
+                <div className="text-cyan-400 mb-2 text-2xl">{value.icon}</div>
+                <h3 className="text-sm font-bold text-foreground mb-1">
                   {value.title}
                 </h3>
-                <p className="text-foreground/85 text-sm leading-relaxed font-medium">
+                <p className="text-foreground/85 text-xs leading-relaxed font-medium">
                   {value.description}
                 </p>
               </div>
@@ -158,18 +158,18 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border-2 border-border p-4 text-center shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-lg border-2 border-border p-3 text-center shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-2 font-poppins leading-tight">
+                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-1 font-poppins leading-tight">
                   {stat.number}
                 </div>
-                <p className="text-xs sm:text-sm text-foreground/90 font-bold">
+                <p className="text-xs text-foreground/90 font-bold">
                   {stat.label}
                 </p>
               </div>
@@ -179,15 +179,15 @@ export default function About() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 font-poppins">
               Why Choose EduWrites?
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               "Expert writers with advanced degrees",
               "100% original, plagiarism-free content",
@@ -200,10 +200,10 @@ export default function About() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg border-2 border-border p-4 flex gap-3 items-start hover:shadow-md transition-all shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-3 flex gap-2 items-start hover:shadow-md transition-all shadow-sm"
               >
-                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-0.5 w-6 h-6" />
-                <p className="text-foreground/90 font-bold text-sm">{item}</p>
+                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-0.5 w-4 h-4" />
+                <p className="text-foreground/90 font-bold text-xs">{item}</p>
               </div>
             ))}
           </div>
@@ -211,31 +211,31 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-poppins">
               Meet Our Team
             </h2>
-            <p className="text-lg text-foreground/70">
+            <p className="text-xs text-foreground/70">
               Dedicated professionals committed to your success
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {team.map((member, index) => (
               <TiltCard key={index} className="h-full">
-                <div className="bg-white rounded-lg border-2 border-border p-5 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-sm">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-3 flex items-center justify-center text-white text-lg font-bold">
+                <div className="bg-white rounded-lg border-2 border-border p-4 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-sm">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-2 flex items-center justify-center text-white text-sm font-bold">
                     {member.name.charAt(0)}
                   </div>
-                  <h3 className="text-base font-bold text-foreground mb-2">
+                  <h3 className="text-xs font-bold text-foreground mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-cyan-400 font-bold mb-3">
+                  <p className="text-xs text-cyan-400 font-bold mb-2">
                     {member.role}
                   </p>
-                  <p className="text-xs text-foreground/85 leading-relaxed font-medium">
+                  <p className="text-[10px] text-foreground/85 leading-relaxed font-medium">
                     {member.bio}
                   </p>
                 </div>

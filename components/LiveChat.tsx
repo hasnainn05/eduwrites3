@@ -342,14 +342,14 @@ export default function LiveChat() {
                       } animate-in fade-in slide-in-from-bottom-3`}
                     >
                       <div
-                        className={`max-w-[70%] rounded-2xl px-4 py-2 ${
+                        className={`max-w-[70%] rounded-lg px-3 py-1.5 ${
                           message.sender === "user"
                             ? "gradient-primary text-white rounded-br-none"
                             : "glass text-foreground rounded-bl-none"
                         }`}
                       >
-                        <p className="text-sm">{message.text}</p>
-                        <span className="text-xs opacity-70 mt-1 block">
+                        <p className="text-xs">{message.text}</p>
+                        <span className="text-[10px] opacity-70 mt-0.5 block">
                           {message.timestamp.toLocaleTimeString([], {
                             hour: "2-digit",
                             minute: "2-digit",

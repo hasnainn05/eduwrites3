@@ -244,7 +244,7 @@ export default function Header() {
             >
               <summary className="cursor-pointer text-foreground hover:text-primary transition-colors list-none flex-shrink-0">
                 <svg
-                  className="w-5 h-5"
+                  className="w-2.5 h-2.5 sm:w-3 sm:h-3"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -257,49 +257,49 @@ export default function Header() {
                   />
                 </svg>
               </summary>
-              <div className="absolute top-full right-0 mt-2 bg-white border-2 border-border rounded-lg p-2 space-y-1 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg w-56">
+              <div className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
                 {/* Navigation Links */}
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     href={item.path}
                     onClick={closeMenu}
-                    className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 rounded hover:bg-primary/5"
+                    className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                   >
                     {item.label}
                   </Link>
                 ))}
 
                 {/* Divider */}
-                <div className="border-t border-border my-1"></div>
+                <div className="border-t border-border my-0.5"></div>
 
                 {/* Mobile Pricing Link */}
                 <a
                   href="/#pricing"
                   onClick={closeMenu}
-                  className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 rounded hover:bg-primary/5"
+                  className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                 >
                   Pricing
                 </a>
 
                 {/* Mobile Services Dropdown */}
                 <details className="group">
-                  <summary className="cursor-pointer block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 list-none rounded hover:bg-primary/5">
+                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
                     Services
                   </summary>
-                  <div className="pl-4 space-y-1 mt-1">
+                  <div className="pl-2 space-y-0.5 mt-0.5">
                     {/* Writing Services */}
                     <div>
-                      <p className="text-xs font-bold text-primary uppercase mb-1">
+                      <p className="text-[7px] font-bold text-primary uppercase mb-0.5">
                         Writing
                       </p>
-                      <div className="pl-4 space-y-1">
+                      <div className="pl-2 space-y-0.5">
                         {serviceGroups.writing.services.map((service) => (
                           <Link
                             key={service.id}
                             href={`/services/${service.slug}`}
                             onClick={closeMenu}
-                            className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-1 px-2 rounded hover:bg-primary/5"
+                            className="block text-[6px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                           >
                             {service.description}
                           </Link>
@@ -307,17 +307,17 @@ export default function Header() {
                       </div>
                     </div>
                     {/* Proofreading Services */}
-                    <div className="mt-2 pt-2 border-t border-border">
-                      <p className="text-xs font-bold text-primary uppercase mb-1">
+                    <div className="mt-0.5 pt-0.5 border-t border-border">
+                      <p className="text-[7px] font-bold text-primary uppercase mb-0.5">
                         Proofreading
                       </p>
-                      <div className="pl-4 space-y-1">
+                      <div className="pl-2 space-y-0.5">
                         {serviceGroups.proofreading.services.map((service) => (
                           <Link
                             key={service.id}
                             href={`/services/${service.slug}`}
                             onClick={closeMenu}
-                            className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-1 px-2 rounded hover:bg-primary/5"
+                            className="block text-[6px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                           >
                             {service.description}
                           </Link>
@@ -329,16 +329,16 @@ export default function Header() {
 
                 {/* Mobile Fields of Study Dropdown */}
                 <details className="group">
-                  <summary className="cursor-pointer block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 list-none rounded hover:bg-primary/5">
+                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
                     Fields of Study
                   </summary>
-                  <div className="pl-4 space-y-1 mt-1">
+                  <div className="pl-2 space-y-0.5 mt-0.5">
                     {fieldsOfStudy.map((field, idx) => (
                       <div
                         key={idx}
-                        className="block w-full text-left text-xs font-medium text-foreground py-1 px-2 rounded hover:bg-primary/5"
+                        className="block w-full text-left text-[7px] font-medium text-foreground py-0.5 px-1"
                       >
-                        <span className="mr-2">{field.icon}</span>
+                        <span className="mr-1">{field.icon}</span>
                         {field.category}
                       </div>
                     ))}
@@ -347,16 +347,16 @@ export default function Header() {
 
                 {/* Mobile Languages Dropdown */}
                 <details className="group">
-                  <summary className="cursor-pointer block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 list-none rounded hover:bg-primary/5">
+                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
                     Languages
                   </summary>
-                  <div className="pl-4 space-y-1 mt-1">
+                  <div className="pl-2 space-y-0.5 mt-0.5">
                     {languages.map((language, idx) => (
                       <div
                         key={idx}
-                        className="block w-full text-left text-xs font-medium text-foreground py-1 px-2 rounded hover:bg-primary/5"
+                        className="block w-full text-left text-[7px] font-medium text-foreground py-0.5 px-1"
                       >
-                        <span className="mr-2">{language.flag}</span>
+                        <span className="mr-1">{language.flag}</span>
                         {language.lang}
                       </div>
                     ))}
@@ -369,23 +369,23 @@ export default function Header() {
                     key={item.path}
                     href={item.path}
                     onClick={closeMenu}
-                    className="block text-xs font-medium text-foreground hover:text-primary transition-colors py-2 px-2 rounded hover:bg-primary/5"
+                    className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
                   >
                     {item.label}
                   </Link>
                 ))}
 
                 {/* Divider */}
-                <div className="border-t border-border my-1"></div>
+                <div className="border-t border-border my-0.5"></div>
 
                 {/* Profile Icon for Mobile */}
                 <Link
                   href="/profile"
                   onClick={closeMenu}
-                  className="block w-full text-center px-2 py-2 border-2 border-primary text-primary rounded hover:bg-primary/5 transition-all text-xs font-medium flex items-center justify-center gap-1"
+                  className="block w-full text-center px-1 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[8px] font-medium flex items-center justify-center gap-1"
                   title="User Profile"
                 >
-                  <User size={14} />
+                  <User size={12} />
                   <span>Profile</span>
                 </Link>
               </div>

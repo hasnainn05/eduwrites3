@@ -380,14 +380,14 @@ export default function Profile() {
               )}
 
               {activeTab === "orders" && (
-                <div className="flex-1 flex flex-col overflow-y-auto space-y-4">
+                <div className="flex-1 flex flex-col overflow-y-auto space-y-6">
                   {/* Header */}
-                  <div className="hidden md:block">
+                  <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 border-2 border-indigo-100 rounded-xl p-6">
                     <h2 className="text-2xl font-bold text-foreground">
                       Order History
                     </h2>
-                    <p className="text-foreground/60 mt-1 text-sm">
-                      Manage and track all your orders
+                    <p className="text-foreground/60 mt-2 text-sm">
+                      Track and manage all your academic writing orders
                     </p>
                   </div>
 

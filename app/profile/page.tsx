@@ -282,47 +282,54 @@ export default function Profile() {
                   </div>
 
                   {/* Two Column Layout */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* Recent Activity */}
-                    <div className="lg:col-span-2 p-4 border-2 border-border rounded-lg bg-white shadow-sm">
-                      <h3 className="text-sm font-bold text-foreground mb-4">
+                    <div className="lg:col-span-2 p-6 border-2 border-border rounded-xl bg-white shadow-md hover:shadow-lg transition-all">
+                      <h3 className="text-sm font-bold text-foreground mb-1 uppercase tracking-wider text-foreground/70">
                         Recent Activity
                       </h3>
-                      <div className="space-y-3">
-                        {orders.map((order, index) => (
-                          <div
-                            key={index}
-                            className="flex items-start gap-3 pb-3 border-b border-border last:border-b-0 last:pb-0"
-                          >
-                            <div className="flex-shrink-0 w-8 h-8 rounded bg-gradient-to-br from-indigo-500/30 to-cyan-500/30 flex items-center justify-center">
-                              <FileText size={14} className="text-cyan-600" />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="text-xs font-semibold text-foreground">
-                                {order.service}
-                              </p>
-                              <p className="text-[10px] text-foreground/60 mt-0.5">
-                                {order.date}
-                              </p>
-                              <div className="flex items-center gap-2 mt-1.5">
-                                <span
-                                  className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
-                                    order.status === "Completed"
-                                      ? "bg-green-500/20 text-green-600 border-green-500/30"
-                                      : order.status === "In Progress"
-                                        ? "bg-blue-500/20 text-blue-600 border-blue-500/30"
-                                        : "bg-yellow-500/20 text-yellow-600 border-yellow-500/30"
-                                  }`}
-                                >
-                                  {order.status}
-                                </span>
-                                <span className="text-xs font-semibold text-foreground">
-                                  {order.amount}
-                                </span>
+                      <p className="text-xs text-foreground/50 mb-6">Your latest orders and updates</p>
+                      <div className="space-y-4">
+                        {orders.length > 0 ? (
+                          orders.map((order, index) => (
+                            <div
+                              key={index}
+                              className="flex items-start gap-4 p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-border hover:border-cyan-200 transition-all"
+                            >
+                              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 flex items-center justify-center">
+                                <FileText size={16} className="text-cyan-600" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-xs font-semibold text-foreground">
+                                  {order.service}
+                                </p>
+                                <p className="text-[10px] text-foreground/60 mt-1">
+                                  {order.date}
+                                </p>
+                                <div className="flex items-center gap-2 mt-2">
+                                  <span
+                                    className={`px-2.5 py-1 rounded-full text-[10px] font-semibold border ${
+                                      order.status === "Completed"
+                                        ? "bg-green-500/20 text-green-600 border-green-500/30"
+                                        : order.status === "In Progress"
+                                          ? "bg-blue-500/20 text-blue-600 border-blue-500/30"
+                                          : "bg-yellow-500/20 text-yellow-600 border-yellow-500/30"
+                                    }`}
+                                  >
+                                    {order.status}
+                                  </span>
+                                  <span className="text-xs font-bold text-foreground">
+                                    {order.amount}
+                                  </span>
+                                </div>
                               </div>
                             </div>
+                          ))
+                        ) : (
+                          <div className="text-center py-8">
+                            <p className="text-xs text-foreground/60">No orders yet. Start by creating your first order!</p>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
 

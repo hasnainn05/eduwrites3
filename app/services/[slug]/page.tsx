@@ -1518,33 +1518,6 @@ export default function ServiceDetail() {
         </div>
       </section>
 
-      {/* Order Modal */}
-      {selectedPlan && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="glass rounded-2xl p-8 sm:p-12 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-3xl font-bold text-foreground font-poppins">
-                Complete Your Order: {selectedPlan.name}
-              </h2>
-              <button
-                onClick={() => setSelectedPlan(null)}
-                className="p-2 hover:bg-white/20 rounded-full transition-all"
-              >
-                <X size={24} className="text-foreground" />
-              </button>
-            </div>
-
-            <OrderForm
-              preSelectedService={slug}
-              preSelectedPackage={selectedPlan.packageId}
-              onSuccess={() => {
-                setSelectedPlan(null);
-              }}
-            />
-          </div>
-        </div>
-      )}
-
       {/* Support Modal */}
       <SupportModal
         isOpen={isSupportModalOpen}

@@ -158,7 +158,7 @@ export const SERVICES_PRICING: ServicePricing[] = [
   },
   {
     id: "research",
-    name: "Research Paper",
+    name: "Research Paper Writing",
     packages: GENERAL_PRICING_PLANS,
   },
   {
@@ -173,32 +173,7 @@ export const SERVICES_PRICING: ServicePricing[] = [
   },
   {
     id: "proofreading",
-    name: "Proofreading & Editing",
-    packages: PROOFREADING_PRICING_PLANS,
-  },
-  {
-    id: "essay-proofreading",
-    name: "Essay Proofreading & Editing",
-    packages: PROOFREADING_PRICING_PLANS,
-  },
-  {
-    id: "assignment-proofreading",
-    name: "Assignment Proofreading & Editing",
-    packages: PROOFREADING_PRICING_PLANS,
-  },
-  {
-    id: "thesis-proofreading",
-    name: "Thesis Proofreading & Editing",
-    packages: PROOFREADING_PRICING_PLANS,
-  },
-  {
-    id: "research-proofreading",
-    name: "Research Paper Proofreading & Editing",
-    packages: PROOFREADING_PRICING_PLANS,
-  },
-  {
-    id: "dissertation-proofreading",
-    name: "Dissertation Proofreading & Editing",
+    name: "Proofreading and Editing of Document",
     packages: PROOFREADING_PRICING_PLANS,
   },
 ];

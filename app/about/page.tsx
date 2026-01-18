@@ -69,17 +69,17 @@ export default function About() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold text-foreground mb-6 font-poppins leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-3 font-poppins leading-tight">
               About{" "}
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 EduWrites
               </span>
             </h1>
 
-            <p className="text-2xl text-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+            <p className="text-sm text-foreground/90 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
               Empowering students worldwide with expert academic writing
               services since 2015. We believe every student deserves access to
               high-quality academic support.
@@ -89,15 +89,15 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Mission */}
           <TiltCard className="h-full">
-            <div className="bg-white rounded-2xl border-4 border-border p-12 h-full flex flex-col justify-center shadow-lg hover:shadow-2xl transition-shadow">
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+            <div className="bg-white rounded-lg border-2 border-border p-6 h-full flex flex-col justify-center shadow-lg hover:shadow-xl transition-shadow">
+              <h2 className="text-lg font-bold text-foreground mb-3 font-poppins">
                 Our Mission
               </h2>
-              <p className="text-foreground/90 leading-relaxed text-xl font-medium">
+              <p className="text-foreground/90 leading-relaxed text-xs font-medium">
                 To provide accessible, ethical, and high-quality academic
                 writing support that helps students achieve their educational
                 goals. We empower learners by offering professional assistance
@@ -110,11 +110,11 @@ export default function About() {
 
           {/* Vision */}
           <TiltCard className="h-full">
-            <div className="bg-white rounded-2xl border-4 border-border p-12 h-full flex flex-col justify-center shadow-lg hover:shadow-2xl transition-shadow">
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+            <div className="bg-white rounded-lg border-2 border-border p-6 h-full flex flex-col justify-center shadow-lg hover:shadow-xl transition-shadow">
+              <h2 className="text-lg font-bold text-foreground mb-3 font-poppins">
                 Our Vision
               </h2>
-              <p className="text-foreground/90 leading-relaxed text-xl font-medium">
+              <p className="text-foreground/90 leading-relaxed text-xs font-medium">
                 To be the most trusted and reliable academic writing service
                 globally, recognized for delivering exceptional quality,
                 maintaining ethical standards, and genuinely supporting student
@@ -127,13 +127,13 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 font-poppins">
               Our Core Values
             </h2>
-            <p className="text-lg text-foreground/70">
+            <p className="text-xs text-foreground/70">
               These principles guide everything we do
             </p>
           </div>

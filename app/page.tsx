@@ -899,10 +899,10 @@ export default function Home() {
 
           {/* Language Support */}
           <div>
-            <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
+            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
               Multi-Language Support
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
               {[
                 { lang: "English (US)", flag: "🇺🇸" },
                 { lang: "English (UK)", flag: "🇬🇧" },
@@ -913,10 +913,10 @@ export default function Home() {
               ].map((lang, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-6 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center"
+                  className="bg-white rounded-lg p-4 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center"
                 >
-                  <p className="text-5xl mb-3">{lang.flag}</p>
-                  <p className="font-semibold text-foreground text-sm">
+                  <p className="text-3xl mb-2">{lang.flag}</p>
+                  <p className="font-semibold text-foreground text-xs">
                     {lang.lang}
                   </p>
                 </div>
@@ -925,8 +925,8 @@ export default function Home() {
           </div>
 
           {/* Fields of Study - All Disciplines */}
-          <div className="mt-32">
-            <h3 className="text-3xl font-bold text-foreground mb-8 text-center">
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
               All Fields of Study
             </h3>
             <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto text-base leading-relaxed">

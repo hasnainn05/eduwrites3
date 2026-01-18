@@ -158,21 +158,21 @@ export default function OrderForm({
 
   if (isSubmitted) {
     return (
-      <div className="glass p-12 rounded-2xl text-center">
-        <div className="text-6xl mb-6">✓</div>
-        <h2 className="text-3xl font-bold text-foreground mb-4 font-poppins">
+      <div className="glass p-6 rounded-lg text-center">
+        <div className="text-5xl mb-4">✓</div>
+        <h2 className="text-lg font-bold text-foreground mb-2 font-poppins">
           Order Submitted Successfully!
         </h2>
-        <p className="text-foreground/80 mb-6">
+        <p className="text-xs text-foreground/80 mb-4">
           Thank you for your order! We've received your request and will contact
           you shortly to confirm the details.
         </p>
-        <div className="bg-white/10 rounded-lg p-4 text-left">
-          <p className="text-sm text-foreground/70 mb-2">
+        <div className="bg-white/10 rounded-lg p-3 text-left">
+          <p className="text-xs text-foreground/70 mb-1">
             <span className="font-semibold">Order ID:</span>{" "}
             {Math.random().toString(36).substr(2, 9).toUpperCase()}
           </p>
-          <p className="text-sm text-foreground/70">
+          <p className="text-xs text-foreground/70">
             <span className="font-semibold">Email:</span> {formData.email}
           </p>
         </div>

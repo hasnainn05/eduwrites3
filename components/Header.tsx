@@ -38,14 +38,14 @@ export default function Header() {
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
               alt="EduWrites Logo"
-              className="w-[20px] h-[20px] sm:w-[24px] sm:h-[24px] md:w-[28px] md:h-[28px] lg:w-[32px] lg:h-[32px] flex-shrink-0"
+              className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] md:w-[22px] md:h-[22px] lg:w-[24px] lg:h-[24px] flex-shrink-0"
             />
             <div className="min-w-0">
-              <h1 className="text-[11px] sm:text-sm md:text-base lg:text-lg font-bold font-poppins leading-tight whitespace-nowrap">
+              <h1 className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold font-poppins leading-tight whitespace-nowrap">
                 <span className="text-primary">Edu</span>
                 <span className="text-accent">Writes</span>
               </h1>
-              <p className="text-foreground/60 text-[8px] sm:text-[9px] md:text-[10px] mt-0 font-medium whitespace-nowrap">
+              <p className="text-foreground/60 text-[7px] sm:text-[8px] md:text-[9px] mt-0 font-medium whitespace-nowrap">
                 We Write, You Shine
               </p>
             </div>

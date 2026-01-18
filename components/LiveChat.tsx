@@ -282,10 +282,10 @@ export default function LiveChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-40 w-16 h-16 gradient-primary rounded-full shadow-2xl flex items-center justify-center hover:shadow-glow transition-all transform hover:scale-110 animate-bounce"
+          className="fixed bottom-6 right-6 z-40 w-12 h-12 gradient-primary rounded-full shadow-lg flex items-center justify-center hover:shadow-glow transition-all transform hover:scale-110 animate-bounce"
           title="Open Live Chat"
         >
-          <MessageCircle size={28} className="text-white" />
+          <MessageCircle size={20} className="text-white" />
         </button>
       )}
 

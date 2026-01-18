@@ -874,19 +874,19 @@ export default function Home() {
               ].map((region, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                  className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-5xl">{region.icon}</span>
-                    <h4 className="font-bold text-foreground text-xl">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{region.icon}</span>
+                    <h4 className="font-bold text-foreground text-sm">
                       {region.region}
                     </h4>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {region.universities.map((uni, uIdx) => (
-                      <div key={uIdx} className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full"></span>
-                        <span className="text-sm text-foreground/85">
+                      <div key={uIdx} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                        <span className="text-xs text-foreground/85">
                           {uni}
                         </span>
                       </div>

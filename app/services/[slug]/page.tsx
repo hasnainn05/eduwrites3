@@ -1189,13 +1189,13 @@ export default function ServiceDetail() {
       </section>
 
       {/* Education Levels & Fields Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               EXPERTISE
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Coverage Across All Levels & Disciplines
             </h2>
             <p className="text-lg text-foreground/70 max-w-3xl mx-auto leading-relaxed">

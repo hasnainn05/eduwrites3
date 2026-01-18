@@ -38,8 +38,8 @@ export function OrdersList({
 
   if (orders.length === 0) {
     return (
-      <div className="p-8 sm:p-12 text-center">
-        <p className="text-foreground/60 text-sm sm:text-base">
+      <div className="p-6 sm:p-8 text-center">
+        <p className="text-foreground/60 text-xs sm:text-sm">
           No orders in this status.
         </p>
       </div>
@@ -47,15 +47,15 @@ export function OrdersList({
   }
 
   return (
-    <div className="p-2 sm:p-4 md:p-6">
-      <div className="grid grid-cols-1 gap-3 sm:gap-4">
+    <div className="p-3 sm:p-4 md:p-4">
+      <div className="grid grid-cols-1 gap-3">
         {orders.map((order) => {
           const isExpanded = expandedOrderId === order.id;
 
           return (
             <div
               key={order.id}
-              className="border border-white/10 rounded-lg bg-white/5 hover:bg-white/8 transition-all overflow-hidden"
+              className="border-2 border-border rounded-lg bg-white hover:shadow-md transition-all overflow-hidden"
             >
               {/* Card Header */}
               <div

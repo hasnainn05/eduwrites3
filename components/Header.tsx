@@ -76,13 +76,13 @@ export default function Header() {
               </button>
               <div className="absolute left-0 mt-0 w-max bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 z-50 shadow-lg">
                 {services.map((service) => (
-                  <a
+                  <Link
                     key={service.id}
-                    href="/#pricing"
+                    href={`/services/${service.slug}`}
                     className="block px-4 py-2 text-[9px] lg:text-[10px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap"
                   >
                     {service.title}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

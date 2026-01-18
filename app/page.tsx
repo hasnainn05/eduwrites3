@@ -579,7 +579,7 @@ export default function Home() {
                       </ul>
 
                       <Link
-                        href="/order"
+                        href={`/order?service=${pricingType === "writing" ? "essay" : "proofreading"}&package=${plan.id}`}
                         className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all text-center ${
                           plan.highlighted
                             ? "bg-accent text-primary hover:bg-accent/90"

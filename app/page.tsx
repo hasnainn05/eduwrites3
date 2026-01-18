@@ -22,6 +22,7 @@ import { TiltCard } from "../client/components/TiltCard";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
 import { WhatsAppButton } from "@/components/WhatsAppIcon";
+import { GENERAL_PRICING_PLANS } from "@/lib/pricing";
 
 export default function Home() {
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);

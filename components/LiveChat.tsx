@@ -303,27 +303,27 @@ export default function LiveChat() {
                 <p className="text-[10px] opacity-90">Always here to help</p>
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-1">
               <button
                 onClick={handleClearChat}
-                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-1 hover:bg-white/20 rounded transition-colors"
                 title="Clear chat"
               >
-                <Trash2 size={16} className="text-white" />
+                <Trash2 size={14} className="text-white" />
               </button>
               <button
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-1 hover:bg-white/20 rounded transition-colors"
                 title="Minimize"
               >
-                <Minus size={16} className="text-white" />
+                <Minus size={14} className="text-white" />
               </button>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                className="p-1 hover:bg-white/20 rounded transition-colors"
                 title="Close"
               >
-                <X size={16} className="text-white" />
+                <X size={14} className="text-white" />
               </button>
             </div>
           </div>

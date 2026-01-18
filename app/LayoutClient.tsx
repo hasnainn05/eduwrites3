@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LiveChat from "@/components/LiveChat";
@@ -12,7 +12,12 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isAdminRoute = pathname.startsWith("/admin");
+  const [isAdminRoute, setIsAdminRoute] = useState(false);
+
+  // Use effect to set state after hydration to prevent mismatch
+  useEffect(() => {
+    setIsAdminRoute(pathname.startsWith("/admin"));
+  }, [pathname]);
 
   return (
     <div className={!isAdminRoute ? "light" : ""}>

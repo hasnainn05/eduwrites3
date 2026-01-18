@@ -501,10 +501,10 @@ export default function Home() {
             <div>
               <div className="mb-12">
                 <h3 className="text-3xl font-bold text-foreground mb-2 text-center font-poppins">
-                  Essay Writing
+                  Flexible Pricing Plans
                 </h3>
                 <p className="text-center text-foreground/70">
-                  Professional essays for all academic levels
+                  Choose the perfect plan for your academic needs
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -612,144 +612,14 @@ export default function Home() {
                       </ul>
 
                       <Link
-                        href="/services/essay"
+                        href="/order"
                         className={`w-full py-3 rounded-lg font-bold transition-all text-center ${
                           plan.highlighted
                             ? "bg-accent text-primary hover:bg-accent/90"
                             : "bg-primary text-white hover:bg-primary/90"
                         }`}
                       >
-                        View Details
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Assignment Writing Pricing */}
-            <div>
-              <div className="mb-12">
-                <h3 className="text-3xl font-bold text-foreground mb-2 text-center font-poppins">
-                  Assignment Writing
-                </h3>
-                <p className="text-center text-foreground/70">
-                  Complete assignment solutions for all types
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    name: "Basic",
-                    price: "$100",
-                    features: [
-                      "2000 words",
-                      "Standard complexity",
-                      "Single revision",
-                      "5-7 days delivery",
-                      "Email support",
-                    ],
-                  },
-                  {
-                    name: "Standard",
-                    price: "$250",
-                    features: [
-                      "5000 words",
-                      "Medium complexity",
-                      "2 revisions",
-                      "3-5 days delivery",
-                      "Priority support",
-                    ],
-                    highlighted: true,
-                  },
-                  {
-                    name: "Premium",
-                    price: "$450",
-                    features: [
-                      "10000 words",
-                      "Complex assignments",
-                      "Unlimited revisions",
-                      "2-3 days delivery",
-                      "24/7 dedicated support",
-                    ],
-                  },
-                  {
-                    name: "Custom",
-                    price: "Custom",
-                    features: [
-                      "Any assignment type",
-                      "Custom requirements",
-                      "Rush delivery available",
-                      "Personal writer assignment",
-                      "Flexible payment options",
-                    ],
-                    isCustom: true,
-                  },
-                ].map((plan) => (
-                  <div
-                    key={plan.name}
-                    className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
-                      plan.highlighted
-                        ? "bg-primary text-white border-primary scale-105 shadow-xl"
-                        : "bg-white border-border hover:shadow-lg hover:border-accent/30"
-                    }`}
-                  >
-                    <div className="relative z-10 p-8 h-full flex flex-col">
-                      {plan.highlighted && (
-                        <div className="mb-4">
-                          <span className="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold inline-block">
-                            ⭐ Most Popular
-                          </span>
-                        </div>
-                      )}
-
-                      <h4
-                        className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
-                      >
-                        {plan.name}
-                      </h4>
-
-                      <div className="mb-8">
-                        <span
-                          className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
-                        >
-                          {plan.price}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-3 mb-8 flex-grow">
-                        {plan.features.map((feature, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <CheckCircle
-                              className={`flex-shrink-0 mt-0.5 w-4 h-4 ${
-                                plan.highlighted
-                                  ? "text-accent"
-                                  : "text-primary"
-                              }`}
-                              size={16}
-                            />
-                            <span
-                              className={
-                                plan.highlighted
-                                  ? "text-white/90 text-sm"
-                                  : "text-foreground/80 text-sm"
-                              }
-                            >
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <Link
-                        href="/services/assignment"
-                        className={`w-full py-3 rounded-lg font-bold transition-all text-center ${
-                          plan.highlighted
-                            ? "bg-accent text-primary hover:bg-accent/90"
-                            : "bg-primary text-white hover:bg-primary/90"
-                        }`}
-                      >
-                        View Details
+                        Get Started
                       </Link>
                     </div>
                   </div>

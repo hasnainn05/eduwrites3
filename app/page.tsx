@@ -1103,16 +1103,16 @@ export default function Home() {
       </section>
 
       {/* FAQs Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               FREQUENTLY ASKED QUESTIONS
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Common Questions
             </h2>
-            <p className="text-lg text-foreground/70">
+            <p className="text-sm text-foreground/70">
               Find answers to common questions about our services
             </p>
           </div>

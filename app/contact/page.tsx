@@ -181,15 +181,15 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto">
           {submitted ? (
-            <div className="glass p-6 rounded-lg text-center">
-              <div className="text-5xl mb-4">✓</div>
-              <h2 className="text-lg font-bold text-foreground mb-2 font-poppins">
+            <div className="glass p-4 sm:p-6 rounded-lg text-center">
+              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">✓</div>
+              <h2 className="text-base sm:text-lg font-bold text-foreground mb-2 font-poppins">
                 Message Sent Successfully!
               </h2>
-              <p className="text-xs text-foreground/80 mb-4">
+              <p className="text-xs text-foreground/80 mb-3 sm:mb-4">
                 Thank you for reaching out. We'll get back to you as soon as
                 possible.
               </p>

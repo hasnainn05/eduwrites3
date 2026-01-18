@@ -996,12 +996,12 @@ export default function Home() {
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                className="bg-white rounded-lg p-4 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 style={{ animationDelay: `${(index % 3) * 0.1}s` }}
               >
-                <div className="flex-shrink-0 text-3xl mb-3">{item.icon}</div>
+                <div className="flex-shrink-0 text-2xl mb-2">{item.icon}</div>
 
-                <h3 className="font-bold text-foreground mb-2 text-sm">
+                <h3 className="font-bold text-foreground mb-1.5 text-sm">
                   {item.title}
                 </h3>
 

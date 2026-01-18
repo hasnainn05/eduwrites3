@@ -1501,8 +1501,8 @@ export default function ServiceDetail() {
                 </button>
 
                 {expandedFAQ === index && (
-                  <div className="px-6 pb-6 border-t border-border">
-                    <p className="text-foreground/80 leading-relaxed">
+                  <div className="px-4 pb-4 border-t border-border">
+                    <p className="text-foreground/80 leading-relaxed text-sm">
                       {faq.answer}
                     </p>
                   </div>

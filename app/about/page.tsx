@@ -138,17 +138,17 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl border-4 border-border p-8 hover:shadow-lg transition-all transform hover:scale-105 hover:-translate-y-2 shadow-md"
+                className="bg-white rounded-lg border-2 border-border p-5 hover:shadow-lg transition-all transform hover:scale-105 hover:-translate-y-1 shadow-sm"
               >
-                <div className="text-cyan-400 mb-6 text-5xl">{value.icon}</div>
-                <h3 className="text-3xl font-bold text-foreground mb-4">
+                <div className="text-cyan-400 mb-3 text-3xl">{value.icon}</div>
+                <h3 className="text-lg font-bold text-foreground mb-2">
                   {value.title}
                 </h3>
-                <p className="text-foreground/85 text-lg leading-relaxed font-medium">
+                <p className="text-foreground/85 text-sm leading-relaxed font-medium">
                   {value.description}
                 </p>
               </div>

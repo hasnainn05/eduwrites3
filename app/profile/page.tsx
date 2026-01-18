@@ -392,7 +392,7 @@ export default function Profile() {
                   </div>
 
                   {/* Table */}
-                  <div className="border-2 border-border rounded-lg overflow-hidden bg-white shadow-sm">
+                  <div className="border-2 border-border rounded-xl overflow-hidden bg-white shadow-md hover:shadow-lg transition-all">
                     <div className="overflow-x-auto">
                       <table className="w-full text-xs">
                         <thead>

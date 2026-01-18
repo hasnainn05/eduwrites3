@@ -505,42 +505,42 @@ export default function Profile() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between p-3 border-2 border-border rounded hover:bg-gray-50 transition-all">
+                      <div className="flex items-center justify-between p-4 border-2 border-border rounded-lg bg-gradient-to-r from-gray-50 to-white hover:border-cyan-200 transition-all">
                         <div>
                           <p className="font-semibold text-foreground text-xs">
                             Change Password
                           </p>
-                          <p className="text-[10px] text-foreground/60 mt-0.5">
+                          <p className="text-[10px] text-foreground/60 mt-1">
                             Update your password regularly for security
                           </p>
                         </div>
-                        <button className="text-cyan-600 hover:text-cyan-700 text-xs font-semibold whitespace-nowrap px-3 py-1.5 rounded hover:bg-cyan-600/10 transition-all border border-cyan-600/30">
+                        <button className="text-cyan-600 hover:text-cyan-700 text-xs font-semibold whitespace-nowrap px-4 py-2 rounded-lg hover:bg-cyan-600/10 transition-all border-2 border-cyan-600/30">
                           Change
                         </button>
                       </div>
-                      <div className="flex items-center justify-between p-3 border-2 border-border rounded hover:bg-gray-50 transition-all">
+                      <div className="flex items-center justify-between p-4 border-2 border-border rounded-lg bg-gradient-to-r from-gray-50 to-white hover:border-cyan-200 transition-all">
                         <div>
                           <p className="font-semibold text-foreground text-xs">
                             Two-Factor Authentication
                           </p>
-                          <p className="text-[10px] text-foreground/60 mt-0.5">
+                          <p className="text-[10px] text-foreground/60 mt-1">
                             Add an extra layer of security to your account
                           </p>
                         </div>
-                        <button className="text-cyan-600 hover:text-cyan-700 text-xs font-semibold whitespace-nowrap px-3 py-1.5 rounded hover:bg-cyan-600/10 transition-all border border-cyan-600/30">
+                        <button className="text-cyan-600 hover:text-cyan-700 text-xs font-semibold whitespace-nowrap px-4 py-2 rounded-lg hover:bg-cyan-600/10 transition-all border-2 border-cyan-600/30">
                           Enable
                         </button>
                       </div>
-                      <div className="flex items-center justify-between p-3 border-2 border-border rounded hover:bg-gray-50 transition-all">
+                      <div className="flex items-center justify-between p-4 border-2 border-border rounded-lg bg-gradient-to-r from-gray-50 to-white hover:border-cyan-200 transition-all">
                         <div>
                           <p className="font-semibold text-foreground text-xs">
                             Login History
                           </p>
-                          <p className="text-[10px] text-foreground/60 mt-0.5">
+                          <p className="text-[10px] text-foreground/60 mt-1">
                             View recent account activity
                           </p>
                         </div>
-                        <button className="text-cyan-600 hover:text-cyan-700 text-xs font-semibold whitespace-nowrap px-3 py-1.5 rounded hover:bg-cyan-600/10 transition-all border border-cyan-600/30">
+                        <button className="text-cyan-600 hover:text-cyan-700 text-xs font-semibold whitespace-nowrap px-4 py-2 rounded-lg hover:bg-cyan-600/10 transition-all border-2 border-cyan-600/30">
                           View
                         </button>
                       </div>

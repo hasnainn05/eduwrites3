@@ -245,7 +245,9 @@ export default function Home() {
                 <h1 className="font-bold mb-8 leading-tight font-poppins text-foreground text-2xl sm:text-3xl lg:text-4xl">
                   Achieve Academic{" "}
                   <span className="text-accent">Excellence</span> with
-                  Professional Writing Services
+                  Professional Academic Writing{" "}
+                  <br className="hidden sm:block" />
+                  Services
                 </h1>
 
                 {/* Subheading */}

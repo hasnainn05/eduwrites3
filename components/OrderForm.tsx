@@ -162,7 +162,7 @@ export default function OrderForm({
         academicLevel: "undergraduate",
         subject: "",
         assignmentDetails: "",
-        attachments: null,
+        attachments: null as File | null,
       });
       setFileName("");
       setIsSubmitted(false);

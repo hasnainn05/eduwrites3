@@ -1,26 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export function Canvas3DWrapper() {
   const pathname = usePathname();
-  const [showBackground, setShowBackground] = useState(true);
 
-  // Only update after hydration to prevent mismatch
-  useEffect(() => {
-    setShowBackground(
-      !pathname.includes("/login") && !pathname.includes("/signup")
-    );
-  }, [pathname]);
+  // Show gradient background on all pages except login and signup
+  const showBackground =
+    !pathname.includes("/login") && !pathname.includes("/signup");
 
-  // Always render the div to match server rendering, but hide with CSS if needed
+  if (!showBackground) return null;
+
   return (
-    <div
-      className={`fixed inset-0 -z-10 overflow-hidden pointer-events-none h-screen ${
-        !showBackground ? "hidden" : ""
-      }`}
-    >
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none h-screen">
       {/* Light Background Base */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
 

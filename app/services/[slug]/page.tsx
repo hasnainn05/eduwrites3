@@ -895,9 +895,9 @@ export default function ServiceDetail() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {service.pricing.map((plan) => (
+            {service.pricingPackages.map((plan) => (
               <div
-                key={plan.name}
+                key={plan.id}
                 className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
                   plan.highlighted
                     ? "bg-primary text-white border-primary scale-105 shadow-xl"
@@ -924,7 +924,7 @@ export default function ServiceDetail() {
                     <span
                       className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
                     >
-                      {plan.price}
+                      {plan.price === 0 ? "Custom" : `$${plan.price}`}
                     </span>
                   </div>
 
@@ -954,7 +954,7 @@ export default function ServiceDetail() {
                     onClick={() =>
                       setSelectedPlan({
                         name: plan.name,
-                        packageId: plan.name.toLowerCase(),
+                        packageId: plan.id,
                       })
                     }
                     className={`w-full py-3 rounded-lg font-bold transition-all ${
@@ -963,7 +963,7 @@ export default function ServiceDetail() {
                         : "bg-primary text-white hover:bg-primary/90"
                     }`}
                   >
-                    {plan.cta}
+                    Order Now
                   </button>
                 </div>
               </div>

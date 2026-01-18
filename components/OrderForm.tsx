@@ -39,15 +39,10 @@ export default function OrderForm({
   const serviceTypes = [
     { value: "essay", label: "Essay Writing" },
     { value: "assignment", label: "Assignment Writing" },
-    { value: "research", label: "Research Paper" },
-    { value: "thesis", label: "Thesis & Dissertation" },
+    { value: "research", label: "Research Paper Writing" },
+    { value: "thesis", label: "Thesis Writing" },
     { value: "dissertation", label: "Dissertation Writing" },
-    { value: "proofreading", label: "Proofreading & Editing (General)" },
-    { value: "essay-proofreading", label: "Essay Proofreading & Editing" },
-    { value: "assignment-proofreading", label: "Assignment Proofreading & Editing" },
-    { value: "thesis-proofreading", label: "Thesis Proofreading & Editing" },
-    { value: "research-proofreading", label: "Research Paper Proofreading & Editing" },
-    { value: "dissertation-proofreading", label: "Dissertation Proofreading & Editing" },
+    { value: "proofreading", label: "Proofreading and Editing of Document" },
   ];
 
   const academicLevels = [

@@ -324,16 +324,16 @@ export default function LiveChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-40 w-12 h-12 gradient-primary rounded-full shadow-lg flex items-center justify-center hover:shadow-glow transition-all transform hover:scale-110 animate-bounce"
+          className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 w-14 h-14 sm:w-12 sm:h-12 gradient-primary rounded-full shadow-lg flex items-center justify-center hover:shadow-glow transition-all transform hover:scale-110 animate-bounce"
           title="Open Live Chat"
         >
-          <MessageCircle size={20} className="text-white" />
+          <MessageCircle size={24} className="text-white sm:w-5 sm:h-5" />
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-80 max-w-[calc(100vw-3rem)] h-[480px] max-h-[calc(100vh-3rem)] glass rounded-lg shadow-lg flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5">
+        <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 w-full sm:w-96 max-w-[calc(100vw-2rem)] sm:max-w-none h-[480px] max-h-[calc(100vh-6rem)] sm:max-h-[calc(100vh-3rem)] glass rounded-lg shadow-lg flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5">
           {/* Header */}
           <div className="gradient-primary p-3 flex items-center justify-between">
             <div className="flex items-center gap-2">

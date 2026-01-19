@@ -1029,10 +1029,18 @@ export default function ServiceDetail() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {service.pricingPackages.map((plan) => (
+            {service.pricingPackages.map((plan, index) => (
               <div
                 key={plan.id}
-                className={`relative rounded-lg transition-all duration-300 overflow-hidden border ${
+                className={`relative rounded-lg transition-all duration-300 overflow-hidden border scroll-animate ${
+                  index === 0
+                    ? "scroll-delay-100"
+                    : index === 1
+                      ? "scroll-delay-200"
+                      : index === 2
+                        ? "scroll-delay-300"
+                        : "scroll-delay-400"
+                } ${
                   plan.highlighted
                     ? "bg-primary text-white border-primary scale-105 shadow-xl"
                     : "bg-white border-border hover:shadow-lg hover:border-accent/30"

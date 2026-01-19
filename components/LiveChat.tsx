@@ -10,6 +10,8 @@ import {
   Trash2,
   ThumbsUp,
   ThumbsDown,
+  User,
+  FileText,
 } from "lucide-react";
 import { Mail, MessageSquare } from "lucide-react";
 
@@ -19,6 +21,14 @@ interface Message {
   sender: "user" | "bot";
   timestamp: Date;
   suggestedReplies?: string[];
+}
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  whatsapp: string;
+  subject: string;
+  message: string;
 }
 
 export default function LiveChat() {

@@ -13,14 +13,14 @@ export default function Order() {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-6 sm:py-8 lg:py-12 px-3 sm:px-4 md:px-6">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>
         <div className="blur-gradient absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500 to-transparent"></div>
       </div>
 
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         {/* Back Button */}
         <button
           onClick={handleBack}

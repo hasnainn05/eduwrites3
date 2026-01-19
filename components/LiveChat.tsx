@@ -293,6 +293,29 @@ export default function LiveChat() {
       "mailto:info@eduwrites.com?subject=Inquiry%20from%20EduWrites%20Chat";
   };
 
+  const handleContactFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setContactFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleContactFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setContactSubmitted(true);
+    setTimeout(() => {
+      setContactFormData({
+        name: "",
+        email: "",
+        whatsapp: "",
+        subject: "",
+        message: "",
+      });
+      setContactSubmitted(false);
+      setShowContactForm(false);
+    }, 2000);
+  };
+
   const lastBotMessage = messages.filter((m) => m.sender === "bot").pop();
 
   return (

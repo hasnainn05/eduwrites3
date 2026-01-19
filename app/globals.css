@@ -368,17 +368,17 @@
 
   /* 3D Hover Animation for Cards */
   .hover-pop {
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    perspective: 1000px;
+    transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
     transform-style: preserve-3d;
   }
 
   .hover-pop:hover {
-    transform: translateY(-12px) rotateX(8deg) rotateY(-5deg) scale(1.03);
+    transform: translateY(-16px) rotateX(10deg) rotateY(-6deg) rotateZ(2deg) scale(1.05);
     box-shadow:
-      0 30px 60px rgba(0, 0, 0, 0.25),
-      0 0 40px rgba(168, 85, 247, 0.15),
-      inset -1px -1px 0 rgba(255, 255, 255, 0.2);
+      0 40px 80px rgba(0, 0, 0, 0.3),
+      0 0 50px rgba(168, 85, 247, 0.2),
+      0 0 30px rgba(0, 217, 255, 0.1),
+      inset -2px -2px 0 rgba(255, 255, 255, 0.15);
   }
 
   /* Text Hover Effects - 2D Version */

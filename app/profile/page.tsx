@@ -123,27 +123,6 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* Contact Info */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
-            <div>
-              <p className="text-xs font-semibold text-gray-500 uppercase">
-                Phone
-              </p>
-              <p className="text-sm text-gray-900 mt-1">{user.phone}</p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-gray-500 uppercase">
-                City
-              </p>
-              <p className="text-sm text-gray-900 mt-1">{user.city}</p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-gray-500 uppercase">
-                Country
-              </p>
-              <p className="text-sm text-gray-900 mt-1">{user.country}</p>
-            </div>
-          </div>
         </div>
 
         {/* Stats Grid */}

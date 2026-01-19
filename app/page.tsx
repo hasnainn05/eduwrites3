@@ -246,9 +246,14 @@ export default function Home() {
 
                 {/* Main Headline - 2 Lines */}
                 <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
-                  Achieve Academic
+                  Achieve
+                  <br className="sm:hidden" />
+                  Academic
                   <br className="hidden sm:block" />
-                  <span className="text-accent">Excellence</span> with
+                  <span className="text-accent">Excellence</span>
+                  <br className="sm:hidden" />
+                  with
+                  <br className="sm:hidden" />
                   Professional
                   <br className="hidden sm:block" />
                   Academic Writing Services

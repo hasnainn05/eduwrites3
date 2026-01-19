@@ -27,24 +27,6 @@ import {
   PROOFREADING_PRICING_PLANS,
 } from "@/lib/pricing";
 import { PricingSwitch } from "@/client/components/PricingSwitch";
-import type { Metadata } from "next";
-import { seoMetadata } from "@/lib/seoMetadata";
-
-export const metadata: Metadata = {
-  title: seoMetadata.home.title,
-  description: seoMetadata.home.description,
-  keywords: seoMetadata.home.keywords,
-  alternates: {
-    canonical: "https://eduwrites.com",
-  },
-  openGraph: {
-    title: seoMetadata.home.title,
-    description: seoMetadata.home.description,
-    url: "https://eduwrites.com",
-    type: "website",
-  },
-};
-
 export default function Home() {
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  Edit,
   LogOut,
   FileText,
   DollarSign,
@@ -11,6 +10,7 @@ import {
   ArrowRight,
   Star,
 } from "lucide-react";
+import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 
 export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);

@@ -93,7 +93,6 @@ export default function Signup() {
     }
   };
 
-
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-6">
       {/* Animated Background */}

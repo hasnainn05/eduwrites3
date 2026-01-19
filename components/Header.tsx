@@ -230,7 +230,7 @@ export default function Header() {
             </div>
 
             {/* Auth Buttons and WhatsApp */}
-            <div className="hidden sm:flex gap-1 items-center">
+            <div className="hidden sm:flex gap-0.5 items-center">
               <Link
                 href="/login"
                 className="px-1.5 sm:px-2 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[8px] sm:text-[9px] font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"

@@ -66,28 +66,6 @@ export function AdminMobileNav() {
             );
           })}
         </div>
-
-        <div className="flex items-center gap-0 ml-auto flex-shrink-0">
-          <div className="border-l border-slate-200 h-8"></div>
-          <Link
-            href="/"
-            className="flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-md text-slate-600 hover:text-slate-900 transition-all text-xs font-medium flex-shrink-0 min-w-fit"
-            title="Back to Site"
-          >
-            <Home size={20} />
-            <span className="text-[10px] leading-none">Site</span>
-          </Link>
-          <button
-            onClick={() => {
-              window.location.href = "/login";
-            }}
-            className="flex flex-col items-center justify-center gap-0.5 px-2 py-2 rounded-md text-red-600 hover:text-red-700 transition-all text-xs font-medium flex-shrink-0 min-w-fit"
-            title="Logout"
-          >
-            <LogOut size={20} />
-            <span className="text-[10px] leading-none">Logout</span>
-          </button>
-        </div>
       </div>
     </nav>
   );

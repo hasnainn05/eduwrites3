@@ -34,6 +34,15 @@ interface ContactFormData {
 export default function LiveChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [contactFormData, setContactFormData] = useState<ContactFormData>({
+    name: "",
+    email: "",
+    whatsapp: "",
+    subject: "",
+    message: "",
+  });
+  const [contactSubmitted, setContactSubmitted] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",

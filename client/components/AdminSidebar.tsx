@@ -34,16 +34,6 @@ export function AdminSidebar() {
       icon: ShoppingBag,
     },
     {
-      label: "Services",
-      href: "/admin/services",
-      icon: FileText,
-    },
-    {
-      label: "Reviews",
-      href: "/admin/reviews",
-      icon: Star,
-    },
-    {
       label: "Live Chat",
       href: "/admin/live-chat",
       icon: MessageSquare,
@@ -52,11 +42,6 @@ export function AdminSidebar() {
       label: "Support Messages",
       href: "/admin/quote-requests",
       icon: MessageSquare,
-    },
-    {
-      label: "Settings",
-      href: "/admin/settings",
-      icon: Settings,
     },
   ];
 
@@ -82,12 +67,7 @@ export function AdminSidebar() {
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
               >
-                <Icon
-                  size={18}
-                  className={
-                    active ? "text-blue-600" : "group-hover:text-slate-900"
-                  }
-                />
+                <Icon size={18} className={active ? "text-blue-600" : "group-hover:text-slate-900"} />
                 <span>{item.label}</span>
               </Link>
             );

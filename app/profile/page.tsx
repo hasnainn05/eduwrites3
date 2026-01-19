@@ -212,13 +212,19 @@ export default function Profile() {
               ))
             ) : (
               <div className="rounded-lg sm:rounded-xl border border-gray-200 bg-gray-50 p-6 sm:p-12 text-center">
-                <FileText size={32} className="sm:size-10 text-gray-300 mx-auto mb-3 sm:mb-4" />
-                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">No orders yet</p>
+                <FileText
+                  size={32}
+                  className="sm:size-10 text-gray-300 mx-auto mb-3 sm:mb-4"
+                />
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+                  No orders yet
+                </p>
                 <Link
                   href="/order"
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-indigo-600 text-white rounded-lg sm:rounded-xl hover:bg-indigo-700 transition-all font-semibold text-xs sm:text-sm shadow-md"
                 >
-                  Create Your First Order <ArrowRight size={14} className="sm:size-4" />
+                  Create Your First Order{" "}
+                  <ArrowRight size={14} className="sm:size-4" />
                 </Link>
               </div>
             )}
@@ -228,7 +234,9 @@ export default function Profile() {
           <div className="rounded-lg sm:rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 p-4 sm:p-8 text-white overflow-hidden relative">
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 bg-white/10 rounded-full -mr-16 sm:-mr-20 -mt-16 sm:-mt-20"></div>
             <div className="relative z-10">
-              <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">Ready to start?</h3>
+              <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">
+                Ready to start?
+              </h3>
               <p className="text-white/90 mb-4 sm:mb-6 text-sm sm:text-base">
                 Place a new order and get professional academic writing
                 assistance today.

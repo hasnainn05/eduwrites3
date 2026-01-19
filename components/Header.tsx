@@ -336,7 +336,10 @@ export default function Header() {
             </button>
 
             {menuOpen && (
-              <div ref={mobileMenuRef} className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
+              <div
+                ref={mobileMenuRef}
+                className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg"
+              >
                 {/* Navigation Links */}
                 {navItems.map((item) => (
                   <Link

@@ -115,7 +115,8 @@ export default function LiveChat() {
       ],
     },
     "contact support": {
-      response: "You can reach our support team via WhatsApp, Email, or Contact Form. Which would you prefer?",
+      response:
+        "You can reach our support team via WhatsApp, Email, or Contact Form. Which would you prefer?",
       suggestedReplies: ["Contact Form", "WhatsApp", "Email"],
     },
     "contact form": {
@@ -369,7 +370,8 @@ export default function LiveChat() {
                         Message Sent!
                       </h3>
                       <p className="text-xs text-foreground/70">
-                        Thank you! Our team will get back to you within 24 hours.
+                        Thank you! Our team will get back to you within 24
+                        hours.
                       </p>
                     </div>
                   ) : (
@@ -503,20 +505,21 @@ export default function LiveChat() {
                           </div>
                         </div>
 
-                        {message.sender === "bot" && message.suggestedReplies && (
-                          <div className="flex flex-wrap gap-1.5 mt-1.5 ml-1">
-                            {message.suggestedReplies.map((reply, idx) => (
-                              <button
-                                key={idx}
-                                onClick={() => handleQuickReply(reply)}
-                                disabled={isLoading}
-                                className="text-[10px] bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 px-2 py-0.5 rounded-full transition-colors disabled:opacity-50 border border-cyan-500/30"
-                              >
-                                {reply}
-                              </button>
-                            ))}
-                          </div>
-                        )}
+                        {message.sender === "bot" &&
+                          message.suggestedReplies && (
+                            <div className="flex flex-wrap gap-1.5 mt-1.5 ml-1">
+                              {message.suggestedReplies.map((reply, idx) => (
+                                <button
+                                  key={idx}
+                                  onClick={() => handleQuickReply(reply)}
+                                  disabled={isLoading}
+                                  className="text-[10px] bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 px-2 py-0.5 rounded-full transition-colors disabled:opacity-50 border border-cyan-500/30"
+                                >
+                                  {reply}
+                                </button>
+                              ))}
+                            </div>
+                          )}
                       </div>
                     ))}
 

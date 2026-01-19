@@ -3,6 +3,7 @@
 ## ✅ COMPLETED IMPLEMENTATIONS
 
 ### 1. Global SEO (Site-wide)
+
 - ✅ **robots.txt** - Configured with crawl rules, sitemaps, and bot blocking
 - ✅ **sitemap.xml** - Already exists in public folder
 - ✅ **Meta Tags** - Title, description, keywords, canonical URLs
@@ -14,6 +15,7 @@
 - ✅ **Preload Resources** - Critical resources preloaded for CWV
 
 ### 2. Page-Level SEO (Done)
+
 - ✅ **Home** - Global layout metadata
 - ✅ **About Page** - Metadata added with layout export
 - ✅ **Contact Page** - Metadata added with layout export
@@ -37,9 +39,13 @@ Add this function at the top of the file after imports:
 import type { Metadata } from "next";
 import { seoMetadata, serviceData } from "@/lib/seoMetadata";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const service = serviceData.find(s => s.slug === params.slug);
-  
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const service = serviceData.find((s) => s.slug === params.slug);
+
   if (!service) {
     return {
       title: "Service Not Found | EduWrites",
@@ -127,21 +133,25 @@ export const metadata: Metadata = {
 Ensure each page has proper heading structure:
 
 ### Home Page
+
 - H1: Main value proposition (only 1)
 - H2: Section headers (Services, Pricing, Testimonials, FAQ, etc.)
 - H3: Subsections under H2
 
 ### Service Pages
+
 - H1: "{Service Name} Professional Service" (e.g., "Professional Essay Writing Service")
 - H2: Key selling points from seoMetadata.{service}.h2Variants
 - H3: Features, benefits, pricing tiers
 
 ### About Page
-- H1: Company mission/name  
+
+- H1: Company mission/name
 - H2: Core values section
 - H3: Each value explanation
 
 ### Contact Page
+
 - H1: "Contact EduWrites"
 - H2: Contact methods or sections
 - H3: Details within each section
@@ -151,6 +161,7 @@ Ensure each page has proper heading structure:
 Add internal links to these related pages:
 
 ### Home → Services Pages
+
 ```typescript
 <Link href="/services/essay">Essay Writing Service</Link>
 <Link href="/services/research">Research Paper Writing</Link>
@@ -161,11 +172,13 @@ Add internal links to these related pages:
 ```
 
 ### Service Pages → Order
+
 ```typescript
 <Link href="/order">Place Your Order Now</Link>
 ```
 
 ### All Pages → Key CTAs
+
 ```typescript
 <Link href="/services">View All Services</Link>
 <Link href="/about">About EduWrites</Link>
@@ -253,6 +266,7 @@ Add verification codes to `app/layout.tsx`:
 ```
 
 Get codes from:
+
 - Google Search Console
 - Bing Webmaster Tools
 

@@ -5,7 +5,13 @@ export const metadata: Metadata = {
   title: "My Account | Order History & Profile Management | EduWrites",
   description:
     "Access your EduWrites profile: view order history, track projects, manage account settings, and communicate with support.",
-  keywords: ["profile", "account", "dashboard", "order history", "account management"],
+  keywords: [
+    "profile",
+    "account",
+    "dashboard",
+    "order history",
+    "account management",
+  ],
   alternates: {
     canonical: "https://eduwrites.com/profile",
   },

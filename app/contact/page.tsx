@@ -21,13 +21,19 @@ export const metadata: Metadata = {
   title: "Contact EduWrites | 24/7 Customer Support | Academic Writing Help",
   description:
     "Get in touch with EduWrites. 24/7 customer support via email, WhatsApp, or contact form. Quick response time. Your academic success is our priority.",
-  keywords: ["contact us", "customer support", "help desk", "academic writing support"],
+  keywords: [
+    "contact us",
+    "customer support",
+    "help desk",
+    "academic writing support",
+  ],
   alternates: {
     canonical: "https://eduwrites.com/contact",
   },
   openGraph: {
     title: "Contact EduWrites | 24/7 Support",
-    description: "Get in touch with EduWrites. 24/7 customer support available.",
+    description:
+      "Get in touch with EduWrites. 24/7 customer support available.",
     url: "https://eduwrites.com/contact",
     type: "website",
   },

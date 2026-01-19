@@ -10,7 +10,12 @@ export const metadata: Metadata = {
   title: "About EduWrites | Professional Academic Writing Since 2018",
   description:
     "Learn about EduWrites: 50,000+ satisfied students, 50+ PhD writers, 98% satisfaction rate. Committed to excellence, integrity, and student success since 2018.",
-  keywords: ["about us", "academic writing company", "professional writers", "student success"],
+  keywords: [
+    "about us",
+    "academic writing company",
+    "professional writers",
+    "student success",
+  ],
   alternates: {
     canonical: "https://eduwrites.com/about",
   },

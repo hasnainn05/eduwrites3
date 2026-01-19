@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Sign Up | EduWrites",
-    description: "Create your account for professional academic writing services",
+    description:
+      "Create your account for professional academic writing services",
     type: "website",
     url: "https://eduwrites.com/signup",
   },

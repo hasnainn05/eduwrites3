@@ -84,12 +84,18 @@ export default function RootLayout({
         <link rel="canonical" href="https://eduwrites.com" />
 
         {/* Verification Tags */}
-        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+        <meta
+          name="google-site-verification"
+          content="YOUR_GOOGLE_VERIFICATION_CODE"
+        />
         <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
 
         {/* Additional SEO Meta Tags */}
         <meta name="theme-color" content="#3B82F6" />
-        <meta name="description" content="Professional academic writing services. PhD experts write essays, research papers, theses & dissertations. 100% original, plagiarism-free." />
+        <meta
+          name="description"
+          content="Professional academic writing services. PhD experts write essays, research papers, theses & dissertations. 100% original, plagiarism-free."
+        />
 
         {/* Preload critical resources for Core Web Vitals optimization */}
         <link

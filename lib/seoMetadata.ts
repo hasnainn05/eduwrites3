@@ -3,7 +3,8 @@
 
 export const seoMetadata = {
   home: {
-    title: "Academic Writing Services | EduWrites - Essays, Theses, Dissertations",
+    title:
+      "Academic Writing Services | EduWrites - Essays, Theses, Dissertations",
     description:
       "Professional academic writing services. PhD experts write essays, research papers, theses & dissertations. 100% original, plagiarism-free. Fast delivery, unlimited revisions.",
     keywords: [
@@ -33,13 +34,23 @@ export const seoMetadata = {
     title: "About EduWrites | Professional Academic Writing Since 2018",
     description:
       "Learn about EduWrites: 50,000+ satisfied students, 50+ PhD writers, 98% satisfaction rate. Committed to excellence, integrity, and student success since 2018.",
-    keywords: ["about us", "academic writing company", "professional writers", "student success"],
+    keywords: [
+      "about us",
+      "academic writing company",
+      "professional writers",
+      "student success",
+    ],
   },
   contact: {
     title: "Contact EduWrites | 24/7 Customer Support | Academic Writing Help",
     description:
       "Get in touch with EduWrites. 24/7 customer support via email, WhatsApp, or contact form. Quick response time. Your academic success is our priority.",
-    keywords: ["contact us", "customer support", "help desk", "academic writing support"],
+    keywords: [
+      "contact us",
+      "customer support",
+      "help desk",
+      "academic writing support",
+    ],
   },
   login: {
     title: "Login to Your Account | EduWrites Student Portal",
@@ -162,7 +173,8 @@ export const seoMetadata = {
     ],
   },
   proofreading: {
-    title: "Proofreading & Editing Service | Academic Paper Editing | EduWrites",
+    title:
+      "Proofreading & Editing Service | Academic Paper Editing | EduWrites",
     description:
       "Professional proofreading and editing service for academic papers. Grammar, punctuation, formatting corrections. Fast turnaround, expert editors, affordable rates.",
     keywords: [

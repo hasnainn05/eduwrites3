@@ -72,7 +72,7 @@ export default function Profile() {
   return (
     <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
       <Canvas3DWrapper />
-      
+
       <div className="max-w-7xl mx-auto">
         {/* Header with User Info and Actions */}
         <div className="mb-12">
@@ -82,7 +82,9 @@ export default function Profile() {
                 {user.avatar}
               </div>
               <div>
-                <h1 className="text-4xl font-bold text-gray-900">{user.fullName}</h1>
+                <h1 className="text-4xl font-bold text-gray-900">
+                  {user.fullName}
+                </h1>
                 <div className="flex items-center gap-4 mt-3 text-sm text-gray-600">
                   <span className="flex items-center gap-1">
                     <Mail size={16} />
@@ -115,7 +117,18 @@ export default function Profile() {
                 className={`rounded-2xl border border-gray-200 p-6 hover:border-gray-300 hover:shadow-xl transition-all duration-300 ${colorMap[stat.color] || ""}`}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <Icon size={32} className={stat.color === "indigo" ? "text-indigo-600" : stat.color === "emerald" ? "text-emerald-600" : stat.color === "violet" ? "text-violet-600" : "text-amber-600"} />
+                  <Icon
+                    size={32}
+                    className={
+                      stat.color === "indigo"
+                        ? "text-indigo-600"
+                        : stat.color === "emerald"
+                          ? "text-emerald-600"
+                          : stat.color === "violet"
+                            ? "text-violet-600"
+                            : "text-amber-600"
+                    }
+                  />
                   <Zap size={16} className="text-gray-400" />
                 </div>
                 <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
@@ -134,8 +147,12 @@ export default function Profile() {
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Recent Orders</h2>
-              <p className="text-gray-600 text-sm mt-1">Track your academic projects</p>
+              <h2 className="text-2xl font-bold text-gray-900">
+                Recent Orders
+              </h2>
+              <p className="text-gray-600 text-sm mt-1">
+                Track your academic projects
+              </p>
             </div>
             <Link
               href="/order"
@@ -216,7 +233,8 @@ export default function Profile() {
             <div className="relative z-10">
               <h3 className="text-2xl font-bold mb-3">Ready to start?</h3>
               <p className="text-white/90 mb-6">
-                Place a new order and get professional academic writing assistance today.
+                Place a new order and get professional academic writing
+                assistance today.
               </p>
               <Link
                 href="/order"

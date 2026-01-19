@@ -1010,6 +1010,7 @@ export default function ServiceDetail() {
 
       {/* Pricing Section */}
       <section
+        ref={containerRef}
         id="pricing"
         className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-gradient-to-b from-white/50 to-white/30"
       >

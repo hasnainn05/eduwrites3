@@ -5,17 +5,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   LayoutDashboard,
-  Package,
   MessageSquare,
-  Settings,
-  LogOut,
-  Users,
-  Star,
-  FileText,
   Home,
   ShoppingBag,
-  Menu,
-  X,
 } from "lucide-react";
 
 export function AdminSidebar() {

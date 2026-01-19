@@ -49,7 +49,7 @@ export default function ServiceLayout({
   params,
 }: {
   children: ReactNode;
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
   return (
     <>

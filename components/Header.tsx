@@ -1,15 +1,26 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Mail, User, ChevronDown } from "lucide-react";
+import { Mail, User, ChevronDown, LogOut } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { serviceGroups, fieldsOfStudy, languages } from "@/lib/headerData";
 import { WhatsAppIcon, WhatsAppLink, WhatsAppButton } from "./WhatsAppIcon";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [isAdminMode, setIsAdminMode] = useState(false);
   const detailsRef = useRef<HTMLDetailsElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  const handleSwitchToAdmin = () => {
+    setIsAdminMode(true);
+    setUserMenuOpen(false);
+    router.push("/admin/dashboard");
+  };
 
   const navItems = [{ label: "Home", path: "/" }];
 

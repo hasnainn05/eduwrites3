@@ -28,24 +28,14 @@ export function AdminMobileNav() {
       icon: ShoppingBag,
     },
     {
-      label: "Services",
-      href: "/admin/services",
-      icon: FileText,
-    },
-    {
-      label: "Reviews",
-      href: "/admin/reviews",
-      icon: Star,
-    },
-    {
       label: "Chat",
       href: "/admin/live-chat",
       icon: MessageSquare,
     },
     {
-      label: "Settings",
-      href: "/admin/settings",
-      icon: Settings,
+      label: "Support",
+      href: "/admin/quote-requests",
+      icon: MessageSquare,
     },
   ];
 

@@ -218,7 +218,7 @@ export default function Header() {
                   info@eduwrites.com
                 </a>
               </div>
-              <div className="hidden md:flex items-center gap-1 text-foreground/80 hover:text-[#25D366] transition-colors">
+              <div className="flex items-center gap-1 text-foreground/80 hover:text-[#25D366] transition-colors">
                 <WhatsAppLink
                   phoneNumber="13658291551"
                   className="flex items-center gap-1 whitespace-nowrap font-medium"

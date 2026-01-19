@@ -63,15 +63,15 @@ export default function Header() {
           {/* Left: Logo and Branding */}
           <Link
             href="/"
-            className="flex-shrink-0 hover:opacity-85 transition-opacity duration-200 flex items-center gap-2.5 sm:gap-3 md:gap-3.5"
+            className="flex-shrink-0 hover:opacity-85 transition-opacity duration-200 flex items-center gap-2 sm:gap-2.5 md:gap-3"
           >
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
               alt="EduWrites Logo"
-              className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] lg:w-[28px] lg:h-[28px] flex-shrink-0"
+              className="w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] md:w-[22px] md:h-[22px] flex-shrink-0"
             />
             <div className="min-w-0">
-              <h1 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold font-poppins leading-tight whitespace-nowrap tracking-tight">
+              <h1 className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold font-poppins leading-tight whitespace-nowrap tracking-tight">
                 <span className="text-primary">Edu</span>
                 <span className="text-accent">Writes</span>
               </h1>

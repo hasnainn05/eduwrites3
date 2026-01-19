@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, MessageSquare, Trash2, Search, AlertCircle } from "lucide-react";
+import { Send, MessageSquare, Trash2, Search, AlertCircle, X, Check } from "lucide-react";
 
 export default function AdminLiveChat() {
   const [conversations, setConversations] = useState([
@@ -64,6 +64,7 @@ export default function AdminLiveChat() {
   >(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [replyText, setReplyText] = useState("");
+  const [mobileShowChat, setMobileShowChat] = useState(false);
 
   const filteredConversations = conversations.filter(
     (conv) =>
@@ -96,6 +97,7 @@ export default function AdminLiveChat() {
                 ],
                 lastMessage: replyText,
                 timestamp: new Date().toLocaleString(),
+                unread: false,
               }
             : conv,
         ),
@@ -108,6 +110,7 @@ export default function AdminLiveChat() {
     setConversations(conversations.filter((c) => c.id !== id));
     if (selectedConversation === id) {
       setSelectedConversation(null);
+      setMobileShowChat(false);
     }
   };
 
@@ -122,124 +125,165 @@ export default function AdminLiveChat() {
   const unresolvedCount = conversations.filter((c) => !c.resolved).length;
 
   return (
-    <div className="flex-1 flex overflow-hidden flex-col lg:flex-row">
-      {/* Conversations List */}
-      <div className="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col overflow-hidden bg-gradient-to-b from-slate-800/50 to-slate-900/50">
-        {/* Search */}
-        <div className="p-4 border-b border-white/10">
+    <div className="h-[calc(100vh-8rem)] flex flex-col lg:flex-row bg-slate-50 gap-0 md:gap-4 p-0 md:p-4">
+      {/* Conversations List - Hidden on mobile when chat is open */}
+      <div
+        className={`w-full lg:w-96 flex flex-col bg-white rounded-none md:rounded-lg border-b md:border border-slate-200 overflow-hidden ${
+          mobileShowChat ? "hidden md:flex" : "flex"
+        }`}
+      >
+        {/* Header */}
+        <div className="p-4 md:p-6 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-white">
+          <div className="mb-4">
+            <h2 className="text-lg md:text-xl font-bold text-slate-900">
+              Live Chat
+            </h2>
+            <p className="text-sm text-slate-600 mt-1">
+              {unresolvedCount} active conversation{unresolvedCount !== 1 ? "s" : ""}
+            </p>
+          </div>
+
+          {/* Search */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/50" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
               placeholder="Search conversations..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-3 py-2 rounded-lg glass border border-white/10 bg-white/5 text-foreground text-sm focus:outline-none focus:border-cyan-400 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 text-sm focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
             />
           </div>
         </div>
 
-        {/* Conversations */}
-        <div className="flex-1 overflow-y-auto space-y-1 p-2">
-          {filteredConversations.map((conv) => (
-            <button
-              key={conv.id}
-              onClick={() => setSelectedConversation(conv.id)}
-              className={`w-full text-left p-4 rounded-lg transition-all ${
-                selectedConversation === conv.id
-                  ? "bg-gradient-to-r from-indigo-600/30 to-cyan-500/30 border border-cyan-400/30"
-                  : "hover:bg-white/5 border border-transparent"
-              }`}
-            >
-              <div className="flex items-start justify-between mb-2">
-                <h3 className="font-semibold text-foreground text-sm">
-                  {conv.senderName}
-                </h3>
-                {conv.unread && (
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-                )}
-              </div>
-              <p className="text-xs text-foreground/60 truncate">
-                {conv.subject}
-              </p>
-              <p className="text-xs text-foreground/50 mt-1 truncate">
-                {conv.lastMessage}
-              </p>
-              <p className="text-xs text-foreground/40 mt-2">
-                {conv.timestamp}
-              </p>
-              {!conv.resolved && (
-                <div className="mt-2 flex items-center gap-1 text-xs text-yellow-400">
-                  <AlertCircle size={12} />
-                  Active
+        {/* Conversations List */}
+        <div className="flex-1 overflow-y-auto divide-y divide-slate-200">
+          {filteredConversations.length > 0 ? (
+            filteredConversations.map((conv) => (
+              <button
+                key={conv.id}
+                onClick={() => {
+                  setSelectedConversation(conv.id);
+                  setMobileShowChat(true);
+                }}
+                className={`w-full text-left p-4 hover:bg-slate-50 transition-colors border-l-4 ${
+                  selectedConversation === conv.id
+                    ? "border-l-blue-600 bg-slate-50"
+                    : "border-l-transparent"
+                } ${conv.unread ? "bg-blue-50" : ""}`}
+              >
+                <div className="flex items-start justify-between mb-2 gap-2">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-slate-900 text-sm truncate">
+                      {conv.senderName}
+                    </h3>
+                  </div>
+                  {conv.unread && (
+                    <span className="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-blue-600 mt-1"></span>
+                  )}
                 </div>
-              )}
-            </button>
-          ))}
+                <p className="text-xs text-slate-600 truncate mb-1">
+                  {conv.subject}
+                </p>
+                <p className="text-xs text-slate-500 truncate mb-2">
+                  {conv.lastMessage}
+                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs text-slate-400">{conv.timestamp}</p>
+                  {!conv.resolved ? (
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-yellow-50 text-yellow-700 text-xs font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 flex-shrink-0"></span>
+                      Active
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-green-50 text-green-700 text-xs font-medium">
+                      <Check size={12} />
+                      Closed
+                    </span>
+                  )}
+                </div>
+              </button>
+            ))
+          ) : (
+            <div className="flex items-center justify-center h-32 text-slate-500 text-sm">
+              No conversations found
+            </div>
+          )}
         </div>
       </div>
 
       {/* Chat Area */}
       {currentConversation ? (
-        <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+        <div className="flex-1 flex flex-col bg-white rounded-none md:rounded-lg border border-slate-200 overflow-hidden min-w-0">
           {/* Conversation Header */}
-          <div className="p-6 border-b border-white/10 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
-            <div className="flex items-center justify-between mb-2">
-              <div>
-                <h2 className="text-xl font-bold text-foreground">
+          <div className="p-4 md:p-6 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-white">
+            <div className="flex items-center justify-between mb-4">
+              <div className="min-w-0">
+                <h2 className="text-lg md:text-2xl font-bold text-slate-900 truncate">
                   {currentConversation.senderName}
                 </h2>
-                <p className="text-sm text-foreground/60">
+                <p className="text-sm text-slate-600 truncate">
                   {currentConversation.senderEmail}
                 </p>
               </div>
+              <button
+                onClick={() => setMobileShowChat(false)}
+                className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors flex-shrink-0"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <p className="text-sm text-slate-700 font-medium line-clamp-2">
+                {currentConversation.subject}
+              </p>
               <div className="flex gap-2">
                 <button
                   onClick={() => handleMarkResolved(currentConversation.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 flex-shrink-0 ${
                     currentConversation.resolved
-                      ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                      : "bg-white/10 text-foreground hover:bg-white/20"
+                      ? "bg-green-50 text-green-700 border border-green-200"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
                   }`}
                 >
-                  {currentConversation.resolved ? "Closed" : "Mark Closed"}
+                  <Check size={16} />
+                  <span className="hidden sm:inline">
+                    {currentConversation.resolved ? "Closed" : "Mark Closed"}
+                  </span>
                 </button>
                 <button
                   onClick={() =>
                     handleDeleteConversation(currentConversation.id)
                   }
-                  className="p-2 rounded-lg hover:bg-red-500/20 text-red-400 transition-colors"
+                  className="p-2 rounded-lg text-red-600 hover:bg-red-50 border border-red-100 transition-colors flex-shrink-0"
                 >
                   <Trash2 size={18} />
                 </button>
               </div>
             </div>
-            <p className="text-sm text-foreground/70 font-medium">
-              {currentConversation.subject}
-            </p>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 bg-gradient-to-b from-white to-slate-50">
             {currentConversation.messages.length > 0 ? (
               currentConversation.messages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`flex ${msg.sender === "admin" ? "justify-end" : "justify-start"}`}
+                  className={`flex ${msg.sender === "admin" ? "justify-end" : "justify-start"} gap-3`}
                 >
                   <div
-                    className={`max-w-xs lg:max-w-md px-4 py-3 rounded-lg ${
+                    className={`max-w-xs md:max-w-md px-4 py-3 rounded-lg ${
                       msg.sender === "admin"
-                        ? "bg-gradient-to-r from-indigo-600 to-cyan-500 text-white"
-                        : "glass bg-white/10 text-foreground"
+                        ? "bg-blue-600 text-white rounded-br-none"
+                        : "bg-slate-100 text-slate-900 rounded-bl-none"
                     }`}
                   >
-                    <p className="text-sm">{msg.text}</p>
+                    <p className="text-sm leading-relaxed">{msg.text}</p>
                     <p
                       className={`text-xs mt-2 ${
                         msg.sender === "admin"
-                          ? "text-white/70"
-                          : "text-foreground/60"
+                          ? "text-blue-100"
+                          : "text-slate-600"
                       }`}
                     >
                       {msg.time}
@@ -248,36 +292,42 @@ export default function AdminLiveChat() {
                 </div>
               ))
             ) : (
-              <div className="flex items-center justify-center h-full text-foreground/50">
-                <MessageSquare size={32} />
+              <div className="flex flex-col items-center justify-center h-32 text-slate-500">
+                <MessageSquare size={40} className="text-slate-300 mb-3" />
+                <p className="text-sm">No messages yet</p>
               </div>
             )}
           </div>
 
           {/* Reply Input */}
           {!currentConversation.resolved && (
-            <div className="p-6 border-t border-white/10 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
-              <div className="flex gap-3">
+            <div className="p-4 md:p-6 border-t border-slate-200 bg-white">
+              <div className="flex flex-col gap-3">
                 <textarea
                   value={replyText}
                   onChange={(e) => setReplyText(e.target.value)}
-                  placeholder="Type your reply..."
-                  className="flex-1 px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-cyan-400 transition-all resize-none"
+                  placeholder="Type your reply here..."
+                  className="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 placeholder:text-slate-500 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all resize-none text-sm"
                   rows={3}
                 />
                 <button
                   onClick={handleSendReply}
-                  className="px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold hover:shadow-lg transition-all transform hover:scale-105 flex items-center justify-center"
+                  disabled={!replyText.trim()}
+                  className="self-end px-6 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={18} />
+                  <span className="hidden sm:inline">Send</span>
                 </button>
               </div>
             </div>
           )}
         </div>
       ) : (
-        <div className="flex-1 flex items-center justify-center">
-          <p className="text-foreground/50">Select a conversation to start</p>
+        <div className="hidden md:flex flex-1 items-center justify-center bg-white rounded-lg border border-slate-200">
+          <div className="text-center">
+            <MessageSquare size={48} className="text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-500 font-medium">Select a conversation to start</p>
+          </div>
         </div>
       )}
     </div>

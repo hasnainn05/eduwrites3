@@ -343,7 +343,7 @@ export default function AdminServices() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-3 sm:p-4 md:p-6 space-y-4 sm:space-y-6">
           {/* Search Bar */}
           <div className="mb-6">
             <div className="relative">

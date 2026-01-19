@@ -71,11 +71,6 @@ export default function Profile() {
     },
   ];
 
-  const handleSaveProfile = () => {
-    setUser(editData);
-    setIsEditing(false);
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userEmail");

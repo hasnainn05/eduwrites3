@@ -230,7 +230,7 @@ export default function Home() {
   return (
     <div ref={scrollRef} className="w-full">
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100">
         <div className="w-full mx-auto">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -369,7 +369,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-200">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
@@ -431,7 +431,7 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+        className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-300"
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">

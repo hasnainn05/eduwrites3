@@ -959,7 +959,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-animate scroll-delay-200">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}

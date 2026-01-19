@@ -365,14 +365,19 @@
     animation-delay: 0.5s;
   }
 
-  /* Hover Pop Animation for Cards */
+  /* 3D Hover Animation for Cards */
   .hover-pop {
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    perspective: 1000px;
+    transform-style: preserve-3d;
   }
 
   .hover-pop:hover {
-    transform: scale(1.05) translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-12px) rotateX(8deg) rotateY(-5deg) scale(1.03);
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.25),
+      0 0 40px rgba(168, 85, 247, 0.15),
+      inset -1px -1px 0 rgba(255, 255, 255, 0.2);
   }
 
   /* Text Hover Effects - 2D Version */

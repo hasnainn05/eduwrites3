@@ -70,10 +70,10 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-6 sm:py-8 lg:py-12 px-3 sm:px-4 md:px-6">
       <Canvas3DWrapper />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header with User Info and Actions */}
         <div className="mb-12">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

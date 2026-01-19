@@ -1377,8 +1377,8 @@ export default function ServiceDetail() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               WHY CHOOSE US

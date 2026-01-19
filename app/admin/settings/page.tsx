@@ -40,19 +40,30 @@ export default function AdminSettings() {
   };
 
   return (
-    <div className="p-6 max-w-4xl">
+    <div className="p-4 sm:p-6 max-w-4xl mx-auto space-y-6">
+          {/* Page Header */}
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-poppins">
+              Settings
+            </h1>
+            <p className="text-slate-600 text-sm mt-1">
+              Manage your platform settings and information
+            </p>
+          </div>
+
           {/* Success Message */}
           {isSaved && (
-            <div className="mb-6 p-4 rounded-lg bg-green-500/20 border border-green-500/30 text-green-400 text-sm font-medium">
-              ✓ Settings saved successfully!
+            <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm font-medium flex items-center gap-2">
+              <span className="text-lg">✓</span>
+              Settings saved successfully!
             </div>
           )}
 
           {/* Company Information */}
-          <div className="glass rounded-2xl border border-white/10 p-8 mb-8">
-            <div className="flex items-center gap-3 mb-8">
-              <SettingsIcon className="w-6 h-6 text-cyan-400" />
-              <h2 className="text-2xl font-bold text-foreground">
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <SettingsIcon className="w-6 h-6 text-blue-600" />
+              <h2 className="text-xl font-bold text-slate-900">
                 Company Information
               </h2>
             </div>
@@ -60,20 +71,20 @@ export default function AdminSettings() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Company Name */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Company Name
                 </label>
                 <input
                   type="text"
                   value={settings.companyName}
                   onChange={(e) => handleChange("companyName", e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2 flex items-center gap-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <Mail size={16} />
                   Email Address
                 </label>
@@ -81,13 +92,13 @@ export default function AdminSettings() {
                   type="email"
                   value={settings.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* WhatsApp */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2 flex items-center gap-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <MessageCircle size={16} />
                   WhatsApp Number
                 </label>
@@ -95,13 +106,13 @@ export default function AdminSettings() {
                   type="tel"
                   value={settings.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Website */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2 flex items-center gap-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <Globe size={16} />
                   Website
                 </label>
@@ -109,13 +120,13 @@ export default function AdminSettings() {
                   type="text"
                   value={settings.website}
                   onChange={(e) => handleChange("website", e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Address */}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-foreground/80 mb-2 flex items-center gap-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <MapPin size={16} />
                   Address
                 </label>
@@ -123,19 +134,19 @@ export default function AdminSettings() {
                   type="text"
                   value={settings.address}
                   onChange={(e) => handleChange("address", e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Description */}
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Company Description
                 </label>
                 <textarea
                   value={settings.description}
                   onChange={(e) => handleChange("description", e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all resize-none"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all resize-none"
                   rows={4}
                 />
               </div>
@@ -143,10 +154,10 @@ export default function AdminSettings() {
           </div>
 
           {/* Statistics & Metrics */}
-          <div className="glass rounded-2xl border border-white/10 p-8 mb-8">
-            <div className="flex items-center gap-3 mb-8">
-              <TrendingUp className="w-6 h-6 text-cyan-400" />
-              <h2 className="text-2xl font-bold text-foreground">
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <TrendingUp className="w-6 h-6 text-blue-600" />
+              <h2 className="text-xl font-bold text-slate-900">
                 Statistics & Metrics
               </h2>
             </div>
@@ -154,7 +165,7 @@ export default function AdminSettings() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Total Students */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2 flex items-center gap-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <Users size={16} />
                   Total Students
                 </label>
@@ -164,13 +175,13 @@ export default function AdminSettings() {
                   onChange={(e) =>
                     handleChange("totalStudents", parseInt(e.target.value))
                   }
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Projects Completed */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Projects Completed
                 </label>
                 <input
@@ -179,13 +190,13 @@ export default function AdminSettings() {
                   onChange={(e) =>
                     handleChange("projectsCompleted", parseInt(e.target.value))
                   }
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Expert Writers */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Expert Writers
                 </label>
                 <input
@@ -194,13 +205,13 @@ export default function AdminSettings() {
                   onChange={(e) =>
                     handleChange("expertWriters", parseInt(e.target.value))
                   }
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
 
               {/* Satisfaction Rate */}
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Satisfaction Rate (%)
                 </label>
                 <input
@@ -211,7 +222,7 @@ export default function AdminSettings() {
                   onChange={(e) =>
                     handleChange("satisfactionRate", parseInt(e.target.value))
                   }
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
               </div>
             </div>
@@ -219,12 +230,12 @@ export default function AdminSettings() {
 
           {/* Save Button */}
           <div className="flex justify-end gap-4">
-            <button className="px-6 py-3 rounded-lg glass border border-white/20 text-foreground hover:bg-white/10 transition-all font-medium">
+            <button className="px-6 py-2.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all font-medium">
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold hover:shadow-lg transition-all"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all"
             >
               <Save size={18} />
               Save Changes

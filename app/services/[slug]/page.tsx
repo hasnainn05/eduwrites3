@@ -751,6 +751,7 @@ const whyChooseUs = [
 ];
 
 export default function ServiceDetail() {
+  const containerRef = useScrollAnimation();
   const params = useParams();
   const router = useRouter();
   const slug = params.slug as string;

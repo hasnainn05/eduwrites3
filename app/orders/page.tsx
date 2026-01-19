@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  FileText,
-  Clock,
-  Eye,
-  Filter,
-} from "lucide-react";
+import { ArrowLeft, FileText, Clock, Eye, Filter } from "lucide-react";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 
 export default function Orders() {
@@ -95,7 +89,8 @@ export default function Orders() {
                 setFilterStatus(status === "all" ? "all" : status.toLowerCase())
               }
               className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
-                filterStatus === (status === "all" ? "all" : status.toLowerCase())
+                filterStatus ===
+                (status === "all" ? "all" : status.toLowerCase())
                   ? "bg-indigo-600 text-white shadow-lg"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
@@ -125,7 +120,9 @@ export default function Orders() {
                       <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-4 mt-2 text-xs sm:text-sm text-gray-600">
                         <span className="flex items-center gap-1">
                           <Clock size={14} className="flex-shrink-0" />
-                          <span className="truncate">Ordered: {order.date}</span>
+                          <span className="truncate">
+                            Ordered: {order.date}
+                          </span>
                         </span>
                         <span className="flex items-center gap-1 col-span-2 sm:col-auto">
                           <Clock size={14} className="flex-shrink-0" />
@@ -141,7 +138,7 @@ export default function Orders() {
                   <div className="flex items-center gap-3 flex-wrap sm:flex-nowrap justify-between sm:justify-end">
                     <span
                       className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${getStatusStyles(
-                        order.status
+                        order.status,
                       )}`}
                     >
                       {order.status}
@@ -163,7 +160,9 @@ export default function Orders() {
         ) : (
           <div className="rounded-lg sm:rounded-xl border border-gray-200 bg-gray-50 p-8 sm:p-12 text-center">
             <Filter size={40} className="text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 mb-6">No orders found for this filter</p>
+            <p className="text-gray-600 mb-6">
+              No orders found for this filter
+            </p>
           </div>
         )}
 

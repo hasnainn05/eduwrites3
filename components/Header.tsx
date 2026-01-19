@@ -210,7 +210,7 @@ export default function Header() {
           </nav>
 
           {/* Right: Contact Info and Profile */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-shrink-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 flex-shrink-0">
             <div className="hidden lg:flex flex-col gap-1.5 text-[9px]">
               <div className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors">
                 <Mail size={12} />

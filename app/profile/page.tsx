@@ -9,6 +9,8 @@ import {
   CheckCircle,
   ArrowRight,
   Star,
+  Calendar,
+  Mail,
 } from "lucide-react";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 
@@ -49,25 +51,29 @@ export default function Profile() {
       label: "Total Orders",
       value: "0",
       icon: FileText,
-      color: "bg-blue-100 text-blue-600",
+      gradient: "from-blue-500 to-blue-600",
+      bgLight: "bg-blue-50",
     },
     {
       label: "Completed",
       value: "0",
       icon: CheckCircle,
-      color: "bg-green-100 text-green-600",
+      gradient: "from-green-500 to-green-600",
+      bgLight: "bg-green-50",
     },
     {
       label: "Total Spent",
       value: "$0.00",
       icon: DollarSign,
-      color: "bg-purple-100 text-purple-600",
+      gradient: "from-purple-500 to-purple-600",
+      bgLight: "bg-purple-50",
     },
     {
       label: "Rating",
       value: "0.00",
       icon: Star,
-      color: "bg-yellow-100 text-yellow-600",
+      gradient: "from-amber-500 to-amber-600",
+      bgLight: "bg-amber-50",
     },
   ];
 
@@ -78,54 +84,65 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <Canvas3DWrapper />
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Main Profile Card Container */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
 
-          {/* Profile Header Section */}
-          <div className="p-6 border-b border-gray-200">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+          {/* Profile Header Section with Gradient Background */}
+          <div className="relative bg-gradient-to-r from-indigo-600 via-cyan-500 to-indigo-600 p-8 sm:p-10 text-white overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16"></div>
+            
+            <div className="relative z-10 flex items-start justify-between">
+              <div className="flex items-center gap-5">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-3xl font-bold border border-white/30">
                   {user.avatar}
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">
+                  <h1 className="text-3xl sm:text-4xl font-bold">
                     {user.fullName}
                   </h1>
-                  <p className="text-sm text-gray-600 mt-1">{user.email}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">
-                    Member since {user.joinDate}
-                  </p>
+                  <div className="flex items-center gap-2 mt-3 text-white/90">
+                    <Mail size={16} />
+                    <p className="text-sm">{user.email}</p>
+                  </div>
+                  <div className="flex items-center gap-2 mt-2 text-white/80">
+                    <Calendar size={16} />
+                    <p className="text-xs sm:text-sm">Member since {user.joinDate}</p>
+                  </div>
                 </div>
               </div>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                className="flex items-center gap-2 px-5 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-all duration-200 text-sm font-semibold border border-white/30 hover:border-white/50"
               >
-                <LogOut size={16} />
-                Logout
+                <LogOut size={18} />
+                <span className="hidden sm:inline">Logout</span>
               </button>
             </div>
           </div>
 
           {/* Statistics Section */}
-          <div className="p-6 border-b border-gray-200">
-            <h3 className="text-sm font-bold text-gray-900 mb-6">Your Statistics</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="p-8 sm:p-10 border-b border-gray-100 bg-gray-50/50">
+            <h3 className="text-lg font-bold text-gray-900 mb-8">Your Statistics</h3>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={index} className="text-center">
-                    <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center mb-3 mx-auto`}>
+                  <div 
+                    key={index} 
+                    className={`${stat.bgLight} rounded-xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-200 hover:shadow-md`}
+                  >
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-4 text-white shadow-md`}>
                       <Icon size={24} />
                     </div>
-                    <p className="text-xs font-semibold text-gray-600 uppercase mb-2">
+                    <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2">
                       {stat.label}
                     </p>
-                    <p className="text-2xl font-bold text-gray-900">
+                    <p className="text-3xl font-bold text-gray-900">
                       {stat.value}
                     </p>
                   </div>
@@ -135,29 +152,40 @@ export default function Profile() {
           </div>
 
           {/* Recent Orders Section */}
-          <div className="p-6 border-b border-gray-200">
-            <h2 className="text-lg font-bold text-gray-900 mb-2">Recent Orders</h2>
-            <p className="text-sm text-gray-600 mb-6">
-              Your latest academic writing orders
-            </p>
+          <div className="p-8 sm:p-10 border-b border-gray-100">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Recent Orders</h2>
+                <p className="text-sm text-gray-600 mt-2">
+                  Your latest academic writing projects
+                </p>
+              </div>
+              <Link
+                href="/order"
+                className="text-indigo-600 hover:text-indigo-700 font-semibold text-sm transition-colors"
+              >
+                View All
+              </Link>
+            </div>
 
             <div className="space-y-3">
               {orders.length > 0 ? (
                 orders.map((order, index) => (
                   <div
                     key={index}
-                    className="p-4 flex items-center justify-between gap-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    className="group p-5 flex items-center justify-between gap-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200"
                   >
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                          <FileText size={18} className="text-indigo-600" />
+                      <div className="flex items-center gap-4">
+                        <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                          <FileText size={20} className="text-white" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="font-semibold text-gray-900 text-sm">
+                          <p className="font-semibold text-gray-900 text-sm group-hover:text-indigo-600 transition-colors">
                             {order.service}
                           </p>
-                          <p className="text-xs text-gray-600 mt-0.5">
+                          <p className="text-xs text-gray-600 mt-1 flex items-center gap-1">
+                            <Calendar size={12} />
                             {order.date}
                           </p>
                         </div>
@@ -166,12 +194,12 @@ export default function Profile() {
 
                     <div className="flex items-center gap-3 flex-shrink-0">
                       <span
-                        className={`px-2.5 py-1 rounded text-xs font-semibold border whitespace-nowrap ${
+                        className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
                           order.status === "Completed"
-                            ? "bg-green-100 text-green-700 border-green-300"
+                            ? "bg-green-100 text-green-700 border border-green-300"
                             : order.status === "In Progress"
-                              ? "bg-blue-100 text-blue-700 border-blue-300"
-                              : "bg-yellow-100 text-yellow-700 border-yellow-300"
+                              ? "bg-blue-100 text-blue-700 border border-blue-300"
+                              : "bg-amber-100 text-amber-700 border border-amber-300"
                         }`}
                       >
                         {order.status}
@@ -183,38 +211,39 @@ export default function Profile() {
                   </div>
                 ))
               ) : (
-                <div className="p-8 text-center">
-                  <p className="text-sm text-gray-600">
+                <div className="p-12 text-center bg-gray-50 rounded-xl border border-gray-200">
+                  <FileText size={40} className="text-gray-400 mx-auto mb-3" />
+                  <p className="text-gray-600">
                     No orders yet. Start by creating your first order!
                   </p>
                 </div>
               )}
             </div>
-
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <Link
-                href="/order"
-                className="flex items-center justify-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
-              >
-                View All Orders <ArrowRight size={16} />
-              </Link>
-            </div>
           </div>
 
           {/* Quick Actions Section */}
-          <div className="p-6 bg-gray-50">
+          <div className="p-8 sm:p-10 bg-gradient-to-r from-indigo-50 via-cyan-50 to-indigo-50">
+            <h3 className="text-lg font-bold text-gray-900 mb-6">Quick Actions</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Link
                 href="/order"
-                className="bg-indigo-600 text-white rounded-lg p-4 hover:bg-indigo-700 transition-colors font-semibold text-center text-sm"
+                className="group relative bg-gradient-to-r from-indigo-600 to-cyan-600 text-white rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-indigo-600 hover:border-indigo-700 overflow-hidden"
               >
-                + New Order
+                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                <div className="relative flex items-center justify-center gap-2 font-semibold">
+                  <div className="text-2xl">+</div>
+                  <span>New Order</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </div>
               </Link>
               <Link
                 href="/#services"
-                className="bg-gray-200 text-gray-900 rounded-lg p-4 hover:bg-gray-300 transition-colors font-semibold text-center text-sm"
+                className="group relative bg-white text-indigo-600 rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-gray-200 hover:border-indigo-300 font-semibold"
               >
-                View Services
+                <div className="relative flex items-center justify-center gap-2">
+                  <span>View Services</span>
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </div>
               </Link>
             </div>
           </div>

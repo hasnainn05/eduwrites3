@@ -74,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} overflow-x-hidden`}>
       <head>
         {/* SEO Meta Tags */}
         <meta charSet="utf-8" />

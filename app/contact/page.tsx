@@ -273,7 +273,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center font-poppins">
             Frequently Asked Questions

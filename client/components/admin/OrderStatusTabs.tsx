@@ -34,8 +34,8 @@ export function OrderStatusTabs({
   ];
 
   return (
-    <div className="border-b-2 border-border overflow-x-auto bg-white">
-      <div className="flex items-center gap-0 min-w-min">
+    <div className="border-b border-slate-200 overflow-x-auto bg-white">
+      <div className="flex items-center gap-0 min-w-min px-4 sm:px-6">
         {tabs.map((tab) => {
           const isActive = activeStatus === tab.id;
 
@@ -47,14 +47,21 @@ export function OrderStatusTabs({
                   tab.id as "pending" | "in_progress" | "completed",
                 )
               }
-              className={`px-3 sm:px-5 py-2 sm:py-3 border-b-2 transition-all text-xs sm:text-xs font-bold whitespace-nowrap active:bg-primary/5 ${
+              className={`px-1 sm:px-2 py-4 border-b-2 transition-all text-sm font-semibold whitespace-nowrap ${
                 isActive
-                  ? "border-b-primary text-primary"
-                  : "border-b-transparent text-foreground/60 hover:text-foreground"
+                  ? "border-b-blue-600 text-blue-600"
+                  : "border-b-transparent text-slate-600 hover:text-slate-900 hover:border-b-slate-300"
               }`}
               aria-pressed={isActive}
             >
-              {tab.label} ({tab.count})
+              <span className="text-slate-900 font-semibold">{tab.label}</span>
+              <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
+                isActive
+                  ? "bg-blue-100 text-blue-700"
+                  : "bg-slate-100 text-slate-600"
+              }`}>
+                {tab.count}
+              </span>
             </button>
           );
         })}

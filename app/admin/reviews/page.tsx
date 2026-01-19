@@ -107,44 +107,63 @@ export default function AdminReviews() {
   ).toFixed(1);
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 sm:p-6 space-y-6">
+          {/* Page Header */}
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-poppins">
+              Reviews
+            </h1>
+            <p className="text-slate-600 text-sm mt-1">
+              Manage customer reviews and ratings
+            </p>
+          </div>
+
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass p-6 rounded-2xl border border-white/10">
-              <p className="text-foreground/70 text-sm mb-2">Total Reviews</p>
-              <h3 className="text-3xl font-bold text-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white p-6 rounded-lg border border-slate-200 hover:shadow-lg transition-all">
+              <p className="text-slate-600 text-sm mb-2">Total Reviews</p>
+              <h3 className="text-4xl font-bold text-slate-900">
                 {reviews.length}
               </h3>
             </div>
-            <div className="glass p-6 rounded-2xl border border-white/10">
-              <p className="text-foreground/70 text-sm mb-2">Average Rating</p>
-              <div className="flex items-center gap-2">
-                <h3 className="text-3xl font-bold text-yellow-400">
+            <div className="bg-white p-6 rounded-lg border border-slate-200 hover:shadow-lg transition-all">
+              <p className="text-slate-600 text-sm mb-2">Average Rating</p>
+              <div className="flex items-center gap-3">
+                <h3 className="text-4xl font-bold text-yellow-600">
                   {avgRating}
                 </h3>
-                <span className="text-2xl">⭐</span>
+                <Star className="w-6 h-6 fill-yellow-400 text-yellow-400" />
               </div>
             </div>
-            <div className="glass p-6 rounded-2xl border border-white/10">
-              <p className="text-foreground/70 text-sm mb-2">
+            <div className="bg-white p-6 rounded-lg border border-slate-200 hover:shadow-lg transition-all">
+              <p className="text-slate-600 text-sm mb-2">
                 Verified Reviews
               </p>
-              <h3 className="text-3xl font-bold text-green-400">
+              <h3 className="text-4xl font-bold text-green-600">
                 {reviews.filter((r) => r.verified).length}
               </h3>
             </div>
           </div>
 
-          {/* Search */}
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/50" />
-            <input
-              type="text"
-              placeholder="Search reviews..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
-            />
+          {/* Search and Add Button */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <input
+                type="text"
+                placeholder="Search reviews..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
+              />
+            </div>
+            <button
+              onClick={handleAddReview}
+              className="flex items-center justify-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all whitespace-nowrap"
+            >
+              <Plus size={20} />
+              Add Review
+            </button>
           </div>
 
           {/* Reviews Grid */}
@@ -152,25 +171,25 @@ export default function AdminReviews() {
             {filteredReviews.map((review) => (
               <div
                 key={review.id}
-                className="glass p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-all"
+                className="bg-white p-6 rounded-lg border border-slate-200 hover:shadow-lg transition-all"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3">
-                      <h3 className="font-semibold text-foreground">
+                      <h3 className="font-semibold text-slate-900">
                         {review.name}
                       </h3>
                       {review.verified && (
-                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
+                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
                           Verified
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-foreground/60 mt-1">
+                    <p className="text-sm text-slate-600 mt-1">
                       {review.service}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -178,27 +197,27 @@ export default function AdminReviews() {
                         className={
                           i < review.rating
                             ? "fill-yellow-400 text-yellow-400"
-                            : "text-foreground/30"
+                            : "text-slate-300"
                         }
                       />
                     ))}
                   </div>
                 </div>
 
-                <p className="text-foreground/80 mb-4">{review.content}</p>
+                <p className="text-slate-700 mb-4">{review.content}</p>
 
                 <div className="flex items-center justify-between">
-                  <p className="text-xs text-foreground/50">{review.date}</p>
+                  <p className="text-xs text-slate-500">{review.date}</p>
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleEditReview(review)}
-                      className="p-2 rounded-lg hover:bg-blue-500/20 text-blue-400 transition-colors"
+                      className="p-2 rounded-lg hover:bg-blue-50 text-blue-600 hover:text-blue-700 transition-colors"
                     >
                       <Edit2 size={18} />
                     </button>
                     <button
                       onClick={() => handleDeleteReview(review.id)}
-                      className="p-2 rounded-lg hover:bg-red-500/20 text-red-400 transition-colors"
+                      className="p-2 rounded-lg hover:bg-red-50 text-red-600 hover:text-red-700 transition-colors"
                     >
                       <Trash2 size={18} />
                     </button>
@@ -210,15 +229,15 @@ export default function AdminReviews() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-          <div className="w-full max-w-2xl glass rounded-2xl border border-white/10 p-8">
-            <h2 className="text-2xl font-bold text-foreground mb-6">
+          <div className="w-full max-w-2xl bg-white rounded-lg border border-slate-200 p-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
               {editingId ? "Edit Review" : "Add New Review"}
             </h2>
 
             <div className="space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground/80 mb-2">
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Customer Name
                   </label>
                   <input
@@ -227,13 +246,13 @@ export default function AdminReviews() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                     placeholder="Name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground/80 mb-2">
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Service
                   </label>
                   <select
@@ -241,7 +260,7 @@ export default function AdminReviews() {
                     onChange={(e) =>
                       setFormData({ ...formData, service: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                   >
                     <option>Essay Writing</option>
                     <option>Thesis Writing</option>
@@ -251,7 +270,7 @@ export default function AdminReviews() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-3">
                   Rating
                 </label>
                 <div className="flex gap-2">
@@ -259,14 +278,14 @@ export default function AdminReviews() {
                     <button
                       key={star}
                       onClick={() => setFormData({ ...formData, rating: star })}
-                      className="p-2 rounded-lg hover:bg-yellow-500/20 transition-colors"
+                      className="p-2 rounded-lg hover:bg-yellow-50 transition-colors"
                     >
                       <Star
                         size={24}
                         className={
                           star <= formData.rating
                             ? "fill-yellow-400 text-yellow-400"
-                            : "text-foreground/30"
+                            : "text-slate-300"
                         }
                       />
                     </button>
@@ -275,7 +294,7 @@ export default function AdminReviews() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground/80 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Review Content
                 </label>
                 <textarea
@@ -283,7 +302,7 @@ export default function AdminReviews() {
                   onChange={(e) =>
                     setFormData({ ...formData, content: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg glass border border-white/10 bg-white/5 text-foreground focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-900 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                   placeholder="Enter review content"
                   rows={5}
                 />
@@ -296,9 +315,9 @@ export default function AdminReviews() {
                   onChange={(e) =>
                     setFormData({ ...formData, verified: e.target.checked })
                   }
-                  className="w-5 h-5 rounded accent-cyan-400"
+                  className="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
                 />
-                <label className="text-sm font-medium text-foreground/80">
+                <label className="text-sm font-medium text-slate-700">
                   Mark as Verified Review
                 </label>
               </div>
@@ -307,13 +326,13 @@ export default function AdminReviews() {
             <div className="flex gap-4 mt-8">
               <button
                 onClick={() => setShowModal(false)}
-                className="flex-1 px-6 py-3 rounded-lg glass border border-white/20 text-foreground hover:bg-white/10 transition-all"
+                className="flex-1 px-6 py-2.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all font-medium"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSaveReview}
-                className="flex-1 px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold hover:shadow-lg transition-all"
+                className="flex-1 px-6 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all"
               >
                 {editingId ? "Update Review" : "Add Review"}
               </button>

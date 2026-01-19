@@ -320,8 +320,8 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Mobile: Menu Button + Login (visible on small screens) */}
-          <div className="md:hidden flex items-center gap-0.5">
+          {/* Mobile: Menu Button + Login (visible only on very small screens) */}
+          <div className="sm:hidden flex items-center gap-0.5">
             {/* Mobile Login Button */}
             <Link
               href="/login"

@@ -274,51 +274,6 @@ export default function Profile() {
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  value={editData.phone}
-                  onChange={(e) =>
-                    setEditData({ ...editData, phone: e.target.value })
-                  }
-                  className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    value={editData.city}
-                    onChange={(e) =>
-                      setEditData({ ...editData, city: e.target.value })
-                    }
-                    className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">
-                    Country
-                  </label>
-                  <input
-                    type="text"
-                    value={editData.country}
-                    onChange={(e) =>
-                      setEditData({
-                        ...editData,
-                        country: e.target.value,
-                      })
-                    }
-                    className="w-full bg-white border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                  />
-                </div>
-              </div>
 
               <div className="flex gap-2 pt-3">
                 <button

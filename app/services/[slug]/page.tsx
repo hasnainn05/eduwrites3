@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useScrollAnimation } from "@/client/hooks/useScrollAnimation";
+import { TiltCard } from "@/client/components/TiltCard";
 import SupportModal from "@/components/SupportModal";
 import {
   GENERAL_PRICING_PLANS,

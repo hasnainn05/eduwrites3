@@ -220,14 +220,6 @@ export default function Header() {
 
           {/* Mobile: Menu Button + Login (visible on small screens) */}
           <div className="md:hidden flex items-center gap-0.5">
-            {/* Mobile WhatsApp Button */}
-            <WhatsAppButton
-              phoneNumber="13658291551"
-              className="p-0.5 bg-[#25D366] text-white rounded-md hover:bg-[#20BA5B] transition-all flex-shrink-0"
-              showIcon={true}
-              iconSize={12}
-            />
-
             {/* Mobile Login Button */}
             <Link
               href="/login"

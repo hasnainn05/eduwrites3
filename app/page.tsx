@@ -1069,7 +1069,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Background gradient */}
           <div className="absolute -inset-20 bg-gradient-to-r from-primary/10 via-accent/8 to-primary/10 rounded-3xl -z-10"></div>

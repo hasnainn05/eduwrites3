@@ -11,8 +11,12 @@ import {
   Star,
   Calendar,
   Mail,
-  MoreVertical,
-  TrendingUp,
+  Settings,
+  Bell,
+  Download,
+  Eye,
+  Clock,
+  Zap,
 } from "lucide-react";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 
@@ -49,34 +53,10 @@ export default function Profile() {
   ];
 
   const stats = [
-    {
-      label: "Total Orders",
-      value: "0",
-      icon: FileText,
-      gradient: "from-blue-500 to-blue-600",
-      bgGradient: "from-blue-50 to-blue-100",
-    },
-    {
-      label: "Completed",
-      value: "0",
-      icon: CheckCircle,
-      gradient: "from-green-500 to-green-600",
-      bgGradient: "from-green-50 to-green-100",
-    },
-    {
-      label: "Total Spent",
-      value: "$0.00",
-      icon: DollarSign,
-      gradient: "from-purple-500 to-purple-600",
-      bgGradient: "from-purple-50 to-purple-100",
-    },
-    {
-      label: "Rating",
-      value: "0.00",
-      icon: Star,
-      gradient: "from-amber-500 to-amber-600",
-      bgGradient: "from-amber-50 to-amber-100",
-    },
+    { label: "Total Orders", value: "0", icon: FileText, color: "indigo" },
+    { label: "Completed", value: "0", icon: CheckCircle, color: "emerald" },
+    { label: "Total Spent", value: "$0.00", icon: DollarSign, color: "violet" },
+    { label: "Rating", value: "0.00", icon: Star, color: "amber" },
   ];
 
   const handleLogout = () => {
@@ -85,192 +65,233 @@ export default function Profile() {
     window.location.href = "/";
   };
 
+  const colorMap: { [key: string]: string } = {
+    indigo: "text-indigo-600 bg-indigo-50",
+    emerald: "text-emerald-600 bg-emerald-50",
+    violet: "text-violet-600 bg-violet-50",
+    amber: "text-amber-600 bg-amber-50",
+  };
+
+  const borderColorMap: { [key: string]: string } = {
+    indigo: "border-indigo-200",
+    emerald: "border-emerald-200",
+    violet: "border-violet-200",
+    amber: "border-amber-200",
+  };
+
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
       <Canvas3DWrapper />
+      
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <h1 className="text-4xl font-bold text-gray-900">Dashboard</h1>
-              <p className="text-gray-600 mt-2">Welcome back, {user.fullName}!</p>
+        {/* Header with User Info and Actions */}
+        <div className="mb-12">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                {user.avatar}
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold text-gray-900">{user.fullName}</h1>
+                <div className="flex items-center gap-4 mt-3 text-sm text-gray-600">
+                  <span className="flex items-center gap-1">
+                    <Mail size={16} />
+                    {user.email}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Calendar size={16} />
+                    {user.joinDate}
+                  </span>
+                </div>
+              </div>
             </div>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-6 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold text-sm shadow-md hover:shadow-lg"
-            >
-              <LogOut size={18} />
-              Logout
-            </button>
+            <div className="flex gap-3 w-full sm:w-auto">
+              <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-3 border border-gray-200 text-gray-700 rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-all font-semibold text-sm">
+                <Settings size={18} />
+                <span className="hidden sm:inline">Settings</span>
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all font-semibold text-sm shadow-md hover:shadow-lg"
+              >
+                <LogOut size={18} />
+                <span className="hidden sm:inline">Logout</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Two Column Layout */}
+        {/* Stats Grid - Premium Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={index}
+                className={`rounded-2xl border border-gray-200 p-6 hover:border-gray-300 hover:shadow-xl transition-all duration-300 ${colorMap[stat.color] || ""}`}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <Icon size={32} className={stat.color === "indigo" ? "text-indigo-600" : stat.color === "emerald" ? "text-emerald-600" : stat.color === "violet" ? "text-violet-600" : "text-amber-600"} />
+                  <Zap size={16} className="text-gray-400" />
+                </div>
+                <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                  {stat.label}
+                </p>
+                <p className="text-3xl font-bold text-gray-900 mt-3">
+                  {stat.value}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* Left Column - Profile Card */}
+          {/* Left Sidebar - Account Overview */}
           <div className="lg:col-span-1">
-            {/* Profile Info Card */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden sticky top-24">
-              <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 h-24"></div>
-              <div className="px-6 pb-6">
-                <div className="flex justify-center -mt-16 mb-4">
-                  <div className="w-28 h-28 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-full flex items-center justify-center text-4xl font-bold text-white border-4 border-white shadow-lg">
-                    {user.avatar}
+            <div className="bg-gray-50 rounded-2xl border border-gray-200 p-8 sticky top-24">
+              <h3 className="text-lg font-bold text-gray-900 mb-6">Account Overview</h3>
+              
+              <div className="space-y-6">
+                {/* Account Status */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-semibold text-gray-700">Account Status</span>
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                      Active
+                    </span>
                   </div>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 text-center">
-                  {user.fullName}
-                </h2>
-                <p className="text-sm text-gray-600 text-center mt-2 flex items-center justify-center gap-1">
-                  <Mail size={16} />
-                  {user.email}
-                </p>
-                <p className="text-xs text-gray-500 text-center mt-3 flex items-center justify-center gap-1">
-                  <Calendar size={14} />
-                  Member since {user.joinDate}
-                </p>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <button className="w-full px-4 py-2.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-all duration-200 font-semibold text-sm">
-                    Edit Profile
-                  </button>
+
+                {/* Membership Level */}
+                <div>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">Membership Level</p>
+                  <div className="bg-white rounded-xl p-4 border border-gray-200">
+                    <p className="text-lg font-bold text-indigo-600">Standard</p>
+                    <p className="text-xs text-gray-600 mt-1">Full access to all services</p>
+                  </div>
                 </div>
+
+                {/* Quick Stats */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Account Balance</span>
+                    <span className="font-bold text-gray-900">$0.00</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Lifetime Spent</span>
+                    <span className="font-bold text-gray-900">$0.00</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Member Since</span>
+                    <span className="font-bold text-gray-900">{user.joinDate}</span>
+                  </div>
+                </div>
+
+                {/* Download Documents */}
+                <button className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all font-semibold text-sm shadow-md">
+                  <Download size={16} />
+                  Download Statement
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Stats and Orders */}
-          <div className="lg:col-span-2 space-y-8">
-            
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
+          {/* Right Content - Orders */}
+          <div className="lg:col-span-2">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Recent Orders</h2>
+                <p className="text-gray-600 text-sm mt-1">Track your academic projects</p>
+              </div>
+              <Link
+                href="/order"
+                className="inline-flex items-center gap-2 px-4 py-2 text-indigo-600 hover:text-indigo-700 font-semibold text-sm transition-colors"
+              >
+                View All <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* Orders List */}
+            <div className="space-y-4">
+              {orders.length > 0 ? (
+                orders.map((order, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-gray-200 transition-all duration-300 overflow-hidden group"
+                    className="group rounded-xl border border-gray-200 bg-white hover:border-indigo-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
                   >
-                    <div className={`bg-gradient-to-br ${stat.bgGradient} h-20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
-                      <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${stat.gradient} flex items-center justify-center text-white shadow-md`}>
-                        <Icon size={28} />
-                      </div>
-                    </div>
-                    <div className="p-4">
-                      <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-2">
-                        {stat.label}
-                      </p>
-                      <p className="text-2xl font-bold text-gray-900">
-                        {stat.value}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Recent Orders Card */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-              <div className="p-6 border-b border-gray-100 flex items-center justify-between">
-                <div>
-                  <h2 className="text-xl font-bold text-gray-900">Recent Orders</h2>
-                  <p className="text-sm text-gray-600 mt-1">Latest activity</p>
-                </div>
-                <Link
-                  href="/order"
-                  className="text-indigo-600 hover:text-indigo-700 font-semibold text-sm transition-colors flex items-center gap-1"
-                >
-                  View All <ArrowRight size={16} />
-                </Link>
-              </div>
-
-              <div className="divide-y divide-gray-100">
-                {orders.length > 0 ? (
-                  orders.map((order, index) => (
-                    <div
-                      key={index}
-                      className="p-5 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-cyan-50 transition-all duration-200 group"
-                    >
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-4 flex-1 min-w-0">
-                          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
-                            <FileText size={20} className="text-white" />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <p className="font-semibold text-gray-900 text-sm group-hover:text-indigo-600 transition-colors">
-                              {order.service}
-                            </p>
-                            <p className="text-xs text-gray-600 mt-1 flex items-center gap-1">
-                              <Calendar size={12} />
+                    <div className="p-6 flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-4 flex-1 min-w-0">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                          <FileText size={24} className="text-white" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                            {order.service}
+                          </h4>
+                          <div className="flex items-center gap-4 mt-2 text-xs text-gray-600">
+                            <span className="flex items-center gap-1">
+                              <Clock size={14} />
                               {order.date}
-                            </p>
+                            </span>
+                            <span className="font-semibold text-gray-900">
+                              {order.id}
+                            </span>
                           </div>
                         </div>
-                        <div className="flex items-center gap-3 flex-shrink-0">
-                          <span
-                            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
-                              order.status === "Completed"
-                                ? "bg-green-100 text-green-700"
-                                : order.status === "In Progress"
-                                  ? "bg-blue-100 text-blue-700"
-                                  : "bg-amber-100 text-amber-700"
-                            }`}
-                          >
-                            {order.status}
-                          </span>
-                          <span className="font-bold text-gray-900 text-sm whitespace-nowrap">
-                            {order.amount}
-                          </span>
-                          <button className="text-gray-400 hover:text-gray-600 opacity-0 group-hover:opacity-100 transition-all">
-                            <MoreVertical size={16} />
-                          </button>
-                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        <span
+                          className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
+                            order.status === "Completed"
+                              ? "bg-emerald-100 text-emerald-700"
+                              : order.status === "In Progress"
+                                ? "bg-blue-100 text-blue-700"
+                                : "bg-amber-100 text-amber-700"
+                          }`}
+                        >
+                          {order.status}
+                        </span>
+                        <span className="font-bold text-lg text-gray-900 whitespace-nowrap">
+                          {order.amount}
+                        </span>
+                        <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all opacity-0 group-hover:opacity-100">
+                          <Eye size={18} />
+                        </button>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <div className="p-12 text-center">
-                    <FileText size={40} className="text-gray-300 mx-auto mb-3" />
-                    <p className="text-gray-600 mb-4">No orders yet</p>
-                    <Link
-                      href="/order"
-                      className="inline-flex items-center gap-2 px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-semibold text-sm"
-                    >
-                      Create Your First Order <ArrowRight size={16} />
-                    </Link>
                   </div>
-                )}
-              </div>
+                ))
+              ) : (
+                <div className="rounded-xl border border-gray-200 bg-gray-50 p-12 text-center">
+                  <FileText size={40} className="text-gray-300 mx-auto mb-4" />
+                  <p className="text-gray-600 mb-6">No orders yet</p>
+                  <Link
+                    href="/order"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all font-semibold text-sm shadow-md"
+                  >
+                    Create Your First Order <ArrowRight size={16} />
+                  </Link>
+                </div>
+              )}
             </div>
 
-            {/* Quick Actions */}
-            <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-cyan-50 rounded-2xl border border-indigo-100 p-8">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900">Quick Start</h3>
-                  <p className="text-sm text-gray-600 mt-1">Get started with your next project</p>
-                </div>
-                <TrendingUp size={24} className="text-indigo-600 opacity-20" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* CTA Section */}
+            <div className="mt-12 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-white overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20"></div>
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-3">Ready to start?</h3>
+                <p className="text-white/90 mb-6">
+                  Place a new order and get professional academic writing assistance today.
+                </p>
                 <Link
                   href="/order"
-                  className="group relative bg-white border-2 border-indigo-300 text-indigo-600 rounded-xl p-5 hover:shadow-lg hover:border-indigo-500 transition-all duration-200 font-semibold text-center"
+                  className="inline-flex items-center gap-2 px-8 py-3 bg-white text-indigo-600 rounded-xl hover:bg-gray-50 transition-all font-bold shadow-lg hover:shadow-xl"
                 >
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="text-2xl">+</div>
-                    <span>New Order</span>
-                  </div>
-                </Link>
-                <Link
-                  href="/#services"
-                  className="group relative bg-gradient-to-r from-indigo-600 to-cyan-600 text-white rounded-xl p-5 hover:shadow-lg transition-all duration-200 font-semibold text-center"
-                >
-                  <div className="flex items-center justify-center gap-2">
-                    <span>Explore Services</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  Place New Order <ArrowRight size={18} />
                 </Link>
               </div>
             </div>

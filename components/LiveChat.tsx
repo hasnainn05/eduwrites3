@@ -6,14 +6,12 @@ import {
   X,
   Send,
   Minus,
-  ExternalLink,
   Trash2,
-  ThumbsUp,
-  ThumbsDown,
   User,
   FileText,
+  Mail,
+  MessageSquare,
 } from "lucide-react";
-import { Mail, MessageSquare } from "lucide-react";
 
 interface Message {
   id: string;
@@ -59,7 +57,6 @@ export default function LiveChat() {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showRating, setShowRating] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -118,9 +115,17 @@ export default function LiveChat() {
       ],
     },
     "contact support": {
+      response: "You can reach our support team via WhatsApp, Email, or Contact Form. Which would you prefer?",
+      suggestedReplies: ["Contact Form", "WhatsApp", "Email"],
+    },
+    "contact form": {
       response:
-        "You can reach our support team via WhatsApp, Email, or through our contact form. What's your preferred method?",
-      suggestedReplies: ["WhatsApp", "Email", "Contact Form"],
+        "Great! Our contact form is just one click away. Fill it out and our team will respond within 24 hours.",
+      suggestedReplies: ["Open Form", "Back to Menu"],
+    },
+    "open form": {
+      response: "Opening the contact form now...",
+      suggestedReplies: ["Main Menu"],
     },
     whatsapp: {
       response:
@@ -131,11 +136,6 @@ export default function LiveChat() {
       response:
         "You can email us at info@eduwrites.com. We'll get back to you within 24 hours.",
       suggestedReplies: ["Contact Form", "WhatsApp Instead", "Back to Menu"],
-    },
-    "contact form": {
-      response:
-        "Our contact form is available on our Contact Us page. You can submit your inquiry and we'll respond promptly.",
-      suggestedReplies: ["Go to Contact Page", "Use WhatsApp", "Use Email"],
     },
     pricing: {
       response:
@@ -151,16 +151,6 @@ export default function LiveChat() {
       response:
         "Simple process: 1) You place an order with details, 2) Expert writers claim your project, 3) We deliver before deadline, 4) You review and request revisions if needed.",
       suggestedReplies: ["Place Order", "Ask Questions", "Contact Support"],
-    },
-    "other services": {
-      response:
-        "Beyond essays and research papers, we also handle case studies, dissertations, homework, and more. Which service interests you?",
-      suggestedReplies: [
-        "Case Studies",
-        "Dissertations",
-        "Homework",
-        "View All",
-      ],
     },
   };
 
@@ -192,15 +182,16 @@ export default function LiveChat() {
     setInputValue("");
     setIsLoading(true);
 
-    // Simulate bot response delay
     setTimeout(() => {
       const lowerInput = inputValue.toLowerCase();
       let responseData = getDefaultResponse();
 
-      // Find matching response
       for (const key in botResponses) {
         if (lowerInput.includes(key)) {
           responseData = botResponses[key];
+          if (key === "open form") {
+            setShowContactForm(true);
+          }
           break;
         }
       }
@@ -244,6 +235,9 @@ export default function LiveChat() {
           for (const key in botResponses) {
             if (lowerInput.includes(key)) {
               responseData = botResponses[key];
+              if (key === "open form") {
+                setShowContactForm(true);
+              }
               break;
             }
           }
@@ -288,11 +282,6 @@ export default function LiveChat() {
     );
   };
 
-  const handleEmailContact = () => {
-    window.location.href =
-      "mailto:info@eduwrites.com?subject=Inquiry%20from%20EduWrites%20Chat";
-  };
-
   const handleContactFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -316,11 +305,9 @@ export default function LiveChat() {
     }, 2000);
   };
 
-  const lastBotMessage = messages.filter((m) => m.sender === "bot").pop();
-
   return (
     <>
-      {/* Chat Button */}
+      {/* Chat Button - Fixed Mobile Positioning */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
@@ -331,7 +318,7 @@ export default function LiveChat() {
         </button>
       )}
 
-      {/* Chat Window */}
+      {/* Chat Window - Fixed Mobile Positioning */}
       {isOpen && (
         <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 w-full sm:w-96 max-w-[calc(100vw-2rem)] sm:max-w-none h-[480px] max-h-[calc(100vh-6rem)] sm:max-h-[calc(100vh-3rem)] glass rounded-lg shadow-lg flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5">
           {/* Header */}
@@ -372,116 +359,233 @@ export default function LiveChat() {
 
           {!isMinimized && (
             <>
-              {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-gradient-to-b from-background to-background/50">
-                {messages.map((message) => (
-                  <div key={message.id}>
-                    <div
-                      className={`flex ${
-                        message.sender === "user"
-                          ? "justify-end"
-                          : "justify-start"
-                      } animate-in fade-in slide-in-from-bottom-3`}
-                    >
-                      <div
-                        className={`max-w-[70%] rounded-lg px-3 py-1.5 ${
-                          message.sender === "user"
-                            ? "gradient-primary text-white rounded-br-none"
-                            : "glass text-foreground rounded-bl-none"
-                        }`}
-                      >
-                        <p className="text-xs">{message.text}</p>
-                        <span className="text-[10px] opacity-70 mt-0.5 block">
-                          {message.timestamp.toLocaleTimeString([], {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </span>
-                      </div>
+              {/* Contact Form View */}
+              {showContactForm ? (
+                <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                  {contactSubmitted ? (
+                    <div className="h-full flex flex-col items-center justify-center text-center py-8">
+                      <div className="text-4xl mb-3">✓</div>
+                      <h3 className="text-sm font-bold text-foreground mb-2">
+                        Message Sent!
+                      </h3>
+                      <p className="text-xs text-foreground/70">
+                        Thank you! Our team will get back to you within 24 hours.
+                      </p>
                     </div>
+                  ) : (
+                    <form
+                      onSubmit={handleContactFormSubmit}
+                      className="space-y-3"
+                    >
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div>
+                          <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                            <User size={12} /> Name *
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            value={contactFormData.name}
+                            onChange={handleContactFormChange}
+                            required
+                            placeholder="Your name"
+                            className="w-full bg-white/10 border border-white/20 rounded px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                            <Mail size={12} /> Email *
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={contactFormData.email}
+                            onChange={handleContactFormChange}
+                            required
+                            placeholder="Your email"
+                            className="w-full bg-white/10 border border-white/20 rounded px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                          />
+                        </div>
+                      </div>
 
-                    {/* Suggested Replies */}
-                    {message.sender === "bot" && message.suggestedReplies && (
-                      <div className="flex flex-wrap gap-1.5 mt-1.5 ml-1">
-                        {message.suggestedReplies.map((reply, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => handleQuickReply(reply)}
-                            disabled={isLoading}
-                            className="text-[10px] bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 px-2 py-0.5 rounded-full transition-colors disabled:opacity-50 border border-cyan-500/30"
+                      <div>
+                        <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                          <MessageSquare size={12} /> WhatsApp{" "}
+                          <span className="text-foreground/60 font-medium text-[10px]">
+                            (Optional)
+                          </span>
+                        </label>
+                        <input
+                          type="tel"
+                          name="whatsapp"
+                          value={contactFormData.whatsapp}
+                          onChange={handleContactFormChange}
+                          placeholder="+1 (555) 123-4567"
+                          className="w-full bg-white/10 border border-white/20 rounded px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                          <FileText size={12} /> Subject *
+                        </label>
+                        <input
+                          type="text"
+                          name="subject"
+                          value={contactFormData.subject}
+                          onChange={handleContactFormChange}
+                          required
+                          placeholder="How can we help?"
+                          className="w-full bg-white/10 border border-white/20 rounded px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                          <MessageCircle size={12} /> Message *
+                        </label>
+                        <textarea
+                          name="message"
+                          value={contactFormData.message}
+                          onChange={handleContactFormChange}
+                          required
+                          placeholder="Tell us more..."
+                          rows={3}
+                          className="w-full bg-white/10 border border-white/20 rounded px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 resize-none transition-all"
+                        />
+                      </div>
+
+                      <div className="flex gap-2 pt-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowContactForm(false)}
+                          className="flex-1 bg-white/10 hover:bg-white/20 text-foreground rounded py-1.5 font-medium text-xs transition-colors"
+                        >
+                          Back
+                        </button>
+                        <button
+                          type="submit"
+                          className="flex-1 gradient-primary text-white rounded py-1.5 font-medium text-xs hover:shadow-glow transition-all flex items-center justify-center gap-1"
+                        >
+                          Send <Send size={12} />
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              ) : (
+                <>
+                  {/* Messages View */}
+                  <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-gradient-to-b from-background to-background/50">
+                    {messages.map((message) => (
+                      <div key={message.id}>
+                        <div
+                          className={`flex ${
+                            message.sender === "user"
+                              ? "justify-end"
+                              : "justify-start"
+                          } animate-in fade-in slide-in-from-bottom-3`}
+                        >
+                          <div
+                            className={`max-w-[70%] rounded-lg px-3 py-1.5 ${
+                              message.sender === "user"
+                                ? "gradient-primary text-white rounded-br-none"
+                                : "glass text-foreground rounded-bl-none"
+                            }`}
                           >
-                            {reply}
-                          </button>
-                        ))}
+                            <p className="text-xs">{message.text}</p>
+                            <span className="text-[10px] opacity-70 mt-0.5 block">
+                              {message.timestamp.toLocaleTimeString([], {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                              })}
+                            </span>
+                          </div>
+                        </div>
+
+                        {message.sender === "bot" && message.suggestedReplies && (
+                          <div className="flex flex-wrap gap-1.5 mt-1.5 ml-1">
+                            {message.suggestedReplies.map((reply, idx) => (
+                              <button
+                                key={idx}
+                                onClick={() => handleQuickReply(reply)}
+                                disabled={isLoading}
+                                className="text-[10px] bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 px-2 py-0.5 rounded-full transition-colors disabled:opacity-50 border border-cyan-500/30"
+                              >
+                                {reply}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+
+                    {isLoading && (
+                      <div className="flex justify-start">
+                        <div className="glass px-3 py-1.5 rounded-lg rounded-bl-none">
+                          <div className="flex gap-0.5">
+                            <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"></div>
+                            <div
+                              className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"
+                              style={{ animationDelay: "0.2s" }}
+                            ></div>
+                            <div
+                              className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"
+                              style={{ animationDelay: "0.4s" }}
+                            ></div>
+                          </div>
+                        </div>
                       </div>
                     )}
+
+                    <div ref={messagesEndRef} />
                   </div>
-                ))}
 
-                {isLoading && (
-                  <div className="flex justify-start">
-                    <div className="glass px-3 py-1.5 rounded-lg rounded-bl-none">
-                      <div className="flex gap-0.5">
-                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"></div>
-                        <div
-                          className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"
-                          style={{ animationDelay: "0.2s" }}
-                        ></div>
-                        <div
-                          className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"
-                          style={{ animationDelay: "0.4s" }}
-                        ></div>
-                      </div>
-                    </div>
+                  {/* Quick Contact Options */}
+                  <div className="px-3 py-2 border-t border-white/10 flex gap-1.5">
+                    <button
+                      onClick={() => setShowContactForm(true)}
+                      className="flex-1 flex items-center justify-center gap-1 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 rounded py-1.5 transition-colors text-[10px] font-medium border border-indigo-500/30"
+                      title="Send message via form"
+                    >
+                      <Send size={12} />
+                      Send Message
+                    </button>
+                    <button
+                      onClick={handleWhatsAppContact}
+                      className="flex-1 flex items-center justify-center gap-1 bg-green-500/20 hover:bg-green-500/30 text-green-300 rounded py-1.5 transition-colors text-[10px] font-medium border border-green-500/30"
+                      title="Contact via WhatsApp"
+                    >
+                      <MessageSquare size={12} />
+                      WhatsApp
+                    </button>
                   </div>
-                )}
 
-                <div ref={messagesEndRef} />
-              </div>
-
-              {/* Quick Contact Options */}
-              <div className="px-3 py-2 border-t border-white/10 flex gap-1.5">
-                <button
-                  onClick={handleWhatsAppContact}
-                  className="flex-1 flex items-center justify-center gap-1 bg-green-500/20 hover:bg-green-500/30 text-green-300 rounded py-1.5 transition-colors text-[10px] font-medium border border-green-500/30"
-                  title="Contact via WhatsApp"
-                >
-                  <MessageSquare size={12} />
-                  WhatsApp
-                </button>
-                <button
-                  onClick={handleEmailContact}
-                  className="flex-1 flex items-center justify-center gap-1 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 rounded py-1.5 transition-colors text-[10px] font-medium border border-blue-500/30"
-                  title="Contact via Email"
-                >
-                  <Mail size={12} />
-                  Email
-                </button>
-              </div>
-
-              {/* Input */}
-              <form
-                onSubmit={handleSendMessage}
-                className="p-3 border-t border-white/10"
-              >
-                <div className="flex gap-1.5">
-                  <input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Type a message..."
-                    disabled={isLoading}
-                    className="flex-1 bg-white/10 border border-white/20 rounded px-3 py-1.5 text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 disabled:opacity-50 transition-all text-xs"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!inputValue.trim() || isLoading}
-                    className="gradient-primary text-white p-1.5 rounded hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  {/* Input */}
+                  <form
+                    onSubmit={handleSendMessage}
+                    className="p-3 border-t border-white/10"
                   >
-                    <Send size={14} />
-                  </button>
-                </div>
-              </form>
+                    <div className="flex gap-1.5">
+                      <input
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        placeholder="Type a message..."
+                        disabled={isLoading}
+                        className="flex-1 bg-white/10 border border-white/20 rounded px-3 py-1.5 text-foreground placeholder-foreground/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 disabled:opacity-50 transition-all text-xs"
+                      />
+                      <button
+                        type="submit"
+                        disabled={!inputValue.trim() || isLoading}
+                        className="gradient-primary text-white p-1.5 rounded hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                      >
+                        <Send size={14} />
+                      </button>
+                    </div>
+                  </form>
+                </>
+              )}
             </>
           )}
         </div>

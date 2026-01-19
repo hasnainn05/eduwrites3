@@ -109,27 +109,27 @@ export default function Profile() {
 
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 p-4"
-              >
-                <div className={`w-10 h-10 rounded-lg ${stat.color} flex items-center justify-center mb-3`}>
-                  <Icon size={20} />
+        {/* Stats Card */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <h3 className="text-sm font-bold text-gray-900 mb-6">Your Statistics</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center mb-3 mx-auto`}>
+                    <Icon size={24} />
+                  </div>
+                  <p className="text-xs font-semibold text-gray-600 uppercase mb-2">
+                    {stat.label}
+                  </p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {stat.value}
+                  </p>
                 </div>
-                <p className="text-xs font-semibold text-gray-600 uppercase">
-                  {stat.label}
-                </p>
-                <p className="text-xl font-bold text-gray-900 mt-1">
-                  {stat.value}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Recent Orders */}

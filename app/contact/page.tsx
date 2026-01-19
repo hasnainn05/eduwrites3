@@ -143,7 +143,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods Section */}
-      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {contactMethods.map((method, index) => {

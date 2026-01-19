@@ -525,22 +525,22 @@ export default function Home() {
                   ? GENERAL_PRICING_PLANS
                   : PROOFREADING_PRICING_PLANS
                 ).map((plan, index) => (
-                  <div
-                    key={plan.id}
-                    className={`relative rounded-2xl overflow-hidden border scroll-animate hover-pop ${
-                      index === 0
-                        ? "scroll-delay-100"
-                        : index === 1
-                          ? "scroll-delay-200"
-                          : index === 2
-                            ? "scroll-delay-300"
-                            : "scroll-delay-400"
-                    } ${
-                      plan.highlighted
-                        ? "bg-primary text-white border-primary scale-105 shadow-xl"
-                        : "bg-white border-border"
-                    }`}
-                  >
+                  <TiltCard key={plan.id} className="h-full">
+                    <div
+                      className={`relative rounded-2xl overflow-hidden border scroll-animate hover-pop ${
+                        index === 0
+                          ? "scroll-delay-100"
+                          : index === 1
+                            ? "scroll-delay-200"
+                            : index === 2
+                              ? "scroll-delay-300"
+                              : "scroll-delay-400"
+                      } ${
+                        plan.highlighted
+                          ? "bg-primary text-white border-primary scale-105 shadow-xl"
+                          : "bg-white border-border"
+                      } h-full`}
+                    >
                     <div className="relative z-10 p-5 h-full flex flex-col">
                       {plan.highlighted && (
                         <div className="mb-3">
@@ -600,6 +600,7 @@ export default function Home() {
                       </Link>
                     </div>
                   </div>
+                  </TiltCard>
                 ))}
               </div>
             </div>

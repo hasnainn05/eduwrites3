@@ -64,23 +64,25 @@ export function AdminSidebar() {
 
   const SidebarContent = () => (
     <div className="h-full flex flex-col bg-white">
-      {/* Logo - Fixed */}
-      <div className="flex-shrink-0 p-3 md:p-4 border-b-2 border-border">
-        <Link href="/admin/dashboard" className="flex items-center gap-2 mb-2">
+      {/* Logo Section - Desktop Header */}
+      <div className="flex-shrink-0 p-4 border-b border-slate-200 hidden md:block">
+        <Link href="/admin/dashboard" className="flex items-center gap-3 mb-2">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
             alt="EduWrites Logo"
-            className="w-[32px] h-[32px] sm:w-[36px] sm:h-[36px] flex-shrink-0"
+            className="w-8 h-8 flex-shrink-0 rounded"
           />
-          <h2 className="text-sm md:text-base font-bold text-primary font-poppins">
-            Admin
-          </h2>
+          <div className="flex flex-col">
+            <h2 className="text-base font-bold text-slate-900 font-poppins">
+              Admin
+            </h2>
+            <p className="text-[11px] text-slate-500">EduWrites</p>
+          </div>
         </Link>
-        <p className="text-[10px] text-foreground/60 ml-8">EduWrites</p>
       </div>
 
       {/* Navigation Menu - Scrollable */}
-      <nav className="flex-1 overflow-y-auto p-2 md:p-3 space-y-1 min-h-0">
+      <nav className="flex-1 overflow-y-auto p-3 space-y-1 min-h-0">
         {menuItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.href);
@@ -90,36 +92,36 @@ export function AdminSidebar() {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-2 px-3 md:px-3 py-2 rounded-lg transition-all text-xs md:text-xs font-medium ${
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-md transition-all text-sm font-medium group ${
                 active
-                  ? "bg-primary text-white border-2 border-primary"
-                  : "text-foreground/70 hover:text-foreground hover:bg-primary/5 border-2 border-transparent"
+                  ? "bg-blue-50 text-blue-600"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               }`}
             >
-              <Icon size={16} />
+              <Icon size={18} className={active ? "text-blue-600" : "group-hover:text-slate-900"} />
               <span>{item.label}</span>
             </Link>
           );
         })}
       </nav>
 
-      {/* Footer - Fixed */}
-      <div className="flex-shrink-0 p-2 md:p-3 border-t-2 border-border space-y-1 md:space-y-1.5">
+      {/* Footer Section - Fixed */}
+      <div className="flex-shrink-0 p-3 border-t border-slate-200 space-y-1.5">
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
-          className="flex items-center gap-2 px-3 md:px-3 py-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-primary/5 transition-all text-xs md:text-xs font-medium border-2 border-transparent"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all text-sm font-medium group"
         >
-          <Home size={16} />
+          <Home size={18} className="group-hover:text-slate-900" />
           <span>Back to Site</span>
         </Link>
         <button
           onClick={() => {
             window.location.href = "/admin/login";
           }}
-          className="w-full flex items-center gap-2 px-3 md:px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 transition-all text-xs md:text-xs font-medium border-2 border-transparent"
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-red-600 hover:bg-red-50 transition-all text-sm font-medium group"
         >
-          <LogOut size={16} />
+          <LogOut size={18} className="group-hover:text-red-700" />
           <span>Logout</span>
         </button>
       </div>

@@ -13,15 +13,12 @@ import {
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
 
 export default function Profile() {
-  const [isEditing, setIsEditing] = useState(false);
-  const [user, setUser] = useState({
+  const [user] = useState({
     fullName: "John Doe",
     email: "john@example.com",
     joinDate: "January 2024",
     avatar: "JD",
   });
-
-  const [editData, setEditData] = useState(user);
 
   const orders = [
     {

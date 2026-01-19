@@ -19,6 +19,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useState } from "react";
+import { useScrollAnimation } from "@/client/hooks/useScrollAnimation";
 import SupportModal from "@/components/SupportModal";
 import {
   GENERAL_PRICING_PLANS,

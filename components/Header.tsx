@@ -219,13 +219,49 @@ export default function Header() {
                 <span>Login</span>
                 <User size={10} />
               </Link>
-              <Link
-                href="/profile"
-                className="p-1 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all hover:scale-105 flex-shrink-0"
-                title="User Profile"
-              >
-                <User size={14} />
-              </Link>
+
+              {/* User Profile Dropdown */}
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  className="p-1 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all hover:scale-105 flex-shrink-0"
+                  title="User Menu"
+                >
+                  <User size={14} />
+                </button>
+
+                {userMenuOpen && (
+                  <div className="absolute right-0 mt-1 w-48 bg-white border-2 border-border rounded-lg shadow-lg z-50 overflow-hidden">
+                    <Link
+                      href="/profile"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="block w-full text-left px-3 py-2 text-sm text-foreground hover:bg-primary/10 transition-colors border-b border-border font-medium flex items-center gap-2"
+                    >
+                      <User size={14} />
+                      My Profile
+                    </Link>
+
+                    <button
+                      onClick={handleSwitchToAdmin}
+                      className="w-full text-left px-3 py-2 text-sm text-foreground hover:bg-accent/10 transition-colors border-b border-border font-medium flex items-center gap-2"
+                    >
+                      <LogOut size={14} />
+                      Switch to Admin
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setUserMenuOpen(false);
+                        // Handle logout logic here
+                      }}
+                      className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors font-medium flex items-center gap-2"
+                    >
+                      <LogOut size={14} />
+                      Sign Out
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

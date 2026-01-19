@@ -315,27 +315,28 @@ export default function Header() {
               <User size={8} />
             </Link>
 
-            <details
-              className="group"
-              ref={detailsRef}
-              onToggle={(e) => setMenuOpen(e.currentTarget.open)}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="cursor-pointer text-foreground hover:text-primary transition-colors flex-shrink-0 p-1 rounded-md hover:bg-primary/5"
+              title="Menu"
             >
-              <summary className="cursor-pointer text-foreground hover:text-primary transition-colors list-none flex-shrink-0">
-                <svg
-                  className="w-2.5 h-2.5 sm:w-3 sm:h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </summary>
-              <div className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
+              <svg
+                className="w-2.5 h-2.5 sm:w-3 sm:h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+
+            {menuOpen && (
+              <div ref={mobileMenuRef} className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg">
                 {/* Navigation Links */}
                 {navItems.map((item) => (
                   <Link
@@ -452,7 +453,7 @@ export default function Header() {
                   </div>
                 </details>
               </div>
-            </details>
+            )}
           </div>
         </div>
       </div>

@@ -1032,7 +1032,7 @@ export default function ServiceDetail() {
             {service.pricingPackages.map((plan, index) => (
               <div
                 key={plan.id}
-                className={`relative rounded-lg transition-all duration-300 overflow-hidden border scroll-animate ${
+                className={`relative rounded-lg overflow-hidden border scroll-animate hover-pop ${
                   index === 0
                     ? "scroll-delay-100"
                     : index === 1
@@ -1043,7 +1043,7 @@ export default function ServiceDetail() {
                 } ${
                   plan.highlighted
                     ? "bg-primary text-white border-primary scale-105 shadow-xl"
-                    : "bg-white border-border hover:shadow-lg hover:border-accent/30"
+                    : "bg-white border-border"
                 }`}
               >
                 <div className="relative z-10 p-5 h-full flex flex-col">

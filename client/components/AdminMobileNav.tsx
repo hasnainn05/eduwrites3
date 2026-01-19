@@ -5,12 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   ShoppingBag,
-  FileText,
-  Star,
   MessageSquare,
-  Settings,
-  Home,
-  LogOut,
 } from "lucide-react";
 
 export function AdminMobileNav() {

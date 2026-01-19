@@ -315,7 +315,6 @@
   /* Scroll Animation Utilities */
   .scroll-animate {
     opacity: 0;
-    perspective: 1200px;
   }
 
   .scroll-animate.animate-in {

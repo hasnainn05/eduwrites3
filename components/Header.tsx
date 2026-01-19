@@ -14,6 +14,7 @@ export default function Header() {
   const [isAdminMode, setIsAdminMode] = useState(false);
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
   // Close user menu when clicking outside

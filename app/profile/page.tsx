@@ -145,55 +145,55 @@ export default function Profile() {
         {/* Recent Orders Section */}
         <div>
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6 gap-2">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-lg sm:text-2xl font-bold text-gray-900">
                 Recent Orders
               </h2>
-              <p className="text-gray-600 text-sm mt-1">
+              <p className="text-gray-600 text-xs sm:text-sm mt-0.5 sm:mt-1">
                 Track your academic projects
               </p>
             </div>
             <Link
               href="/order"
-              className="inline-flex items-center gap-2 px-4 py-2 text-indigo-600 hover:text-indigo-700 font-semibold text-sm transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 text-indigo-600 hover:text-indigo-700 font-semibold text-xs sm:text-sm transition-colors flex-shrink-0 whitespace-nowrap"
             >
-              View All <ArrowRight size={16} />
+              View All <ArrowRight size={14} className="sm:size-4" />
             </Link>
           </div>
 
           {/* Orders List */}
-          <div className="space-y-4 mb-12">
+          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
             {orders.length > 0 ? (
               orders.map((order, index) => (
                 <div
                   key={index}
-                  className="group rounded-xl border border-gray-200 bg-white hover:border-indigo-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                  className="group rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-indigo-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
                 >
-                  <div className="p-6 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-4 flex-1 min-w-0">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
-                        <FileText size={24} className="text-white" />
+                  <div className="p-3 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center flex-shrink-0 shadow-md">
+                        <FileText size={20} className="sm:size-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                        <h4 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-indigo-600 transition-colors truncate">
                           {order.service}
                         </h4>
-                        <div className="flex items-center gap-4 mt-2 text-xs text-gray-600">
-                          <span className="flex items-center gap-1">
-                            <Clock size={14} />
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1 text-xs text-gray-600">
+                          <span className="flex items-center gap-1 truncate">
+                            <Clock size={12} className="flex-shrink-0" />
                             {order.date}
                           </span>
-                          <span className="font-semibold text-gray-900">
+                          <span className="hidden sm:block font-semibold text-gray-900">
                             {order.id}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 justify-end">
                       <span
-                        className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
+                        className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
                           order.status === "Completed"
                             ? "bg-emerald-100 text-emerald-700"
                             : order.status === "In Progress"
@@ -203,44 +203,41 @@ export default function Profile() {
                       >
                         {order.status}
                       </span>
-                      <span className="font-bold text-lg text-gray-900 whitespace-nowrap">
+                      <span className="font-bold text-sm sm:text-lg text-gray-900 whitespace-nowrap">
                         {order.amount}
                       </span>
-                      <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all opacity-0 group-hover:opacity-100">
-                        <Eye size={18} />
-                      </button>
                     </div>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="rounded-xl border border-gray-200 bg-gray-50 p-12 text-center">
-                <FileText size={40} className="text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-600 mb-6">No orders yet</p>
+              <div className="rounded-lg sm:rounded-xl border border-gray-200 bg-gray-50 p-6 sm:p-12 text-center">
+                <FileText size={32} className="sm:size-10 text-gray-300 mx-auto mb-3 sm:mb-4" />
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">No orders yet</p>
                 <Link
                   href="/order"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all font-semibold text-sm shadow-md"
+                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-indigo-600 text-white rounded-lg sm:rounded-xl hover:bg-indigo-700 transition-all font-semibold text-xs sm:text-sm shadow-md"
                 >
-                  Create Your First Order <ArrowRight size={16} />
+                  Create Your First Order <ArrowRight size={14} className="sm:size-4" />
                 </Link>
               </div>
             )}
           </div>
 
           {/* CTA Section */}
-          <div className="rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-white overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20"></div>
+          <div className="rounded-lg sm:rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 p-4 sm:p-8 text-white overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-32 h-32 sm:w-40 sm:h-40 bg-white/10 rounded-full -mr-16 sm:-mr-20 -mt-16 sm:-mt-20"></div>
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-3">Ready to start?</h3>
-              <p className="text-white/90 mb-6">
+              <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-3">Ready to start?</h3>
+              <p className="text-white/90 mb-4 sm:mb-6 text-sm sm:text-base">
                 Place a new order and get professional academic writing
                 assistance today.
               </p>
               <Link
                 href="/order"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-white text-indigo-600 rounded-xl hover:bg-gray-50 transition-all font-bold shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-2 px-4 sm:px-8 py-2 sm:py-3 bg-white text-indigo-600 rounded-lg sm:rounded-xl hover:bg-gray-50 transition-all font-bold text-sm sm:text-base shadow-lg hover:shadow-xl"
               >
-                Place New Order <ArrowRight size={18} />
+                Place New Order <ArrowRight size={14} className="sm:size-5" />
               </Link>
             </div>
           </div>

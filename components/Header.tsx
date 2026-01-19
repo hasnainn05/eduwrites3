@@ -75,7 +75,7 @@ export default function Header() {
                 <span className="text-primary">Edu</span>
                 <span className="text-accent">Writes</span>
               </h1>
-              <p className="text-foreground/60 text-[7px] sm:text-[8px] md:text-xs mt-0.5 font-medium whitespace-nowrap tracking-wide">
+              <p className="text-foreground/60 text-[5px] sm:text-[6px] md:text-[7px] mt-0.5 font-medium whitespace-nowrap tracking-wide">
                 We Write, You Shine
               </p>
             </div>

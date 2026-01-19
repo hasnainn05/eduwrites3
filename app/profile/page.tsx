@@ -75,23 +75,23 @@ export default function Profile() {
 
       <div className="max-w-5xl mx-auto">
         {/* Header with User Info and Actions */}
-        <div className="mb-10 sm:mb-12">
-          <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 sm:gap-6">
-            <div className="flex items-center gap-3 sm:gap-4 text-center sm:text-left">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl sm:text-3xl font-bold shadow-lg flex-shrink-0">
+        <div className="mb-8 sm:mb-12">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-3 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-4 text-center sm:text-left w-full sm:w-auto">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-xl sm:text-3xl font-bold shadow-lg flex-shrink-0">
                 {user.avatar}
               </div>
-              <div>
-                <h1 className="text-2xl sm:text-4xl font-bold text-gray-900">
+              <div className="flex-1 min-w-0">
+                <h1 className="text-xl sm:text-4xl font-bold text-gray-900 truncate">
                   {user.fullName}
                 </h1>
-                <div className="flex items-center gap-4 mt-3 text-sm text-gray-600">
-                  <span className="flex items-center gap-1">
-                    <Mail size={16} />
-                    {user.email}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-2 text-xs sm:text-sm text-gray-600">
+                  <span className="flex items-center gap-1 truncate">
+                    <Mail size={14} className="flex-shrink-0" />
+                    <span className="truncate">{user.email}</span>
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Calendar size={16} />
+                  <span className="hidden sm:flex items-center gap-1">
+                    <Calendar size={14} />
                     {user.joinDate}
                   </span>
                 </div>
@@ -99,27 +99,27 @@ export default function Profile() {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all font-semibold text-sm shadow-md hover:shadow-lg"
+              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-red-600 text-white rounded-lg sm:rounded-xl hover:bg-red-700 transition-all font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg flex-shrink-0 whitespace-nowrap"
             >
-              <LogOut size={18} />
+              <LogOut size={16} className="sm:size-18" />
               <span className="hidden sm:inline">Logout</span>
             </button>
           </div>
         </div>
 
-        {/* Stats Grid - Premium Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* Stats Grid - Compact for Mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-12">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div
                 key={index}
-                className={`rounded-2xl border border-gray-200 p-6 hover:border-gray-300 hover:shadow-xl transition-all duration-300 ${colorMap[stat.color] || ""}`}
+                className={`rounded-xl sm:rounded-2xl border border-gray-200 p-3 sm:p-6 hover:border-gray-300 hover:shadow-lg sm:hover:shadow-xl transition-all duration-300 ${colorMap[stat.color] || ""}`}
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-2 sm:mb-4">
                   <Icon
-                    size={32}
-                    className={
+                    size={24}
+                    className={`sm:size-8 ${
                       stat.color === "indigo"
                         ? "text-indigo-600"
                         : stat.color === "emerald"
@@ -127,14 +127,14 @@ export default function Profile() {
                           : stat.color === "violet"
                             ? "text-violet-600"
                             : "text-amber-600"
-                    }
+                    }`}
                   />
-                  <Zap size={16} className="text-gray-400" />
+                  <Zap size={12} className="hidden sm:block text-gray-400" />
                 </div>
-                <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                <p className="text-xs sm:text-sm font-semibold text-gray-600 uppercase tracking-wide">
                   {stat.label}
                 </p>
-                <p className="text-3xl font-bold text-gray-900 mt-3">
+                <p className="text-lg sm:text-3xl font-bold text-gray-900 mt-2 sm:mt-3">
                   {stat.value}
                 </p>
               </div>

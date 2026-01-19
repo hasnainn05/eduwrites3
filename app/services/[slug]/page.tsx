@@ -1009,7 +1009,7 @@ export default function ServiceDetail() {
       {/* Pricing Section */}
       <section
         id="pricing"
-        className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6 bg-gradient-to-b from-white/50 to-white/30"
+        className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-gradient-to-b from-white/50 to-white/30"
       >
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -1102,7 +1102,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
@@ -1202,7 +1202,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Education Levels & Fields Section */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
@@ -1377,7 +1377,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
@@ -1412,7 +1412,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Testimonials */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
@@ -1466,7 +1466,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* FAQs */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">

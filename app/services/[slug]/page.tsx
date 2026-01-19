@@ -1113,7 +1113,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-400">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
@@ -1213,7 +1213,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Education Levels & Fields Section */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-500">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">

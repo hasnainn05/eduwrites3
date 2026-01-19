@@ -82,34 +82,44 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="p-3 sm:p-4 space-y-4 sm:space-y-5">
+    <div className="p-4 sm:p-6 space-y-6">
+      {/* Page Header */}
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-poppins">
+          Dashboard
+        </h1>
+        <p className="text-slate-600 text-sm mt-1">
+          Welcome back! Here's your platform overview.
+        </p>
+      </div>
+
       {/* Stats Grid */}
       <div>
-        <h2 className="text-sm sm:text-base font-bold text-foreground mb-3">
+        <h2 className="text-lg font-bold text-slate-900 mb-4">
           Key Metrics
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
               <div
                 key={idx}
-                className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all cursor-pointer"
+                className="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-lg transition-all cursor-pointer hover:border-slate-300"
               >
-                <div className="flex items-start justify-between mb-2">
+                <div className="flex items-start justify-between mb-3">
                   <div
-                    className={`p-2 rounded-lg bg-gradient-to-br ${stat.color} bg-opacity-20`}
+                    className={`p-3 rounded-lg bg-gradient-to-br ${stat.color} bg-opacity-10`}
                   >
-                    <Icon className="w-4 h-4 text-foreground/70" />
+                    <Icon className="w-5 h-5 text-slate-700" />
                   </div>
                 </div>
-                <p className="text-foreground/70 text-xs font-medium">
+                <p className="text-slate-600 text-sm font-medium">
                   {stat.label}
                 </p>
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
                   {stat.value}
                 </h3>
-                <p className="text-[10px] text-foreground/50 mt-1">
+                <p className="text-xs text-slate-500 mt-2">
                   {stat.change}
                 </p>
               </div>
@@ -119,32 +129,32 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Activity */}
-        <div className="bg-white rounded-lg border-2 border-border p-3">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 mb-3">
-            <h2 className="text-sm font-bold text-foreground">
+        <div className="bg-white rounded-lg border border-slate-200 p-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 mb-4">
+            <h2 className="text-lg font-bold text-slate-900">
               Recent Activity
             </h2>
             <Link
               href="/admin/messages"
-              className="text-primary hover:text-primary/80 text-xs font-medium flex items-center gap-1"
+              className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1"
             >
-              View All <ArrowRight size={12} />
+              View All <ArrowRight size={14} />
             </Link>
           </div>
           <div className="space-y-2">
             {recentActivities.map((activity, idx) => (
               <div
                 key={idx}
-                className="flex items-start sm:items-center gap-2 p-2 rounded-lg bg-white hover:bg-primary/5 transition-colors border border-border"
+                className="flex items-start sm:items-center gap-3 p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100"
               >
-                <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-0.5 sm:mt-0"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-600 flex-shrink-0 mt-1 sm:mt-0"></div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-foreground text-xs font-medium truncate">
+                  <p className="text-slate-900 text-sm font-medium truncate">
                     {activity.action}
                   </p>
-                  <p className="text-foreground/50 text-[10px] mt-0.5">
+                  <p className="text-slate-500 text-xs mt-1">
                     {activity.date}
                   </p>
                 </div>
@@ -154,82 +164,82 @@ export default function AdminDashboard() {
         </div>
 
         {/* Quick Links */}
-        <div className="bg-white rounded-lg border-2 border-border p-3">
-          <h2 className="text-sm font-bold text-foreground mb-3">
+        <div className="bg-white rounded-lg border border-slate-200 p-4">
+          <h2 className="text-lg font-bold text-slate-900 mb-4">
             Quick Actions
           </h2>
           <div className="space-y-2">
             <Link
               href="/admin/orders"
-              className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-orange-50 transition-all group border-2 border-border"
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-orange-50 transition-all group border border-slate-100 hover:border-orange-200"
             >
               <div>
-                <p className="font-semibold text-foreground text-xs">
+                <p className="font-semibold text-slate-900 text-sm">
                   Manage Orders
                 </p>
-                <p className="text-[10px] text-foreground/60">
+                <p className="text-xs text-slate-600">
                   View and manage orders
                 </p>
               </div>
-              <ArrowRight size={14} className="text-primary flex-shrink-0" />
+              <ArrowRight size={16} className="text-slate-400 group-hover:text-orange-600 flex-shrink-0 transition-colors" />
             </Link>
 
             <Link
               href="/admin/services"
-              className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-indigo-50 transition-all group border-2 border-border"
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-indigo-50 transition-all group border border-slate-100 hover:border-indigo-200"
             >
               <div>
-                <p className="font-semibold text-foreground text-xs">
+                <p className="font-semibold text-slate-900 text-sm">
                   Manage Services
                 </p>
-                <p className="text-[10px] text-foreground/60">
+                <p className="text-xs text-slate-600">
                   Add, edit, delete
                 </p>
               </div>
-              <ArrowRight size={14} className="text-primary flex-shrink-0" />
+              <ArrowRight size={16} className="text-slate-400 group-hover:text-indigo-600 flex-shrink-0 transition-colors" />
             </Link>
 
             <Link
               href="/admin/packages"
-              className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-purple-50 transition-all group border-2 border-border"
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-purple-50 transition-all group border border-slate-100 hover:border-purple-200"
             >
               <div>
-                <p className="font-semibold text-foreground text-xs">
+                <p className="font-semibold text-slate-900 text-sm">
                   Package Pricing
                 </p>
-                <p className="text-[10px] text-foreground/60">
+                <p className="text-xs text-slate-600">
                   Update details & pricing
                 </p>
               </div>
-              <ArrowRight size={14} className="text-primary flex-shrink-0" />
+              <ArrowRight size={16} className="text-slate-400 group-hover:text-purple-600 flex-shrink-0 transition-colors" />
             </Link>
 
             <Link
               href="/admin/reviews"
-              className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-yellow-50 transition-all group border-2 border-border"
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-yellow-50 transition-all group border border-slate-100 hover:border-yellow-200"
             >
               <div>
-                <p className="font-semibold text-foreground text-xs">
+                <p className="font-semibold text-slate-900 text-sm">
                   Reviews & Ratings
                 </p>
-                <p className="text-[10px] text-foreground/60">Manage reviews</p>
+                <p className="text-xs text-slate-600">Manage reviews</p>
               </div>
-              <ArrowRight size={14} className="text-primary flex-shrink-0" />
+              <ArrowRight size={16} className="text-slate-400 group-hover:text-yellow-600 flex-shrink-0 transition-colors" />
             </Link>
 
             <Link
               href="/admin/messages"
-              className="flex items-center justify-between p-2 rounded-lg bg-white hover:bg-green-50 transition-all group border-2 border-border"
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-green-50 transition-all group border border-slate-100 hover:border-green-200"
             >
               <div>
-                <p className="font-semibold text-foreground text-xs">
+                <p className="font-semibold text-slate-900 text-sm">
                   Messages & Chat
                 </p>
-                <p className="text-[10px] text-foreground/60">
+                <p className="text-xs text-slate-600">
                   23 unread messages
                 </p>
               </div>
-              <ArrowRight size={14} className="text-primary flex-shrink-0" />
+              <ArrowRight size={16} className="text-slate-400 group-hover:text-green-600 flex-shrink-0 transition-colors" />
             </Link>
           </div>
         </div>

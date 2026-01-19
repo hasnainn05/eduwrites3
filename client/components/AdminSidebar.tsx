@@ -131,32 +131,21 @@ export function AdminSidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex h-full w-64 flex-col">
+      <div className="hidden md:flex h-full w-64 flex-col bg-white">
         <SidebarContent />
-      </div>
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden fixed top-20 left-4 z-50">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-all"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile Drawer Overlay */}
       {isOpen && (
         <div
-          className="md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+          className="md:hidden fixed inset-0 z-20 bg-black/50 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Mobile Sidebar */}
       <div
-        className={`md:hidden fixed left-0 top-0 z-40 w-56 h-screen bg-white border-r border-border flex flex-col transition-transform duration-300 transform ${
+        className={`md:hidden fixed left-0 top-16 z-30 w-56 h-[calc(100vh-4rem)] bg-white border-r border-slate-200 flex flex-col transition-transform duration-300 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

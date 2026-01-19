@@ -269,7 +269,7 @@ export default function Header() {
             <div className="hidden sm:flex gap-0.5 items-center">
               <Link
                 href="/login"
-                className="px-1.5 sm:px-2 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[8px] sm:text-[9px] font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"
+                className="px-1.5 sm:px-2 py-0.5 border-2 border-primary text-primary hover:bg-primary/5 transition-all text-[8px] sm:text-[9px] font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"
               >
                 <span>Login</span>
                 <User size={10} />
@@ -325,7 +325,7 @@ export default function Header() {
             {/* Mobile Login Button */}
             <Link
               href="/login"
-              className="px-1 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[7px] font-medium flex items-center gap-0.5 flex-shrink-0"
+              className="px-1 py-0.5 border-2 border-primary text-primary hover:bg-primary/5 transition-all text-[7px] font-medium flex items-center gap-0.5 flex-shrink-0"
             >
               <span>Login</span>
               <User size={8} />

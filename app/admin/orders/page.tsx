@@ -196,45 +196,55 @@ export default function AdminOrders() {
   };
 
   return (
-    <div className="p-3 sm:p-4 md:p-4 space-y-3 sm:space-y-4">
+    <div className="p-4 sm:p-6 space-y-6">
+      {/* Page Header */}
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-poppins">
+          Orders
+        </h1>
+        <p className="text-slate-600 text-sm mt-1">
+          Manage and track all customer orders
+        </p>
+      </div>
+
       {/* Stats Overview */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-          <p className="text-foreground/70 text-xs font-medium truncate">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-lg transition-all hover:border-slate-300">
+          <p className="text-slate-600 text-sm font-medium truncate">
             Total Orders
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
+          <h3 className="text-3xl font-bold text-slate-900 mt-2">
             {stats.total}
           </h3>
         </div>
-        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-          <p className="text-foreground/70 text-xs font-medium truncate">
+        <div className="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-lg transition-all hover:border-slate-300">
+          <p className="text-slate-600 text-sm font-medium truncate">
             Pending Orders
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-orange-600 mt-1">
+          <h3 className="text-3xl font-bold text-orange-600 mt-2">
             {stats.pending}
           </h3>
         </div>
-        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-          <p className="text-foreground/70 text-xs font-medium truncate">
+        <div className="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-lg transition-all hover:border-slate-300">
+          <p className="text-slate-600 text-sm font-medium truncate">
             In Progress
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-yellow-600 mt-1">
+          <h3 className="text-3xl font-bold text-blue-600 mt-2">
             {stats.in_progress}
           </h3>
         </div>
-        <div className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all">
-          <p className="text-foreground/70 text-xs font-medium truncate">
+        <div className="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-lg transition-all hover:border-slate-300">
+          <p className="text-slate-600 text-sm font-medium truncate">
             Completed
           </p>
-          <h3 className="text-lg sm:text-xl font-bold text-green-600 mt-1">
+          <h3 className="text-3xl font-bold text-green-600 mt-2">
             {stats.completed}
           </h3>
         </div>
       </div>
 
       {/* Orders Section */}
-      <div className="bg-white rounded-lg border-2 border-border overflow-hidden">
+      <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
         {/* Tabs */}
         <OrderStatusTabs
           activeStatus={activeStatus}

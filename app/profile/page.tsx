@@ -75,14 +75,14 @@ export default function Profile() {
 
       <div className="max-w-5xl mx-auto">
         {/* Header with User Info and Actions */}
-        <div className="mb-12">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+        <div className="mb-10 sm:mb-12">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4 sm:gap-6">
+            <div className="flex items-center gap-3 sm:gap-4 text-center sm:text-left">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl sm:text-3xl font-bold shadow-lg flex-shrink-0">
                 {user.avatar}
               </div>
               <div>
-                <h1 className="text-4xl font-bold text-gray-900">
+                <h1 className="text-2xl sm:text-4xl font-bold text-gray-900">
                   {user.fullName}
                 </h1>
                 <div className="flex items-center gap-4 mt-3 text-sm text-gray-600">

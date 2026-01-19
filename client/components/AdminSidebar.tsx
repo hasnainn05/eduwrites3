@@ -64,23 +64,6 @@ export function AdminSidebar() {
 
   const SidebarContent = () => (
     <div className="h-full flex flex-col bg-white">
-      {/* Logo Section - Desktop Header */}
-      <div className="flex-shrink-0 p-4 border-b border-slate-200 hidden md:block">
-        <Link href="/admin/dashboard" className="flex items-center gap-3 mb-2">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
-            alt="EduWrites Logo"
-            className="w-8 h-8 flex-shrink-0 rounded"
-          />
-          <div className="flex flex-col">
-            <h2 className="text-base font-bold text-slate-900 font-poppins">
-              Admin
-            </h2>
-            <p className="text-[11px] text-slate-500">EduWrites</p>
-          </div>
-        </Link>
-      </div>
-
       {/* Navigation Menu - Scrollable */}
       <nav className="flex-1 overflow-y-auto p-3 space-y-1 min-h-0">
         {menuItems.map((item) => {

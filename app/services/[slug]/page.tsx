@@ -819,8 +819,8 @@ export default function ServiceDetail() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-3 sm:px-4 md:px-6">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Left Content */}
             <div className="lg:col-span-3">

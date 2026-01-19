@@ -70,7 +70,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-6 sm:py-8 lg:py-12 px-3 sm:px-4 md:px-6">
+    <div className="min-h-screen bg-white py-6 sm:py-8 lg:py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       <Canvas3DWrapper />
 
       <div className="max-w-5xl mx-auto">

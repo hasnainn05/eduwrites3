@@ -8,6 +8,7 @@ import {
   MessageSquare,
   Home,
   ShoppingBag,
+  LogOut,
 } from "lucide-react";
 
 export function AdminSidebar() {

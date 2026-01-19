@@ -13,7 +13,7 @@ export default function Order() {
   };
 
   return (
-    <div className="min-h-screen py-6 sm:py-8 lg:py-12 px-3 sm:px-4 md:px-6">
+    <div className="min-h-screen py-6 sm:py-8 lg:py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>

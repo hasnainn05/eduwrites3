@@ -69,7 +69,7 @@ export default function About() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-3 font-poppins leading-tight">
@@ -89,7 +89,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Mission */}
           <TiltCard className="h-full">
@@ -127,7 +127,7 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 font-poppins">
@@ -158,7 +158,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {stats.map((stat, index) => (
@@ -179,7 +179,7 @@ export default function About() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 font-poppins">
@@ -211,7 +211,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-poppins">
@@ -246,7 +246,7 @@ export default function About() {
       </section>
 
       {/* Send us a Message Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-md mx-auto">
           <div className="bg-white border-2 border-border p-4 sm:p-5 rounded-lg shadow-lg">
             <h2 className="text-xs font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
@@ -303,7 +303,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 blur-gradient bg-gradient-to-r from-purple-600 to-transparent opacity-40 top-0 left-0 -z-10"></div>
         <div className="absolute inset-0 blur-gradient bg-gradient-to-l from-cyan-600 to-transparent opacity-40 bottom-0 right-0 -z-10"></div>

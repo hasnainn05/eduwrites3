@@ -82,7 +82,12 @@ export function AdminSidebar() {
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
               >
-                <Icon size={18} className={active ? "text-blue-600" : "group-hover:text-slate-900"} />
+                <Icon
+                  size={18}
+                  className={
+                    active ? "text-blue-600" : "group-hover:text-slate-900"
+                  }
+                />
                 <span>{item.label}</span>
               </Link>
             );

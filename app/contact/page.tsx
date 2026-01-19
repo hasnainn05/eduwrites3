@@ -125,7 +125,7 @@ export default function Contact() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-8 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 font-poppins leading-tight">

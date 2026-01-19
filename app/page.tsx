@@ -229,7 +229,7 @@ export default function Home() {
   return (
     <div ref={scrollRef} className="w-full">
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="w-full mx-auto">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">

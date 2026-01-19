@@ -81,143 +81,145 @@ export default function Profile() {
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <Canvas3DWrapper />
       <div className="max-w-3xl mx-auto">
-        {/* Profile Header */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
-                {user.avatar}
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">
-                  {user.fullName}
-                </h1>
-                <p className="text-sm text-gray-600 mt-1">{user.email}</p>
-                <p className="text-xs text-gray-500 mt-0.5">
-                  Member since {user.joinDate}
-                </p>
-              </div>
-            </div>
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
-            >
-              <LogOut size={16} />
-              Logout
-            </button>
-          </div>
+        {/* Main Profile Card Container */}
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
 
-        </div>
-
-        {/* Stats Card */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-          <h3 className="text-sm font-bold text-gray-900 mb-6">Your Statistics</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center mb-3 mx-auto`}>
-                    <Icon size={24} />
-                  </div>
-                  <p className="text-xs font-semibold text-gray-600 uppercase mb-2">
-                    {stat.label}
-                  </p>
-                  <p className="text-2xl font-bold text-gray-900">
-                    {stat.value}
+          {/* Profile Header Section */}
+          <div className="p-6 border-b border-gray-200">
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                  {user.avatar}
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    {user.fullName}
+                  </h1>
+                  <p className="text-sm text-gray-600 mt-1">{user.email}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">
+                    Member since {user.joinDate}
                   </p>
                 </div>
-              );
-            })}
+              </div>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+              >
+                <LogOut size={16} />
+                Logout
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Recent Orders */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+          {/* Statistics Section */}
           <div className="p-6 border-b border-gray-200">
-            <h2 className="text-lg font-bold text-gray-900">Recent Orders</h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <h3 className="text-sm font-bold text-gray-900 mb-6">Your Statistics</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={index} className="text-center">
+                    <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center mb-3 mx-auto`}>
+                      <Icon size={24} />
+                    </div>
+                    <p className="text-xs font-semibold text-gray-600 uppercase mb-2">
+                      {stat.label}
+                    </p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {stat.value}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Recent Orders Section */}
+          <div className="p-6 border-b border-gray-200">
+            <h2 className="text-lg font-bold text-gray-900 mb-2">Recent Orders</h2>
+            <p className="text-sm text-gray-600 mb-6">
               Your latest academic writing orders
             </p>
-          </div>
 
-          <div className="divide-y divide-gray-200">
-            {orders.length > 0 ? (
-              orders.map((order, index) => (
-                <div
-                  key={index}
-                  className="p-4 sm:p-6 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                        <FileText size={18} className="text-indigo-600" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-semibold text-gray-900 text-sm">
-                          {order.service}
-                        </p>
-                        <p className="text-xs text-gray-600 mt-0.5">
-                          {order.date}
-                        </p>
+            <div className="space-y-3">
+              {orders.length > 0 ? (
+                orders.map((order, index) => (
+                  <div
+                    key={index}
+                    className="p-4 flex items-center justify-between gap-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                          <FileText size={18} className="text-indigo-600" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="font-semibold text-gray-900 text-sm">
+                            {order.service}
+                          </p>
+                          <p className="text-xs text-gray-600 mt-0.5">
+                            {order.date}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="flex items-center gap-3 flex-shrink-0">
-                    <span
-                      className={`px-2.5 py-1 rounded text-xs font-semibold border whitespace-nowrap ${
-                        order.status === "Completed"
-                          ? "bg-green-100 text-green-700 border-green-300"
-                          : order.status === "In Progress"
-                            ? "bg-blue-100 text-blue-700 border-blue-300"
-                            : "bg-yellow-100 text-yellow-700 border-yellow-300"
-                      }`}
-                    >
-                      {order.status}
-                    </span>
-                    <span className="font-bold text-gray-900 text-sm whitespace-nowrap">
-                      {order.amount}
-                    </span>
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                      <span
+                        className={`px-2.5 py-1 rounded text-xs font-semibold border whitespace-nowrap ${
+                          order.status === "Completed"
+                            ? "bg-green-100 text-green-700 border-green-300"
+                            : order.status === "In Progress"
+                              ? "bg-blue-100 text-blue-700 border-blue-300"
+                              : "bg-yellow-100 text-yellow-700 border-yellow-300"
+                        }`}
+                      >
+                        {order.status}
+                      </span>
+                      <span className="font-bold text-gray-900 text-sm whitespace-nowrap">
+                        {order.amount}
+                      </span>
+                    </div>
                   </div>
+                ))
+              ) : (
+                <div className="p-8 text-center">
+                  <p className="text-sm text-gray-600">
+                    No orders yet. Start by creating your first order!
+                  </p>
                 </div>
-              ))
-            ) : (
-              <div className="p-8 text-center">
-                <p className="text-sm text-gray-600">
-                  No orders yet. Start by creating your first order!
-                </p>
-              </div>
-            )}
+              )}
+            </div>
+
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <Link
+                href="/order"
+                className="flex items-center justify-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
+              >
+                View All Orders <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
 
-          <div className="p-4 border-t border-gray-200 bg-gray-50">
-            <Link
-              href="/order"
-              className="flex items-center justify-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
-            >
-              View All Orders <ArrowRight size={16} />
-            </Link>
+          {/* Quick Actions Section */}
+          <div className="p-6 bg-gray-50">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Link
+                href="/order"
+                className="bg-indigo-600 text-white rounded-lg p-4 hover:bg-indigo-700 transition-colors font-semibold text-center text-sm"
+              >
+                + New Order
+              </Link>
+              <Link
+                href="/#services"
+                className="bg-gray-200 text-gray-900 rounded-lg p-4 hover:bg-gray-300 transition-colors font-semibold text-center text-sm"
+              >
+                View Services
+              </Link>
+            </div>
           </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Link
-            href="/order"
-            className="bg-indigo-600 text-white rounded-lg p-4 hover:bg-indigo-700 transition-colors font-semibold text-center"
-          >
-            + New Order
-          </Link>
-          <Link
-            href="/#services"
-            className="bg-gray-200 text-gray-900 rounded-lg p-4 hover:bg-gray-300 transition-colors font-semibold text-center"
-          >
-            View Services
-          </Link>
         </div>
       </div>
-
     </div>
   );
 }

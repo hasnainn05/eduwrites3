@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Send, MessageSquare, Trash2, Search, AlertCircle, X, Check } from "lucide-react";
+import {
+  Send,
+  MessageSquare,
+  Trash2,
+  Search,
+  AlertCircle,
+  X,
+  Check,
+} from "lucide-react";
 
 export default function AdminLiveChat() {
   const [conversations, setConversations] = useState([
@@ -139,7 +147,8 @@ export default function AdminLiveChat() {
               Live Chat
             </h2>
             <p className="text-sm text-slate-600 mt-1">
-              {unresolvedCount} active conversation{unresolvedCount !== 1 ? "s" : ""}
+              {unresolvedCount} active conversation
+              {unresolvedCount !== 1 ? "s" : ""}
             </p>
           </div>
 
@@ -326,7 +335,9 @@ export default function AdminLiveChat() {
         <div className="hidden md:flex flex-1 items-center justify-center bg-white rounded-lg border border-slate-200">
           <div className="text-center">
             <MessageSquare size={48} className="text-slate-300 mx-auto mb-3" />
-            <p className="text-slate-500 font-medium">Select a conversation to start</p>
+            <p className="text-slate-500 font-medium">
+              Select a conversation to start
+            </p>
           </div>
         </div>
       )}

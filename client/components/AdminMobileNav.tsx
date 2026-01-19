@@ -2,11 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  LayoutDashboard,
-  ShoppingBag,
-  MessageSquare,
-} from "lucide-react";
+import { LayoutDashboard, ShoppingBag, MessageSquare } from "lucide-react";
 
 export function AdminMobileNav() {
   const pathname = usePathname();
@@ -48,9 +44,7 @@ export function AdminMobileNav() {
               key={item.href}
               href={item.href}
               className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-all text-xs font-medium ${
-                active
-                  ? "text-blue-600"
-                  : "text-slate-600 hover:text-slate-900"
+                active ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
               }`}
               title={item.label}
             >

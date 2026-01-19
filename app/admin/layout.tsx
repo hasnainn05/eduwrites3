@@ -13,7 +13,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 bg-white border-b border-slate-200 h-16 flex items-center px-4 sm:px-6">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
-          <Link href="/admin/dashboard" className="flex items-center gap-2 flex-shrink-0">
+          <Link
+            href="/admin/dashboard"
+            className="flex items-center gap-2 flex-shrink-0"
+          >
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
               alt="EduWrites Logo"

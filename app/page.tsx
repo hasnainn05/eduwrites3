@@ -524,10 +524,18 @@ export default function Home() {
                 {(pricingType === "writing"
                   ? GENERAL_PRICING_PLANS
                   : PROOFREADING_PRICING_PLANS
-                ).map((plan) => (
+                ).map((plan, index) => (
                   <div
                     key={plan.id}
-                    className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
+                    className={`relative rounded-2xl transition-all duration-300 overflow-hidden border scroll-animate ${
+                      index === 0
+                        ? "scroll-delay-100"
+                        : index === 1
+                          ? "scroll-delay-200"
+                          : index === 2
+                            ? "scroll-delay-300"
+                            : "scroll-delay-400"
+                    } ${
                       plan.highlighted
                         ? "bg-primary text-white border-primary scale-105 shadow-xl"
                         : "bg-white border-border hover:shadow-lg hover:border-accent/30"

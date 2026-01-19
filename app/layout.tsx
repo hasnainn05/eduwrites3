@@ -117,7 +117,7 @@ export default function RootLayout({
         <SchemaScript schema={websiteSchema} />
         <SchemaScript schema={aggregateOfferSchema()} />
       </head>
-      <body className={inter.className} suppressHydrationWarning>
+      <body className={`${inter.className} overflow-x-hidden`} suppressHydrationWarning>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

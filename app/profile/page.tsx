@@ -155,7 +155,7 @@ export default function Profile() {
               </p>
             </div>
             <Link
-              href="/order"
+              href="/orders"
               className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 text-indigo-600 hover:text-indigo-700 font-semibold text-xs sm:text-sm transition-colors flex-shrink-0 whitespace-nowrap"
             >
               View All <ArrowRight size={14} className="sm:size-4" />

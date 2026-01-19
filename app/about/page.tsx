@@ -4,29 +4,6 @@ import { CheckCircle, Users, Award, Zap } from "lucide-react";
 import Link from "next/link";
 import { TiltCard } from "@/client/components/TiltCard";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "About EduWrites | Professional Academic Writing Since 2018",
-  description:
-    "Learn about EduWrites: 50,000+ satisfied students, 50+ PhD writers, 98% satisfaction rate. Committed to excellence, integrity, and student success since 2018.",
-  keywords: [
-    "about us",
-    "academic writing company",
-    "professional writers",
-    "student success",
-  ],
-  alternates: {
-    canonical: "https://eduwrites.com/about",
-  },
-  openGraph: {
-    title: "About EduWrites | Professional Academic Writing",
-    description:
-      "EduWrites: 50,000+ satisfied students, 50+ PhD writers, 98% satisfaction rate.",
-    url: "https://eduwrites.com/about",
-    type: "website",
-  },
-};
 
 export default function About() {
   const values = [

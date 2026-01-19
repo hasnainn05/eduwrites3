@@ -365,6 +365,16 @@
     animation-delay: 0.5s;
   }
 
+  /* Hover Pop Animation for Cards */
+  .hover-pop {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hover-pop:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
   /* Text Hover Effects - 2D Version */
   .heading-3d {
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);

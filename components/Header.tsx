@@ -354,123 +354,40 @@ export default function Header() {
             {menuOpen && (
               <div
                 ref={mobileMenuRef}
-                className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 max-h-96 overflow-y-auto shadow-lg"
+                className="absolute top-full right-0 mt-1 bg-white border border-border rounded-lg p-1 space-y-0.5 min-w-max z-50 shadow-lg"
               >
-                {/* Navigation Links */}
-                {navItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    onClick={closeMenu}
-                    className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-
-                {/* Divider */}
-                <div className="border-t border-border my-0.5"></div>
-
-                {/* Mobile Pricing Link */}
-                <a
-                  href="/#pricing"
+                {/* My Account */}
+                <Link
+                  href="/profile"
                   onClick={closeMenu}
-                  className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                  className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-2 flex items-center gap-1"
                 >
-                  Pricing
-                </a>
-
-                {/* Mobile Services Dropdown */}
-                <details className="group">
-                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
-                    Services
-                  </summary>
-                  <div className="pl-2 space-y-0.5 mt-0.5">
-                    {/* Writing Services */}
-                    <div>
-                      <p className="text-[7px] font-bold text-primary uppercase mb-0.5">
-                        Writing
-                      </p>
-                      <div className="pl-2 space-y-0.5">
-                        {serviceGroups.writing.services.map((service) => (
-                          <Link
-                            key={service.id}
-                            href={`/services/${service.slug}`}
-                            onClick={closeMenu}
-                            className="block text-[6px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
-                          >
-                            {service.description}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                    {/* Proofreading Services */}
-                    <div className="mt-0.5 pt-0.5 border-t border-border">
-                      <p className="text-[7px] font-bold text-primary uppercase mb-0.5">
-                        Proofreading
-                      </p>
-                      <div className="pl-2 space-y-0.5">
-                        {serviceGroups.proofreading.services.map((service) => (
-                          <Link
-                            key={service.id}
-                            href={`/services/${service.slug}`}
-                            onClick={closeMenu}
-                            className="block text-[6px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
-                          >
-                            {service.description}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </details>
-
-                {/* Mobile Footer Navigation Items */}
-                {footerNavItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    onClick={closeMenu}
-                    className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                  <User size={10} />
+                  My Account
+                </Link>
 
                 {/* Divider */}
                 <div className="border-t border-border my-0.5"></div>
 
-                {/* Profile Menu for Mobile */}
-                <details className="group">
-                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none flex items-center gap-1">
-                    <User size={10} />
-                    My Account
-                  </summary>
-                  <div className="pl-2 space-y-0.5 mt-0.5">
-                    <Link
-                      href="/profile"
-                      onClick={closeMenu}
-                      className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
-                    >
-                      My Profile
-                    </Link>
-                    <button
-                      onClick={() => {
-                        handleSwitchToAdmin();
-                        closeMenu();
-                      }}
-                      className="block w-full text-left text-[8px] font-medium text-foreground hover:text-accent transition-colors py-0.5 px-1"
-                    >
-                      Switch to Admin
-                    </button>
-                    <button
-                      onClick={closeMenu}
-                      className="block w-full text-left text-[8px] font-medium text-red-600 hover:text-red-700 transition-colors py-0.5 px-1 border-t border-border pt-1"
-                    >
-                      Sign Out
-                    </button>
-                  </div>
-                </details>
+                {/* Switch to Admin */}
+                <button
+                  onClick={() => {
+                    handleSwitchToAdmin();
+                    closeMenu();
+                  }}
+                  className="block w-full text-left text-[8px] font-medium text-foreground hover:text-accent transition-colors py-0.5 px-2"
+                >
+                  Switch to Admin
+                </button>
+
+                {/* Contact Us */}
+                <Link
+                  href="/contact"
+                  onClick={closeMenu}
+                  className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-2"
+                >
+                  Contact Us
+                </Link>
               </div>
             )}
           </div>

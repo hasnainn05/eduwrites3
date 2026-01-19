@@ -38,8 +38,8 @@ export function OrdersList({
 
   if (orders.length === 0) {
     return (
-      <div className="p-8 sm:p-12 text-center">
-        <p className="text-foreground/60 text-sm sm:text-base">
+      <div className="p-6 sm:p-8 text-center">
+        <p className="text-foreground/60 text-xs sm:text-sm">
           No orders in this status.
         </p>
       </div>
@@ -47,34 +47,34 @@ export function OrdersList({
   }
 
   return (
-    <div className="p-2 sm:p-4 md:p-6">
-      <div className="grid grid-cols-1 gap-3 sm:gap-4">
+    <div className="p-3 sm:p-4 md:p-4">
+      <div className="grid grid-cols-1 gap-3">
         {orders.map((order) => {
           const isExpanded = expandedOrderId === order.id;
 
           return (
             <div
               key={order.id}
-              className="border border-white/10 rounded-lg bg-white/5 hover:bg-white/8 transition-all overflow-hidden"
+              className="border-2 border-border rounded-lg bg-white hover:shadow-md transition-all overflow-hidden"
             >
               {/* Card Header */}
               <div
-                className="p-3 sm:p-4 cursor-pointer hover:bg-white/10 transition-colors active:bg-white/10"
+                className="p-2 sm:p-3 cursor-pointer hover:bg-primary/5 transition-colors active:bg-primary/5"
                 onClick={() => toggleExpand(order.id)}
               >
-                <div className="flex items-start justify-between gap-2 sm:gap-3">
+                <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1 sm:gap-2 mb-2 flex-wrap">
-                      <span className="text-foreground font-mono text-xs sm:text-xs font-medium">
+                    <div className="flex items-center gap-1 mb-1 flex-wrap">
+                      <span className="text-foreground font-mono text-xs font-medium">
                         #{order.id.split("-").pop()}
                       </span>
                       <span
-                        className={`inline-block px-2 py-0.5 rounded text-xs font-medium flex-shrink-0 ${
+                        className={`inline-block px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 ${
                           order.status === "pending"
-                            ? "bg-green-500/20 text-green-400"
+                            ? "bg-green-100 text-green-700"
                             : order.status === "in_progress"
-                              ? "bg-yellow-500/20 text-yellow-400"
-                              : "bg-green-500/20 text-green-400"
+                              ? "bg-yellow-100 text-yellow-700"
+                              : "bg-blue-100 text-blue-700"
                         }`}
                       >
                         {order.status === "pending"
@@ -84,10 +84,10 @@ export function OrdersList({
                             : "Completed"}
                       </span>
                     </div>
-                    <h3 className="text-foreground font-semibold text-sm sm:text-base truncate">
+                    <h3 className="text-foreground font-semibold text-xs sm:text-sm truncate">
                       {order.fullName}
                     </h3>
-                    <p className="text-foreground/60 text-xs sm:text-xs mt-1 line-clamp-2">
+                    <p className="text-foreground/60 text-[10px] sm:text-xs mt-0.5 line-clamp-2">
                       {order.service} • {order.wordCount.toLocaleString()} words
                       • ${order.price}
                     </p>
@@ -110,34 +110,36 @@ export function OrdersList({
 
               {/* Expanded Details */}
               {isExpanded && (
-                <div className="border-t border-white/10 p-3 sm:p-4 md:p-6 bg-white/[0.02] space-y-4 sm:space-y-6">
+                <div className="border-t-2 border-border p-3 sm:p-4 bg-white space-y-3">
                   {/* Header */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-white/10 pb-3 sm:pb-4 gap-2">
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-border pb-2 gap-2">
+                    <h3 className="text-sm sm:text-base font-semibold text-foreground">
                       Order Details
                     </h3>
-                    <span className="text-xs font-medium text-foreground/60 truncate">
+                    <span className="text-[10px] font-medium text-foreground/60 truncate">
                       {order.id}
                     </span>
                   </div>
 
                   {/* Customer Information Section */}
                   <div>
-                    <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wide mb-3">
+                    <p className="text-foreground/60 text-[10px] font-bold uppercase tracking-wide mb-2">
                       Customer Information
                     </p>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <div>
-                        <p className="text-foreground/60 text-xs mb-1">Email</p>
-                        <p className="text-foreground text-sm break-all">
+                        <p className="text-foreground/60 text-[10px] mb-0.5">
+                          Email
+                        </p>
+                        <p className="text-foreground text-xs break-all">
                           {order.email}
                         </p>
                       </div>
                       <div>
-                        <p className="text-foreground/60 text-xs mb-1">
+                        <p className="text-foreground/60 text-[10px] mb-0.5">
                           Academic Level
                         </p>
-                        <p className="text-foreground text-sm">
+                        <p className="text-foreground text-xs">
                           {order.academicLevel}
                         </p>
                       </div>
@@ -145,27 +147,27 @@ export function OrdersList({
                   </div>
 
                   {/* Divider */}
-                  <div className="border-t border-white/10"></div>
+                  <div className="border-t-2 border-border"></div>
 
                   {/* Service Information Section */}
                   <div>
-                    <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wide mb-3">
+                    <p className="text-foreground/60 text-[10px] font-bold uppercase tracking-wide mb-2">
                       Service Information
                     </p>
-                    <div className="space-y-2">
+                    <div className="space-y-1">
                       <div>
-                        <p className="text-foreground/60 text-xs mb-1">
+                        <p className="text-foreground/60 text-[10px] mb-0.5">
                           Subject/Topic
                         </p>
-                        <p className="text-foreground text-sm">
+                        <p className="text-foreground text-xs">
                           {order.subject}
                         </p>
                       </div>
                       <div>
-                        <p className="text-foreground/60 text-xs mb-1">
+                        <p className="text-foreground/60 text-[10px] mb-0.5">
                           Paper Type
                         </p>
-                        <p className="text-foreground text-sm">
+                        <p className="text-foreground text-xs">
                           {order.paperType}
                         </p>
                       </div>
@@ -173,15 +175,15 @@ export function OrdersList({
                   </div>
 
                   {/* Divider */}
-                  <div className="border-t border-white/10"></div>
+                  <div className="border-t-2 border-border"></div>
 
                   {/* Assignment Details Section */}
                   <div>
-                    <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wide mb-3">
+                    <p className="text-foreground/60 text-[10px] font-bold uppercase tracking-wide mb-2">
                       Assignment Details
                     </p>
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                      <p className="text-foreground/80 text-sm leading-relaxed">
+                    <div className="bg-white border-2 border-border rounded-lg p-2">
+                      <p className="text-foreground/80 text-xs leading-relaxed">
                         {order.description}
                       </p>
                     </div>
@@ -190,25 +192,25 @@ export function OrdersList({
                   {/* Attachments Section */}
                   {order.attachments && order.attachments.length > 0 && (
                     <div>
-                      <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wide mb-3">
+                      <p className="text-foreground/60 text-[10px] font-bold uppercase tracking-wide mb-2">
                         Attached Files
                       </p>
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         {order.attachments.map((file, idx) => (
                           <div
                             key={idx}
-                            className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all group"
+                            className="flex items-center justify-between p-2 bg-white border-2 border-border rounded-lg hover:shadow-sm transition-all group"
                           >
-                            <span className="text-foreground text-sm truncate flex-1">
+                            <span className="text-foreground text-xs truncate flex-1">
                               {file}
                             </span>
                             <a
                               href={`data:application/octet-stream;base64,${btoa("Sample file content")}`}
                               download={file}
-                              className="text-cyan-400 hover:text-cyan-300 transition-colors p-1.5 flex-shrink-0 group-hover:bg-white/5 rounded"
+                              className="text-primary hover:text-primary/80 transition-colors p-1 flex-shrink-0"
                               title="Download file"
                             >
-                              <Download size={16} />
+                              <Download size={14} />
                             </a>
                           </div>
                         ))}
@@ -218,18 +220,18 @@ export function OrdersList({
 
                   {/* Action Buttons - Only for Pending Orders */}
                   {status === "pending" && (
-                    <div className="border-t border-white/10 pt-4 sm:pt-6 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-end">
+                    <div className="border-t-2 border-border pt-3 flex flex-col sm:flex-row gap-2 justify-end">
                       <button
                         onClick={() => handleApprove(order.id)}
-                        className="px-4 sm:px-6 py-2.5 rounded-lg bg-green-600 text-white font-medium text-sm hover:bg-green-700 transition-all shadow-lg hover:shadow-green-600/50 active:bg-green-800 min-h-10"
+                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-green-600 text-white font-bold text-xs hover:bg-green-700 transition-all active:bg-green-800"
                       >
-                        ✓ Approve Order
+                        ✓ Approve
                       </button>
                       <button
                         onClick={() => handleReject(order.id)}
-                        className="px-4 sm:px-6 py-2.5 rounded-lg border border-red-500/50 text-red-400 font-medium text-sm hover:bg-red-500/10 hover:border-red-500/80 transition-all active:bg-red-500/20 min-h-10"
+                        className="px-3 sm:px-4 py-1.5 rounded-lg border-2 border-red-500 text-red-600 font-bold text-xs hover:bg-red-50 transition-all active:bg-red-100"
                       >
-                        ✕ Reject Order
+                        ✕ Reject
                       </button>
                     </div>
                   )}

@@ -92,7 +92,7 @@ export default function RootLayout({
         <SchemaScript schema={websiteSchema} />
         <SchemaScript schema={aggregateOfferSchema()} />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

@@ -39,10 +39,10 @@ export default function OrderForm({
   const serviceTypes = [
     { value: "essay", label: "Essay Writing" },
     { value: "assignment", label: "Assignment Writing" },
-    { value: "research", label: "Research Paper" },
-    { value: "thesis", label: "Thesis & Dissertation" },
-    { value: "proofreading", label: "Proofreading & Editing" },
+    { value: "research", label: "Research Paper Writing" },
+    { value: "thesis", label: "Thesis Writing" },
     { value: "dissertation", label: "Dissertation Writing" },
+    { value: "proofreading", label: "Proofreading and Editing of Document" },
   ];
 
   const academicLevels = [
@@ -99,10 +99,10 @@ export default function OrderForm({
     const serviceTypeMap: { [key: string]: string } = {
       essay: "Essay Writing",
       assignment: "Assignment Writing",
-      research: "Research Paper",
-      thesis: "Thesis & Dissertation",
-      proofreading: "Proofreading & Editing",
+      research: "Research Paper Writing",
+      thesis: "Thesis Writing",
       dissertation: "Dissertation Writing",
+      proofreading: "Proofreading and Editing of Document",
     };
 
     const paperTypeMap: { [key: string]: string } = {
@@ -110,8 +110,8 @@ export default function OrderForm({
       assignment: "Assignment",
       research: "Research Paper",
       thesis: "Thesis",
-      proofreading: "Edited Document",
       dissertation: "Dissertation",
+      proofreading: "Edited Document",
     };
 
     const newOrder: Order = {
@@ -147,7 +147,7 @@ export default function OrderForm({
         academicLevel: "undergraduate",
         subject: "",
         assignmentDetails: "",
-        attachments: null,
+        attachments: null as File | null,
       });
       setFileName("");
       setIsSubmitted(false);
@@ -158,21 +158,21 @@ export default function OrderForm({
 
   if (isSubmitted) {
     return (
-      <div className="glass p-12 rounded-2xl text-center">
-        <div className="text-6xl mb-6">✓</div>
-        <h2 className="text-3xl font-bold text-foreground mb-4 font-poppins">
+      <div className="glass p-6 rounded-lg text-center">
+        <div className="text-5xl mb-4">✓</div>
+        <h2 className="text-lg font-bold text-foreground mb-2 font-poppins">
           Order Submitted Successfully!
         </h2>
-        <p className="text-foreground/80 mb-6">
+        <p className="text-xs text-foreground/80 mb-4">
           Thank you for your order! We've received your request and will contact
           you shortly to confirm the details.
         </p>
-        <div className="bg-white/10 rounded-lg p-4 text-left">
-          <p className="text-sm text-foreground/70 mb-2">
+        <div className="bg-white/10 rounded-lg p-3 text-left">
+          <p className="text-xs text-foreground/70 mb-1">
             <span className="font-semibold">Order ID:</span>{" "}
             {Math.random().toString(36).substr(2, 9).toUpperCase()}
           </p>
-          <p className="text-sm text-foreground/70">
+          <p className="text-xs text-foreground/70">
             <span className="font-semibold">Email:</span> {formData.email}
           </p>
         </div>
@@ -181,17 +181,17 @@ export default function OrderForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       {/* Personal Information Section */}
       <div>
-        <h2 className="text-3xl font-bold text-foreground mb-8 font-poppins">
+        <h2 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
           Personal Information
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Full Name */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Full Name *
             </label>
             <input
@@ -201,13 +201,13 @@ export default function OrderForm({
               onChange={handleChange}
               required
               placeholder="John Doe"
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Email Address *
             </label>
             <input
@@ -217,13 +217,13 @@ export default function OrderForm({
               onChange={handleChange}
               required
               placeholder="john@example.com"
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             />
           </div>
 
           {/* WhatsApp Number */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               WhatsApp Number (Optional)
             </label>
             <input
@@ -232,26 +232,26 @@ export default function OrderForm({
               value={formData.whatsapp}
               onChange={handleChange}
               placeholder="+1 (555) 000-0000"
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             />
           </div>
 
           {/* Academic Level */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Academic Level *
             </label>
             <select
               name="academicLevel"
               value={formData.academicLevel}
               onChange={handleChange}
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             >
               {academicLevels.map((level) => (
                 <option
                   key={level.value}
                   value={level.value}
-                  className="bg-slate-900"
+                  className="bg-slate-900 text-white"
                 >
                   {level.label}
                 </option>
@@ -262,28 +262,28 @@ export default function OrderForm({
       </div>
 
       {/* Service Details Section */}
-      <div className="border-t-4 border-border pt-8">
-        <h2 className="text-3xl font-bold text-foreground mb-8 font-poppins">
+      <div className="border-t-2 border-border pt-5">
+        <h2 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
           Service Details
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Service Type */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Service Type *
             </label>
             <select
               name="serviceType"
               value={formData.serviceType}
               onChange={handleChange}
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             >
               {serviceTypes.map((service) => (
                 <option
                   key={service.value}
                   value={service.value}
-                  className="bg-slate-900"
+                  className="bg-slate-900 text-white"
                 >
                   {service.label}
                 </option>
@@ -293,17 +293,21 @@ export default function OrderForm({
 
           {/* Package Type */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Package *
             </label>
             <select
               name="packageType"
               value={formData.packageType}
               onChange={handleChange}
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             >
               {getServicePricing(formData.serviceType)?.packages.map((pkg) => (
-                <option key={pkg.id} value={pkg.id} className="bg-slate-900">
+                <option
+                  key={pkg.id}
+                  value={pkg.id}
+                  className="bg-slate-900 text-white"
+                >
                   {pkg.name}
                 </option>
               ))}
@@ -312,7 +316,7 @@ export default function OrderForm({
 
           {/* Word Count */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Word Count *
             </label>
             <input
@@ -322,14 +326,14 @@ export default function OrderForm({
               onChange={handleChange}
               disabled={formData.packageType !== "custom"}
               placeholder="e.g., 5000"
-              className={`w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium ${
+              className={`w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium ${
                 formData.packageType !== "custom"
                   ? "opacity-75 cursor-not-allowed"
                   : ""
               }`}
             />
             {formData.packageType !== "custom" && (
-              <p className="text-xs text-foreground/50 mt-1 font-medium">
+              <p className="text-[10px] text-foreground/50 mt-0.5 font-medium">
                 Auto-set based on package
               </p>
             )}
@@ -337,7 +341,7 @@ export default function OrderForm({
 
           {/* Deadline */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Deadline *
             </label>
             <input
@@ -346,13 +350,13 @@ export default function OrderForm({
               value={formData.deadline}
               onChange={handleChange}
               required
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             />
           </div>
 
           {/* Budget */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Budget ($) *
             </label>
             <input
@@ -363,12 +367,12 @@ export default function OrderForm({
               disabled={isBudgetLocked}
               required
               placeholder="e.g., 100"
-              className={`w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium ${
+              className={`w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium ${
                 isBudgetLocked ? "opacity-75 cursor-not-allowed" : ""
               }`}
             />
             {isBudgetLocked && (
-              <p className="text-xs text-foreground/50 mt-1 font-medium">
+              <p className="text-[10px] text-foreground/50 mt-0.5 font-medium">
                 Auto-set based on package
               </p>
             )}
@@ -377,15 +381,15 @@ export default function OrderForm({
       </div>
 
       {/* Assignment Details Section */}
-      <div className="border-t-4 border-border pt-8">
-        <h2 className="text-3xl font-bold text-foreground mb-8 font-poppins">
+      <div className="border-t-2 border-border pt-5">
+        <h2 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
           Assignment Details
         </h2>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Subject */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Subject/Topic *
             </label>
             <input
@@ -395,12 +399,12 @@ export default function OrderForm({
               onChange={handleChange}
               required
               placeholder="e.g., Shakespeare's Impact on Modern Literature"
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
             />
           </div>
 
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Assignment Details & Requirements *
             </label>
             <textarea
@@ -409,14 +413,14 @@ export default function OrderForm({
               onChange={handleChange}
               required
               placeholder="Describe your assignment, requirements, guidelines, and any specific instructions..."
-              rows={6}
-              className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors resize-none font-medium"
+              rows={4}
+              className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
             />
           </div>
 
           {/* File Upload */}
           <div>
-            <label className="block text-base font-bold text-foreground/95 mb-2">
+            <label className="block text-xs font-bold text-foreground/95 mb-1">
               Upload Files (Optional)
             </label>
             <div className="relative">
@@ -426,19 +430,19 @@ export default function OrderForm({
                 onChange={handleChange}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               />
-              <div className="w-full bg-white border-4 border-dashed border-border rounded-lg px-4 py-8 text-center hover:border-primary hover:bg-primary/5 transition-all cursor-pointer">
-                <Upload size={28} className="mx-auto mb-3 text-accent" />
-                <p className="text-base font-bold text-foreground mb-2">
+              <div className="w-full bg-white border-2 border-dashed border-border rounded-lg px-3 py-4 text-center hover:border-primary hover:bg-primary/5 transition-all cursor-pointer">
+                <Upload size={20} className="mx-auto mb-2 text-accent" />
+                <p className="text-xs font-bold text-foreground mb-1">
                   {fileName || "Click to upload or drag and drop"}
                 </p>
-                <p className="text-sm text-foreground/60 font-medium">
+                <p className="text-[10px] text-foreground/60 font-medium">
                   PDF, DOC, DOCX, or TXT (Max 10MB)
                 </p>
               </div>
             </div>
             {fileName && (
-              <div className="mt-3 flex items-center gap-2 bg-white border-3 border-border p-3 rounded-lg">
-                <span className="text-base font-bold text-foreground flex-1">
+              <div className="mt-2 flex items-center gap-2 bg-white border-2 border-border p-2 rounded-lg">
+                <span className="text-xs font-bold text-foreground flex-1">
                   {fileName}
                 </span>
                 <button
@@ -447,9 +451,9 @@ export default function OrderForm({
                     setFormData((prev) => ({ ...prev, attachments: null }));
                     setFileName("");
                   }}
-                  className="p-1 hover:bg-primary/10 rounded transition-colors"
+                  className="p-0.5 hover:bg-primary/10 rounded transition-colors"
                 >
-                  <X size={20} className="text-foreground/70" />
+                  <X size={16} className="text-foreground/70" />
                 </button>
               </div>
             )}
@@ -458,12 +462,12 @@ export default function OrderForm({
       </div>
 
       {/* Submit Button */}
-      <div className="border-t-4 border-border pt-8">
+      <div className="border-t-2 border-border pt-5">
         <button
           type="submit"
-          className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
+          className="w-full bg-primary text-white font-bold py-2.5 rounded-lg text-sm hover:bg-primary/90 hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
         >
-          Submit Order <ArrowRight size={20} />
+          Submit Order <ArrowRight size={16} />
         </button>
       </div>
     </form>

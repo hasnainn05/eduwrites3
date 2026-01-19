@@ -34,7 +34,7 @@ export function OrderStatusTabs({
   ];
 
   return (
-    <div className="border-b border-white/10 overflow-x-auto">
+    <div className="border-b-2 border-border overflow-x-auto bg-white">
       <div className="flex items-center gap-0 min-w-min">
         {tabs.map((tab) => {
           const isActive = activeStatus === tab.id;
@@ -47,10 +47,10 @@ export function OrderStatusTabs({
                   tab.id as "pending" | "in_progress" | "completed",
                 )
               }
-              className={`px-3 sm:px-6 py-3 sm:py-4 border-b-2 transition-all text-xs sm:text-sm md:text-base font-medium whitespace-nowrap active:bg-white/5 min-h-12 ${
+              className={`px-3 sm:px-5 py-2 sm:py-3 border-b-2 transition-all text-xs sm:text-xs font-bold whitespace-nowrap active:bg-primary/5 ${
                 isActive
-                  ? "border-b-green-400 text-green-400"
-                  : "border-b-transparent text-foreground/60 hover:text-foreground/80"
+                  ? "border-b-primary text-primary"
+                  : "border-b-transparent text-foreground/60 hover:text-foreground"
               }`}
               aria-pressed={isActive}
             >

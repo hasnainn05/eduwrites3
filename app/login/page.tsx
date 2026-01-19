@@ -64,74 +64,74 @@ export default function Login() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-6">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>
         <div className="blur-gradient absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500 to-transparent"></div>
       </div>
 
-      <div className="w-full max-w-5xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <div className="w-full max-w-4xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left Side - Service Details */}
-          <div className="hidden lg:block">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins leading-tight">
+          <div className="hidden lg:block max-w-sm">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins leading-tight">
               Master Your Academics with EduWrites
             </h2>
-            <p className="text-foreground/90 mb-8 leading-relaxed text-lg font-medium">
+            <p className="text-foreground/90 mb-4 leading-relaxed text-xs font-medium">
               Sign in to access your academic writing orders, track progress,
               and connect with expert writers ready to help you succeed.
             </p>
 
-            <div className="space-y-4 mb-8">
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <span className="text-2xl">📝</span> Essay Writing
+            <div className="space-y-3 mb-4">
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <span className="text-lg">📝</span> Essay Writing
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   Professional essays for all academic levels, perfectly crafted
                   and researched
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <span className="text-2xl">🔬</span> Research Papers
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <span className="text-lg">🔬</span> Research Papers
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   In-depth analysis and comprehensive research with proper
                   citations
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <span className="text-2xl">🎓</span> Thesis & Dissertations
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <span className="text-lg">🎓</span> Thesis & Dissertations
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   Expert support for your most important academic projects
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <span className="text-2xl">✏️</span> Proofreading & Editing
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <span className="text-lg">✏️</span> Proofreading & Editing
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   Polish your work to perfection with our expert editing
                   services
                 </p>
               </div>
             </div>
 
-            <div className="bg-white border-4 border-border p-8 rounded-2xl shadow-md">
-              <p className="text-base text-foreground/90 mb-4 font-medium">
-                <strong className="text-cyan-600 block mb-2 text-lg">
+            <div className="bg-white border-2 border-border p-4 rounded-lg shadow-md">
+              <p className="text-xs text-foreground/90 mb-2 font-medium">
+                <strong className="text-cyan-600 block mb-1 text-sm">
                   🌟 Join 50,000+ Students
                 </strong>{" "}
                 who trust EduWrites for academic success
               </p>
-              <div className="space-y-2 text-sm text-foreground/80 font-bold">
+              <div className="space-y-1 text-[9px] text-foreground/80 font-bold">
                 <p>✓ 100% Plagiarism-free content</p>
                 <p>✓ On-time delivery guaranteed</p>
                 <p>✓ 24/7 customer support</p>
@@ -141,38 +141,40 @@ export default function Login() {
           </div>
 
           {/* Right Side - Login Form */}
-          <div className="w-full max-w-md mx-auto lg:mx-0">
+          <div className="w-full max-w-xs mx-auto lg:mx-0">
             {/* Logo */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-5">
               <Link href="/" className="inline-block">
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
                   EduWrites
                 </h2>
-                <p className="text-foreground/60 text-sm mt-1">Welcome Back</p>
+                <p className="text-foreground/60 text-xs mt-0.5">
+                  Welcome Back
+                </p>
               </Link>
             </div>
 
             {/* Main Card */}
-            <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 shadow-lg hover:shadow-xl transition-shadow">
-              <h1 className="text-3xl font-bold text-foreground mb-6 font-poppins">
-                Sign In for Professional Academic Writing Services
+            <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 shadow-lg hover:shadow-xl transition-shadow">
+              <h1 className="text-sm font-bold text-foreground mb-4 font-poppins uppercase tracking-wider">
+                Sign In
               </h1>
 
               {error && (
-                <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-3 mb-6">
-                  <p className="text-red-300 text-sm">{error}</p>
+                <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-2 mb-3">
+                  <p className="text-red-300 text-xs">{error}</p>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3">
                 {/* Email Field */}
                 <div>
-                  <label className="block text-base font-bold text-foreground/95 mb-2">
+                  <label className="block text-xs font-bold text-foreground/95 mb-1">
                     Email Address
                   </label>
                   <div className="relative">
                     <Mail
-                      size={20}
+                      size={16}
                       className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                     />
                     <input
@@ -181,19 +183,19 @@ export default function Login() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       required
-                      className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                      className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                     />
                   </div>
                 </div>
 
                 {/* Password Field */}
                 <div>
-                  <label className="block text-base font-bold text-foreground/95 mb-2">
+                  <label className="block text-xs font-bold text-foreground/95 mb-1">
                     Password
                   </label>
                   <div className="relative">
                     <Lock
-                      size={20}
+                      size={16}
                       className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                     />
                     <input
@@ -202,30 +204,30 @@ export default function Login() {
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
                       required
-                      className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-10 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                      className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-9 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-foreground/50 hover:text-foreground transition-colors"
                     >
-                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                      {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
                     </button>
                   </div>
                 </div>
 
                 {/* Remember & Forgot */}
-                <div className="flex items-center justify-between text-base font-bold">
+                <div className="flex items-center justify-between text-xs font-bold">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="checkbox"
-                      className="w-5 h-5 rounded border-border border-2 bg-white accent-cyan-400"
+                      className="w-4 h-4 rounded border-border border-2 bg-white accent-cyan-400"
                     />
                     <span className="text-foreground/85">Remember me</span>
                   </label>
                   <Link
                     href="#"
-                    className="text-cyan-600 hover:text-cyan-700 font-bold transition-colors"
+                    className="text-cyan-600 hover:text-cyan-700 font-bold transition-colors text-xs"
                   >
                     Forgot password?
                   </Link>
@@ -235,27 +237,27 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-6 animate-pulse-bounce"
+                  className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4 animate-pulse-bounce"
                 >
                   {isLoading ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      Signing in...
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span className="text-xs">Signing in...</span>
                     </>
                   ) : (
                     <>
-                      Sign In <ArrowRight size={18} />
+                      <span>Sign In</span> <ArrowRight size={14} />
                     </>
                   )}
                 </button>
               </form>
 
               {/* Divider */}
-              <div className="relative my-6">
+              <div className="relative my-3">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-white/10"></div>
                 </div>
-                <div className="relative flex justify-center text-sm">
+                <div className="relative flex justify-center text-[9px]">
                   <span className="px-2 bg-gradient-to-b from-background to-background/80 text-foreground/50">
                     Or continue with
                   </span>
@@ -263,19 +265,19 @@ export default function Login() {
               </div>
 
               {/* Social Login */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={handleGoogleLogin}
                   disabled={isLoading}
-                  className="border-4 border-border bg-white hover:shadow-md rounded-lg py-3 font-bold text-foreground transition-all flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="border-2 border-border bg-white hover:shadow-md rounded-lg py-2 font-bold text-xs text-foreground transition-all flex items-center justify-center gap-1 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                   ) : (
                     <>
                       <svg
-                        className="w-4 h-4"
+                        className="w-3 h-3"
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >
@@ -296,7 +298,7 @@ export default function Login() {
                           fill="#EA4335"
                         />
                       </svg>
-                      <span className="hidden sm:inline text-sm">Google</span>
+                      <span className="hidden sm:inline">Google</span>
                     </>
                   )}
                 </button>
@@ -304,14 +306,14 @@ export default function Login() {
                   type="button"
                   onClick={handleAppleLogin}
                   disabled={isLoading}
-                  className="border-4 border-border bg-white hover:shadow-md rounded-lg py-3 font-bold text-foreground transition-all flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="border-2 border-border bg-white hover:shadow-md rounded-lg py-2 font-bold text-xs text-foreground transition-all flex items-center justify-center gap-1 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                   ) : (
                     <>
-                      <Apple size={18} />
-                      <span className="hidden sm:inline text-sm">Apple</span>
+                      <Apple size={14} />
+                      <span className="hidden sm:inline">Apple</span>
                     </>
                   )}
                 </button>
@@ -319,8 +321,8 @@ export default function Login() {
             </div>
 
             {/* Sign Up Link */}
-            <div className="text-center">
-              <p className="text-foreground/70 text-sm">
+            <div className="text-center mt-4">
+              <p className="text-foreground/70 text-xs">
                 Don't have an account?{" "}
                 <Link
                   href="/signup"
@@ -332,10 +334,10 @@ export default function Login() {
             </div>
 
             {/* Back to Home */}
-            <div className="text-center mt-6">
+            <div className="text-center mt-3">
               <Link
                 href="/"
-                className="text-foreground/60 hover:text-foreground text-sm transition-colors inline-flex items-center gap-2"
+                className="text-foreground/60 hover:text-foreground text-xs transition-colors inline-flex items-center gap-1"
               >
                 ← Back to Home
               </Link>

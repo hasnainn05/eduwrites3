@@ -110,91 +110,91 @@ export default function Signup() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-6">
       {/* Animated Background */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="blur-gradient absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-600 to-transparent"></div>
         <div className="blur-gradient absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-500 to-transparent"></div>
       </div>
 
-      <div className="w-full max-w-5xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <div className="w-full max-w-4xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left Side - Benefits */}
-          <div className="hidden lg:block">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins leading-tight">
+          <div className="hidden lg:block max-w-sm">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins leading-tight">
               Join the Academic Success Community
             </h2>
-            <p className="text-foreground/90 mb-8 leading-relaxed text-lg font-medium">
+            <p className="text-foreground/90 mb-4 leading-relaxed text-xs font-medium">
               Get access to professional academic writing services that help you
               achieve your educational goals.
             </p>
 
-            <div className="space-y-4 mb-8">
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Quality
+            <div className="space-y-3 mb-4">
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Quality
                   Guaranteed
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   100% plagiarism-free, original content written by expert
                   writers
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Fast
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Fast
                   Turnaround
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   On-time delivery with flexible deadline options to suit your
                   needs
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Expert
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Expert
                   Support
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   24/7 customer support and unlimited revisions until you're
                   satisfied
                 </p>
               </div>
 
-              <div className="bg-white border-3 border-border p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
-                <h3 className="font-bold text-foreground mb-2 flex items-center gap-2 text-lg">
-                  <CheckCircle size={24} className="text-cyan-400" /> Affordable
+              <div className="bg-white border-2 border-border p-3 rounded-lg hover:shadow-md transition-all shadow-sm">
+                <h3 className="font-bold text-foreground mb-1 flex items-center gap-2 text-xs">
+                  <CheckCircle size={16} className="text-cyan-400" /> Affordable
                   Pricing
                 </h3>
-                <p className="text-base text-foreground/85 font-medium">
+                <p className="text-[10px] text-foreground/85 font-medium">
                   Competitive rates with flexible payment options for students
                 </p>
               </div>
             </div>
 
-            <div className="bg-white border-4 border-border p-8 rounded-2xl shadow-md">
-              <p className="text-base text-foreground/90 mb-4 font-medium">
-                <strong className="text-cyan-600 block mb-2 text-lg">
+            <div className="bg-white border-2 border-border p-4 rounded-lg shadow-md">
+              <p className="text-xs text-foreground/90 mb-2 font-medium">
+                <strong className="text-cyan-600 block mb-1 text-sm">
                   📊 By the Numbers
                 </strong>
               </p>
-              <div className="grid grid-cols-2 gap-4 text-sm text-foreground/80 font-bold">
+              <div className="grid grid-cols-2 gap-3 text-[9px] text-foreground/80 font-bold">
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">50K+</div>
+                  <div className="text-lg font-bold text-cyan-400">50K+</div>
                   <p>Happy Students</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">98%</div>
+                  <div className="text-lg font-bold text-cyan-400">98%</div>
                   <p>Satisfaction Rate</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">50+</div>
+                  <div className="text-lg font-bold text-cyan-400">50+</div>
                   <p>Expert Writers</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">24/7</div>
+                  <div className="text-lg font-bold text-cyan-400">24/7</div>
                   <p>Support Team</p>
                 </div>
               </div>
@@ -202,43 +202,43 @@ export default function Signup() {
           </div>
 
           {/* Right Side - Registration Form */}
-          <div className="w-full max-w-md mx-auto lg:mx-0">
+          <div className="w-full max-w-xs mx-auto lg:mx-0">
             {/* Logo */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-5">
               <Link href="/" className="inline-block">
-                <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent font-poppins">
                   EduWrites
                 </h2>
-                <p className="text-foreground/60 text-sm mt-1">
+                <p className="text-foreground/60 text-xs mt-0.5">
                   Join Our Community
                 </p>
               </Link>
             </div>
 
             {step === "form" && (
-              <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 shadow-lg hover:shadow-xl transition-shadow">
-                <h1 className="text-3xl font-bold text-foreground mb-2 font-poppins">
-                  Create Your Academic Writing Account
+              <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 shadow-lg hover:shadow-xl transition-shadow">
+                <h1 className="text-sm font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
+                  Create Account
                 </h1>
-                <p className="text-foreground/85 text-base mb-6 font-medium">
+                <p className="text-foreground/85 text-xs mb-4 font-medium">
                   Start your academic success journey today
                 </p>
 
                 {error && (
-                  <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-3 mb-6">
-                    <p className="text-red-300 text-sm">{error}</p>
+                  <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-2 mb-3">
+                    <p className="text-red-300 text-xs">{error}</p>
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   {/* Full Name */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Full Name
                     </label>
                     <div className="relative">
                       <User
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -248,19 +248,19 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="John Doe"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Email Address
                     </label>
                     <div className="relative">
                       <Mail
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -270,19 +270,19 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="you@example.com"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-3 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Password */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Password
                     </label>
                     <div className="relative">
                       <Lock
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -292,7 +292,7 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="••••••••"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-10 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-9 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                       <button
                         type="button"
@@ -300,9 +300,9 @@ export default function Signup() {
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-foreground/50 hover:text-foreground transition-colors"
                       >
                         {showPassword ? (
-                          <EyeOff size={18} />
+                          <EyeOff size={14} />
                         ) : (
-                          <Eye size={18} />
+                          <Eye size={14} />
                         )}
                       </button>
                     </div>
@@ -310,12 +310,12 @@ export default function Signup() {
 
                   {/* Confirm Password */}
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Confirm Password
                     </label>
                     <div className="relative">
                       <Lock
-                        size={20}
+                        size={16}
                         className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/50"
                       />
                       <input
@@ -325,7 +325,7 @@ export default function Signup() {
                         onChange={handleFormChange}
                         placeholder="••••••••"
                         required
-                        className="w-full bg-white border-4 border-border rounded-lg pl-10 pr-10 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-medium"
+                        className="w-full bg-white border-2 border-border rounded-lg pl-9 pr-9 py-2 text-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-medium"
                       />
                       <button
                         type="button"
@@ -335,24 +335,24 @@ export default function Signup() {
                         className="absolute right-3 top-1/2 transform -translate-y-1/2 text-foreground/50 hover:text-foreground transition-colors"
                       >
                         {showConfirmPassword ? (
-                          <EyeOff size={18} />
+                          <EyeOff size={14} />
                         ) : (
-                          <Eye size={18} />
+                          <Eye size={14} />
                         )}
                       </button>
                     </div>
                   </div>
 
                   {/* Terms */}
-                  <label className="flex items-start gap-3 cursor-pointer mt-4">
+                  <label className="flex items-start gap-2 cursor-pointer mt-2">
                     <input
                       type="checkbox"
                       name="agreeToTerms"
                       checked={formData.agreeToTerms}
                       onChange={handleFormChange}
-                      className="w-5 h-5 rounded border-border border-2 bg-white accent-cyan-400 mt-0.5"
+                      className="w-4 h-4 rounded border-border border-2 bg-white accent-cyan-400 mt-0.5"
                     />
-                    <span className="text-foreground/85 text-base font-bold">
+                    <span className="text-foreground/85 text-xs font-bold">
                       I agree to the{" "}
                       <Link
                         href="/terms"
@@ -374,27 +374,28 @@ export default function Signup() {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-6 animate-pulse-bounce"
+                    className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4 animate-pulse-bounce"
                   >
                     {isLoading ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Creating account...
+                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span className="text-xs">Creating account...</span>
                       </>
                     ) : (
                       <>
-                        Create Account <ArrowRight size={18} />
+                        <span className="text-sm">Create Account</span>{" "}
+                        <ArrowRight size={14} />
                       </>
                     )}
                   </button>
                 </form>
 
                 {/* Divider */}
-                <div className="relative my-6">
+                <div className="relative my-3">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-white/10"></div>
                   </div>
-                  <div className="relative flex justify-center text-sm">
+                  <div className="relative flex justify-center text-[9px]">
                     <span className="px-2 bg-gradient-to-b from-background to-background/80 text-foreground/50">
                       Or sign up with
                     </span>
@@ -402,19 +403,19 @@ export default function Signup() {
                 </div>
 
                 {/* Social Signup */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={handleGoogleSignup}
                     disabled={isLoading}
-                    className="border-4 border-border bg-white hover:shadow-md rounded-lg py-3 font-bold text-foreground transition-all flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="border-2 border-border bg-white hover:shadow-md rounded-lg py-2 font-bold text-xs text-foreground transition-all flex items-center justify-center gap-1 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     ) : (
                       <>
                         <svg
-                          className="w-4 h-4"
+                          className="w-3 h-3"
                           viewBox="0 0 24 24"
                           fill="currentColor"
                         >
@@ -435,7 +436,7 @@ export default function Signup() {
                             fill="#EA4335"
                           />
                         </svg>
-                        <span className="hidden sm:inline text-sm">Google</span>
+                        <span className="hidden sm:inline">Google</span>
                       </>
                     )}
                   </button>
@@ -443,22 +444,22 @@ export default function Signup() {
                     type="button"
                     onClick={handleAppleSignup}
                     disabled={isLoading}
-                    className="border-4 border-border bg-white hover:shadow-md rounded-lg py-3 font-bold text-foreground transition-all flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="border-2 border-border bg-white hover:shadow-md rounded-lg py-2 font-bold text-xs text-foreground transition-all flex items-center justify-center gap-1 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     ) : (
                       <>
-                        <Apple size={18} />
-                        <span className="hidden sm:inline text-sm">Apple</span>
+                        <Apple size={14} />
+                        <span className="hidden sm:inline">Apple</span>
                       </>
                     )}
                   </button>
                 </div>
 
                 {/* Login Link */}
-                <div className="text-center mt-6">
-                  <p className="text-foreground/70 text-sm">
+                <div className="text-center mt-4">
+                  <p className="text-foreground/70 text-xs">
                     Already have an account?{" "}
                     <Link
                       href="/login"
@@ -472,17 +473,17 @@ export default function Signup() {
             )}
 
             {step === "verify" && (
-              <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 shadow-lg hover:shadow-xl transition-shadow">
-                <h2 className="text-3xl font-bold text-foreground mb-2 font-poppins">
+              <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 shadow-lg hover:shadow-xl transition-shadow">
+                <h2 className="text-sm font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
                   Verify Your Email
                 </h2>
-                <p className="text-foreground/85 text-base mb-6 font-medium">
+                <p className="text-foreground/85 text-xs mb-4 font-medium">
                   We've sent a verification code to {formData.email}
                 </p>
 
-                <form onSubmit={handleVerify} className="space-y-4">
+                <form onSubmit={handleVerify} className="space-y-3">
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2">
+                    <label className="block text-xs font-bold text-foreground/95 mb-1">
                       Verification Code
                     </label>
                     <input
@@ -492,23 +493,23 @@ export default function Signup() {
                       placeholder="000000"
                       maxLength={6}
                       required
-                      className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-center text-2xl tracking-widest text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-all font-mono font-bold"
+                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-center text-lg tracking-widest text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-all font-mono font-bold"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {isLoading ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Verifying...
+                        <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span className="text-xs">Verifying...</span>
                       </>
                     ) : (
                       <>
-                        Verify Email <ArrowRight size={18} />
+                        <span>Verify Email</span> <ArrowRight size={14} />
                       </>
                     )}
                   </button>
@@ -516,7 +517,7 @@ export default function Signup() {
                   <button
                     type="button"
                     onClick={() => setStep("form")}
-                    className="w-full border-2 border-white/20 text-foreground py-3 rounded-lg font-semibold hover:bg-white/10 transition-all"
+                    className="w-full border-2 border-white/20 text-foreground py-2 rounded-lg font-semibold text-xs hover:bg-white/10 transition-all"
                   >
                     Back
                   </button>
@@ -525,35 +526,35 @@ export default function Signup() {
             )}
 
             {step === "success" && (
-              <div className="bg-white rounded-2xl border-4 border-border p-10 mb-6 text-center shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex justify-center mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                    <CheckCircle size={40} className="text-white" />
+              <div className="bg-white rounded-lg border-2 border-border p-5 mb-4 text-center shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex justify-center mb-3">
+                  <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                    <CheckCircle size={28} className="text-white" />
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-bold text-foreground mb-3 font-poppins">
+                <h2 className="text-sm font-bold text-foreground mb-2 font-poppins">
                   Welcome to EduWrites!
                 </h2>
-                <p className="text-foreground/85 text-base mb-8 font-medium">
+                <p className="text-foreground/85 text-xs mb-4 font-medium">
                   Your account has been successfully created. You can now place
                   orders and access all our services.
                 </p>
 
                 <Link
                   href="/login"
-                  className="w-full gradient-primary text-white py-3 rounded-lg font-semibold hover:shadow-glow transition-all transform hover:scale-105 inline-flex items-center justify-center gap-2"
+                  className="w-full gradient-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all transform hover:scale-105 inline-flex items-center justify-center gap-2"
                 >
-                  Go to Login <ArrowRight size={18} />
+                  Go to Login <ArrowRight size={14} />
                 </Link>
               </div>
             )}
 
             {/* Back to Home */}
-            <div className="text-center">
+            <div className="text-center mt-4">
               <Link
                 href="/"
-                className="text-foreground/60 hover:text-foreground text-sm transition-colors inline-flex items-center gap-2"
+                className="text-foreground/60 hover:text-foreground text-xs transition-colors inline-flex items-center gap-1"
               >
                 ← Back to Home
               </Link>

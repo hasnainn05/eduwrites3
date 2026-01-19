@@ -35,60 +35,62 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-card border-t border-border text-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:ml-0">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+    <footer className="bg-card/95 backdrop-blur-sm border-t border-border text-foreground mt-12 sm:mt-16 md:mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-5 mb-5">
           {/* Brand Section */}
           <div className="col-span-1 flex flex-col items-start">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-1.5 mb-3">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
                 alt="EduWrites Logo"
-                className="w-[46px] h-[46px] sm:w-[51px] sm:h-[51px] flex-shrink-0"
+                className="w-[32px] h-[32px] sm:w-[36px] sm:h-[36px] flex-shrink-0"
               />
-              <span className="font-bold text-lg text-primary">EduWrites</span>
+              <span className="font-bold text-xs text-primary">EduWrites</span>
             </Link>
-            <p className="text-foreground/70 text-sm mb-4">
+            <p className="text-foreground/70 text-[10px] mb-3">
               Professional academic writing services trusted by 50,000+
               students.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-2">
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Facebook size={20} />
+                <Facebook size={16} />
               </a>
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Twitter size={20} />
+                <Twitter size={16} />
               </a>
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Linkedin size={20} />
+                <Linkedin size={16} />
               </a>
               <a
                 href="#"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
-                <Instagram size={20} />
+                <Instagram size={16} />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Services
+            </h4>
+            <ul className="space-y-1">
               {services.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className="text-foreground/70 hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-primary transition-colors text-xs"
                   >
                     {item.label}
                   </Link>
@@ -99,13 +101,15 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Company
+            </h4>
+            <ul className="space-y-1">
               {company.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className="text-foreground/70 hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-primary transition-colors text-xs"
                   >
                     {item.label}
                   </Link>
@@ -116,13 +120,15 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
-            <ul className="space-y-2">
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Legal
+            </h4>
+            <ul className="space-y-1">
               {legal.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
-                    className="text-foreground/70 hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-primary transition-colors text-xs"
                   >
                     {item.label}
                   </Link>
@@ -133,17 +139,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
-            <div className="space-y-3 text-foreground/70 text-sm">
-              <div className="flex items-start gap-2">
-                <Mail size={16} className="mt-1 flex-shrink-0 text-primary" />
+            <h4 className="font-semibold mb-2 text-xs text-foreground">
+              Contact
+            </h4>
+            <div className="space-y-1.5 text-foreground/70 text-[10px]">
+              <div className="flex items-start gap-1.5">
+                <Mail size={12} className="mt-0.5 flex-shrink-0 text-primary" />
                 <span>info@eduwrites.com</span>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-1.5">
                 <WhatsAppLink
                   phoneNumber="13658291551"
-                  className="flex items-center gap-2 hover:text-[#25D366] transition-colors"
-                  iconSize={16}
+                  className="flex items-center gap-1.5 hover:text-[#25D366] transition-colors"
+                  iconSize={12}
                 />
               </div>
             </div>
@@ -151,27 +159,27 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border pt-8 mt-8">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <p className="text-foreground/70 text-sm text-center">
+        <div className="border-t border-border pt-4 mt-4">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <p className="text-foreground/70 text-xs text-center">
               &copy; {currentYear} EduWrites. All rights reserved.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-3 justify-center">
               <a
                 href="#"
-                className="text-foreground/70 hover:text-primary text-sm transition-colors"
+                className="text-foreground/70 hover:text-primary text-xs transition-colors"
               >
                 Status
               </a>
               <a
                 href="#"
-                className="text-foreground/70 hover:text-primary text-sm transition-colors"
+                className="text-foreground/70 hover:text-primary text-xs transition-colors"
               >
                 Support
               </a>
               <a
                 href="#"
-                className="text-foreground/70 hover:text-primary text-sm transition-colors"
+                className="text-foreground/70 hover:text-primary text-xs transition-colors"
               >
                 Feedback
               </a>

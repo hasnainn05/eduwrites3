@@ -63,24 +63,24 @@ export function AdminSidebar() {
   const isActive = (href: string) => pathname === href;
 
   const SidebarContent = () => (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col bg-white">
       {/* Logo - Fixed */}
-      <div className="flex-shrink-0 p-4 md:p-6 border-b border-border">
+      <div className="flex-shrink-0 p-3 md:p-4 border-b-2 border-border">
         <Link href="/admin/dashboard" className="flex items-center gap-2 mb-2">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
             alt="EduWrites Logo"
-            className="w-[46px] h-[46px] sm:w-[51px] sm:h-[51px] flex-shrink-0"
+            className="w-[32px] h-[32px] sm:w-[36px] sm:h-[36px] flex-shrink-0"
           />
-          <h2 className="text-xl md:text-2xl font-bold text-primary font-poppins">
+          <h2 className="text-sm md:text-base font-bold text-primary font-poppins">
             Admin
           </h2>
         </Link>
-        <p className="text-xs text-foreground/60 ml-11">EduWrites</p>
+        <p className="text-[10px] text-foreground/60 ml-8">EduWrites</p>
       </div>
 
       {/* Navigation Menu - Scrollable */}
-      <nav className="flex-1 overflow-y-auto p-2 md:p-4 space-y-1 md:space-y-2 min-h-0">
+      <nav className="flex-1 overflow-y-auto p-2 md:p-3 space-y-1 min-h-0">
         {menuItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.href);
@@ -90,37 +90,37 @@ export function AdminSidebar() {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 rounded-lg transition-all text-sm md:text-base ${
+              className={`flex items-center gap-2 px-3 md:px-3 py-2 rounded-lg transition-all text-xs md:text-xs font-medium ${
                 active
-                  ? "bg-primary/10 border border-primary/30 text-primary"
-                  : "text-foreground/70 hover:text-foreground hover:bg-primary/5"
+                  ? "bg-primary text-white border-2 border-primary"
+                  : "text-foreground/70 hover:text-foreground hover:bg-primary/5 border-2 border-transparent"
               }`}
             >
-              <Icon size={20} />
-              <span className="font-medium">{item.label}</span>
+              <Icon size={16} />
+              <span>{item.label}</span>
             </Link>
           );
         })}
       </nav>
 
       {/* Footer - Fixed */}
-      <div className="flex-shrink-0 p-2 md:p-4 border-t border-border space-y-2 md:space-y-3">
+      <div className="flex-shrink-0 p-2 md:p-3 border-t-2 border-border space-y-1 md:space-y-1.5">
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
-          className="flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 rounded-lg text-foreground/70 hover:text-foreground hover:bg-primary/5 transition-all text-sm md:text-base"
+          className="flex items-center gap-2 px-3 md:px-3 py-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-primary/5 transition-all text-xs md:text-xs font-medium border-2 border-transparent"
         >
-          <Home size={20} />
-          <span className="font-medium">Back to Site</span>
+          <Home size={16} />
+          <span>Back to Site</span>
         </Link>
         <button
           onClick={() => {
             window.location.href = "/admin/login";
           }}
-          className="w-full flex items-center gap-3 px-3 md:px-4 py-2 md:py-3 rounded-lg text-red-600 hover:bg-red-50 transition-all text-sm md:text-base"
+          className="w-full flex items-center gap-2 px-3 md:px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 transition-all text-xs md:text-xs font-medium border-2 border-transparent"
         >
-          <LogOut size={20} />
-          <span className="font-medium">Logout</span>
+          <LogOut size={16} />
+          <span>Logout</span>
         </button>
       </div>
     </div>

@@ -69,17 +69,17 @@ export default function About() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold text-foreground mb-6 font-poppins leading-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-3 font-poppins leading-tight">
               About{" "}
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 EduWrites
               </span>
             </h1>
 
-            <p className="text-2xl text-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+            <p className="text-sm text-foreground/90 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
               Empowering students worldwide with expert academic writing
               services since 2015. We believe every student deserves access to
               high-quality academic support.
@@ -89,15 +89,15 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Mission */}
           <TiltCard className="h-full">
-            <div className="bg-white rounded-2xl border-4 border-border p-12 h-full flex flex-col justify-center shadow-lg hover:shadow-2xl transition-shadow">
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+            <div className="bg-white rounded-lg border-2 border-border p-6 h-full flex flex-col justify-center shadow-lg hover:shadow-xl transition-shadow">
+              <h2 className="text-lg font-bold text-foreground mb-3 font-poppins">
                 Our Mission
               </h2>
-              <p className="text-foreground/90 leading-relaxed text-xl font-medium">
+              <p className="text-foreground/90 leading-relaxed text-xs font-medium">
                 To provide accessible, ethical, and high-quality academic
                 writing support that helps students achieve their educational
                 goals. We empower learners by offering professional assistance
@@ -110,11 +110,11 @@ export default function About() {
 
           {/* Vision */}
           <TiltCard className="h-full">
-            <div className="bg-white rounded-2xl border-4 border-border p-12 h-full flex flex-col justify-center shadow-lg hover:shadow-2xl transition-shadow">
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+            <div className="bg-white rounded-lg border-2 border-border p-6 h-full flex flex-col justify-center shadow-lg hover:shadow-xl transition-shadow">
+              <h2 className="text-lg font-bold text-foreground mb-3 font-poppins">
                 Our Vision
               </h2>
-              <p className="text-foreground/90 leading-relaxed text-xl font-medium">
+              <p className="text-foreground/90 leading-relaxed text-xs font-medium">
                 To be the most trusted and reliable academic writing service
                 globally, recognized for delivering exceptional quality,
                 maintaining ethical standards, and genuinely supporting student
@@ -127,28 +127,28 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 font-poppins">
               Our Core Values
             </h2>
-            <p className="text-lg text-foreground/70">
+            <p className="text-xs text-foreground/70">
               These principles guide everything we do
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl border-4 border-border p-8 hover:shadow-lg transition-all transform hover:scale-105 hover:-translate-y-2 shadow-md"
+                className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-lg transition-all transform hover:scale-105 hover:-translate-y-1 shadow-sm"
               >
-                <div className="text-cyan-400 mb-6 text-5xl">{value.icon}</div>
-                <h3 className="text-3xl font-bold text-foreground mb-4">
+                <div className="text-cyan-400 mb-2 text-2xl">{value.icon}</div>
+                <h3 className="text-sm font-bold text-foreground mb-1">
                   {value.title}
                 </h3>
-                <p className="text-foreground/85 text-lg leading-relaxed font-medium">
+                <p className="text-foreground/85 text-xs leading-relaxed font-medium">
                   {value.description}
                 </p>
               </div>
@@ -158,18 +158,18 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl border-4 border-border p-6 sm:p-8 md:p-10 text-center shadow-md hover:shadow-lg transition-shadow"
+                className="bg-white rounded-lg border-2 border-border p-3 text-center shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-3 sm:mb-4 font-poppins leading-tight">
+                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-1 font-poppins leading-tight">
                   {stat.number}
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-foreground/90 font-bold">
+                <p className="text-xs text-foreground/90 font-bold">
                   {stat.label}
                 </p>
               </div>
@@ -179,15 +179,15 @@ export default function About() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 font-poppins">
               Why Choose EduWrites?
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               "Expert writers with advanced degrees",
               "100% original, plagiarism-free content",
@@ -200,10 +200,10 @@ export default function About() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl border-3 border-border p-6 flex gap-4 items-start hover:shadow-md transition-all shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-3 flex gap-2 items-start hover:shadow-md transition-all shadow-sm"
               >
-                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-1 w-8 h-8" />
-                <p className="text-foreground/90 font-bold text-lg">{item}</p>
+                <CheckCircle className="text-cyan-400 flex-shrink-0 mt-0.5 w-4 h-4" />
+                <p className="text-foreground/90 font-bold text-xs">{item}</p>
               </div>
             ))}
           </div>
@@ -211,36 +211,93 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-poppins">
               Meet Our Team
             </h2>
-            <p className="text-lg text-foreground/70">
+            <p className="text-xs text-foreground/70">
               Dedicated professionals committed to your success
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {team.map((member, index) => (
               <TiltCard key={index} className="h-full">
-                <div className="bg-white rounded-2xl border-4 border-border p-8 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-md">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
+                <div className="bg-white rounded-lg border-2 border-border p-4 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-sm">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-2 flex items-center justify-center text-white text-sm font-bold">
                     {member.name.charAt(0)}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-xs font-bold text-foreground mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-base text-cyan-400 font-bold mb-4">
+                  <p className="text-xs text-cyan-400 font-bold mb-2">
                     {member.role}
                   </p>
-                  <p className="text-base text-foreground/85 leading-relaxed font-medium">
+                  <p className="text-[10px] text-foreground/85 leading-relaxed font-medium">
                     {member.bio}
                   </p>
                 </div>
               </TiltCard>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Send us a Message Section */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto">
+          <div className="bg-white border-2 border-border p-4 sm:p-5 rounded-lg shadow-lg">
+            <h2 className="text-xs font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
+              Send us a Message
+            </h2>
+            <p className="text-foreground/85 mb-3 text-[10px] font-medium">
+              Have a question? We'd love to hear from you. Send us a message and
+              we'll respond as soon as possible.
+            </p>
+
+            <form className="space-y-3">
+              <div>
+                <label className="block text-xs font-bold text-foreground/95 mb-1">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-foreground/95 mb-1">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="john@example.com"
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-foreground/95 mb-1">
+                  Message
+                </label>
+                <textarea
+                  placeholder="Tell us what's on your mind..."
+                  rows={3}
+                  className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full gradient-primary text-white py-1.5 rounded-lg font-bold text-[10px] hover:shadow-glow transition-all transform hover:scale-105 duration-300"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -264,7 +321,7 @@ export default function About() {
 
           <Link
             href="/order"
-            className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-10 py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:shadow-glow transition-all transform hover:scale-105"
           >
             Place an Order Now
           </Link>

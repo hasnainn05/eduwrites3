@@ -45,47 +45,46 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl p-8 sm:p-12 max-w-2xl w-full max-h-[90vh] overflow-y-auto border-4 border-border shadow-2xl">
-        <div className="flex justify-between items-center mb-8">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl flex items-center justify-center">
-              <MessageCircle size={24} className="text-white" />
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-3">
+      <div className="bg-white rounded-lg p-4 sm:p-5 max-w-sm w-full max-h-[85vh] overflow-y-auto border-2 border-border shadow-lg">
+        <div className="flex justify-between items-center mb-3">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg flex items-center justify-center">
+              <MessageCircle size={16} className="text-white" />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-foreground font-poppins">
+              <h2 className="text-sm font-bold text-foreground font-poppins">
                 Get Support
               </h2>
-              <p className="text-base text-foreground/70 font-medium">
-                Our team is here to help you 24/7
+              <p className="text-xs text-foreground/70 font-medium">
+                We're here to help 24/7
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-primary/10 rounded-full transition-all"
+            className="p-1 hover:bg-primary/10 rounded-lg transition-all"
           >
-            <X size={24} className="text-foreground" />
+            <X size={16} className="text-foreground" />
           </button>
         </div>
 
         {submitted ? (
-          <div className="text-center py-12">
-            <div className="text-7xl mb-6">✓</div>
-            <h3 className="text-3xl font-bold text-foreground mb-4 font-poppins">
-              Message Sent Successfully!
+          <div className="text-center py-6">
+            <div className="text-4xl mb-3">✓</div>
+            <h3 className="text-sm font-bold text-foreground mb-2 font-poppins">
+              Message Sent!
             </h3>
-            <p className="text-foreground/80 text-lg font-medium">
-              Thank you for reaching out. Our support team will get back to you
-              within 24 hours.
+            <p className="text-foreground/80 text-xs font-medium">
+              Thank you! Our team will get back to you within 24 hours.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                  <User size={18} />
+                <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                  <User size={12} />
                   Your Name *
                 </label>
                 <input
@@ -95,12 +94,12 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
                   onChange={handleChange}
                   required
                   placeholder="John Doe"
-                  className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+                  className="w-full bg-white border-2 border-border rounded-lg px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                 />
               </div>
               <div>
-                <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                  <Mail size={18} />
+                <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                  <Mail size={12} />
                   Your Email *
                 </label>
                 <input
@@ -110,15 +109,15 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
                   onChange={handleChange}
                   required
                   placeholder="john@example.com"
-                  className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+                  className="w-full bg-white border-2 border-border rounded-lg px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                <MessageCircle size={18} />
-                WhatsApp Number{" "}
+              <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                <MessageCircle size={12} />
+                WhatsApp{" "}
                 <span className="text-foreground/60 font-medium">
                   (Optional)
                 </span>
@@ -129,13 +128,13 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
                 value={formData.whatsapp}
                 onChange={handleChange}
                 placeholder="+1 (555) 123-4567"
-                className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+                className="w-full bg-white border-2 border-border rounded-lg px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
               />
             </div>
 
             <div>
-              <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                <FileText size={18} />
+              <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                <FileText size={12} />
                 Subject *
               </label>
               <input
@@ -144,14 +143,14 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                placeholder="How can we help you?"
-                className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+                placeholder="How can we help?"
+                className="w-full bg-white border-2 border-border rounded-lg px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
               />
             </div>
 
             <div>
-              <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                <MessageCircle size={18} />
+              <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-1">
+                <MessageCircle size={12} />
                 Message *
               </label>
               <textarea
@@ -159,17 +158,17 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                placeholder="Please describe your inquiry or issue..."
-                rows={4}
-                className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors resize-none font-medium"
+                placeholder="Tell us more..."
+                rows={3}
+                className="w-full bg-white border-2 border-border rounded-lg px-2 py-1.5 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full gradient-primary text-white py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
+              className="w-full gradient-primary text-white py-2 rounded-lg font-bold text-xs hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-1"
             >
-              Send Message <Send size={20} />
+              Send Message <Send size={12} />
             </button>
           </form>
         )}

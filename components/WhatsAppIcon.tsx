@@ -83,10 +83,10 @@ export const WhatsAppLink: React.FC<{
       className={className}
       title="Chat on WhatsApp"
     >
-      <div className="flex items-center gap-1.5">
+      <span className="inline-flex items-center gap-1.5">
         {showIcon && <WhatsAppIcon size={iconSize} />}
         <span>{displayText}</span>
-      </div>
+      </span>
     </a>
   );
 };

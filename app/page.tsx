@@ -22,10 +22,18 @@ import { TiltCard } from "../client/components/TiltCard";
 import { useState } from "react";
 import SupportModal from "@/components/SupportModal";
 import { WhatsAppButton } from "@/components/WhatsAppIcon";
+import {
+  GENERAL_PRICING_PLANS,
+  PROOFREADING_PRICING_PLANS,
+} from "@/lib/pricing";
+import { PricingSwitch } from "@/client/components/PricingSwitch";
 
 export default function Home() {
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const [pricingType, setPricingType] = useState<"writing" | "proofreading">(
+    "writing",
+  );
 
   const services = [
     {
@@ -222,10 +230,10 @@ export default function Home() {
   return (
     <div ref={scrollRef} className="w-full">
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="w-full mx-auto">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
               {/* Left Content - Wider Column */}
               <div className="lg:col-span-3">
                 {/* Badge */}
@@ -237,10 +245,13 @@ export default function Home() {
                 </div>
 
                 {/* Main Headline - 2 Lines */}
-                <h1 className="font-bold mb-8 leading-tight font-poppins text-foreground text-2xl sm:text-3xl lg:text-4xl">
-                  Achieve Academic{" "}
+                <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
+                  Achieve Academic
+                  <br className="hidden sm:block" />
                   <span className="text-accent">Excellence</span> with
-                  Professional Writing Services
+                  Professional
+                  <br className="hidden sm:block" />
+                  Academic Writing Services
                 </h1>
 
                 {/* Subheading */}
@@ -251,9 +262,9 @@ export default function Home() {
                 </p>
 
                 {/* Trust Indicators - Compact Row */}
-                <div className="flex gap-2 mb-12">
+                <div className="flex gap-2 mb-8">
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">
+                    <div className="text-xl font-bold text-primary mb-1">
                       98%
                     </div>
                     <p className="text-xs text-foreground/70 whitespace-nowrap">
@@ -261,7 +272,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">
+                    <div className="text-xl font-bold text-primary mb-1">
                       24/7
                     </div>
                     <p className="text-xs text-foreground/70 whitespace-nowrap">
@@ -269,7 +280,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">
+                    <div className="text-xl font-bold text-primary mb-1">
                       50+
                     </div>
                     <p className="text-xs text-foreground/70 whitespace-nowrap">
@@ -282,16 +293,16 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="#services"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
                   >
                     Get Started Now <ArrowRight size={20} />
                   </a>
                   <WhatsAppButton
                     phoneNumber="13658291551"
                     message="Hi, I'm interested in EduWrites services"
-                    className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3.5 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/5 transition-all duration-300"
                     showIcon={false}
-                    iconSize={20}
+                    iconSize={18}
                   >
                     Message Us
                   </WhatsAppButton>
@@ -358,12 +369,12 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-poppins">
+              <h2 className="text-3xl font-bold text-foreground mb-4 font-poppins">
                 Professional Academic Writing Support for Every Challenge
               </h2>
               <p className="text-foreground/80 leading-relaxed mb-4">
@@ -420,46 +431,46 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8"
+        className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               OUR SERVICES
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Comprehensive Academic Support
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               Professional writing services for every academic level and
               discipline
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {services.map((service) => (
               <Link
                 key={service.id}
                 href={`/services/${service.slug}`}
-                className="group relative bg-white rounded-2xl p-8 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-xl p-5 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
                 {/* Icon Background Circle */}
                 <div className="absolute -right-20 -top-20 w-40 h-40 bg-accent/8 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-6 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-accent/15 transition-all">
+                  <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-accent/15 transition-all">
                     <service.Icon
-                      size={32}
+                      size={24}
                       className="text-primary group-hover:text-accent transition-colors"
                     />
                   </div>
 
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-base font-bold text-foreground mb-2">
                     {service.title}
                   </h3>
 
-                  <p className="text-foreground/70 mb-6 text-sm leading-relaxed">
+                  <p className="text-foreground/70 mb-4 text-xs leading-relaxed">
                     {service.description}
                   </p>
 
@@ -480,114 +491,71 @@ export default function Home() {
       {/* Pricing Section */}
       <section
         id="pricing"
-        className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
+        className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               PRICING
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Transparent, Affordable Pricing
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               Choose the perfect plan for your academic needs across our
               services
             </p>
           </div>
 
           <div className="space-y-16">
-            {/* Essay Writing Pricing */}
+            {/* Pricing Section */}
             <div>
               <div className="mb-12">
                 <h3 className="text-3xl font-bold text-foreground mb-2 text-center font-poppins">
-                  Essay Writing
+                  Flexible Pricing Plans
                 </h3>
                 <p className="text-center text-foreground/70">
-                  Professional essays for all academic levels
+                  Choose the perfect plan for your academic needs
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    name: "Basic",
-                    price: "$100",
-                    features: [
-                      "2000 words",
-                      "Basic research",
-                      "Standard formatting",
-                      "1 revision",
-                      "5-7 days delivery",
-                    ],
-                  },
-                  {
-                    name: "Standard",
-                    price: "$250",
-                    features: [
-                      "5000 words",
-                      "In-depth research",
-                      "Premium formatting",
-                      "2 revisions",
-                      "3-5 days delivery",
-                    ],
-                    highlighted: true,
-                  },
-                  {
-                    name: "Premium",
-                    price: "$450",
-                    features: [
-                      "10000 words",
-                      "Expert research",
-                      "Complete editing",
-                      "Unlimited revisions",
-                      "2-3 days delivery",
-                    ],
-                  },
-                  {
-                    name: "Custom",
-                    price: "Custom",
-                    features: [
-                      "Any word count",
-                      "Specialized topics",
-                      "Rush delivery",
-                      "Priority support",
-                      "Flexible timeline",
-                    ],
-                    isCustom: true,
-                  },
-                ].map((plan) => (
+              <PricingSwitch onSwitch={setPricingType} />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {(pricingType === "writing"
+                  ? GENERAL_PRICING_PLANS
+                  : PROOFREADING_PRICING_PLANS
+                ).map((plan) => (
                   <div
-                    key={plan.name}
+                    key={plan.id}
                     className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
                       plan.highlighted
                         ? "bg-primary text-white border-primary scale-105 shadow-xl"
                         : "bg-white border-border hover:shadow-lg hover:border-accent/30"
                     }`}
                   >
-                    <div className="relative z-10 p-8 h-full flex flex-col">
+                    <div className="relative z-10 p-5 h-full flex flex-col">
                       {plan.highlighted && (
-                        <div className="mb-4">
-                          <span className="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold inline-block">
+                        <div className="mb-3">
+                          <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold inline-block">
                             ⭐ Most Popular
                           </span>
                         </div>
                       )}
 
                       <h4
-                        className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
+                        className={`text-lg font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
                       >
                         {plan.name}
                       </h4>
 
-                      <div className="mb-8">
+                      <div className="mb-6">
                         <span
-                          className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
+                          className={`text-4xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
                         >
-                          {plan.price}
+                          {plan.price === 0 ? "Custom" : `$${plan.price}`}
                         </span>
                       </div>
 
-                      <ul className="space-y-3 mb-8 flex-grow">
+                      <ul className="space-y-2 mb-6 flex-grow">
                         {plan.features.map((feature, index) => (
                           <li key={index} className="flex items-start gap-3">
                             <CheckCircle
@@ -612,144 +580,14 @@ export default function Home() {
                       </ul>
 
                       <Link
-                        href="/services/essay"
-                        className={`w-full py-3 rounded-lg font-bold transition-all text-center ${
+                        href={`/order?service=${pricingType === "writing" ? "essay" : "proofreading"}&package=${plan.id}`}
+                        className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all text-center ${
                           plan.highlighted
                             ? "bg-accent text-primary hover:bg-accent/90"
                             : "bg-primary text-white hover:bg-primary/90"
                         }`}
                       >
-                        View Details
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Assignment Writing Pricing */}
-            <div>
-              <div className="mb-12">
-                <h3 className="text-3xl font-bold text-foreground mb-2 text-center font-poppins">
-                  Assignment Writing
-                </h3>
-                <p className="text-center text-foreground/70">
-                  Complete assignment solutions for all types
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    name: "Basic",
-                    price: "$100",
-                    features: [
-                      "2000 words",
-                      "Standard complexity",
-                      "Single revision",
-                      "5-7 days delivery",
-                      "Email support",
-                    ],
-                  },
-                  {
-                    name: "Standard",
-                    price: "$250",
-                    features: [
-                      "5000 words",
-                      "Medium complexity",
-                      "2 revisions",
-                      "3-5 days delivery",
-                      "Priority support",
-                    ],
-                    highlighted: true,
-                  },
-                  {
-                    name: "Premium",
-                    price: "$450",
-                    features: [
-                      "10000 words",
-                      "Complex assignments",
-                      "Unlimited revisions",
-                      "2-3 days delivery",
-                      "24/7 dedicated support",
-                    ],
-                  },
-                  {
-                    name: "Custom",
-                    price: "Custom",
-                    features: [
-                      "Any assignment type",
-                      "Custom requirements",
-                      "Rush delivery available",
-                      "Personal writer assignment",
-                      "Flexible payment options",
-                    ],
-                    isCustom: true,
-                  },
-                ].map((plan) => (
-                  <div
-                    key={plan.name}
-                    className={`relative rounded-2xl transition-all duration-300 overflow-hidden border ${
-                      plan.highlighted
-                        ? "bg-primary text-white border-primary scale-105 shadow-xl"
-                        : "bg-white border-border hover:shadow-lg hover:border-accent/30"
-                    }`}
-                  >
-                    <div className="relative z-10 p-8 h-full flex flex-col">
-                      {plan.highlighted && (
-                        <div className="mb-4">
-                          <span className="bg-accent text-primary px-4 py-2 rounded-full text-sm font-bold inline-block">
-                            ⭐ Most Popular
-                          </span>
-                        </div>
-                      )}
-
-                      <h4
-                        className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
-                      >
-                        {plan.name}
-                      </h4>
-
-                      <div className="mb-8">
-                        <span
-                          className={`text-5xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
-                        >
-                          {plan.price}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-3 mb-8 flex-grow">
-                        {plan.features.map((feature, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <CheckCircle
-                              className={`flex-shrink-0 mt-0.5 w-4 h-4 ${
-                                plan.highlighted
-                                  ? "text-accent"
-                                  : "text-primary"
-                              }`}
-                              size={16}
-                            />
-                            <span
-                              className={
-                                plan.highlighted
-                                  ? "text-white/90 text-sm"
-                                  : "text-foreground/80 text-sm"
-                              }
-                            >
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <Link
-                        href="/services/assignment"
-                        className={`w-full py-3 rounded-lg font-bold transition-all text-center ${
-                          plan.highlighted
-                            ? "bg-accent text-primary hover:bg-accent/90"
-                            : "bg-primary text-white hover:bg-primary/90"
-                        }`}
-                      >
-                        View Details
+                        Get Started
                       </Link>
                     </div>
                   </div>
@@ -764,9 +602,9 @@ export default function Home() {
               </p>
               <Link
                 href="#services"
-                className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-10 py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-8 py-3 rounded-lg font-bold text-sm hover:shadow-glow transition-all transform hover:scale-105"
               >
-                Explore All Services <ArrowRight size={20} />
+                Explore All Services <ArrowRight size={16} />
               </Link>
             </div>
           </div>
@@ -774,21 +612,21 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               SUCCESS STORIES
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Our Impact
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               See how we've helped students achieve academic excellence
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {[
               {
                 title: "Enterprise Leadership Development",
@@ -853,38 +691,38 @@ export default function Home() {
             ].map((project, index) => (
               <div
                 key={index}
-                className="group relative bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 overflow-hidden transition-all duration-500"
+                className="group relative bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 overflow-hidden transition-all duration-500"
               >
                 <div className="relative z-10">
                   {/* Header with Icon */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-accent/15 transition-all">
-                      <project.Icon size={28} className="text-primary" />
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="p-1.5 rounded-lg bg-primary/10 group-hover:bg-accent/15 transition-all">
+                      <project.Icon size={18} className="text-primary" />
                     </div>
-                    <div className="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/30">
+                    <div className="px-2 py-0.5 rounded-full text-xs font-bold bg-accent/20 text-accent border border-accent/30">
                       {project.metric}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="text-sm font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-foreground/70 mb-4 font-medium">
+                  <p className="text-xs text-foreground/70 mb-1.5 font-medium">
                     {project.subtitle}
                   </p>
 
-                  <p className="text-foreground/80 text-sm mb-6 leading-relaxed">
+                  <p className="text-foreground/80 text-xs mb-3 leading-tight">
                     {project.description}
                   </p>
 
                   {/* Footer */}
-                  <div className="border-t border-border pt-4 flex items-center justify-between">
+                  <div className="border-t border-border pt-2 flex items-center justify-between">
                     <div>
-                      <p className="text-xs text-foreground/60 mb-1">
+                      <p className="text-xs text-foreground/60 mb-0.5">
                         Client Organization
                       </p>
-                      <p className="text-sm font-semibold text-foreground">
+                      <p className="text-xs font-semibold text-foreground">
                         {project.client}
                       </p>
                     </div>
@@ -906,25 +744,25 @@ export default function Home() {
             </p>
             <Link
               href="/order"
-              className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-glow transition-all transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:shadow-glow transition-all transform hover:scale-105"
             >
-              Start Your Project <ArrowRight size={18} />
+              Start Your Project <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Education Levels & Fields of Study Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               EXPERTISE
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Coverage Across All Levels & Disciplines
             </h2>
-            <p className="text-lg text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm text-foreground/70 max-w-3xl mx-auto leading-relaxed">
               From high school essays to PhD dissertations, we support every
               academic level and discipline
             </p>
@@ -965,13 +803,13 @@ export default function Home() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                  className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="text-5xl mb-4">{item.icon}</div>
-                  <h4 className="font-bold text-foreground text-lg mb-3">
+                  <div className="text-3xl mb-3">{item.icon}</div>
+                  <h4 className="font-bold text-foreground text-sm mb-2">
                     {item.level}
                   </h4>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
+                  <p className="text-xs text-foreground/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -980,11 +818,11 @@ export default function Home() {
           </div>
 
           {/* Top Universities Section */}
-          <div className="mb-32">
-            <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
+          <div className="mb-20">
+            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
               Trusted by Top University Students
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 {
                   region: "United States",
@@ -1037,19 +875,19 @@ export default function Home() {
               ].map((region, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                  className="bg-white rounded-lg p-5 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-5xl">{region.icon}</span>
-                    <h4 className="font-bold text-foreground text-xl">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{region.icon}</span>
+                    <h4 className="font-bold text-foreground text-sm">
                       {region.region}
                     </h4>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {region.universities.map((uni, uIdx) => (
-                      <div key={uIdx} className="flex items-center gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full"></span>
-                        <span className="text-sm text-foreground/85">
+                      <div key={uIdx} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                        <span className="text-xs text-foreground/85">
                           {uni}
                         </span>
                       </div>
@@ -1062,10 +900,10 @@ export default function Home() {
 
           {/* Language Support */}
           <div>
-            <h3 className="text-3xl font-bold text-foreground mb-12 text-center">
+            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
               Multi-Language Support
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
               {[
                 { lang: "English (US)", flag: "🇺🇸" },
                 { lang: "English (UK)", flag: "🇬🇧" },
@@ -1076,10 +914,10 @@ export default function Home() {
               ].map((lang, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-6 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center"
+                  className="bg-white rounded-lg p-4 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300 text-center"
                 >
-                  <p className="text-5xl mb-3">{lang.flag}</p>
-                  <p className="font-semibold text-foreground text-sm">
+                  <p className="text-3xl mb-2">{lang.flag}</p>
+                  <p className="font-semibold text-foreground text-xs">
                     {lang.lang}
                   </p>
                 </div>
@@ -1088,8 +926,8 @@ export default function Home() {
           </div>
 
           {/* Fields of Study - All Disciplines */}
-          <div className="mt-32">
-            <h3 className="text-3xl font-bold text-foreground mb-8 text-center">
+          <div className="mt-20">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
               All Fields of Study
             </h3>
             <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto text-base leading-relaxed">
@@ -1140,35 +978,35 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               WHY CHOOSE US
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Why EduWrites?
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               We combine expertise, reliability, and dedication to your academic
               success
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
+                className="bg-white rounded-lg p-4 border border-border hover:shadow-lg hover:border-accent/30 transition-all duration-300"
                 style={{ animationDelay: `${(index % 3) * 0.1}s` }}
               >
-                <div className="flex-shrink-0 text-5xl mb-4">{item.icon}</div>
+                <div className="flex-shrink-0 text-2xl mb-2">{item.icon}</div>
 
-                <h3 className="font-bold text-foreground mb-3 text-lg">
+                <h3 className="font-bold text-foreground mb-1.5 text-sm">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-foreground/70 leading-relaxed">
+                <p className="text-xs text-foreground/70 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -1178,46 +1016,46 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               TESTIMONIALS
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               What Our Students Say
             </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
               Real feedback from students who've improved their grades
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-border hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-lg p-4 border border-border hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-2">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      size={20}
+                      size={14}
                       className="fill-accent text-accent"
                     />
                   ))}
                 </div>
 
-                <p className="text-foreground/80 leading-relaxed mb-6">
+                <p className="text-foreground/80 leading-relaxed mb-3 text-xs">
                   "{testimonial.content}"
                 </p>
 
-                <div className="flex items-center gap-4 pt-6 border-t border-border">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center font-bold text-white flex-shrink-0">
+                <div className="flex items-center gap-3 pt-3 border-t border-border">
+                  <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 text-xs">
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-sm">
+                    <h4 className="font-bold text-foreground text-xs">
                       {testimonial.name}
                     </h4>
                     <p className="text-xs text-foreground/60">
@@ -1232,17 +1070,17 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Background gradient */}
           <div className="absolute -inset-20 bg-gradient-to-r from-primary/10 via-accent/8 to-primary/10 rounded-3xl -z-10"></div>
 
-          <div className="bg-white rounded-3xl border border-border p-12 sm:p-16 text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6 font-poppins">
+          <div className="bg-white rounded-3xl border border-border p-8 sm:p-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 font-poppins">
               Ready to Achieve Academic Excellence?
             </h2>
 
-            <p className="text-lg text-foreground/70 mb-12 max-w-2xl mx-auto">
+            <p className="text-sm text-foreground/70 mb-8 max-w-2xl mx-auto">
               Join 50,000+ students who've improved their grades with EduWrites.
               Get started with a free consultation today.
             </p>
@@ -1250,13 +1088,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/order"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-10 py-4 rounded-lg font-bold hover:bg-primary/90 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-primary/90 transition-all duration-300"
               >
-                Start Your Project <ArrowRight size={20} />
+                Start Your Project <ArrowRight size={16} />
               </Link>
               <button
                 onClick={() => setIsSupportModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-10 py-4 rounded-lg font-bold hover:bg-primary/5 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-primary/5 transition-all duration-300"
               >
                 Chat Now
               </button>
@@ -1266,16 +1104,16 @@ export default function Home() {
       </section>
 
       {/* FAQs Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wider">
+          <div className="text-center mb-12">
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               FREQUENTLY ASKED QUESTIONS
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 font-poppins">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
               Common Questions
             </h2>
-            <p className="text-lg text-foreground/70">
+            <p className="text-sm text-foreground/70">
               Find answers to common questions about our services
             </p>
           </div>
@@ -1284,23 +1122,23 @@ export default function Home() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-all duration-300"
+                className="bg-white rounded-lg border border-border overflow-hidden hover:shadow-md transition-all duration-300"
               >
                 <button
                   onClick={() =>
                     setExpandedFAQ(expandedFAQ === index ? null : index)
                   }
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-primary/5 transition-colors"
+                  className="w-full flex items-center justify-between p-4 text-left hover:bg-primary/5 transition-colors"
                 >
-                  <h3 className="text-lg font-semibold text-foreground pr-4">
+                  <h3 className="text-base font-semibold text-foreground pr-4">
                     {faq.question}
                   </h3>
                   <div className="flex-shrink-0">
                     <div
-                      className={`w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center transition-transform duration-300 ${expandedFAQ === index ? "rotate-180" : ""}`}
+                      className={`w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center transition-transform duration-300 ${expandedFAQ === index ? "rotate-180" : ""}`}
                     >
                       <svg
-                        className="w-4 h-4 text-accent"
+                        className="w-3.5 h-3.5 text-accent"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -1317,8 +1155,8 @@ export default function Home() {
                 </button>
 
                 {expandedFAQ === index && (
-                  <div className="px-6 pb-6 border-t border-border">
-                    <p className="text-foreground/80 leading-relaxed">
+                  <div className="px-4 pb-4 border-t border-border">
+                    <p className="text-foreground/80 leading-relaxed text-sm">
                       {faq.answer}
                     </p>
                   </div>

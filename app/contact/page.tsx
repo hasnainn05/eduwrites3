@@ -125,16 +125,16 @@ export default function Contact() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative py-24 sm:py-40 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-8 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <h1 className="text-6xl sm:text-8xl font-bold text-foreground mb-6 font-poppins leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 font-poppins leading-tight">
               Get in Touch with{" "}
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
                 EduWrites
               </span>
             </h1>
-            <p className="text-2xl text-foreground/90 max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+            <p className="text-xs sm:text-sm text-foreground/90 max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
               Have questions about our services? Want to discuss your academic
               needs? We're here to help. Get in touch with our team today.
             </p>
@@ -143,9 +143,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Methods Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {contactMethods.map((method, index) => {
               const isExternal = method.link.startsWith("http");
               return (
@@ -156,20 +156,20 @@ export default function Contact() {
                       target: "_blank",
                       rel: "noopener noreferrer",
                     })}
-                    className="bg-white border-4 border-border p-8 rounded-2xl hover:shadow-lg transition-all text-center group h-full flex flex-col justify-center shadow-md"
+                    className="bg-white border-2 border-border p-3 sm:p-4 rounded-lg hover:shadow-lg transition-all text-center group h-full flex flex-col justify-center shadow-md"
                   >
-                    <div className="flex justify-center mb-6">
-                      <div className="text-cyan-400 group-hover:scale-110 transition-transform text-5xl">
+                    <div className="flex justify-center mb-2 sm:mb-3">
+                      <div className="text-cyan-400 group-hover:scale-110 transition-transform text-2xl sm:text-3xl">
                         {method.icon}
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3">
+                    <h3 className="text-xs sm:text-sm font-bold text-foreground mb-1.5 sm:mb-2">
                       {method.title}
                     </h3>
-                    <p className="text-base text-foreground/80 mb-4 font-medium">
+                    <p className="text-[10px] sm:text-xs text-foreground/80 mb-1.5 sm:mb-2 font-medium">
                       {method.description}
                     </p>
-                    <p className="text-lg font-bold text-cyan-400">
+                    <p className="text-[10px] sm:text-xs font-bold text-cyan-400">
                       {method.contact}
                     </p>
                   </a>
@@ -181,40 +181,40 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md mx-auto">
           {submitted ? (
-            <div className="glass p-12 rounded-2xl text-center">
-              <div className="text-6xl mb-6">✓</div>
-              <h2 className="text-3xl font-bold text-foreground mb-4 font-poppins">
+            <div className="glass p-4 sm:p-6 rounded-lg text-center">
+              <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">✓</div>
+              <h2 className="text-base sm:text-lg font-bold text-foreground mb-2 font-poppins">
                 Message Sent Successfully!
               </h2>
-              <p className="text-foreground/80 mb-6">
+              <p className="text-xs text-foreground/80 mb-3 sm:mb-4">
                 Thank you for reaching out. We'll get back to you as soon as
                 possible.
               </p>
               <Link
                 href="/"
-                className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-glow transition-all"
+                className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-5 py-2 rounded-lg font-semibold text-xs hover:shadow-glow transition-all"
               >
                 Back to Home
               </Link>
             </div>
           ) : (
-            <div className="bg-white border-4 border-border p-10 sm:p-14 rounded-2xl shadow-lg">
-              <h2 className="text-4xl font-bold text-foreground mb-3 font-poppins">
+            <div className="bg-white border-2 border-border p-4 sm:p-5 rounded-lg shadow-lg">
+              <h2 className="text-xs font-bold text-foreground mb-1 font-poppins uppercase tracking-wider">
                 Send us a Message
               </h2>
-              <p className="text-foreground/85 mb-8 text-lg font-medium">
+              <p className="text-foreground/85 mb-3 text-[10px] font-medium">
                 Fill out the form below and we'll respond to you within 24
                 hours.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid grid-cols-1 gap-3">
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                      <User size={18} />
+                    <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
+                      <User size={14} />
                       Your Name *
                     </label>
                     <input
@@ -224,12 +224,12 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="John Doe"
-                      className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                     />
                   </div>
                   <div>
-                    <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                      <Mail size={18} />
+                    <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
+                      <Mail size={14} />
                       Your Email *
                     </label>
                     <input
@@ -239,48 +239,14 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
-                      className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
+                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                    <MessageCircle size={18} />
-                    WhatsApp Number{" "}
-                    <span className="text-foreground/60 font-medium">
-                      (Optional)
-                    </span>
-                  </label>
-                  <input
-                    type="tel"
-                    name="whatsapp"
-                    value={formData.whatsapp}
-                    onChange={handleChange}
-                    placeholder="+1 (555) 123-4567"
-                    className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                    <FileText size={18} />
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="How can we help you?"
-                    className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors font-medium"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-base font-bold text-foreground/95 mb-2 flex items-center gap-2">
-                    <MessageCircle size={18} />
+                  <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
+                    <MessageCircle size={14} />
                     Message *
                   </label>
                   <textarea
@@ -288,17 +254,17 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Please describe your inquiry or issue..."
-                    rows={5}
-                    className="w-full bg-white border-4 border-border rounded-lg px-4 py-3 text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-4 transition-colors resize-none font-medium"
+                    placeholder="Tell us what's on your mind..."
+                    rows={3}
+                    className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors resize-none font-medium"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full gradient-primary text-white py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
+                  className="w-full gradient-primary text-white py-1.5 rounded-lg font-bold text-[10px] hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
                 >
-                  Send Message <Send size={20} />
+                  Send Message <Send size={12} />
                 </button>
               </form>
             </div>
@@ -307,26 +273,26 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-16 text-center font-poppins">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center font-poppins">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-4">
+          <div className="space-y-2.5 sm:space-y-3">
             {faqItems.map((item, index) => (
               <details
                 key={index}
-                className="bg-white rounded-xl border-3 border-border p-6 hover:shadow-md transition-all group cursor-pointer shadow-sm"
+                className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all group cursor-pointer shadow-sm"
               >
-                <summary className="flex gap-4 items-start text-xl font-bold text-foreground hover:text-cyan-400 transition-colors">
+                <summary className="flex gap-2 items-start text-[10px] sm:text-xs font-bold text-foreground hover:text-cyan-400 transition-colors">
                   <MessageSquare
-                    size={24}
-                    className="flex-shrink-0 mt-1 text-cyan-400"
+                    size={14}
+                    className="flex-shrink-0 mt-0.5 text-cyan-400"
                   />
                   <span>{item.question}</span>
                 </summary>
-                <p className="text-foreground/85 mt-4 ml-6 leading-relaxed text-lg font-medium">
+                <p className="text-foreground/85 mt-2 ml-4 sm:ml-5 leading-relaxed text-[10px] sm:text-xs font-medium">
                   {item.answer}
                 </p>
               </details>
@@ -336,24 +302,24 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 blur-gradient bg-gradient-to-r from-purple-600 to-transparent opacity-40 top-0 left-0 -z-10"></div>
         <div className="absolute inset-0 blur-gradient bg-gradient-to-l from-cyan-600 to-transparent opacity-40 bottom-0 right-0 -z-10"></div>
 
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins">
             Ready to Get Started?
           </h2>
 
-          <p className="text-lg text-foreground/80 mb-12">
+          <p className="text-xs text-foreground/80 mb-6">
             Don't let academic stress hold you back. Let EduWrites help you
             achieve your academic goals.
           </p>
 
           <Link
             href="/order"
-            className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-10 py-4 rounded-xl font-bold hover:shadow-glow transition-all transform hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 gradient-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:shadow-glow transition-all transform hover:scale-105"
           >
             Place an Order Now
           </Link>

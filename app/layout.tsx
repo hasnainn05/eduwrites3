@@ -76,6 +76,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
+        {/* SEO Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta httpEquiv="x-ua-compatible" content="IE=edge" />
+        <meta name="color-scheme" content="light" />
+        <link rel="canonical" href="https://eduwrites.com" />
+
+        {/* Verification Tags */}
+        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+        <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+
+        {/* Additional SEO Meta Tags */}
+        <meta name="theme-color" content="#3B82F6" />
+        <meta name="description" content="Professional academic writing services. PhD experts write essays, research papers, theses & dissertations. 100% original, plagiarism-free." />
+
         {/* Preload critical resources for Core Web Vitals optimization */}
         <link
           rel="preload"
@@ -83,6 +98,13 @@ export default function RootLayout({
           href="https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800"
           type="image/webp"
         />
+
+        {/* Resource Hints */}
+        <link rel="dns-prefetch" href="https://cdn.builder.io" />
+        <link rel="preconnect" href="https://cdn.builder.io" />
+
+        {/* Alternate Links for Multi-language Support (if applicable) */}
+        <link rel="alternate" hrefLang="en-US" href="https://eduwrites.com" />
 
         {/* JSON-LD Schema Markup for SEO */}
         <SchemaScript schema={organizationSchema} />

@@ -611,7 +611,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">

@@ -1,13 +1,11 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { AdminSidebar } from "@/client/components/AdminSidebar";
-import { Menu, X } from "lucide-react";
+import { AdminMobileNav } from "@/client/components/AdminMobileNav";
 import Link from "next/link";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="h-screen flex flex-col bg-slate-50">
       {/* Header with Logo Only */}
@@ -24,18 +22,6 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               Admin
             </span>
           </Link>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
-          >
-            {mobileMenuOpen ? (
-              <X size={20} className="text-slate-700" />
-            ) : (
-              <Menu size={20} className="text-slate-700" />
-            )}
-          </button>
         </div>
       </header>
 
@@ -46,24 +32,14 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           <AdminSidebar />
         </aside>
 
-        {/* Mobile Drawer Sidebar */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-0 z-30 md:hidden">
-            <div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <aside className="absolute left-0 top-16 bottom-0 w-64 bg-white border-r border-slate-200 overflow-y-auto shadow-lg">
-              <AdminSidebar />
-            </aside>
-          </div>
-        )}
-
-        {/* Content Area */}
-        <main className="flex-1 overflow-y-auto w-full bg-slate-50">
+        {/* Content Area - Add padding for mobile bottom nav */}
+        <main className="flex-1 overflow-y-auto w-full bg-slate-50 pb-16 md:pb-0">
           {children}
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <AdminMobileNav />
     </div>
   );
 }

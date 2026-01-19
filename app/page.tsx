@@ -1025,7 +1025,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-300">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
@@ -1079,7 +1079,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-400">
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Background gradient */}
           <div className="absolute -inset-20 bg-gradient-to-r from-primary/10 via-accent/8 to-primary/10 rounded-3xl -z-10"></div>
@@ -1113,7 +1113,7 @@ export default function Home() {
       </section>
 
       {/* FAQs Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-500">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">

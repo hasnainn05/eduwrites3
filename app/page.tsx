@@ -541,65 +541,65 @@ export default function Home() {
                           : "bg-white border-border"
                       } h-full`}
                     >
-                    <div className="relative z-10 p-5 h-full flex flex-col">
-                      {plan.highlighted && (
-                        <div className="mb-3">
-                          <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold inline-block">
-                            ⭐ Most Popular
+                      <div className="relative z-10 p-5 h-full flex flex-col">
+                        {plan.highlighted && (
+                          <div className="mb-3">
+                            <span className="bg-accent text-primary px-3 py-1 rounded-full text-xs font-bold inline-block">
+                              ⭐ Most Popular
+                            </span>
+                          </div>
+                        )}
+
+                        <h4
+                          className={`text-lg font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
+                        >
+                          {plan.name}
+                        </h4>
+
+                        <div className="mb-6">
+                          <span
+                            className={`text-4xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
+                          >
+                            {plan.price === 0 ? "Custom" : `$${plan.price}`}
                           </span>
                         </div>
-                      )}
 
-                      <h4
-                        className={`text-lg font-bold mb-2 ${plan.highlighted ? "text-white" : "text-foreground"}`}
-                      >
-                        {plan.name}
-                      </h4>
+                        <ul className="space-y-2 mb-6 flex-grow">
+                          {plan.features.map((feature, index) => (
+                            <li key={index} className="flex items-start gap-3">
+                              <CheckCircle
+                                className={`flex-shrink-0 mt-0.5 w-4 h-4 ${
+                                  plan.highlighted
+                                    ? "text-accent"
+                                    : "text-primary"
+                                }`}
+                                size={16}
+                              />
+                              <span
+                                className={
+                                  plan.highlighted
+                                    ? "text-white/90 text-sm"
+                                    : "text-foreground/80 text-sm"
+                                }
+                              >
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
 
-                      <div className="mb-6">
-                        <span
-                          className={`text-4xl font-bold ${plan.highlighted ? "text-accent" : "text-primary"}`}
+                        <Link
+                          href={`/order?service=${pricingType === "writing" ? "essay" : "proofreading"}&package=${plan.id}`}
+                          className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all text-center ${
+                            plan.highlighted
+                              ? "bg-accent text-primary hover:bg-accent/90"
+                              : "bg-primary text-white hover:bg-primary/90"
+                          }`}
                         >
-                          {plan.price === 0 ? "Custom" : `$${plan.price}`}
-                        </span>
+                          Get Started
+                        </Link>
                       </div>
-
-                      <ul className="space-y-2 mb-6 flex-grow">
-                        {plan.features.map((feature, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <CheckCircle
-                              className={`flex-shrink-0 mt-0.5 w-4 h-4 ${
-                                plan.highlighted
-                                  ? "text-accent"
-                                  : "text-primary"
-                              }`}
-                              size={16}
-                            />
-                            <span
-                              className={
-                                plan.highlighted
-                                  ? "text-white/90 text-sm"
-                                  : "text-foreground/80 text-sm"
-                              }
-                            >
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <Link
-                        href={`/order?service=${pricingType === "writing" ? "essay" : "proofreading"}&package=${plan.id}`}
-                        className={`w-full py-2.5 rounded-lg font-bold text-sm transition-all text-center ${
-                          plan.highlighted
-                            ? "bg-accent text-primary hover:bg-accent/90"
-                            : "bg-primary text-white hover:bg-primary/90"
-                        }`}
-                      >
-                        Get Started
-                      </Link>
                     </div>
-                  </div>
                   </TiltCard>
                 ))}
               </div>

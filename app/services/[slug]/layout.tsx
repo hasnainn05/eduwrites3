@@ -44,28 +44,28 @@ const serviceMetadata: Record<
   },
 };
 
-export default function ServiceLayout({
+export default async function ServiceLayout({
   children,
   params,
 }: {
   children: ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   return (
     <>
-      <ServiceSchemaInjector params={params}>{children}</ServiceSchemaInjector>
+      <ServiceSchemaInjector slug={slug}>{children}</ServiceSchemaInjector>
     </>
   );
 }
 
-async function ServiceSchemaInjector({
-  params,
+function ServiceSchemaInjector({
+  slug,
   children,
 }: {
-  params: Promise<{ slug: string }>;
+  slug: string;
   children: ReactNode;
 }) {
-  const { slug } = await params;
   const meta = serviceMetadata[slug] || serviceMetadata.essay;
 
   const serviceData = serviceSchema(slug, meta.h1, meta.description);

@@ -490,6 +490,7 @@ export default function Home() {
 
       {/* Pricing Section */}
       <section
+        ref={containerRef}
         id="pricing"
         className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
       >

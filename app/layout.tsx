@@ -18,20 +18,17 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title:
-    "EduWrites - Professional Academic Writing Services | Essays, Thesis, Dissertation",
+    "Academic Writing Services | EduWrites - Essays, Theses, Dissertations",
   description:
-    "Professional academic writing services for essays, research papers, theses, dissertations, and assignments. Get 100% original, plagiarism-free content from PhD experts. Fast delivery, affordable pricing, and unlimited revisions guaranteed.",
+    "Professional academic writing services. PhD experts write essays, research papers, theses & dissertations. 100% original, plagiarism-free. Fast delivery, unlimited revisions.",
   keywords: [
     "essay writing service",
-    "research paper writing",
-    "thesis writing",
-    "dissertation writing",
-    "assignment writing",
     "academic writing help",
+    "research paper writing",
+    "thesis writing service",
+    "dissertation writing",
     "professional writers",
-    "plagiarism-free",
-    "original content",
-    "academic excellence",
+    "plagiarism-free essays",
   ],
   metadataBase: new URL("https://eduwrites.com"),
   alternates: {
@@ -41,9 +38,9 @@ export const metadata: Metadata = {
     icon: "https://cdn.builder.io/api/v1/image/assets%2F360dd9d64b604bb58688c9e51710ce3e%2F118b262353ba4908905314ab922751d3?format=webp&width=800",
   },
   openGraph: {
-    title: "EduWrites - Professional Academic Writing Services",
+    title: "Academic Writing Services | EduWrites",
     description:
-      "Expert academic writing services including essays, research papers, theses, and dissertations. 50,000+ satisfied students worldwide.",
+      "Professional academic writing for essays, research papers, theses, and dissertations. 50,000+ satisfied students.",
     type: "website",
     url: "https://eduwrites.com",
     siteName: "EduWrites",

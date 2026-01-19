@@ -417,16 +417,37 @@ export default function Header() {
                 {/* Divider */}
                 <div className="border-t border-border my-0.5"></div>
 
-                {/* Profile Icon for Mobile */}
-                <Link
-                  href="/profile"
-                  onClick={closeMenu}
-                  className="block w-full text-center px-1 py-0.5 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all text-[8px] font-medium flex items-center justify-center gap-1"
-                  title="User Profile"
-                >
-                  <User size={12} />
-                  <span>Profile</span>
-                </Link>
+                {/* Profile Menu for Mobile */}
+                <details className="group">
+                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none flex items-center gap-1">
+                    <User size={10} />
+                    My Account
+                  </summary>
+                  <div className="pl-2 space-y-0.5 mt-0.5">
+                    <Link
+                      href="/profile"
+                      onClick={closeMenu}
+                      className="block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1"
+                    >
+                      My Profile
+                    </Link>
+                    <button
+                      onClick={() => {
+                        handleSwitchToAdmin();
+                        closeMenu();
+                      }}
+                      className="block w-full text-left text-[8px] font-medium text-foreground hover:text-accent transition-colors py-0.5 px-1"
+                    >
+                      Switch to Admin
+                    </button>
+                    <button
+                      onClick={closeMenu}
+                      className="block w-full text-left text-[8px] font-medium text-red-600 hover:text-red-700 transition-colors py-0.5 px-1 border-t border-border pt-1"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                </details>
               </div>
             </details>
           </div>

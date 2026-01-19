@@ -385,42 +385,6 @@ export default function Header() {
                   </div>
                 </details>
 
-                {/* Mobile Fields of Study Dropdown */}
-                <details className="group">
-                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
-                    Fields of Study
-                  </summary>
-                  <div className="pl-2 space-y-0.5 mt-0.5">
-                    {fieldsOfStudy.map((field, idx) => (
-                      <div
-                        key={idx}
-                        className="block w-full text-left text-[7px] font-medium text-foreground py-0.5 px-1"
-                      >
-                        <span className="mr-1">{field.icon}</span>
-                        {field.category}
-                      </div>
-                    ))}
-                  </div>
-                </details>
-
-                {/* Mobile Languages Dropdown */}
-                <details className="group">
-                  <summary className="cursor-pointer block text-[8px] font-medium text-foreground hover:text-primary transition-colors py-0.5 px-1 list-none">
-                    Languages
-                  </summary>
-                  <div className="pl-2 space-y-0.5 mt-0.5">
-                    {languages.map((language, idx) => (
-                      <div
-                        key={idx}
-                        className="block w-full text-left text-[7px] font-medium text-foreground py-0.5 px-1"
-                      >
-                        <span className="mr-1">{language.flag}</span>
-                        {language.lang}
-                      </div>
-                    ))}
-                  </div>
-                </details>
-
                 {/* Mobile Footer Navigation Items */}
                 {footerNavItems.map((item) => (
                   <Link

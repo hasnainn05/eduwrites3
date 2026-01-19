@@ -2,15 +2,18 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Login | EduWrites - Academic Writing Services",
+  title: "Login to Your Account | EduWrites Student Portal",
   description:
-    "Sign in to your EduWrites account to manage your orders, track projects, and access your academic writing services.",
-  keywords: ["login", "sign in", "account", "academic writing"],
+    "Login to your EduWrites account to track orders, manage projects, view history, and communicate with writers securely.",
+  keywords: ["login", "student account", "order tracking", "customer portal"],
   alternates: {
     canonical: "https://eduwrites.com/login",
   },
+  robots: {
+    index: false,
+  },
   openGraph: {
-    title: "Login | EduWrites",
+    title: "Login | EduWrites Student Portal",
     description: "Access your EduWrites account",
     type: "website",
     url: "https://eduwrites.com/login",

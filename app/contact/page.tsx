@@ -169,7 +169,7 @@ export default function Contact() {
                     <p className="text-[10px] sm:text-xs text-foreground/80 mb-1.5 sm:mb-2 font-medium">
                       {method.description}
                     </p>
-                    <p className="text-[10px] sm:text-xs font-bold text-cyan-400">
+                    <p className="text-[10px] sm:text-xs font-bold text-accent">
                       {method.contact}
                     </p>
                   </a>

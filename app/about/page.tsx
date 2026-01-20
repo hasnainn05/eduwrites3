@@ -34,7 +34,6 @@ export default function About() {
     { number: "24/7", label: "Customer Support" },
   ];
 
-
   return (
     <div className="w-full">
       {/* 3D Canvas Background */}
@@ -247,7 +246,6 @@ export default function About() {
 
       {/* CTA Section */}
       <section className="py-20 sm:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative overflow-hidden">
-
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8 font-poppins">
             Ready to Get Started?

@@ -303,7 +303,6 @@ export default function Contact() {
 
       {/* CTA Section */}
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
-
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins">
             Ready to Get Started?

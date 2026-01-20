@@ -159,7 +159,7 @@ export default function Contact() {
                     className="bg-white border-2 border-border p-3 sm:p-4 rounded-lg hover:shadow-lg transition-all text-center group h-full flex flex-col justify-center shadow-md"
                   >
                     <div className="flex justify-center mb-2 sm:mb-3">
-                      <div className="text-cyan-400 group-hover:scale-110 transition-transform text-2xl sm:text-3xl">
+                      <div className="text-primary group-hover:scale-110 transition-transform text-2xl sm:text-3xl">
                         {method.icon}
                       </div>
                     </div>

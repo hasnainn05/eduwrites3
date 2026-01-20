@@ -285,10 +285,10 @@ export default function Contact() {
                 key={index}
                 className="bg-white rounded-lg border-2 border-border p-3 hover:shadow-md transition-all group cursor-pointer shadow-sm"
               >
-                <summary className="flex gap-2 items-start text-[10px] sm:text-xs font-bold text-foreground hover:text-accent transition-colors">
+                <summary className="flex gap-2 items-start text-[10px] sm:text-xs font-bold text-foreground hover:text-cyan-400 transition-colors">
                   <MessageSquare
                     size={14}
-                    className="flex-shrink-0 mt-0.5 text-accent"
+                    className="flex-shrink-0 mt-0.5 text-cyan-400"
                   />
                   <span>{item.question}</span>
                 </summary>

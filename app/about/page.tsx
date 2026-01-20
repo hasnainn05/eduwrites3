@@ -34,28 +34,6 @@ export default function About() {
     { number: "24/7", label: "Customer Support" },
   ];
 
-  const team = [
-    {
-      name: "Dr. Sarah Johnson",
-      role: "Founder & Director",
-      bio: "PhD in Education with 15+ years of academic writing experience",
-    },
-    {
-      name: "Prof. Michael Chen",
-      role: "Quality Manager",
-      bio: "Expert in academic standards and research methodology",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Lead Writer",
-      bio: "Specializes in essays, research papers, and dissertations",
-    },
-    {
-      name: "James Wilson",
-      role: "Customer Success",
-      bio: "Dedicated to ensuring every student gets the support they need",
-    },
-  ];
 
   return (
     <div className="w-full">

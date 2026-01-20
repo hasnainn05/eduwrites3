@@ -245,13 +245,18 @@ export default function Home() {
                 </div>
 
                 {/* Main Headline - 2 Lines */}
-                <h1 className="font-bold mb-6 leading-relaxed font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl tracking-wide" style={{ wordSpacing: '0.3em' }}>
-                  Achieve Academic
-                  <br className="hidden sm:block" />
-                  <span className="text-accent">Excellence</span> with
-                  Professional
-                  <br className="hidden sm:block" />
-                  Academic Writing Services
+                <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
+                  {"Achieve Academic Excellence with Professional Academic Writing Services"
+                    .split(" ")
+                    .map((word, idx) => (
+                      <span key={idx}>
+                        {word === "Excellence" ? (
+                          <span className="text-accent">{word} </span>
+                        ) : (
+                          <span>{word} </span>
+                        )}
+                      </span>
+                    ))}
                 </h1>
 
                 {/* Subheading */}

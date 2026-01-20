@@ -245,7 +245,7 @@ export default function Home() {
                 </div>
 
                 {/* Main Headline - 2 Lines */}
-                <h1 className="font-bold mb-6 leading-relaxed font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
+                <h1 className="font-bold mb-6 leading-relaxed font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl" style={{ wordSpacing: '0.1em' }}>
                   Achieve Academic
                   <br className="hidden sm:block" />
                   <span className="text-accent">Excellence</span> with

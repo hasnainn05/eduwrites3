@@ -303,9 +303,6 @@ export default function Contact() {
 
       {/* CTA Section */}
       <section className="relative py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 blur-gradient bg-gradient-to-r from-purple-600 to-transparent opacity-40 top-0 left-0 -z-10"></div>
-        <div className="absolute inset-0 blur-gradient bg-gradient-to-l from-purple-600 to-transparent opacity-40 bottom-0 right-0 -z-10"></div>
 
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4 font-poppins">

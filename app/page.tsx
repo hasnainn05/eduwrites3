@@ -495,27 +495,14 @@ export default function Home() {
         className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white/50 to-white/30"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
-              PRICING
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
-              Transparent, Affordable Pricing
-            </h2>
-            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
-              Choose the perfect plan for your academic needs across our
-              services
-            </p>
-          </div>
-
           <div className="space-y-16">
             {/* Pricing Section */}
             <div>
               <div className="mb-12">
-                <h3 className="text-3xl font-bold text-foreground mb-2 text-center font-poppins">
+                <h3 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 text-center font-poppins">
                   Flexible Pricing Plans
                 </h3>
-                <p className="text-center text-foreground/70">
+                <p className="text-center text-foreground/70 text-sm">
                   Choose the perfect plan for your academic needs
                 </p>
               </div>

@@ -188,41 +188,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 font-poppins">
-              Meet Our Team
-            </h2>
-            <p className="text-xs text-foreground/70">
-              Dedicated professionals committed to your success
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {team.map((member, index) => (
-              <TiltCard key={index} className="h-full">
-                <div className="bg-white rounded-lg border-2 border-border p-4 text-center hover:shadow-lg transition-all h-full flex flex-col justify-center shadow-sm">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full mx-auto mb-2 flex items-center justify-center text-white text-sm font-bold">
-                    {member.name.charAt(0)}
-                  </div>
-                  <h3 className="text-xs font-bold text-foreground mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-xs text-cyan-400 font-bold mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-[10px] text-foreground/85 leading-relaxed font-medium">
-                    {member.bio}
-                  </p>
-                </div>
-              </TiltCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Send us a Message Section */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="max-w-md mx-auto">

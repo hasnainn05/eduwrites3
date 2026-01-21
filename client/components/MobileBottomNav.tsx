@@ -31,10 +31,9 @@ export default function MobileBottomNav() {
             <Link
               key={item.path}
               href={item.path}
-              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-all ${
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-colors ${
                 active ? "text-primary" : "text-foreground hover:text-primary"
               }`}
-              style={active ? { animation: "bounce 1s infinite" } : {}}
               title={item.label}
             >
               <Icon size={18} className={active ? "fill-current" : ""} />

@@ -36,14 +36,14 @@ export default function MobileBottomNav() {
               key={item.path}
               href={item.path}
               className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-all duration-300 ${
-                active ? "text-primary -translate-y-2 scale-110" : "text-foreground hover:text-primary"
+                active ? "text-primary -translate-y-1" : "text-gray-400 hover:text-primary"
               }`}
               title={item.label}
             >
-              <Icon size={active ? 20 : 16} className={active ? "fill-current" : ""} />
+              <Icon size={14} className={active ? "fill-current" : ""} />
               <span
-                className={`text-[9px] whitespace-nowrap ${
-                  active ? "font-bold" : "font-medium"
+                className={`whitespace-nowrap ${
+                  active ? "text-[10px] font-bold" : "text-[8px] font-medium"
                 }`}
               >
                 {item.label}

@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Home, ShoppingBag, DollarSign, BookOpen, User } from "lucide-react";
 
 export default function MobileBottomNav() {
+  const pathname = usePathname();
+
   const navItems = [
     { label: "Home", icon: Home, path: "/" },
     { label: "Services", icon: ShoppingBag, path: "/#services" },
@@ -12,20 +15,31 @@ export default function MobileBottomNav() {
     { label: "Profile", icon: User, path: "/profile" },
   ];
 
+  const isActive = (path: string) => {
+    if (path === "/") return pathname === "/";
+    if (path.startsWith("/#")) return pathname === "/";
+    return pathname.startsWith(path);
+  };
+
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border z-40 px-1">
-      <div className="flex items-center justify-center h-14 sm:h-16">
+    <div className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-sm px-2">
+      <div className="flex items-center justify-between gap-1 bg-white border border-border rounded-t-2xl shadow-lg h-16 px-1">
         {navItems.map((item) => {
           const Icon = item.icon;
+          const active = isActive(item.path);
           return (
             <Link
               key={item.path}
               href={item.path}
-              className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 hover:bg-primary/5 transition-colors text-foreground hover:text-primary"
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 rounded-lg transition-all duration-200 ${
+                active
+                  ? "bg-primary text-white shadow-md scale-105"
+                  : "text-foreground hover:bg-primary/5 hover:text-primary"
+              }`}
               title={item.label}
             >
-              <Icon size={20} />
-              <span className="text-[10px] font-medium whitespace-nowrap">
+              <Icon size={18} />
+              <span className="text-[9px] font-semibold whitespace-nowrap">
                 {item.label}
               </span>
             </Link>

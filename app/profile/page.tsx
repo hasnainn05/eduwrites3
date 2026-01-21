@@ -77,20 +77,44 @@ export default function Profile() {
         {/* Header with User Info and Actions */}
         <div className="mb-8 sm:mb-12">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-3 sm:gap-6">
-            <div className="flex items-center gap-3 sm:gap-4 text-center sm:text-left w-full sm:w-auto">
-              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-xl sm:text-3xl font-bold shadow-lg flex-shrink-0">
+            {/* Mobile: Vertical Card Layout */}
+            <div className="sm:hidden flex flex-col items-center gap-4 w-full bg-white border border-gray-200 rounded-xl p-6">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                {user.avatar}
+              </div>
+              <div className="text-center w-full">
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                  {user.fullName}
+                </h1>
+                <div className="flex items-center justify-center gap-1 text-sm text-gray-600 mb-4">
+                  <Mail size={16} className="flex-shrink-0" />
+                  <span className="truncate">{user.email}</span>
+                </div>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all font-semibold text-sm shadow-md hover:shadow-lg"
+              >
+                <LogOut size={18} />
+                Logout
+              </button>
+            </div>
+
+            {/* Desktop: Horizontal Layout */}
+            <div className="hidden sm:flex items-center gap-4 text-left w-full sm:w-auto">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg flex-shrink-0">
                 {user.avatar}
               </div>
               <div className="flex-1 min-w-0">
-                <h1 className="text-xl sm:text-4xl font-bold text-gray-900 truncate">
+                <h1 className="text-4xl font-bold text-gray-900 truncate">
                   {user.fullName}
                 </h1>
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-2 text-xs sm:text-sm text-gray-600">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-2 text-sm text-gray-600">
                   <span className="flex items-center gap-1 truncate">
                     <Mail size={14} className="flex-shrink-0" />
                     <span className="truncate">{user.email}</span>
                   </span>
-                  <span className="hidden sm:flex items-center gap-1">
+                  <span className="flex items-center gap-1">
                     <Calendar size={14} />
                     {user.joinDate}
                   </span>
@@ -99,10 +123,10 @@ export default function Profile() {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-red-600 text-white rounded-lg sm:rounded-xl hover:bg-red-700 transition-all font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg flex-shrink-0 whitespace-nowrap"
+              className="hidden sm:flex items-center justify-center gap-2 px-6 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-all font-semibold text-sm shadow-md hover:shadow-lg flex-shrink-0 whitespace-nowrap"
             >
-              <LogOut size={16} className="sm:size-18" />
-              <span className="hidden sm:inline">Logout</span>
+              <LogOut size={18} />
+              Logout
             </button>
           </div>
         </div>

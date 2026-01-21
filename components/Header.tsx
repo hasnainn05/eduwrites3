@@ -396,6 +396,18 @@ export default function Header() {
                 >
                   Contact Us
                 </Link>
+
+                {/* Divider */}
+                <div className="border-t border-border my-0.5"></div>
+
+                {/* Logout */}
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-left text-[8px] font-medium text-red-600 hover:text-red-700 transition-colors py-0.5 px-2 flex items-center gap-1"
+                >
+                  <LogOut size={10} />
+                  Logout
+                </button>
               </div>
             )}
           </div>

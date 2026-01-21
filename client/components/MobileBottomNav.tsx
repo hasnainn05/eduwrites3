@@ -54,6 +54,7 @@ export default function MobileBottomNav() {
             <Link
               key={item.path}
               href={item.path}
+              onClick={() => setSelectedTab(item.path)}
               className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-all duration-300 ${
                 active ? "text-primary -translate-y-1" : "text-gray-400 hover:text-primary"
               }`}

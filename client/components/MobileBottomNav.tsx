@@ -40,9 +40,9 @@ export default function MobileBottomNav() {
               }`}
               title={item.label}
             >
-              <Icon size={24} className={active ? "fill-current" : ""} />
+              <Icon size={active ? 28 : 24} className={active ? "fill-current" : ""} />
               <span
-                className={`text-[11px] whitespace-nowrap ${
+                className={`text-[9px] whitespace-nowrap ${
                   active ? "font-bold" : "font-medium"
                 }`}
               >

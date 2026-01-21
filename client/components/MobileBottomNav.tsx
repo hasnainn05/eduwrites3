@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, ShoppingBag, DollarSign, BookOpen, User } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
+  const [selectedTab, setSelectedTab] = useState<string>("/");
 
   const navItems = [
     { label: "Home", icon: Home, path: "/" },
@@ -15,15 +17,32 @@ export default function MobileBottomNav() {
     { label: "Profile", icon: User, path: "/profile" },
   ];
 
-  const isActive = (path: string) => {
-    if (path === "/") {
-      return pathname === "/";
+  useEffect(() => {
+    // Update selected tab based on pathname
+    if (pathname === "/" || pathname.startsWith("/")) {
+      // For home page, keep the previously selected tab if it's one of the home sections
+      if (
+        pathname === "/" &&
+        (selectedTab === "/" || selectedTab === "/#services" || selectedTab === "/#pricing")
+      ) {
+        // Keep the current selection
+        return;
+      }
+      // For other pages, select the matching tab
+      const matchingTab = navItems.find((item) => {
+        if (item.path === "/") return pathname === "/";
+        if (item.path.startsWith("/#")) return false;
+        return pathname === item.path || pathname.startsWith(item.path + "/");
+      });
+      if (matchingTab) {
+        setSelectedTab(matchingTab.path);
+      } else if (pathname === "/") {
+        setSelectedTab("/");
+      }
     }
-    if (path.startsWith("/#")) {
-      return pathname === "/";
-    }
-    return pathname === path || pathname.startsWith(path + "/");
-  };
+  }, [pathname]);
+
+  const isActive = (path: string) => selectedTab === path;
 
   return (
     <div className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-sm px-2">

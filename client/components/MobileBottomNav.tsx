@@ -15,7 +15,6 @@ import { useState } from "react";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
-  const [selectedPath, setSelectedPath] = useState<string | null>(null);
 
   const navItems = [
     {
@@ -50,7 +49,15 @@ export default function MobileBottomNav() {
     },
   ];
 
-  const isActive = (path: string) => selectedPath === path;
+  const isActive = (path: string) => {
+    if (path === "/") {
+      return pathname === "/";
+    }
+    if (path.startsWith("/#")) {
+      return pathname === "/";
+    }
+    return pathname === path || pathname.startsWith(path + "/");
+  };
 
   return (
     <div className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-sm px-2">

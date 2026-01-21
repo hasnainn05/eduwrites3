@@ -77,27 +77,42 @@ export default function Profile() {
         {/* Header with User Info and Actions */}
         <div className="mb-8 sm:mb-12">
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-3 sm:gap-6">
-            {/* Mobile: Vertical Card Layout */}
-            <div className="sm:hidden flex flex-col items-center gap-4 w-full bg-white border border-gray-200 rounded-xl p-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                {user.avatar}
+            {/* Mobile: Modern Card Layout */}
+            <div className="sm:hidden flex flex-col w-full bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              {/* Logout Button - Top Right */}
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={handleLogout}
+                  className="p-2 rounded-full bg-white text-red-600 hover:bg-red-50 transition-all shadow-sm hover:shadow-md border border-slate-200"
+                  title="Logout"
+                >
+                  <LogOut size={20} />
+                </button>
               </div>
-              <div className="text-center w-full">
-                <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                  {user.fullName}
-                </h1>
-                <div className="flex items-center justify-center gap-1 text-sm text-gray-600 mb-4">
-                  <Mail size={16} className="flex-shrink-0" />
-                  <span className="truncate">{user.email}</span>
+
+              {/* Avatar */}
+              <div className="flex justify-center mb-5">
+                <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                  {user.avatar}
                 </div>
               </div>
-              <button
-                onClick={handleLogout}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all font-semibold text-sm shadow-md hover:shadow-lg"
-              >
-                <LogOut size={18} />
-                Logout
-              </button>
+
+              {/* Name */}
+              <h1 className="text-2xl font-bold text-gray-900 text-center mb-3">
+                {user.fullName}
+              </h1>
+
+              {/* Email */}
+              <div className="flex items-center justify-center gap-2 text-sm text-gray-600 mb-5 bg-white rounded-2xl px-4 py-3 shadow-sm">
+                <Mail size={18} className="text-indigo-500 flex-shrink-0" />
+                <span className="truncate">{user.email}</span>
+              </div>
+
+              {/* Join Date */}
+              <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                <Calendar size={14} />
+                <span>Joined {user.joinDate}</span>
+              </div>
             </div>
 
             {/* Desktop: Horizontal Layout */}

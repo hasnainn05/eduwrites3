@@ -11,7 +11,6 @@ import {
   BookMarked,
   UserCheck,
 } from "lucide-react";
-import { useState } from "react";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();

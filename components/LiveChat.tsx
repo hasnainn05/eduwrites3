@@ -51,7 +51,7 @@ export default function LiveChat() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-20 md:bottom-6 right-6 z-40 w-11 h-11 sm:w-10 sm:h-10 gradient-primary rounded-full shadow-lg flex items-center justify-center hover:shadow-glow transition-all transform hover:scale-110 animate-bounce"
+          className="fixed bottom-24 md:bottom-6 right-4 md:right-6 z-30 w-11 h-11 sm:w-10 sm:h-10 gradient-primary rounded-full shadow-lg flex items-center justify-center hover:shadow-glow transition-all transform hover:scale-110 animate-bounce"
           title="Get Support"
         >
           <MessageCircle size={20} className="text-white sm:w-4 sm:h-4" />

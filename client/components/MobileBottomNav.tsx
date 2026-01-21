@@ -8,9 +8,6 @@ import {
   DollarSign,
   BookOpen,
   User,
-  HomeIcon,
-  ShoppingBag as ShoppingBagFilled,
-  DollarSign as DollarSignFilled,
   BookMarked,
   UserCheck,
 } from "lucide-react";
@@ -71,7 +68,11 @@ export default function MobileBottomNav() {
               }`}
               title={item.label}
             >
-              <CurrentIcon size={18} fill={active ? "currentColor" : "none"} />
+              <CurrentIcon
+                size={18}
+                fill={active ? "currentColor" : "none"}
+                strokeWidth={active ? 1.5 : 2}
+              />
               <span
                 className={`text-[9px] whitespace-nowrap ${
                   active ? "font-bold" : "font-medium"

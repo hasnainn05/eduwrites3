@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, ShoppingBag, DollarSign, BookOpen, User } from "lucide-react";
+import { useState } from "react";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
+  const [selectedPath, setSelectedPath] = useState<string | null>(null);
 
   const navItems = [
     { label: "Home", icon: Home, path: "/" },
@@ -15,11 +17,7 @@ export default function MobileBottomNav() {
     { label: "Profile", icon: User, path: "/profile" },
   ];
 
-  const isActive = (path: string) => {
-    if (path === "/") return pathname === "/";
-    if (path.startsWith("/#")) return pathname === "/";
-    return pathname.startsWith(path);
-  };
+  const isActive = (path: string) => selectedPath === path;
 
   return (
     <div className="md:hidden fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-sm px-2">
@@ -31,12 +29,13 @@ export default function MobileBottomNav() {
             <Link
               key={item.path}
               href={item.path}
-              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-colors ${
-                active ? "text-primary" : "text-foreground hover:text-primary"
+              onClick={() => setSelectedPath(item.path)}
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-all duration-300 ${
+                active ? "text-primary -translate-y-1" : "text-foreground hover:text-primary"
               }`}
               title={item.label}
             >
-              <Icon size={18} className={active ? "fill-current" : ""} />
+              <Icon size={18} className={active ? "fill-current font-bold" : ""} />
               <span
                 className={`text-[9px] whitespace-nowrap ${
                   active ? "font-bold" : "font-medium"

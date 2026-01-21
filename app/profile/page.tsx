@@ -103,15 +103,9 @@ export default function Profile() {
               </h1>
 
               {/* Email */}
-              <div className="flex items-center justify-center gap-2 text-sm text-gray-600 mb-5 bg-white rounded-2xl px-4 py-3 shadow-sm">
+              <div className="flex items-center justify-center gap-2 text-sm text-gray-600 bg-white rounded-2xl px-4 py-3 shadow-sm">
                 <Mail size={18} className="text-indigo-500 flex-shrink-0" />
                 <span className="truncate">{user.email}</span>
-              </div>
-
-              {/* Join Date */}
-              <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                <Calendar size={14} />
-                <span>Joined {user.joinDate}</span>
               </div>
             </div>
 

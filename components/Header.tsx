@@ -77,6 +77,14 @@ export default function Header() {
     router.push("/admin/dashboard");
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userEmail");
+    setMenuOpen(false);
+    setUserMenuOpen(false);
+    router.push("/login");
+  };
+
   const navItems = [{ label: "Home", path: "/" }];
 
   const footerNavItems = [

@@ -2,17 +2,26 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, ShoppingBag, DollarSign, BookOpen, User } from "lucide-react";
+import {
+  Home,
+  ShoppingBag,
+  DollarSign,
+  BookOpen,
+  User,
+  HomeIcon,
+  ShoppingBagIcon,
+  AlertCircleIcon,
+} from "lucide-react";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", icon: Home, path: "/" },
-    { label: "Services", icon: ShoppingBag, path: "/#services" },
-    { label: "Pricing", icon: DollarSign, path: "/#pricing" },
-    { label: "About", icon: BookOpen, path: "/about" },
-    { label: "Profile", icon: User, path: "/profile" },
+    { label: "Home", icon: Home, filledIcon: HomeIcon, path: "/" },
+    { label: "Services", icon: ShoppingBag, filledIcon: ShoppingBagIcon, path: "/#services" },
+    { label: "Pricing", icon: DollarSign, filledIcon: DollarSign, path: "/#pricing" },
+    { label: "About", icon: BookOpen, filledIcon: BookOpen, path: "/about" },
+    { label: "Profile", icon: User, filledIcon: User, path: "/profile" },
   ];
 
   const isActive = (path: string) => {
@@ -26,20 +35,27 @@ export default function MobileBottomNav() {
       <div className="flex items-center justify-between gap-1 bg-white border border-border rounded-t-2xl shadow-lg h-16 px-1">
         {navItems.map((item) => {
           const Icon = item.icon;
+          const FilledIcon = item.filledIcon;
           const active = isActive(item.path);
           return (
             <Link
               key={item.path}
               href={item.path}
-              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 rounded-lg transition-all duration-200 ${
-                active
-                  ? "bg-primary text-white shadow-md scale-105"
-                  : "text-foreground hover:bg-primary/5 hover:text-primary"
+              className={`flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-colors ${
+                active ? "text-primary" : "text-foreground hover:text-primary"
               }`}
               title={item.label}
             >
-              <Icon size={18} />
-              <span className="text-[9px] font-semibold whitespace-nowrap">
+              {active ? (
+                <FilledIcon size={18} className="fill-current" />
+              ) : (
+                <Icon size={18} />
+              )}
+              <span
+                className={`text-[9px] whitespace-nowrap ${
+                  active ? "font-bold" : "font-medium"
+                }`}
+              >
                 {item.label}
               </span>
             </Link>

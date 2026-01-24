@@ -246,15 +246,23 @@ export default function Home() {
 
                 {/* Main Headline - 2 Lines */}
                 <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
-                  {["Achieve", "Academic", "Excellence", "with", "Professional", "Academic", "Writing", "Services"].map(
-                    (word, idx) =>
-                      word === "Excellence" ? (
-                        <span key={idx} className="text-accent">
-                          {word}{" "}
-                        </span>
-                      ) : (
-                        <span key={idx}>{word} </span>
-                      )
+                  {[
+                    "Achieve",
+                    "Academic",
+                    "Excellence",
+                    "with",
+                    "Professional",
+                    "Academic",
+                    "Writing",
+                    "Services",
+                  ].map((word, idx) =>
+                    word === "Excellence" ? (
+                      <span key={idx} className="text-accent">
+                        {word}{" "}
+                      </span>
+                    ) : (
+                      <span key={idx}>{word} </span>
+                    ),
                   )}
                 </h1>
 

@@ -126,15 +126,15 @@ export default function Header() {
           </Link>
 
           {/* Center: Navigation Menu */}
-          <nav className="hidden md:flex items-center gap-2 lg:gap-4 flex-1 justify-center">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 flex-1 justify-center">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
-                className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative group whitespace-nowrap"
+                className="text-[10px] lg:text-xs font-medium text-foreground/80 hover:text-primary transition-colors relative group whitespace-nowrap px-3 py-2 rounded-md hover:bg-white/5"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-primary/0 via-primary to-primary/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </Link>
             ))}
 

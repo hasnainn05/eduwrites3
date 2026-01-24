@@ -100,7 +100,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur-sm">
+    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-gradient-to-b from-card/98 to-card/95 backdrop-blur-md shadow-sm">
       {/* Main Header */}
       <div className="px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 lg:py-3.5">
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between gap-2 sm:gap-3 md:gap-4">

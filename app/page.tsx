@@ -244,12 +244,12 @@ export default function Home() {
                   </span>
                 </div>
 
-                {/* Main Headline - Premium Typography */}
-                <h1 className="font-bold mb-8 leading-tight font-poppins text-foreground text-2xl sm:text-3xl lg:text-5xl max-w-2xl">
+                {/* Main Headline - 2 Lines */}
+                <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
                   {["Achieve", "Academic", "Excellence", "with", "Professional", "Academic", "Writing", "Services"].map(
                     (word, idx) =>
                       word === "Excellence" ? (
-                        <span key={idx} className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
+                        <span key={idx} className="text-accent">
                           {word}{" "}
                         </span>
                       ) : (

@@ -188,10 +188,10 @@ export default function Header() {
             {/* Pricing Link */}
             <a
               href="/#pricing"
-              className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative group whitespace-nowrap"
+              className="text-[10px] lg:text-xs font-medium text-foreground/80 hover:text-primary transition-colors relative group whitespace-nowrap px-3 py-2 rounded-md hover:bg-white/5"
             >
               Pricing
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-primary/0 via-primary to-primary/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </a>
 
             {/* Fields of Study Dropdown */}

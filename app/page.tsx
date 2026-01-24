@@ -265,29 +265,29 @@ export default function Home() {
                   every time.
                 </p>
 
-                {/* Trust Indicators - Compact Row */}
-                <div className="flex gap-2 mb-8">
-                  <div>
-                    <div className="text-xl font-bold text-primary mb-1">
+                {/* Trust Indicators - Premium Row */}
+                <div className="flex gap-8 mb-12">
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-primary mb-2">
                       98%
                     </div>
-                    <p className="text-xs text-foreground/70 whitespace-nowrap">
+                    <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
                       Customer Satisfaction
                     </p>
                   </div>
-                  <div>
-                    <div className="text-xl font-bold text-primary mb-1">
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-primary mb-2">
                       24/7
                     </div>
-                    <p className="text-xs text-foreground/70 whitespace-nowrap">
+                    <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
                       Expert Support
                     </p>
                   </div>
-                  <div>
-                    <div className="text-xl font-bold text-primary mb-1">
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-primary mb-2">
                       50+
                     </div>
-                    <p className="text-xs text-foreground/70 whitespace-nowrap">
+                    <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
                       Expert Writers
                     </p>
                   </div>

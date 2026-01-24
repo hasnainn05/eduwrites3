@@ -10,7 +10,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <div className="h-screen flex flex-col bg-slate-50">
       {/* Header with Logo and Mobile Menu */}
-      <header className="sticky top-0 z-40 bg-white border-b border-slate-200 h-16 flex items-center px-4 sm:px-6">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-slate-200 h-16 flex items-center px-4 sm:px-6">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link

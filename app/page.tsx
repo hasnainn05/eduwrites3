@@ -297,14 +297,14 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
                     href="#services"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/90 text-white px-8 py-3 rounded-lg font-semibold text-base hover:shadow-lg shadow-primary/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                   >
                     Get Started Now <ArrowRight size={20} />
                   </a>
                   <WhatsAppButton
                     phoneNumber="13658291551"
                     message="Hi, I'm interested in EduWrites services"
-                    className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/5 transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary/40 text-primary bg-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-primary/5 hover:border-primary/60 transition-all duration-300 hover:shadow-md"
                     showIcon={false}
                     iconSize={18}
                   >

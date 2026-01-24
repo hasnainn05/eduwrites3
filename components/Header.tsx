@@ -219,13 +219,13 @@ export default function Header() {
 
             {/* Languages Dropdown */}
             <div className="relative group">
-              <button className="text-[10px] lg:text-xs font-medium text-foreground/80 hover:text-primary transition-colors relative whitespace-nowrap flex items-center gap-1 px-3 py-2 rounded-md hover:bg-white/5">
+              <button className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative whitespace-nowrap flex items-center gap-1 py-2">
                 Languages
                 <ChevronDown
-                  size={13}
-                  className="transform group-hover:rotate-180 transition-transform duration-300"
+                  size={10}
+                  className="transform group-hover:rotate-180 transition-transform"
                 />
-                <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-gradient-to-r from-primary/0 via-primary to-primary/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
               </button>
               <div className="absolute left-0 mt-0 w-max bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1.5 z-50 shadow-lg">
                 {languages.map((language, idx) => (

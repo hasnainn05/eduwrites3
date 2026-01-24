@@ -33,7 +33,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </header>
 
       {/* Main Layout Container */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden pt-16">
         {/* Desktop Sidebar */}
         <aside className="hidden md:flex md:w-64 flex-col bg-white border-r border-slate-200 overflow-y-auto flex-shrink-0">
           <AdminSidebar />

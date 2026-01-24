@@ -314,50 +314,50 @@ export default function Home() {
               </div>
 
               {/* Right Trust Cards - Positioned Lower */}
-              <div className="flex flex-col gap-6 lg:mt-32 lg:col-span-2">
+              <div className="flex flex-col gap-6 lg:mt-20 lg:col-span-2">
                 {/* Top Row - 2 Small Cards */}
                 <div className="grid grid-cols-2 gap-4">
                   {/* 50K+ Card - Small */}
-                  <div className="bg-white rounded-2xl p-5 shadow-md border border-border hover:shadow-lg transition-all">
-                    <div className="text-4xl font-bold text-primary mb-2">
+                  <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-6 shadow-lg border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent mb-3">
                       50K+
                     </div>
-                    <p className="text-sm text-foreground/80 font-medium">
+                    <p className="text-sm text-foreground/90 font-semibold">
                       Satisfied Students
                     </p>
-                    <p className="text-xs text-foreground/60 mt-2">
+                    <p className="text-xs text-foreground/60 mt-2 group-hover:text-foreground/70 transition-colors">
                       Students trust us
                     </p>
                   </div>
 
                   {/* 100% Card - Small */}
-                  <div className="bg-white rounded-2xl p-5 shadow-md border border-border hover:shadow-lg transition-all">
-                    <div className="text-4xl font-bold text-accent mb-2">
+                  <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-6 shadow-lg border border-border/50 hover:shadow-xl hover:border-accent/20 transition-all duration-300 group">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent mb-3">
                       100%
                     </div>
-                    <p className="text-sm text-foreground/80 font-medium">
+                    <p className="text-sm text-foreground/90 font-semibold">
                       Original Content
                     </p>
-                    <p className="text-xs text-foreground/60 mt-2">
+                    <p className="text-xs text-foreground/60 mt-2 group-hover:text-foreground/70 transition-colors">
                       Plagiarism-free
                     </p>
                   </div>
                 </div>
 
                 {/* Rating Card - Full Width */}
-                <div className="bg-white rounded-2xl p-8 shadow-md border border-border hover:shadow-lg transition-all">
-                  <div className="flex items-center gap-4">
+                <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-8 shadow-lg border border-border/50 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={22}
+                          className="fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
                     <div>
-                      <div className="flex gap-1 mb-2">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={20}
-                            className="fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
-                      </div>
-                      <p className="text-foreground/80 font-medium">
+                      <p className="text-foreground/90 font-semibold">
                         4.9/5 Average Rating
                       </p>
                       <p className="text-sm text-foreground/60 mt-2">

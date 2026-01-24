@@ -230,26 +230,26 @@ export default function Home() {
   return (
     <div ref={scrollRef} className="w-full">
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100">
+      <section className="relative py-16 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100">
         <div className="w-full mx-auto">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
               {/* Left Content - Wider Column */}
-              <div className="lg:col-span-3">
+              <div className="lg:col-span-3 flex flex-col justify-center">
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 bg-accent/15 border border-accent/40 rounded-full px-3 py-1.5 mb-4">
-                  <Star size={12} className="text-accent fill-accent" />
-                  <span className="text-xs font-semibold text-foreground">
+                <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/30 rounded-full px-4 py-2 mb-6 w-fit">
+                  <Star size={13} className="text-accent fill-accent" />
+                  <span className="text-xs font-semibold text-foreground/90">
                     Trusted by 50,000+ Students
                   </span>
                 </div>
 
-                {/* Main Headline - 2 Lines */}
-                <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
+                {/* Main Headline - Premium Typography */}
+                <h1 className="font-bold mb-8 leading-tight font-poppins text-foreground text-2xl sm:text-3xl lg:text-5xl max-w-2xl">
                   {["Achieve", "Academic", "Excellence", "with", "Professional", "Academic", "Writing", "Services"].map(
                     (word, idx) =>
                       word === "Excellence" ? (
-                        <span key={idx} className="text-accent">
+                        <span key={idx} className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
                           {word}{" "}
                         </span>
                       ) : (
@@ -259,7 +259,7 @@ export default function Home() {
                 </h1>
 
                 {/* Subheading */}
-                <p className="text-sm text-foreground/70 mb-8 leading-relaxed max-w-2xl">
+                <p className="text-base text-foreground/70 mb-10 leading-relaxed max-w-2xl font-medium">
                   Professional, plagiarism-free academic writing from Ph.D.
                   experts. Essays, theses, dissertations delivered on time,
                   every time.

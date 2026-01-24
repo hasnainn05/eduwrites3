@@ -10,7 +10,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-b from-background/95 to-background/80 backdrop-blur-lg">
+    <header className="md:sticky md:top-0 z-50 w-full border-b border-white/10 bg-gradient-to-b from-background/95 to-background/80 backdrop-blur-lg">
       {/* Main Header */}
       <div className="px-8 sm:px-12 lg:px-20 py-2 sm:py-2.5">
         <div className="max-w-6xl mx-auto w-full flex items-center justify-between gap-1 sm:gap-2 md:gap-3">

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Mail, User, ChevronDown, LogOut } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { serviceGroups, fieldsOfStudy, languages } from "@/lib/headerData";
+import { serviceGroups, fieldsOfStudy } from "@/lib/headerData";
 import { WhatsAppIcon, WhatsAppLink, WhatsAppButton } from "./WhatsAppIcon";
 
 export default function Header() {

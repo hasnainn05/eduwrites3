@@ -29,8 +29,7 @@ const blogPosts: BlogPost[] = [
     date: "January 15, 2024",
     category: "Writing Tips",
     readTime: 8,
-    image:
-      "https://images.pexels.com/photos/8085938/pexels-photo-8085938.jpeg",
+    image: "https://images.pexels.com/photos/8085938/pexels-photo-8085938.jpeg",
     featured: true,
   },
   {
@@ -44,8 +43,7 @@ const blogPosts: BlogPost[] = [
     date: "January 12, 2024",
     category: "Academic Writing",
     readTime: 10,
-    image:
-      "https://images.pexels.com/photos/9158769/pexels-photo-9158769.jpeg",
+    image: "https://images.pexels.com/photos/9158769/pexels-photo-9158769.jpeg",
     featured: true,
   },
   {
@@ -73,8 +71,7 @@ const blogPosts: BlogPost[] = [
     date: "January 8, 2024",
     category: "Writing Tips",
     readTime: 7,
-    image:
-      "https://images.pexels.com/photos/8085938/pexels-photo-8085938.jpeg",
+    image: "https://images.pexels.com/photos/8085938/pexels-photo-8085938.jpeg",
   },
   {
     id: "5",
@@ -87,8 +84,7 @@ const blogPosts: BlogPost[] = [
     date: "January 5, 2024",
     category: "Academic Writing",
     readTime: 9,
-    image:
-      "https://images.pexels.com/photos/9158769/pexels-photo-9158769.jpeg",
+    image: "https://images.pexels.com/photos/9158769/pexels-photo-9158769.jpeg",
   },
   {
     id: "6",
@@ -110,13 +106,16 @@ export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = Array.from(new Set(blogPosts.map((post) => post.category)));
+  const categories = Array.from(
+    new Set(blogPosts.map((post) => post.category)),
+  );
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = !selectedCategory || post.category === selectedCategory;
+    const matchesCategory =
+      !selectedCategory || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -141,14 +140,18 @@ export default function BlogPage() {
             Academic Writing Insights & Tips
           </h1>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Explore expert articles on essay writing, research papers, time management, and
-            academic excellence to boost your grades and success.
+            Explore expert articles on essay writing, research papers, time
+            management, and academic excellence to boost your grades and
+            success.
           </p>
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto relative">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+              />
               <input
                 type="text"
                 placeholder="Search articles..."
@@ -192,7 +195,9 @@ export default function BlogPage() {
                       <span className="inline-block bg-accent/90 text-primary px-3 py-1 rounded-full text-xs font-semibold">
                         {post.category}
                       </span>
-                      <span className="text-xs opacity-90">{post.readTime} min read</span>
+                      <span className="text-xs opacity-90">
+                        {post.readTime} min read
+                      </span>
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold mb-2 line-clamp-2 group-hover:text-accent transition-colors">
                       {post.title}
@@ -279,7 +284,9 @@ export default function BlogPage() {
                       <span className="inline-block bg-accent/20 text-accent px-2.5 py-1 rounded-full text-xs font-semibold">
                         {post.category}
                       </span>
-                      <span className="text-xs text-foreground/60">{post.readTime} min</span>
+                      <span className="text-xs text-foreground/60">
+                        {post.readTime} min
+                      </span>
                     </div>
 
                     <h3 className="text-base font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
@@ -292,7 +299,9 @@ export default function BlogPage() {
 
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <div className="text-xs text-foreground/60">
-                        <div className="font-medium text-foreground">{post.author}</div>
+                        <div className="font-medium text-foreground">
+                          {post.author}
+                        </div>
                         <div>{post.date}</div>
                       </div>
                       <ArrowRight
@@ -306,7 +315,9 @@ export default function BlogPage() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-foreground/70 mb-4">No articles found matching your search.</p>
+              <p className="text-foreground/70 mb-4">
+                No articles found matching your search.
+              </p>
               <button
                 onClick={() => {
                   setSearchQuery("");
@@ -328,8 +339,9 @@ export default function BlogPage() {
             Need Professional Help?
           </h2>
           <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
-            While these tips help, sometimes you need expert assistance. Our team of professional
-            writers is ready to help you achieve academic excellence.
+            While these tips help, sometimes you need expert assistance. Our
+            team of professional writers is ready to help you achieve academic
+            excellence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

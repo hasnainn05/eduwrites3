@@ -217,28 +217,14 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Languages Dropdown */}
-            <div className="relative group">
-              <button className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative whitespace-nowrap flex items-center gap-1 py-2">
-                Languages
-                <ChevronDown
-                  size={10}
-                  className="transform group-hover:rotate-180 transition-transform"
-                />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <div className="absolute left-0 mt-0 w-max bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1.5 z-50 shadow-lg">
-                {languages.map((language, idx) => (
-                  <div
-                    key={idx}
-                    className="block w-full text-left px-3 py-1 text-[8px] lg:text-[9px] text-foreground whitespace-nowrap hover:text-primary hover:bg-primary/5"
-                  >
-                    <span className="mr-1.5">{language.flag}</span>
-                    {language.lang}
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Blog Link */}
+            <Link
+              href="/blog"
+              className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative group whitespace-nowrap"
+            >
+              Blog
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            </Link>
 
             {/* Footer Navigation Items */}
             {footerNavItems.map((item) => (

@@ -463,7 +463,7 @@ export default function Home() {
       >
         {/* Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/75 to-white/80"></div>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               OUR SERVICES

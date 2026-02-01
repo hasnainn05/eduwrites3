@@ -241,7 +241,7 @@ export default function Home() {
       >
         {/* Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/85"></div>
-        <div className="w-full mx-auto">
+        <div className="w-full mx-auto relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
               {/* Left Content - Wider Column */}

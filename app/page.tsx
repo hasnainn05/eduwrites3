@@ -231,17 +231,26 @@ export default function Home() {
     <div ref={scrollRef} className="w-full">
       {/* Hero Section */}
       <section
-        className="relative py-16 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100 rounded-lg overflow-hidden"
+        className="relative w-full py-16 sm:py-28 md:py-32 scroll-animate scroll-delay-100"
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/9158769/pexels-photo-9158769.jpeg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Background Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/85"></div>
-        <div className="w-full mx-auto relative z-10">
-          <div className="max-w-6xl mx-auto">
+        {/* Dotted Pattern Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.1) 2px, transparent 2px)`,
+            backgroundSize: "30px 30px",
+          }}
+        ></div>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/85 to-white/90"></div>
+        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="w-full mx-auto">
+            <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
               {/* Left Content - Wider Column */}
               <div className="lg:col-span-3 flex flex-col justify-center">
@@ -385,6 +394,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

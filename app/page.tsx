@@ -230,7 +230,17 @@ export default function Home() {
   return (
     <div ref={scrollRef} className="w-full">
       {/* Hero Section */}
-      <section className="relative py-16 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100">
+      <section
+        className="relative py-16 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100"
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/9158769/pexels-photo-9158769.jpeg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/85"></div>
         <div className="w-full mx-auto">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">

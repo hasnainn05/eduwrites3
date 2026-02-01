@@ -452,12 +452,11 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-300"
+        className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-300 rounded-lg overflow-hidden"
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
         }}
       >
         {/* Background Overlay */}

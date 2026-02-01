@@ -126,12 +126,11 @@ export default function BlogPage() {
     <div className="w-full">
       {/* Hero Section */}
       <section
-        className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+        className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 rounded-lg overflow-hidden"
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/8085938/pexels-photo-8085938.jpeg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
         }}
       >
         {/* Overlay */}

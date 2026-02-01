@@ -462,16 +462,25 @@ export default function Home() {
       {/* Services Section */}
       <section
         id="services"
-        className="relative py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-300 rounded-lg overflow-hidden"
+        className="relative w-full py-12 sm:py-20 scroll-animate scroll-delay-300"
         style={{
           backgroundImage: `url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        {/* Background Overlay */}
+        {/* Dotted Pattern Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.08) 2px, transparent 2px)`,
+            backgroundSize: "30px 30px",
+          }}
+        ></div>
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/75 to-white/80"></div>
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
               OUR SERVICES
@@ -522,6 +531,7 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
           </div>
         </div>
       </section>

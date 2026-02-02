@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Mail, User, ChevronDown, LogOut } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { serviceGroups, fieldsOfStudy, languages } from "@/lib/headerData";
+import { serviceGroups, fieldsOfStudy } from "@/lib/headerData";
 import { WhatsAppIcon, WhatsAppLink, WhatsAppButton } from "./WhatsAppIcon";
 import axios from "axios";
 import { useUserContext } from "@/context/useUserContext";
@@ -146,7 +146,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur-sm">
+    <header className="fixed top-0 z-50 w-full border-b border-border bg-card shadow-sm">
       {/* Main Header */}
       <div className="px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 lg:py-3.5">
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between gap-2 sm:gap-3 md:gap-4">
@@ -194,18 +194,18 @@ export default function Header() {
                 />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
               </button>
-              <div className="absolute left-0 mt-0 bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-lg min-w-max">
+              <div className="absolute left-0 mt-2 bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-lg min-w-max">
                 <div className="grid grid-cols-2 gap-0">
                   {/* Writing Services Section */}
-                  <div className="px-3 py-2 border-r border-border">
-                    <h3 className="text-[8px] lg:text-[9px] font-bold text-primary mb-1.5 uppercase tracking-wider">
+                  <div className="px-5 py-4 border-r border-border">
+                    <h3 className="text-[9px] lg:text-[10px] font-bold text-primary mb-2.5 uppercase tracking-wider">
                       {serviceGroups.writing.label}
                     </h3>
                     {serviceGroups.writing.services.map((service) => (
                       <Link
                         key={service.id}
                         href={`/services/${service.slug}`}
-                        className="block px-2 py-1 text-[7px] lg:text-[8px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap"
+                        className="block px-3 py-1.5 text-[8px] lg:text-[9px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap rounded-md"
                       >
                         {service.description}
                       </Link>
@@ -213,15 +213,15 @@ export default function Header() {
                   </div>
 
                   {/* Proofreading Services Section */}
-                  <div className="px-3 py-2">
-                    <h3 className="text-[8px] lg:text-[9px] font-bold text-primary mb-1.5 uppercase tracking-wider">
+                  <div className="px-5 py-4">
+                    <h3 className="text-[9px] lg:text-[10px] font-bold text-primary mb-2.5 uppercase tracking-wider">
                       {serviceGroups.proofreading.label}
                     </h3>
                     {serviceGroups.proofreading.services.map((service) => (
                       <Link
                         key={service.id}
                         href={`/services/${service.slug}`}
-                        className="block px-2 py-1 text-[7px] lg:text-[8px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap"
+                        className="block px-3 py-1.5 text-[8px] lg:text-[9px] text-foreground hover:text-primary hover:bg-primary/5 transition-colors whitespace-nowrap rounded-md"
                       >
                         {service.description}
                       </Link>
@@ -263,28 +263,14 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Languages Dropdown */}
-            <div className="relative group">
-              <button className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative whitespace-nowrap flex items-center gap-1 py-2">
-                Languages
-                <ChevronDown
-                  size={10}
-                  className="transform group-hover:rotate-180 transition-transform"
-                />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
-              </button>
-              <div className="absolute left-0 mt-0 w-max bg-white border border-border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-1.5 z-50 shadow-lg">
-                {languages.map((language, idx) => (
-                  <div
-                    key={idx}
-                    className="block w-full text-left px-3 py-1 text-[8px] lg:text-[9px] text-foreground whitespace-nowrap hover:text-primary hover:bg-primary/5"
-                  >
-                    <span className="mr-1.5">{language.flag}</span>
-                    {language.lang}
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Blog Link */}
+            <Link
+              href="/blog"
+              className="text-[9px] lg:text-[10px] font-medium text-foreground hover:text-primary transition-colors relative group whitespace-nowrap"
+            >
+              Blog
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            </Link>
 
             {/* Footer Navigation Items */}
             {footerNavItems.map((item) => (

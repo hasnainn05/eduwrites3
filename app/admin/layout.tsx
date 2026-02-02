@@ -35,9 +35,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     fetchUser();
   }, [router]);
   return (
-    <div className="h-screen flex flex-col bg-slate-50">
+    <div className="fixed inset-0 flex flex-col bg-slate-50">
       {/* Header with Logo and Mobile Menu */}
-      <header className="sticky top-0 z-40 bg-white border-b border-slate-200 h-16 flex items-center px-4 sm:px-6">
+      <header className="h-16 bg-white border-b border-slate-200 flex items-center px-4 sm:px-6 flex-shrink-0">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link
@@ -62,7 +62,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       {/* Main Layout Container */}
       <div className="flex flex-1 overflow-hidden">
         {/* Desktop Sidebar */}
-        <aside className="hidden md:flex md:w-64 flex-col bg-white border-r border-slate-200 overflow-y-auto flex-shrink-0">
+        <aside className="hidden md:flex md:w-64 flex-col bg-white border-r border-slate-200 flex-shrink-0 overflow-y-auto">
           <AdminSidebar />
         </aside>
 

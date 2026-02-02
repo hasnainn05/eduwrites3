@@ -4,7 +4,7 @@ import Contact from "@/models/contact-model";
 
 export async function PATCH(
   _req: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params;
   try {

@@ -233,149 +233,149 @@ export default function Home() {
       <section className="relative py-16 sm:py-28 md:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 scroll-animate scroll-delay-100">
         <div className="w-full mx-auto">
           <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-                {/* Left Content - Wider Column */}
-                <div className="lg:col-span-3 flex flex-col justify-center">
-                  {/* Badge */}
-                  <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/30 rounded-full px-4 py-2 mb-6 w-fit">
-                    <Star size={13} className="text-accent fill-accent" />
-                    <span className="text-xs font-semibold text-foreground/90">
-                      Trusted by 50,000+ Students
-                    </span>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+              {/* Left Content - Wider Column */}
+              <div className="lg:col-span-3 flex flex-col justify-center">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/30 rounded-full px-4 py-2 mb-6 w-fit">
+                  <Star size={13} className="text-accent fill-accent" />
+                  <span className="text-xs font-semibold text-foreground/90">
+                    Trusted by 50,000+ Students
+                  </span>
+                </div>
+
+                {/* Main Headline - 2 Lines */}
+                <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
+                  {[
+                    "Achieve",
+                    "Academic",
+                    "Excellence",
+                    "with",
+                    "Professional",
+                    "Academic",
+                    "Writing",
+                    "Services",
+                  ].map((word, idx) =>
+                    word === "Excellence" ? (
+                      <span key={idx} className="text-accent">
+                        {word}{" "}
+                      </span>
+                    ) : (
+                      <span key={idx}>{word} </span>
+                    ),
+                  )}
+                </h1>
+
+                {/* Subheading */}
+                <p className="text-base text-foreground/70 mb-10 leading-relaxed max-w-2xl font-medium">
+                  Professional, plagiarism-free academic writing from Ph.D.
+                  experts. Essays, theses, dissertations delivered on time,
+                  every time.
+                </p>
+
+                {/* Trust Indicators - Premium Row */}
+                <div className="flex gap-8 mb-12">
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-primary mb-2">
+                      98%
+                    </div>
+                    <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
+                      Customer Satisfaction
+                    </p>
                   </div>
-
-                  {/* Main Headline - 2 Lines */}
-                  <h1 className="font-bold mb-6 leading-tight font-poppins text-foreground text-xl sm:text-2xl lg:text-3xl">
-                    {[
-                      "Achieve",
-                      "Academic",
-                      "Excellence",
-                      "with",
-                      "Professional",
-                      "Academic",
-                      "Writing",
-                      "Services",
-                    ].map((word, idx) =>
-                      word === "Excellence" ? (
-                        <span key={idx} className="text-accent">
-                          {word}{" "}
-                        </span>
-                      ) : (
-                        <span key={idx}>{word} </span>
-                      ),
-                    )}
-                  </h1>
-
-                  {/* Subheading */}
-                  <p className="text-base text-foreground/70 mb-10 leading-relaxed max-w-2xl font-medium">
-                    Professional, plagiarism-free academic writing from Ph.D.
-                    experts. Essays, theses, dissertations delivered on time,
-                    every time.
-                  </p>
-
-                  {/* Trust Indicators - Premium Row */}
-                  <div className="flex gap-8 mb-12">
-                    <div className="flex flex-col">
-                      <div className="text-2xl font-bold text-primary mb-2">
-                        98%
-                      </div>
-                      <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
-                        Customer Satisfaction
-                      </p>
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-primary mb-2">
+                      24/7
                     </div>
-                    <div className="flex flex-col">
-                      <div className="text-2xl font-bold text-primary mb-2">
-                        24/7
-                      </div>
-                      <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
-                        Expert Support
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="text-2xl font-bold text-primary mb-2">
-                        50+
-                      </div>
-                      <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
-                        Expert Writers
-                      </p>
-                    </div>
+                    <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
+                      Expert Support
+                    </p>
                   </div>
-
-                  {/* CTAs */}
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <a
-                      href="#services"
-                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/90 text-white px-8 py-3 rounded-lg font-semibold text-base hover:shadow-lg shadow-primary/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-                    >
-                      Get Started Now <ArrowRight size={20} />
-                    </a>
-                    <WhatsAppButton
-                      phoneNumber="13658291551"
-                      message="Hi, I'm interested in EduWrites services"
-                      className="inline-flex items-center justify-center gap-2 border-2 border-primary/40 text-primary bg-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-primary/5 hover:border-primary/60 transition-all duration-300 hover:shadow-md"
-                      showIcon={false}
-                      iconSize={18}
-                    >
-                      Message Us
-                    </WhatsAppButton>
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-primary mb-2">
+                      50+
+                    </div>
+                    <p className="text-sm text-foreground/70 font-medium whitespace-nowrap">
+                      Expert Writers
+                    </p>
                   </div>
                 </div>
 
-                {/* Right Trust Cards - Positioned Lower */}
-                <div className="flex flex-col gap-6 lg:mt-20 lg:col-span-2">
-                  {/* Top Row - 2 Small Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {/* 50K+ Card - Small */}
-                    <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-6 shadow-lg border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group">
-                      <div className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent mb-3">
-                        50K+
-                      </div>
-                      <p className="text-sm text-foreground/90 font-semibold">
-                        Satisfied Students
-                      </p>
-                      <p className="text-xs text-foreground/60 mt-2 group-hover:text-foreground/70 transition-colors">
-                        Students trust us
-                      </p>
-                    </div>
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="#services"
+                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/90 text-white px-8 py-3 rounded-lg font-semibold text-base hover:shadow-lg shadow-primary/30 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                  >
+                    Get Started Now <ArrowRight size={20} />
+                  </a>
+                  <WhatsAppButton
+                    phoneNumber="13658291551"
+                    message="Hi, I'm interested in EduWrites services"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary/40 text-primary bg-white px-8 py-3 rounded-lg font-semibold text-base hover:bg-primary/5 hover:border-primary/60 transition-all duration-300 hover:shadow-md"
+                    showIcon={false}
+                    iconSize={18}
+                  >
+                    Message Us
+                  </WhatsAppButton>
+                </div>
+              </div>
 
-                    {/* 100% Card - Small */}
-                    <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-6 shadow-lg border border-border/50 hover:shadow-xl hover:border-accent/20 transition-all duration-300 group">
-                      <div className="text-4xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent mb-3">
-                        100%
-                      </div>
-                      <p className="text-sm text-foreground/90 font-semibold">
-                        Original Content
-                      </p>
-                      <p className="text-xs text-foreground/60 mt-2 group-hover:text-foreground/70 transition-colors">
-                        Plagiarism-free
-                      </p>
+              {/* Right Trust Cards - Positioned Lower */}
+              <div className="flex flex-col gap-6 lg:mt-20 lg:col-span-2">
+                {/* Top Row - 2 Small Cards */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* 50K+ Card - Small */}
+                  <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-6 shadow-lg border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent mb-3">
+                      50K+
                     </div>
+                    <p className="text-sm text-foreground/90 font-semibold">
+                      Satisfied Students
+                    </p>
+                    <p className="text-xs text-foreground/60 mt-2 group-hover:text-foreground/70 transition-colors">
+                      Students trust us
+                    </p>
                   </div>
 
-                  {/* Rating Card - Full Width */}
-                  <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-8 shadow-lg border border-border/50 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={22}
-                            className="fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
-                      </div>
-                      <div>
-                        <p className="text-foreground/90 font-semibold">
-                          4.9/5 Average Rating
-                        </p>
-                        <p className="text-sm text-foreground/60 mt-2">
-                          From 2,500+ verified reviews
-                        </p>
-                      </div>
+                  {/* 100% Card - Small */}
+                  <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-6 shadow-lg border border-border/50 hover:shadow-xl hover:border-accent/20 transition-all duration-300 group">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-accent to-accent/80 bg-clip-text text-transparent mb-3">
+                      100%
+                    </div>
+                    <p className="text-sm text-foreground/90 font-semibold">
+                      Original Content
+                    </p>
+                    <p className="text-xs text-foreground/60 mt-2 group-hover:text-foreground/70 transition-colors">
+                      Plagiarism-free
+                    </p>
+                  </div>
+                </div>
+
+                {/* Rating Card - Full Width */}
+                <div className="bg-gradient-to-br from-white to-white/50 rounded-2xl p-8 shadow-lg border border-border/50 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          size={22}
+                          className="fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                    <div>
+                      <p className="text-foreground/90 font-semibold">
+                        4.9/5 Average Rating
+                      </p>
+                      <p className="text-sm text-foreground/60 mt-2">
+                        From 2,500+ verified reviews
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </section>
@@ -447,55 +447,55 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-              <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
-                OUR SERVICES
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
-                Comprehensive Academic Support
-              </h2>
-              <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
-                Professional writing services for every academic level and
-                discipline
-              </p>
-            </div>
+            <p className="text-accent font-semibold mb-2 uppercase tracking-wider text-xs">
+              OUR SERVICES
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 font-poppins">
+              Comprehensive Academic Support
+            </h2>
+            <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
+              Professional writing services for every academic level and
+              discipline
+            </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {services.map((service) => (
-                <Link
-                  key={service.id}
-                  href={`/services/${service.slug}`}
-                  className="group relative bg-white rounded-xl p-5 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 overflow-hidden"
-                >
-                  {/* Icon Background Circle */}
-                  <div className="absolute -right-20 -top-20 w-40 h-40 bg-accent/8 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {services.map((service) => (
+              <Link
+                key={service.id}
+                href={`/services/${service.slug}`}
+                className="group relative bg-white rounded-xl p-5 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300 overflow-hidden"
+              >
+                {/* Icon Background Circle */}
+                <div className="absolute -right-20 -top-20 w-40 h-40 bg-accent/8 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
 
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-accent/15 transition-all">
-                      <service.Icon
-                        size={24}
-                        className="text-primary group-hover:text-accent transition-colors"
-                      />
-                    </div>
-
-                    <h3 className="text-base font-bold text-foreground mb-2">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-foreground/70 mb-4 text-xs leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <div className="flex items-center text-primary font-semibold group-hover:gap-3 transition-all">
-                      Learn More{" "}
-                      <ArrowRight
-                        size={18}
-                        className="ml-2 group-hover:translate-x-1 transition-transform"
-                      />
-                    </div>
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="mb-4 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-accent/15 transition-all">
+                    <service.Icon
+                      size={24}
+                      className="text-primary group-hover:text-accent transition-colors"
+                    />
                   </div>
-                </Link>
-              ))}
+
+                  <h3 className="text-base font-bold text-foreground mb-2">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-foreground/70 mb-4 text-xs leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <div className="flex items-center text-primary font-semibold group-hover:gap-3 transition-all">
+                    Learn More{" "}
+                    <ArrowRight
+                      size={18}
+                      className="ml-2 group-hover:translate-x-1 transition-transform"
+                    />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

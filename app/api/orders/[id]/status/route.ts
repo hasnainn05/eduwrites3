@@ -12,10 +12,10 @@ const ALLOWED_STATUSES = [
 
 export async function PATCH(
   req: NextRequest,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await context.params;
     const user = await getUserFromToken();
 
     if (!user) {

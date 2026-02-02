@@ -6,8 +6,8 @@ import { getUserFromToken } from "@/lib/auth";
 export async function GET() {
   await connectDB();
 
-  const user = getUserFromToken();
-  if (!user || user.role !== "admin") {
+  const user = await getUserFromToken();
+  if (!user || user?.role !== "admin") {
     return NextResponse.json({ message: "Forbidden" }, { status: 403 });
   }
 

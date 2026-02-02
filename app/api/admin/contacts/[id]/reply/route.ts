@@ -5,7 +5,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(
   req: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params;
   try {

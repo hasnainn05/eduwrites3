@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   LogOut,
@@ -16,51 +16,96 @@ import {
   Zap,
 } from "lucide-react";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
+import { useRouter } from "next/navigation";
+import { formatDate, getAvatar, getServiceType } from "@/lib/utils";
+import { log } from "console";
+import { ProfileSkeleton } from "@/components/ProfileSkeleton";
+
+interface Order {
+  _id: string;
+  service: string;
+  status: "pending" | "in-progress" | "completed" | "cancelled";
+  budget: number;
+  deadline: string;
+}
+
+type TUser = {
+  _id: string;
+  name: string;
+  email: string;
+  createdAt: string;
+  role: string;
+}
 
 export default function Profile() {
-  const [user] = useState({
-    fullName: "John Doe",
-    email: "john@example.com",
-    joinDate: "January 2024",
-    avatar: "JD",
-  });
+  const [user, setUser] = useState<TUser | null>(null);
 
-  const orders = [
-    {
-      id: "#ORD-001",
-      service: "Essay Writing",
-      status: "Completed",
-      amount: "$99",
-      date: "Dec 20, 2024",
-    },
-    {
-      id: "#ORD-002",
-      service: "Research Paper",
-      status: "In Progress",
-      amount: "$249",
-      date: "Dec 22, 2024",
-    },
-    {
-      id: "#ORD-003",
-      service: "Thesis Writing",
-      status: "Pending",
-      amount: "$2,999",
-      date: "Dec 23, 2024",
-    },
-  ];
+  const router = useRouter();
+
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState(1);
+
+  // const orders = [
+  //   {
+  //     id: "#ORD-001",
+  //     service: "Essay Writing",
+  //     status: "Completed",
+  //     amount: "$99",
+  //     date: "Dec 20, 2024",
+  //   },
+  //   {
+  //     id: "#ORD-002",
+  //     service: "Research Paper",
+  //     status: "In Progress",
+  //     amount: "$249",
+  //     date: "Dec 22, 2024",
+  //   },
+  //   {
+  //     id: "#ORD-003",
+  //     service: "Thesis Writing",
+  //     status: "Pending",
+  //     amount: "$2,999",
+  //     date: "Dec 23, 2024",
+  //   },
+  // ];
+
+  const totalOrders = orders.length;
+
+  const completedOrders = orders.filter(
+    (o) => o.status === "completed"
+  ).length;
+
+  const totalSpent = orders
+    .filter((o) => o.status === "completed")
+    .reduce((sum, o) => sum + (o.budget || 0), 0);
+
 
   const stats = [
-    { label: "Total Orders", value: "0", icon: FileText, color: "indigo" },
-    { label: "Completed", value: "0", icon: CheckCircle, color: "emerald" },
-    { label: "Total Spent", value: "$0.00", icon: DollarSign, color: "violet" },
+    { label: "Total Orders", value: totalOrders.toString(), icon: FileText, color: "indigo" },
+    { label: "Completed", value: completedOrders.toString(), icon: CheckCircle, color: "emerald" },
+    { label: "Total Spent", value: `${totalSpent.toFixed(2)}`, icon: DollarSign, color: "violet" },
     { label: "Rating", value: "0.00", icon: Star, color: "amber" },
   ];
 
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userEmail");
-    window.location.href = "/";
+  // const handleLogout = () => {
+  //   localStorage.removeItem("isLoggedIn");
+  //   localStorage.removeItem("userEmail");
+  //   window.location.href = "/";
+  // };
+
+  const handleLogout = async () => {
+    try {
+      setLoading(3)
+      await fetch("/api/auth/logout", { method: "POST" });
+      
+      router.replace("/login");
+    } catch (err) {
+      console.log("Error : ", err)
+    } finally {
+      setLoading(0);
+    }
   };
+
 
   const colorMap: { [key: string]: string } = {
     indigo: "text-indigo-600 bg-indigo-50",
@@ -68,6 +113,63 @@ export default function Profile() {
     violet: "text-violet-600 bg-violet-50",
     amber: "text-amber-600 bg-amber-50",
   };
+
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      setLoading(1);
+      try {
+        const res = await fetch("/api/orders/my", {
+          credentials: "include",
+        });
+
+        if (res.status === 401) {
+          router.replace("/login");
+          return;
+        }
+
+        const data = await res.json();
+        setOrders(data);
+      } catch (error) {
+        console.error("Failed to fetch orders", error);
+      } finally {
+        setLoading(0);
+      }
+    };
+
+    fetchOrders();
+  }, [router]);
+  
+  useEffect(() => {
+    const fetchUser = async () => {
+      setLoading(1);
+      try {
+        const res = await fetch("/api/auth/me", {
+          credentials: "include",
+        });
+
+        if (res.status === 401) {
+          router.replace("/login");
+          return;
+        }
+
+        const data = await res.json();
+        console.log("data : ", data)
+        setUser(data?.user);
+      } catch (error) {
+        console.error("Failed to fetch orders", error);
+      } finally {
+        setLoading(0);
+      }
+    };
+
+    fetchUser();
+  }, [router]);
+
+  if(loading === 1){
+    return <ProfileSkeleton />
+  }
+
 
   return (
     <div className="min-h-screen bg-white py-6 sm:py-8 lg:py-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -86,6 +188,7 @@ export default function Profile() {
                   className="p-2 rounded-full bg-white text-red-600 hover:bg-red-50 transition-all shadow-sm hover:shadow-md border border-slate-200"
                   title="Logout"
                 >
+                  {loading === 3 && <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>}
                   <LogOut size={20} />
                 </button>
               </div>
@@ -93,39 +196,39 @@ export default function Profile() {
               {/* Avatar */}
               <div className="flex justify-center mb-5">
                 <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                  {user.avatar}
+                  {user?.name && getAvatar(user?.name)}
                 </div>
               </div>
 
               {/* Name */}
               <h1 className="text-2xl font-bold text-gray-900 text-center mb-3">
-                {user.fullName}
+                {user?.name}
               </h1>
 
               {/* Email */}
               <div className="flex items-center justify-center gap-2 text-sm text-gray-600 bg-white rounded-2xl px-4 py-3 shadow-sm">
                 <Mail size={18} className="text-indigo-500 flex-shrink-0" />
-                <span className="truncate">{user.email}</span>
+                <span className="truncate">{user?.email}</span>
               </div>
             </div>
 
             {/* Desktop: Horizontal Layout */}
             <div className="hidden sm:flex items-center gap-4 text-left w-full sm:w-auto">
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl font-bold shadow-lg flex-shrink-0">
-                {user.avatar}
+                {user?.name && getAvatar(user?.name)}
               </div>
               <div className="flex-1 min-w-0">
                 <h1 className="text-4xl font-bold text-gray-900 truncate">
-                  {user.fullName}
+                  {user?.name}
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-2 text-sm text-gray-600">
                   <span className="flex items-center gap-1 truncate">
                     <Mail size={14} className="flex-shrink-0" />
-                    <span className="truncate">{user.email}</span>
+                    <span className="truncate">{user?.email}</span>
                   </span>
                   <span className="flex items-center gap-1">
                     <Calendar size={14} />
-                    {user.joinDate}
+                    {user?.createdAt && formatDate(user?.createdAt)}
                   </span>
                 </div>
               </div>
@@ -210,15 +313,20 @@ export default function Profile() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h4 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-indigo-600 transition-colors truncate">
-                          {order.service}
+                          {getServiceType(order?.service)}
                         </h4>
                         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mt-1 text-xs text-gray-600">
                           <span className="flex items-center gap-1 truncate">
                             <Clock size={12} className="flex-shrink-0" />
-                            {order.date}
+                            {/* {new Date(order?.deadline)?.toLocaleString('en-US', {
+                              month: 'short',
+                              day: '2-digit',
+                              year: 'numeric',
+                            })} */}
+                            {formatDate(order?.deadline)}
                           </span>
                           <span className="hidden sm:block font-semibold text-gray-900">
-                            {order.id}
+                            {order._id}
                           </span>
                         </div>
                       </div>
@@ -227,9 +335,9 @@ export default function Profile() {
                     <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 justify-end">
                       <span
                         className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-semibold whitespace-nowrap ${
-                          order.status === "Completed"
+                          order.status === "completed"
                             ? "bg-emerald-100 text-emerald-700"
-                            : order.status === "In Progress"
+                            : order.status === "in-progress"
                               ? "bg-blue-100 text-blue-700"
                               : "bg-amber-100 text-amber-700"
                         }`}
@@ -237,7 +345,7 @@ export default function Profile() {
                         {order.status}
                       </span>
                       <span className="font-bold text-sm sm:text-lg text-gray-900 whitespace-nowrap">
-                        {order.amount}
+                        {order.budget}
                       </span>
                     </div>
                   </div>

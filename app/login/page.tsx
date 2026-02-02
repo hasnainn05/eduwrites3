@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useUserContext } from "@/context/useUserContext";
+
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,42 +14,105 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const router = useRouter();
+
+  const { setUser } = useUserContext();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
 
+    // try {
+    //   // Store login state in localStorage
+    //   localStorage.setItem("isLoggedIn", "true");
+    //   localStorage.setItem("userEmail", email);
+
+    //   // Simulate login delay
+    //   await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    //   // Redirect to profile
+    //   window.location.href = "/profile";
+    // } catch (err) {
+    //   setError("Login failed. Please try again.");
+    // } finally {
+    //   setIsLoading(false);
+    // }
+
     try {
-      // Store login state in localStorage
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userEmail", email);
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-      // Simulate login delay
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const data = await res.json();
 
-      // Redirect to profile
-      window.location.href = "/profile";
+      if (!res.ok) {
+        // Zod / auth errors
+        if (data?.errors?.length) {
+          setError(data.errors[0].message);
+        } else {
+          setError(data.message || "Login failed");
+        }
+        return;
+      }
+
+      // ✅ JWT is already stored in HttpOnly cookie by backend
+      // window.location.href = "/profile"; // or /dashboard
+      console.log("data : ", data);
+      if(data?.user?.role === "admin"){        
+        setUser(data?.user);
+        router.push("/admin/dashboard");
+      }
+      if(data?.user?.role === "user"){
+        setUser(data?.user);
+        router.push("/profile");
+      }        
     } catch (err) {
-      setError("Login failed. Please try again.");
+      setError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
+
+  // const handleGoogleLogin = async () => {
+  //   setIsLoading(true);
+  //   try {
+  //     localStorage.setItem("isLoggedIn", "true");
+  //     localStorage.setItem("userEmail", "user@gmail.com");
+  //     localStorage.setItem("authProvider", "google");
+  //     await new Promise((resolve) => setTimeout(resolve, 1500));
+  //     window.location.href = "/profile";
+  //   } catch (err) {
+  //     setError("Google login failed. Please try again.");
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   const handleGoogleLogin = async () => {
-    setIsLoading(true);
-    try {
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userEmail", "user@gmail.com");
-      localStorage.setItem("authProvider", "google");
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      window.location.href = "/profile";
-    } catch (err) {
-      setError("Google login failed. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    // setIsLoading(true);
+    // try {
+    //   const { signIn } = await import("next-auth/react");
+    //   const resposne = await signIn("google", {
+    //     callbackUrl: "/profile",
+    //   });
+    //   console.log("Response login by google : ", resposne)
+    // } catch (err) {
+    //   console.log("Error while login through google : ", err)
+    //   setError("Google login failed, Please try again");
+    // } finally {
+    //   setIsLoading(false);
+    // }
+     window.location.href = "/api/auth/google";
   };
+
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-6">

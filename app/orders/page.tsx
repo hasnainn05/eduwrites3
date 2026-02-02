@@ -1,41 +1,80 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, FileText, Clock, Eye, Filter } from "lucide-react";
 import { Canvas3DWrapper } from "@/client/components/Canvas3DWrapper";
+import { useRouter } from "next/navigation";
+import { formatDate, getServiceType } from "@/lib/utils";
+
+interface Order {
+  _id: string;
+  service: string;
+  status: "pending" | "in-progress" | "completed" | "cancelled";
+  budget: number;
+  deadline: string;
+  createdAt: string;
+}
 
 export default function Orders() {
   const [filterStatus, setFilterStatus] = useState("all");
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const orders = [
-    {
-      id: "#ORD-001",
-      service: "Essay Writing",
-      status: "Completed",
-      amount: "$99",
-      date: "Dec 20, 2024",
-      dueDate: "Dec 25, 2024",
-    },
-    {
-      id: "#ORD-002",
-      service: "Research Paper",
-      status: "In Progress",
-      amount: "$249",
-      date: "Dec 22, 2024",
-      dueDate: "Dec 29, 2024",
-    },
-    {
-      id: "#ORD-003",
-      service: "Thesis Writing",
-      status: "Pending",
-      amount: "$2,999",
-      date: "Dec 23, 2024",
-      dueDate: "Jan 10, 2025",
-    },
-  ];
+  const router = useRouter();  
 
-  const filteredOrders =
+  useEffect(() => {
+      const fetchOrders = async () => {
+        try {
+          const res = await fetch("/api/orders/my", {
+            credentials: "include",
+          });
+  
+          if (res.status === 401) {
+            router.replace("/login");
+            return;
+          }
+  
+          const data = await res.json();
+          setOrders(data);
+        } catch (error) {
+          console.error("Failed to fetch orders", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchOrders();
+    }, [router]);
+
+  // const orders = [
+  //   {
+  //     id: "#ORD-001",
+  //     service: "Essay Writing",
+  //     status: "Completed",
+  //     amount: "$99",
+  //     date: "Dec 20, 2024",
+  //     dueDate: "Dec 25, 2024",
+  //   },
+  //   {
+  //     id: "#ORD-002",
+  //     service: "Research Paper",
+  //     status: "In Progress",
+  //     amount: "$249",
+  //     date: "Dec 22, 2024",
+  //     dueDate: "Dec 29, 2024",
+  //   },
+  //   {
+  //     id: "#ORD-003",
+  //     service: "Thesis Writing",
+  //     status: "Pending",
+  //     amount: "$2,999",
+  //     date: "Dec 23, 2024",
+  //     dueDate: "Jan 10, 2025",
+  //   },
+  // ];
+
+  const filteredOrders: Order[] =
     filterStatus === "all"
       ? orders
       : orders.filter((order) => order.status.toLowerCase() === filterStatus);
@@ -82,7 +121,7 @@ export default function Orders() {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {["all", "pending", "in progress", "completed"].map((status) => (
+          {["all", "pending", "in-progress", "completed"].map((status) => (
             <button
               key={status}
               onClick={() =>
@@ -103,9 +142,9 @@ export default function Orders() {
         {/* Orders List */}
         {filteredOrders.length > 0 ? (
           <div className="space-y-4">
-            {filteredOrders.map((order, index) => (
+            {filteredOrders.map((order: Order, index) => (
               <div
-                key={index}
+                key={order._id}
                 className="group rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-indigo-300 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
                 <div className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
@@ -115,21 +154,21 @@ export default function Orders() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-bold text-base sm:text-lg text-gray-900 group-hover:text-indigo-600 transition-colors truncate">
-                        {order.service}
+                        {order.service && getServiceType(order?.service)}
                       </h3>
                       <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-4 mt-2 text-xs sm:text-sm text-gray-600">
                         <span className="flex items-center gap-1">
                           <Clock size={14} className="flex-shrink-0" />
                           <span className="truncate">
-                            Ordered: {order.date}
+                            Ordered: {formatDate(order.createdAt)}
                           </span>
                         </span>
                         <span className="flex items-center gap-1 col-span-2 sm:col-auto">
                           <Clock size={14} className="flex-shrink-0" />
-                          <span className="truncate">Due: {order.dueDate}</span>
+                          <span className="truncate">Due: {formatDate(order.deadline)}</span>
                         </span>
                         <span className="font-semibold text-gray-900 col-span-2 sm:col-auto">
-                          {order.id}
+                          {order._id}
                         </span>
                       </div>
                     </div>
@@ -144,7 +183,7 @@ export default function Orders() {
                       {order.status}
                     </span>
                     <span className="font-bold text-lg text-gray-900 whitespace-nowrap">
-                      {order.amount}
+                      {order.budget}
                     </span>
                     <button
                       title="View order details"

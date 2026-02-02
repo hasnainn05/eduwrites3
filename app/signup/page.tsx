@@ -43,6 +43,10 @@ export default function Signup() {
       setError("Passwords do not match");
       return;
     }
+    if (formData?.password?.length < 6 ) {
+      setError("Password must be at least 6 characters");
+      return;
+    }        
 
     if (!formData.agreeToTerms) {
       setError("Please agree to Terms & Conditions");
@@ -50,11 +54,44 @@ export default function Signup() {
     }
 
     setIsLoading(true);
+    // try {
+    //   await new Promise((resolve) => setTimeout(resolve, 1500));
+    //   setStep("verify");
+    // } catch (err) {
+    //   setError("Registration failed. Please try again.");
+    // } finally {
+    //   setIsLoading(false);
+    // }
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStep("verify");
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await res.json();
+
+      // Zod validation errors
+      if (!res.ok) {
+        if (data?.errors?.length) {
+          setError(data.errors[0].message);
+        } else {
+          setError(data.message || "Signup failed");
+        }
+        return;
+      }
+
+      // Success
+      setStep("success");
     } catch (err) {
-      setError("Registration failed. Please try again.");
+      console.log("error: ", err);
+      setError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -79,18 +116,19 @@ export default function Signup() {
   };
 
   const handleGoogleSignup = async () => {
-    setIsLoading(true);
-    try {
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userEmail", "user@gmail.com");
-      localStorage.setItem("authProvider", "google");
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setStep("success");
-    } catch (err) {
-      setError("Google signup failed. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    // setIsLoading(true);
+    // try {
+    //   localStorage.setItem("isLoggedIn", "true");
+    //   localStorage.setItem("userEmail", "user@gmail.com");
+    //   localStorage.setItem("authProvider", "google");
+    //   await new Promise((resolve) => setTimeout(resolve, 1500));
+    //   setStep("success");
+    // } catch (err) {
+    //   setError("Google signup failed. Please try again.");
+    // } finally {
+    //   setIsLoading(false);
+    // }
+    window.location.href = "/api/auth/google";
   };
 
   return (

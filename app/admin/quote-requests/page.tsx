@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Send,
   MessageSquare,
@@ -9,102 +9,222 @@ import {
   AlertCircle,
   CheckCircle2,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+// const msgs = [
+//     {
+//       id: 1,
+//       senderName: "Emma Wilson",
+//       senderEmail: "emma@example.com",
+//       whatsapp: "+1-555-0101",
+//       subject: "Essay Writing Quote - History Assignment",
+//       message:
+//         "I need help writing a 5000-word essay on World War II. Can you provide a quote?",
+//       timestamp: "2024-01-15 16:45",
+//       unread: true,
+//       replied: false,
+//     },
+//     {
+//       id: 2,
+//       senderName: "David Brown",
+//       senderEmail: "david@example.com",
+//       whatsapp: "+1-555-0102",
+//       subject: "Thesis Writing Inquiry",
+//       message:
+//         "Looking for thesis writing assistance. Need pricing for a 80-page MBA thesis on organizational change.",
+//       timestamp: "2024-01-15 15:20",
+//       unread: true,
+//       replied: false,
+//     },
+//     {
+//       id: 3,
+//       senderName: "Lisa Garcia",
+//       senderEmail: "lisa@example.com",
+//       whatsapp: "+1-555-0103",
+//       subject: "Research Paper - Science Topic",
+//       message:
+//         "I need a research paper on climate science. Can you provide information about your services and pricing?",
+//       timestamp: "2024-01-15 12:30",
+//       unread: false,
+//       replied: true,
+//     },
+//     {
+//       id: 4,
+//       senderName: "James Taylor",
+//       senderEmail: "james@example.com",
+//       whatsapp: "+1-555-0104",
+//       subject: "Academic Assistance - Multiple Papers",
+//       message:
+//         "We are looking for ongoing academic writing support. Can we discuss pricing for bulk orders?",
+//       timestamp: "2024-01-14 11:00",
+//       unread: false,
+//       replied: true,
+//     },
+//   ]
+
+type TRequest = {
+  _id: string;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  isRead: boolean;
+  isReplied: boolean;
+  createdAt: string;
+}
 
 export default function AdminQuoteRequests() {
-  const [requests, setRequests] = useState([
-    {
-      id: 1,
-      senderName: "Emma Wilson",
-      senderEmail: "emma@example.com",
-      whatsapp: "+1-555-0101",
-      subject: "Essay Writing Quote - History Assignment",
-      message:
-        "I need help writing a 5000-word essay on World War II. Can you provide a quote?",
-      timestamp: "2024-01-15 16:45",
-      unread: true,
-      replied: false,
-    },
-    {
-      id: 2,
-      senderName: "David Brown",
-      senderEmail: "david@example.com",
-      whatsapp: "+1-555-0102",
-      subject: "Thesis Writing Inquiry",
-      message:
-        "Looking for thesis writing assistance. Need pricing for a 80-page MBA thesis on organizational change.",
-      timestamp: "2024-01-15 15:20",
-      unread: true,
-      replied: false,
-    },
-    {
-      id: 3,
-      senderName: "Lisa Garcia",
-      senderEmail: "lisa@example.com",
-      whatsapp: "+1-555-0103",
-      subject: "Research Paper - Science Topic",
-      message:
-        "I need a research paper on climate science. Can you provide information about your services and pricing?",
-      timestamp: "2024-01-15 12:30",
-      unread: false,
-      replied: true,
-    },
-    {
-      id: 4,
-      senderName: "James Taylor",
-      senderEmail: "james@example.com",
-      whatsapp: "+1-555-0104",
-      subject: "Academic Assistance - Multiple Papers",
-      message:
-        "We are looking for ongoing academic writing support. Can we discuss pricing for bulk orders?",
-      timestamp: "2024-01-14 11:00",
-      unread: false,
-      replied: true,
-    },
-  ]);
+  const [requests, setRequests] = useState<TRequest[]>([]);
 
-  const [selectedRequest, setSelectedRequest] = useState<number | null>(1);
+  const [selectedRequest, setSelectedRequest] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [replyText, setReplyText] = useState("");
 
+  const router = useRouter();
+
   const filteredRequests = requests.filter(
     (req) =>
-      req.senderName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      req.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       req.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
       req.message.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  const currentRequest = requests.find((r) => r.id === selectedRequest);
+  const currentRequest = requests.find((r) => r._id === selectedRequest);
 
-  const handleSendReply = () => {
-    if (replyText.trim() && currentRequest) {
-      setRequests(
-        requests.map((req) =>
-          req.id === selectedRequest
-            ? {
-                ...req,
-                replied: true,
-              }
-            : req,
-        ),
-      );
-      setReplyText("");
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const res = await fetch("/api/admin/contacts", {
+          credentials: "include",
+        });
+
+        if (res.status === 401) {
+          router.replace("/login");
+          return;
+        }
+
+        const data = await res.json();
+        console.log("Data : ", data)
+        setRequests(data);
+      } catch (error) {
+        console.error("Failed to fetch orders", error);
+      } 
+      // finally {
+      //   setLoading(false);
+      // }
+    };
+
+    fetchOrders();
+  }, [router]);
+
+
+  // const handleSendReply = () => {
+  //   if (replyText.trim() && currentRequest) {
+  //     setRequests(
+  //       requests.map((req) =>
+  //         req._id === selectedRequest
+  //           ? {
+  //               ...req,
+  //               replied: true,
+  //             }
+  //           : req,
+  //       ),
+  //     );
+  //     setReplyText("");
+  //   }
+  // };
+
+  const handleSendReply = async () => {
+    if (!replyText.trim() || !currentRequest) return;
+
+    const res = await fetch(
+      `/api/admin/contacts/${currentRequest._id}/reply`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ message: replyText }),
+      }
+    );
+
+    if (!res.ok) {
+      alert("Failed to send reply");
+      return;
+    }
+
+    setRequests((prev) =>
+      prev.map((r) =>
+        r._id === currentRequest._id
+          ? { ...r, isReplied: true, isRead: true }
+          : r
+      )
+    );
+
+    setReplyText("");
+  };
+
+
+  // const handleDeleteRequest = (id: string) => {
+  //   setRequests(requests.filter((r) => r._id !== id));
+  //   if (selectedRequest === id) {
+  //     setSelectedRequest(null);
+  //   }
+  // };
+
+  const handleDeleteRequest = async (id: string) => {
+    const confirmed = confirm(
+      "Are you sure you want to delete this request?"
+    );
+
+    if (!confirmed) return;
+
+    try {
+      const res = await fetch(`/api/admin/contacts/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to delete request");
+      }
+
+      // ✅ Update UI
+      setRequests((prev) => prev.filter((r) => r._id !== id));
+
+      if (selectedRequest === id) {
+        setSelectedRequest(null);
+      }
+    } catch (error) {
+      console.error("Delete failed:", error);
+      alert("Failed to delete request");
     }
   };
 
-  const handleDeleteRequest = (id: number) => {
-    setRequests(requests.filter((r) => r.id !== id));
-    if (selectedRequest === id) {
-      setSelectedRequest(null);
-    }
-  };
 
-  const handleMarkReplied = (id: number) => {
+  const handleMarkReplied = (id: string) => {
     setRequests(
-      requests.map((r) => (r.id === id ? { ...r, replied: !r.replied } : r)),
+      requests.map((r) => (r._id === id ? { ...r, replied: !r.isReplied } : r)),
     );
   };
+  
+  const handleOnSelectRequest = async (req: TRequest) => {
+  setSelectedRequest(req._id);
 
-  const unrepliedCount = requests.filter((r) => !r.replied).length;
+  if (!req.isRead) {
+    await fetch(`/api/admin/contacts/${req._id}/read`, {
+      method: "PATCH",
+      credentials: "include",
+    });
+
+    setRequests((prev) =>
+      prev.map((r) =>
+        r._id === req._id ? { ...r, isRead: true } : r
+      )
+    );
+  }
+}
+
+  const unrepliedCount = requests.filter((r) => !r.isReplied).length;
 
   return (
     <div className="flex-1 flex overflow-hidden flex-col lg:flex-row">
@@ -128,38 +248,43 @@ export default function AdminQuoteRequests() {
         <div className="flex-1 overflow-y-auto space-y-1 p-2">
           {filteredRequests.map((req) => (
             <button
-              key={req.id}
-              onClick={() => setSelectedRequest(req.id)}
+              key={req._id}
+              onClick={() => {
+                handleOnSelectRequest(req)
+              }}
+              // onClick={() => {
+              //   setSelectedRequest(req._id)
+              // }}
               className={`w-full text-left p-3 rounded-lg transition-all border ${
-                selectedRequest === req.id
+                selectedRequest === req._id
                   ? "bg-gradient-to-r from-indigo-600/30 to-cyan-500/30 border-cyan-400/30"
                   : "border-white/10 hover:border-cyan-400/50 hover:bg-white/5"
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <h3 className="font-semibold text-foreground text-sm truncate flex-1">
-                  {req.senderName}
+                  {req.name}
                 </h3>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  {req.replied && (
+                  {req.isReplied && (
                     <CheckCircle2 size={14} className="text-green-400" />
                   )}
-                  {req.unread && !req.replied && (
+                  {req.isRead && !req.isReplied && (
                     <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
                   )}
                 </div>
               </div>
               <p className="text-xs text-foreground/60 truncate">
-                {req.senderEmail}
+                {req.email}
               </p>
-              <p className="text-xs text-foreground/60 truncate">
+              {/* <p className="text-xs text-foreground/60 truncate">
                 {req.whatsapp}
-              </p>
+              </p> */}
               <p className="text-xs text-foreground/70 font-medium mt-1 truncate">
                 {req.subject}
               </p>
-              <p className="text-xs text-foreground/40 mt-1">{req.timestamp}</p>
-              {!req.replied && (
+              <p className="text-xs text-foreground/40 mt-1">{req.createdAt}</p>
+              {!req.isReplied && (
                 <div className="mt-2 flex items-center gap-1 text-xs text-yellow-400">
                   <AlertCircle size={12} />
                   Pending
@@ -178,36 +303,36 @@ export default function AdminQuoteRequests() {
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
                 <h2 className="text-xl font-bold text-foreground">
-                  {currentRequest.senderName}
+                  {currentRequest.name}
                 </h2>
                 <div className="space-y-1 mt-2">
                   <p className="text-sm text-foreground/70">
                     Email:{" "}
                     <span className="text-foreground">
-                      {currentRequest.senderEmail}
+                      {currentRequest.email}
                     </span>
                   </p>
-                  <p className="text-sm text-foreground/70">
+                  {/* <p className="text-sm text-foreground/70">
                     WhatsApp:{" "}
                     <span className="text-foreground">
                       {currentRequest.whatsapp}
                     </span>
-                  </p>
+                  </p> */}
                 </div>
               </div>
               <div className="flex gap-2 flex-shrink-0">
                 <button
-                  onClick={() => handleMarkReplied(currentRequest.id)}
+                  onClick={() => handleMarkReplied(currentRequest._id)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    currentRequest.replied
+                    currentRequest.isReplied
                       ? "bg-green-500/20 text-green-400 border border-green-500/30"
                       : "bg-white/10 text-foreground hover:bg-white/20"
                   }`}
                 >
-                  {currentRequest.replied ? "Replied" : "Mark Replied"}
+                  {currentRequest.isReplied ? "Replied" : "Mark Replied"}
                 </button>
                 <button
-                  onClick={() => handleDeleteRequest(currentRequest.id)}
+                  onClick={() => handleDeleteRequest(currentRequest._id)}
                   className="p-2 rounded-lg hover:bg-red-500/20 text-red-400 transition-colors"
                 >
                   <Trash2 size={18} />
@@ -229,13 +354,13 @@ export default function AdminQuoteRequests() {
                 {currentRequest.message}
               </p>
               <p className="text-xs text-foreground/50 mt-4">
-                Received: {currentRequest.timestamp}
+                Received: {currentRequest.createdAt}
               </p>
             </div>
           </div>
 
           {/* Reply Input */}
-          {!currentRequest.replied ? (
+          {!currentRequest.isReplied ? (
             <div className="p-6 border-t border-white/10 bg-gradient-to-r from-slate-900/50 to-slate-800/50">
               <div className="space-y-3">
                 <label className="block text-sm font-medium text-foreground/80">

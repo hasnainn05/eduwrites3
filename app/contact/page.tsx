@@ -11,6 +11,7 @@ import {
   User,
   FileText,
   Send,
+  Text,
 } from "lucide-react";
 import { useState } from "react";
 import { TiltCard } from "@/client/components/TiltCard";
@@ -20,10 +21,11 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    whatsapp: "",
     subject: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -34,19 +36,50 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        // Zod / auth errors
+        if (data?.errors?.length) {
+          setError(data.errors[0].message);
+        } else {
+          setError(data.message || "Login failed");
+        }
+        return;
+      }
+
+      // ✅ JWT is already stored in HttpOnly cookie by backend
+      // window.location.href = "/profile"; // or /dashboard
       setFormData({
         name: "",
         email: "",
-        whatsapp: "",
         subject: "",
         message: "",
       });
       setSubmitted(false);
-    }, 2000);
+      // router.push("/profile");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactMethods = [
@@ -239,6 +272,21 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
+                      className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-foreground/95 mb-1 flex items-center gap-2">
+                      <Text size={14} />
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      placeholder="Application for xyz "
                       className="w-full bg-white border-2 border-border rounded-lg px-3 py-2 text-xs text-foreground placeholder-foreground/50 focus:outline-none focus:border-primary focus:border-2 transition-colors font-medium"
                     />
                   </div>

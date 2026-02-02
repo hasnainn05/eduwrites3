@@ -1,12 +1,39 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { AdminSidebar } from "@/client/components/AdminSidebar";
 import { AdminMobileNav } from "@/client/components/AdminMobileNav";
 import { AdminMobileMenu } from "@/client/components/AdminMobileMenu";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch("/api/auth/me", {
+          credentials: "include",
+        });
+
+        if (res.status === 401) {
+          router.replace("/login");
+          return;
+        }
+
+        const data = await res.json();
+        console.log("admin user : ", data)
+        if(data?.user?.role !== "admin"){
+          router.replace("/login");
+        }
+      } catch (error) {
+        console.error("Failed to fetch orders", error);
+      }
+    };
+
+    fetchUser();
+  }, [router]);
   return (
     <div className="h-screen flex flex-col bg-slate-50">
       {/* Header with Logo and Mobile Menu */}

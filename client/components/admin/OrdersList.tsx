@@ -3,15 +3,17 @@
 import { useState } from "react";
 import { Order } from "@/app/admin/orders/page";
 import { ChevronDown, Download } from "lucide-react";
-import { updateOrderStatus } from "@/lib/orderStorage";
+import { updateOrderStatus } from "@/lib/orders";
+
 import React from "react";
+import { getServiceType } from "@/lib/utils";
 
 interface OrdersListProps {
   orders: Order[];
-  status: "pending" | "in_progress" | "completed";
+  status: "pending" | "in-progress" | "completed" | "cancelled";
   onStatusChange?: (
     orderId: string,
-    status: "pending" | "in_progress" | "completed",
+    status: "pending" | "in-progress" | "completed" | "cancelled",
   ) => void;
 }
 
@@ -26,15 +28,34 @@ export function OrdersList({
     setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
   };
 
-  const handleApprove = (orderId: string) => {
-    updateOrderStatus(orderId, "in_progress");
-    onStatusChange?.(orderId, "in_progress");
+  // const handleApprove = (orderId: string) => {
+  //   updateOrderStatus(orderId, "in-progress");
+  //   onStatusChange?.(orderId, "in-progress");
+  //   setExpandedOrderId(null);
+  // };
+
+  // const handleReject = (orderId: string) => {
+  //   setExpandedOrderId(null);
+  // };
+
+  const handleApprove = async (orderId: string) => {
+    await updateOrderStatus(orderId, "in-progress");
+    onStatusChange?.(orderId, "in-progress");
     setExpandedOrderId(null);
   };
 
-  const handleReject = (orderId: string) => {
+  const handleComplete = async (orderId: string) => {
+    await updateOrderStatus(orderId, "completed");
+    onStatusChange?.(orderId, "completed");
     setExpandedOrderId(null);
   };
+
+  const handleReject = async (orderId: string) => {
+    await updateOrderStatus(orderId, "cancelled");
+    onStatusChange?.(orderId, "cancelled");
+    setExpandedOrderId(null);
+  };
+
 
   if (orders.length === 0) {
     return (
@@ -50,53 +71,53 @@ export function OrdersList({
     <div className="p-3 sm:p-4 md:p-4">
       <div className="grid grid-cols-1 gap-3">
         {orders.map((order) => {
-          const isExpanded = expandedOrderId === order.id;
+          const isExpanded = expandedOrderId === order._id;
 
           return (
             <div
-              key={order.id}
+              key={order._id}
               className="border-2 border-border rounded-lg bg-white hover:shadow-md transition-all overflow-hidden"
             >
               {/* Card Header */}
               <div
                 className="p-2 sm:p-3 cursor-pointer hover:bg-primary/5 transition-colors active:bg-primary/5"
-                onClick={() => toggleExpand(order.id)}
+                onClick={() => toggleExpand(order._id)}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1 mb-1 flex-wrap">
                       <span className="text-foreground font-mono text-xs font-medium">
-                        #{order.id.split("-").pop()}
+                        #{order._id.split("-").pop()}
                       </span>
                       <span
                         className={`inline-block px-2 py-0.5 rounded text-xs font-bold flex-shrink-0 ${
                           order.status === "pending"
                             ? "bg-green-100 text-green-700"
-                            : order.status === "in_progress"
+                            : order.status === "in-progress"
                               ? "bg-yellow-100 text-yellow-700"
                               : "bg-blue-100 text-blue-700"
                         }`}
                       >
                         {order.status === "pending"
                           ? "Pending"
-                          : order.status === "in_progress"
+                          : order.status === "in-progress"
                             ? "In Progress"
                             : "Completed"}
                       </span>
                     </div>
                     <h3 className="text-foreground font-semibold text-xs sm:text-sm truncate">
-                      {order.fullName}
+                      {order.name}
                     </h3>
                     <p className="text-foreground/60 text-[10px] sm:text-xs mt-0.5 line-clamp-2">
-                      {order.service} • {order.wordCount.toLocaleString()} words
-                      • ${order.price}
+                      {getServiceType(order.service)} • {order.wordCount.toLocaleString()} words
+                      • ${order.budget}
                     </p>
                   </div>
                   <button
                     className="text-foreground/60 hover:text-foreground/80 transition-colors flex-shrink-0 p-1 active:text-foreground/50"
                     onClick={(e) => {
                       e.preventDefault();
-                      toggleExpand(order.id);
+                      toggleExpand(order._id);
                     }}
                     aria-label={isExpanded ? "Collapse order" : "Expand order"}
                   >
@@ -117,7 +138,7 @@ export function OrdersList({
                       Order Details
                     </h3>
                     <span className="text-[10px] font-medium text-foreground/60 truncate">
-                      {order.id}
+                      {order._id}
                     </span>
                   </div>
 
@@ -190,24 +211,26 @@ export function OrdersList({
                   </div>
 
                   {/* Attachments Section */}
-                  {order.attachments && order.attachments.length > 0 && (
+                  {order?.attachments && order?.attachments?.length > 0 && (
                     <div>
                       <p className="text-foreground/60 text-[10px] font-bold uppercase tracking-wide mb-2">
                         Attached Files
                       </p>
                       <div className="space-y-1">
-                        {order.attachments.map((file, idx) => (
+                        {order?.attachments?.map((file, idx) => (
                           <div
                             key={idx}
                             className="flex items-center justify-between p-2 bg-white border-2 border-border rounded-lg hover:shadow-sm transition-all group"
                           >
                             <span className="text-foreground text-xs truncate flex-1">
-                              {file}
-                            </span>
+                              File                            </span>
                             <a
-                              href={`data:application/octet-stream;base64,${btoa("Sample file content")}`}
-                              download={file}
+                              // href={`data:application/octet-stream;base64,${btoa("Sample file content")}`}
+                              href={file?.url}
+                              download={file?.filename || "attachment.pdf"}
+                              target="_blank"
                               className="text-primary hover:text-primary/80 transition-colors p-1 flex-shrink-0"
+                              rel="noopener noreferrer"
                               title="Download file"
                             >
                               <Download size={14} />
@@ -219,22 +242,52 @@ export function OrdersList({
                   )}
 
                   {/* Action Buttons - Only for Pending Orders */}
-                  {status === "pending" && (
+                  {/* {status === "pending" && (
                     <div className="border-t-2 border-border pt-3 flex flex-col sm:flex-row gap-2 justify-end">
                       <button
-                        onClick={() => handleApprove(order.id)}
+                        onClick={() => handleApprove(order._id)}
                         className="px-3 sm:px-4 py-1.5 rounded-lg bg-green-600 text-white font-bold text-xs hover:bg-green-700 transition-all active:bg-green-800"
                       >
                         ✓ Approve
                       </button>
                       <button
-                        onClick={() => handleReject(order.id)}
+                        onClick={() => handleReject(order._id)}
                         className="px-3 sm:px-4 py-1.5 rounded-lg border-2 border-red-500 text-red-600 font-bold text-xs hover:bg-red-50 transition-all active:bg-red-100"
                       >
                         ✕ Reject
                       </button>
                     </div>
+                  )} */}
+
+                  {status === "pending" && (
+                    <div className="border-t-2 border-border pt-3 flex gap-2 justify-end">
+                      <button
+                        onClick={() => handleApprove(order._id)}
+                        className="px-4 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-bold"
+                      >
+                        ▶ In Progress
+                      </button>
+
+                      <button
+                        onClick={() => handleReject(order._id)}
+                        className="px-4 py-1.5 rounded-lg border-2 border-red-500 text-red-600 text-xs font-bold"
+                      >
+                        ✕ Reject
+                      </button>
+                    </div>
                   )}
+
+                  {status === "in-progress" && (
+                    <div className="border-t-2 border-border pt-3 flex justify-end">
+                      <button
+                        onClick={() => handleComplete(order._id)}
+                        className="px-4 py-1.5 rounded-lg bg-green-600 text-white text-xs font-bold"
+                      >
+                        ✓ Mark Completed
+                      </button>
+                    </div>
+                  )}
+
                 </div>
               )}
             </div>

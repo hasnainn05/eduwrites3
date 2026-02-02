@@ -4,10 +4,16 @@ import { useState, useEffect } from "react";
 import { OrderStatusTabs } from "@/client/components/admin/OrderStatusTabs";
 import { OrdersList } from "@/client/components/admin/OrdersList";
 import { getOrders } from "@/lib/orderStorage";
-
+import { useRouter } from "next/navigation";
+type TAttachment = {
+  public_id: string;
+  url: string;
+  filename: string;
+  _id: string;
+}
 export interface Order {
-  id: string;
-  fullName: string;
+  _id: string;
+  name: string;
   email: string;
   service: string;
   deadline: string;
@@ -15,167 +21,197 @@ export interface Order {
   academicLevel: string;
   subject: string;
   paperType: string;
-  status: "pending" | "in_progress" | "completed";
+  // status: "pending" | "in_progress" | "completed";
+  status: "pending" | "in-progress" | "completed" | "cancelled";
   submittedDate: string;
   description: string;
-  attachments?: string[];
-  price?: number;
+  attachments?: TAttachment[];
+  budget?: number;
 }
+
+// const orders = [
+//     {
+//       id: "ORD-20250114-A1B2C",
+//       fullName: "Alex Johnson",
+//       email: "alex.johnson@example.com",
+//       service: "Essay Writing",
+//       deadline: "2025-02-15",
+//       wordCount: 3000,
+//       academicLevel: "Undergraduate",
+//       subject: "Literature",
+//       paperType: "Research Paper",
+//       status: "pending",
+//       submittedDate: "2025-01-14",
+//       description:
+//         "Need a comprehensive essay on Shakespeare's impact on modern literature. Should include historical context and modern interpretations. Please ensure proper citations and academic tone.",
+//       attachments: ["requirements.pdf"],
+//       price: 299,
+//     },
+//     {
+//       id: "ORD-20250113-D3E4F",
+//       fullName: "Sarah Chen",
+//       email: "sarah.chen@example.com",
+//       service: "Thesis Writing",
+//       deadline: "2025-03-20",
+//       wordCount: 10000,
+//       academicLevel: "Master's",
+//       subject: "Computer Science",
+//       paperType: "Thesis",
+//       status: "pending",
+//       submittedDate: "2025-01-13",
+//       description:
+//         "Machine Learning application in healthcare systems. Need comprehensive research and original insights. Must include literature review, methodology, and case studies.",
+//       attachments: ["outline.docx", "references.xlsx"],
+//       price: 899,
+//     },
+//     {
+//       id: "ORD-20250112-G5H6I",
+//       fullName: "Michael Rodriguez",
+//       email: "m.rodriguez@example.com",
+//       service: "Proofreading & Editing",
+//       deadline: "2025-02-10",
+//       wordCount: 5000,
+//       academicLevel: "PhD",
+//       subject: "Physics",
+//       paperType: "Journal Article",
+//       status: "pending",
+//       submittedDate: "2025-01-12",
+//       description:
+//         "Proofread and edit research paper before submission to peer-reviewed journal. Focus on clarity, technical accuracy, and academic writing standards.",
+//       attachments: ["manuscript.pdf"],
+//       price: 199,
+//     },
+//     {
+//       id: "ORD-20250111-J7K8L",
+//       fullName: "Emily Thompson",
+//       email: "emily.t@example.com",
+//       service: "Assignment Writing",
+//       deadline: "2025-02-08",
+//       wordCount: 2500,
+//       academicLevel: "High School",
+//       subject: "History",
+//       paperType: "Assignment",
+//       status: "pending",
+//       submittedDate: "2025-01-11",
+//       description:
+//         "Help with history assignment on World War II. Multiple sources required with proper bibliography. Should cover causes, major events, and consequences.",
+//       attachments: [],
+//       price: 149,
+//     },
+//     {
+//       id: "ORD-20250110-M9N0O",
+//       fullName: "David Park",
+//       email: "david.park@example.com",
+//       service: "Research Paper",
+//       deadline: "2025-02-05",
+//       wordCount: 7500,
+//       academicLevel: "Undergraduate",
+//       subject: "Environmental Science",
+//       paperType: "Research Paper",
+//       status: "in_progress",
+//       submittedDate: "2025-01-10",
+//       description:
+//         "Research paper on climate change impacts on marine ecosystems. Need data analysis and current research findings.",
+//       attachments: ["guidelines.pdf"],
+//       price: 499,
+//     },
+//     {
+//       id: "ORD-20250109-P1Q2R",
+//       fullName: "Jessica Lee",
+//       email: "jessica.lee@example.com",
+//       service: "Dissertation Writing",
+//       deadline: "2025-01-25",
+//       wordCount: 15000,
+//       academicLevel: "PhD",
+//       subject: "Psychology",
+//       paperType: "Dissertation",
+//       status: "in_progress",
+//       submittedDate: "2025-01-09",
+//       description:
+//         "PhD dissertation on behavioral psychology and decision-making. Comprehensive research with original theory.",
+//       attachments: ["proposal.docx"],
+//       price: 1299,
+//     },
+//     {
+//       id: "ORD-20250108-S3T4U",
+//       fullName: "Robert Williams",
+//       email: "robert.w@example.com",
+//       service: "Essay Writing",
+//       deadline: "2025-01-20",
+//       wordCount: 4000,
+//       academicLevel: "Undergraduate",
+//       subject: "Economics",
+//       paperType: "Essay",
+//       status: "completed",
+//       submittedDate: "2025-01-08",
+//       description: "Essay on supply and demand dynamics in modern markets.",
+//       attachments: [],
+//       price: 299,
+//     },
+//     {
+//       id: "ORD-20250107-V5W6X",
+//       fullName: "Lisa Anderson",
+//       email: "lisa.anderson@example.com",
+//       service: "Proofreading & Editing",
+//       deadline: "2025-01-18",
+//       wordCount: 6000,
+//       academicLevel: "Master's",
+//       subject: "Business",
+//       paperType: "Case Study",
+//       status: "completed",
+//       submittedDate: "2025-01-07",
+//       description: "Proofread MBA case study on corporate strategy.",
+//       attachments: ["manuscript.pdf"],
+//       price: 249,
+//     },
+//   ]
 
 export default function AdminOrders() {
   const [activeStatus, setActiveStatus] = useState<
-    "pending" | "in_progress" | "completed"
+    "pending" | "in-progress" | "completed" | "cancelled"
   >("pending");
-  const [allOrders, setAllOrders] = useState<Order[]>([
-    {
-      id: "ORD-20250114-A1B2C",
-      fullName: "Alex Johnson",
-      email: "alex.johnson@example.com",
-      service: "Essay Writing",
-      deadline: "2025-02-15",
-      wordCount: 3000,
-      academicLevel: "Undergraduate",
-      subject: "Literature",
-      paperType: "Research Paper",
-      status: "pending",
-      submittedDate: "2025-01-14",
-      description:
-        "Need a comprehensive essay on Shakespeare's impact on modern literature. Should include historical context and modern interpretations. Please ensure proper citations and academic tone.",
-      attachments: ["requirements.pdf"],
-      price: 299,
-    },
-    {
-      id: "ORD-20250113-D3E4F",
-      fullName: "Sarah Chen",
-      email: "sarah.chen@example.com",
-      service: "Thesis Writing",
-      deadline: "2025-03-20",
-      wordCount: 10000,
-      academicLevel: "Master's",
-      subject: "Computer Science",
-      paperType: "Thesis",
-      status: "pending",
-      submittedDate: "2025-01-13",
-      description:
-        "Machine Learning application in healthcare systems. Need comprehensive research and original insights. Must include literature review, methodology, and case studies.",
-      attachments: ["outline.docx", "references.xlsx"],
-      price: 899,
-    },
-    {
-      id: "ORD-20250112-G5H6I",
-      fullName: "Michael Rodriguez",
-      email: "m.rodriguez@example.com",
-      service: "Proofreading & Editing",
-      deadline: "2025-02-10",
-      wordCount: 5000,
-      academicLevel: "PhD",
-      subject: "Physics",
-      paperType: "Journal Article",
-      status: "pending",
-      submittedDate: "2025-01-12",
-      description:
-        "Proofread and edit research paper before submission to peer-reviewed journal. Focus on clarity, technical accuracy, and academic writing standards.",
-      attachments: ["manuscript.pdf"],
-      price: 199,
-    },
-    {
-      id: "ORD-20250111-J7K8L",
-      fullName: "Emily Thompson",
-      email: "emily.t@example.com",
-      service: "Assignment Writing",
-      deadline: "2025-02-08",
-      wordCount: 2500,
-      academicLevel: "High School",
-      subject: "History",
-      paperType: "Assignment",
-      status: "pending",
-      submittedDate: "2025-01-11",
-      description:
-        "Help with history assignment on World War II. Multiple sources required with proper bibliography. Should cover causes, major events, and consequences.",
-      attachments: [],
-      price: 149,
-    },
-    {
-      id: "ORD-20250110-M9N0O",
-      fullName: "David Park",
-      email: "david.park@example.com",
-      service: "Research Paper",
-      deadline: "2025-02-05",
-      wordCount: 7500,
-      academicLevel: "Undergraduate",
-      subject: "Environmental Science",
-      paperType: "Research Paper",
-      status: "in_progress",
-      submittedDate: "2025-01-10",
-      description:
-        "Research paper on climate change impacts on marine ecosystems. Need data analysis and current research findings.",
-      attachments: ["guidelines.pdf"],
-      price: 499,
-    },
-    {
-      id: "ORD-20250109-P1Q2R",
-      fullName: "Jessica Lee",
-      email: "jessica.lee@example.com",
-      service: "Dissertation Writing",
-      deadline: "2025-01-25",
-      wordCount: 15000,
-      academicLevel: "PhD",
-      subject: "Psychology",
-      paperType: "Dissertation",
-      status: "in_progress",
-      submittedDate: "2025-01-09",
-      description:
-        "PhD dissertation on behavioral psychology and decision-making. Comprehensive research with original theory.",
-      attachments: ["proposal.docx"],
-      price: 1299,
-    },
-    {
-      id: "ORD-20250108-S3T4U",
-      fullName: "Robert Williams",
-      email: "robert.w@example.com",
-      service: "Essay Writing",
-      deadline: "2025-01-20",
-      wordCount: 4000,
-      academicLevel: "Undergraduate",
-      subject: "Economics",
-      paperType: "Essay",
-      status: "completed",
-      submittedDate: "2025-01-08",
-      description: "Essay on supply and demand dynamics in modern markets.",
-      attachments: [],
-      price: 299,
-    },
-    {
-      id: "ORD-20250107-V5W6X",
-      fullName: "Lisa Anderson",
-      email: "lisa.anderson@example.com",
-      service: "Proofreading & Editing",
-      deadline: "2025-01-18",
-      wordCount: 6000,
-      academicLevel: "Master's",
-      subject: "Business",
-      paperType: "Case Study",
-      status: "completed",
-      submittedDate: "2025-01-07",
-      description: "Proofread MBA case study on corporate strategy.",
-      attachments: ["manuscript.pdf"],
-      price: 249,
-    },
-  ]);
+  const [allOrders, setAllOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState<boolean>(false)
+  const router = useRouter();
+  
 
+  // useEffect(() => {
+  //   const storedOrders = getOrders();
+  //   if (storedOrders.length > 0) {
+  //     setAllOrders(storedOrders);
+  //   }
+  // }, []);
+  
   useEffect(() => {
-    const storedOrders = getOrders();
-    if (storedOrders.length > 0) {
-      setAllOrders(storedOrders);
-    }
-  }, []);
+    const fetchOrders = async () => {
+      try {
+        const res = await fetch("/api/orders/my", {
+          credentials: "include",
+        });
+
+        if (res.status === 401) {
+          router.replace("/login");
+          return;
+        }
+
+        const data = await res.json();
+        setAllOrders(data);
+      } catch (error) {
+        console.error("Failed to fetch orders", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
+  }, [router]);
 
   const handleStatusChange = (
     orderId: string,
-    newStatus: "pending" | "in_progress" | "completed",
+    newStatus: "pending" | "in-progress" | "completed" | "cancelled",
   ) => {
     const updatedOrders = allOrders.map((order) =>
-      order.id === orderId ? { ...order, status: newStatus } : order,
+      order._id === orderId ? { ...order, status: newStatus } : order,
     );
     setAllOrders(updatedOrders);
   };
@@ -190,7 +226,7 @@ export default function AdminOrders() {
 
   const stats = {
     pending: allOrders.filter((o) => o.status === "pending").length,
-    in_progress: allOrders.filter((o) => o.status === "in_progress").length,
+    in_progress: allOrders.filter((o) => o.status === "in-progress").length,
     completed: allOrders.filter((o) => o.status === "completed").length,
     total: allOrders.length,
   };

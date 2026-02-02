@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   LayoutDashboard,
@@ -14,7 +14,10 @@ import {
 export function AdminSidebar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
+  
   const menuItems = [
     {
       label: "Dashboard",
@@ -37,6 +40,19 @@ export function AdminSidebar() {
       icon: MessageSquare,
     },
   ];
+
+  const handleLogout = async () => {
+    try {
+      setLoading(true)
+      await fetch("/api/auth/logout", { method: "POST" });
+      
+      router.replace("/login");
+    } catch (err) {
+      console.log("Error : ", err)
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const isActive = (href: string) => pathname === href;
 
@@ -82,13 +98,11 @@ export function AdminSidebar() {
             <span>Back to Site</span>
           </Link>
           <button
-            onClick={() => {
-              window.location.href = "/login";
-            }}
+            onClick={handleLogout}
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-red-600 hover:bg-red-50 transition-all text-sm font-medium group"
           >
             <LogOut size={18} className="group-hover:text-red-700" />
-            <span>Logout</span>
+            <span>{loading ? "Logging out ..." :"Logout"}</span>
           </button>
         </div>
       </div>

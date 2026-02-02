@@ -6,6 +6,17 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { serviceGroups, fieldsOfStudy, languages } from "@/lib/headerData";
 import { WhatsAppIcon, WhatsAppLink, WhatsAppButton } from "./WhatsAppIcon";
+import axios from "axios";
+import { useUserContext } from "@/context/useUserContext";
+import { toast } from "react-toastify";
+
+// type TUser = {
+//   _id: string;
+//   role: string;
+//   name: string;
+//   email: string;
+//   createdAt: string;
+// }
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +26,26 @@ export default function Header() {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(false);
+  // const [user, setUser] = useState<TUser | null>(null);
   const router = useRouter();
+
+  const { user, setUser } = useUserContext();
+
+  useEffect(() => {
+  const fetchMe = async () => {
+    try {
+      const res = await axios("/api/auth/me");      
+      setUser(res.data?.user);
+      console.log("Response  : : ", res)
+    } catch (err: any) {
+      toast.error(err?.message || err?.response?.data?.message)
+      setUser(null);
+    } 
+  };
+
+  fetchMe();
+}, []);
 
   // Close user menu when clicking outside
   useEffect(() => {
@@ -71,18 +101,34 @@ export default function Header() {
     }
   }, [menuOpen]);
 
+  console.log("user : ", user)
+
   const handleSwitchToAdmin = () => {
     setIsAdminMode(true);
     setUserMenuOpen(false);
     router.push("/admin/dashboard");
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userEmail");
-    setMenuOpen(false);
-    setUserMenuOpen(false);
-    router.push("/login");
+  // const handleLogout = () => {
+  //   localStorage.removeItem("isLoggedIn");
+  //   localStorage.removeItem("userEmail");
+  //   setMenuOpen(false);
+  //   setUserMenuOpen(false);
+  //   router.push("/login");
+  // };
+
+  const handleLogout = async () => {
+    try {
+      setLoading(true);
+      await fetch("/api/auth/logout", { method: "POST" });
+      
+      router.replace("/login");
+    } catch (err: any) {
+      console.log("Error : ", err)
+      toast.error(err?.response?.data?.message || err?.message)
+    } finally {
+      setLoading(false);
+    }  
   };
 
   const navItems = [{ label: "Home", path: "/" }];
@@ -275,56 +321,63 @@ export default function Header() {
 
             {/* Auth Buttons and WhatsApp */}
             <div className="hidden sm:flex gap-0.5 items-center">
-              <Link
-                href="/login"
-                className="px-1.5 sm:px-2 py-0.5 border-2 border-primary text-primary hover:bg-primary/5 transition-all text-[8px] sm:text-[9px] font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"
-              >
-                <span>Login</span>
-                <User size={10} />
-              </Link>
-
-              {/* User Profile Dropdown */}
-              <div className="relative" ref={userMenuRef}>
-                <button
-                  onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="p-1 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all hover:scale-105 flex-shrink-0"
-                  title="User Menu"
-                >
-                  <User size={14} />
-                </button>
-
-                {userMenuOpen && (
-                  <div className="absolute right-0 mt-1 w-48 bg-white border-2 border-border rounded-lg shadow-lg z-50 overflow-hidden">
-                    <Link
-                      href="/profile"
-                      onClick={() => setUserMenuOpen(false)}
-                      className="block w-full text-left px-3 py-2 text-sm text-foreground hover:bg-primary/10 transition-colors border-b border-border font-medium flex items-center gap-2"
+              {user?._id ? (
+                <>                
+                  {/* User Profile Dropdown */}
+                  <div className="relative" ref={userMenuRef}>
+                    <button
+                      onClick={() => setUserMenuOpen(!userMenuOpen)}
+                      className="p-1 border-2 border-primary text-primary rounded-md hover:bg-primary/5 transition-all hover:scale-105 flex-shrink-0"
+                      title="User Menu"
                     >
                       <User size={14} />
-                      My Profile
-                    </Link>
-
-                    <button
-                      onClick={handleSwitchToAdmin}
-                      className="w-full text-left px-3 py-2 text-sm text-foreground hover:bg-accent/10 transition-colors border-b border-border font-medium flex items-center gap-2"
-                    >
-                      <LogOut size={14} />
-                      Switch to Admin
                     </button>
 
-                    <button
-                      onClick={() => {
-                        setUserMenuOpen(false);
-                        // Handle logout logic here
-                      }}
-                      className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors font-medium flex items-center gap-2"
-                    >
-                      <LogOut size={14} />
-                      Sign Out
-                    </button>
+                    {userMenuOpen && (
+                      <div className="absolute right-0 mt-1 w-48 bg-white border-2 border-border rounded-lg shadow-lg z-50 overflow-hidden">
+                        <Link
+                          href="/profile"
+                          onClick={() => setUserMenuOpen(false)}
+                          className="block w-full text-left px-3 py-2 text-sm text-foreground hover:bg-primary/10 transition-colors border-b border-border font-medium flex items-center gap-2"
+                        >
+                          <User size={14} />
+                          My Profile
+                        </Link>
+                        {user?.role === "admin" && (
+                          <button
+                            onClick={handleSwitchToAdmin}
+                            className="w-full text-left px-3 py-2 text-sm text-foreground hover:bg-accent/10 transition-colors border-b border-border font-medium flex items-center gap-2"
+                          >
+                            <LogOut size={14} />
+                            Switch to Admin
+                          </button>
+                        )}
+
+                        <button
+                          onClick={() => {
+                            setUserMenuOpen(false);
+                            handleLogout()
+                            // Handle logout logic here
+                          }}
+                          className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors font-medium flex items-center gap-2"
+                        >
+                          <LogOut size={14} />
+                          {loading ? "Signing Out ..." : "Sign Out"}
+                        </button>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
+                </>  
+              ) : (
+                <Link
+                  href="/login"
+                  className="px-1.5 sm:px-2 py-0.5 border-2 border-primary text-primary hover:bg-primary/5 transition-all text-[8px] sm:text-[9px] font-medium hover:scale-105 whitespace-nowrap flex items-center gap-1"
+                >
+                  <span>Login</span>
+                  <User size={10} />
+                </Link>
+              )}
+
             </div>
           </div>
 
@@ -378,15 +431,17 @@ export default function Header() {
                 <div className="border-t border-border my-0.5"></div>
 
                 {/* Switch to Admin */}
-                <button
-                  onClick={() => {
-                    handleSwitchToAdmin();
-                    closeMenu();
-                  }}
-                  className="block w-full text-left text-[8px] font-medium text-foreground hover:text-accent transition-colors py-0.5 px-2"
-                >
-                  Switch to Admin
-                </button>
+                {user?.role === "admin" && (
+                  <button
+                    onClick={() => {
+                      handleSwitchToAdmin();
+                      closeMenu();
+                    }}
+                    className="block w-full text-left text-[8px] font-medium text-foreground hover:text-accent transition-colors py-0.5 px-2"
+                  >
+                    Switch to Admin
+                  </button>
+                )}
 
                 {/* Contact Us */}
                 <Link
@@ -406,7 +461,7 @@ export default function Header() {
                   className="block w-full text-left text-[8px] font-medium text-red-600 hover:text-red-700 transition-colors py-0.5 px-2 flex items-center gap-1"
                 >
                   <LogOut size={10} />
-                  Logout
+                  {loading ? "Signing Out ..." : "Sign Out"}
                 </button>
               </div>
             )}

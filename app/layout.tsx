@@ -8,6 +8,8 @@ import {
   aggregateOfferSchema,
 } from "@/lib/schema";
 import "./globals.css";
+import UserContextProvider from "../context/UserContextProvider";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({
@@ -124,7 +126,12 @@ export default function RootLayout({
         className={`${inter.className} overflow-x-hidden`}
         suppressHydrationWarning
       >
-        <LayoutClient>{children}</LayoutClient>
+        <ToastContainer />
+        <UserContextProvider>
+          <LayoutClient>
+            {children}
+          </LayoutClient>
+        </UserContextProvider>
       </body>
     </html>
   );

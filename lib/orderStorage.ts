@@ -22,7 +22,7 @@ export function getOrders(): Order[] {
 }
 
 export function getOrdersByStatus(
-  status: "pending" | "in_progress" | "completed",
+  status: "pending" | "in-progress" | "completed" | "cancelled",
 ): Order[] {
   const allOrders = getOrders();
   return allOrders.filter((order) => order.status === status);
@@ -30,13 +30,13 @@ export function getOrdersByStatus(
 
 export function updateOrderStatus(
   orderId: string,
-  status: "pending" | "in_progress" | "completed",
+  status: "pending" | "in-progress" | "completed" | "cancelled",
 ): void {
   if (typeof window === "undefined") return;
 
   const orders = getOrders();
   const updatedOrders = orders.map((order) =>
-    order.id === orderId ? { ...order, status } : order,
+    order._id === orderId ? { ...order, status } : order,
   );
   localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(updatedOrders));
 }

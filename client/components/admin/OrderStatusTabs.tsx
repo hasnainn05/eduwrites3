@@ -1,8 +1,8 @@
 "use client";
 
 interface OrderStatusTabsProps {
-  activeStatus: "pending" | "in_progress" | "completed";
-  onStatusChange: (status: "pending" | "in_progress" | "completed") => void;
+  activeStatus: "pending" | "in-progress" | "completed" | "cancelled";
+  onStatusChange: (status: "pending" | "in-progress" | "completed" | "cancelled") => void;
   stats: {
     pending: number;
     in_progress: number;
@@ -22,7 +22,7 @@ export function OrderStatusTabs({
       count: stats.pending,
     },
     {
-      id: "in_progress",
+      id: "in-progress",
       label: "In Progress",
       count: stats.in_progress,
     },
@@ -44,7 +44,7 @@ export function OrderStatusTabs({
               key={tab.id}
               onClick={() =>
                 onStatusChange(
-                  tab.id as "pending" | "in_progress" | "completed",
+                  tab.id as "pending" | "in-progress" | "completed" | "cancelled",
                 )
               }
               className={`px-1 sm:px-2 py-4 border-b-2 transition-all text-sm font-semibold whitespace-nowrap ${

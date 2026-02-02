@@ -5,12 +5,23 @@ import { ArrowRight, Upload, X } from "lucide-react";
 import { saveOrder, generateOrderId } from "@/lib/orderStorage";
 import { getServicePricing, getPackageDetails } from "@/lib/pricing";
 import type { Order } from "@/app/admin/orders/page";
+import { useUserContext } from "@/context/useUserContext"
+import { toast } from "react-toastify";
 
 interface OrderFormProps {
   preSelectedService?: string;
   preSelectedPackage?: string;
   onSuccess?: () => void;
 }
+
+export const serviceTypes = [
+  { value: "essay", label: "Essay Writing" },
+  { value: "assignment", label: "Assignment Writing" },
+  { value: "research", label: "Research Paper Writing" },
+  { value: "thesis", label: "Thesis Writing" },
+  { value: "dissertation", label: "Dissertation Writing" },
+  { value: "proofreading", label: "Proofreading and Editing of Document" },
+];
 
 export default function OrderForm({
   preSelectedService,
@@ -35,15 +46,19 @@ export default function OrderForm({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [fileName, setFileName] = useState("");
   const [isBudgetLocked, setIsBudgetLocked] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const serviceTypes = [
-    { value: "essay", label: "Essay Writing" },
-    { value: "assignment", label: "Assignment Writing" },
-    { value: "research", label: "Research Paper Writing" },
-    { value: "thesis", label: "Thesis Writing" },
-    { value: "dissertation", label: "Dissertation Writing" },
-    { value: "proofreading", label: "Proofreading and Editing of Document" },
-  ];
+  const context = useUserContext()
+
+  // const serviceTypes = [
+  //   { value: "Essay Writing", label: "Essay Writing" },
+  //   { value: "Assignment Writing", label: "Assignment Writing" },
+  //   { value: "Research Paper Writing", label: "Research Paper Writing" },
+  //   { value: "Thesis Writing", label: "Thesis Writing" },
+  //   { value: "Dissertation Writing", label: "Dissertation Writing" },
+  //   { value: "Proofreading and Editing of Document", label: "Proofreading and Editing of Document" },
+  // ];
+  
 
   const academicLevels = [
     { value: "high-school", label: "High School" },
@@ -93,68 +108,106 @@ export default function OrderForm({
     }
   };
 
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   const serviceTypeMap: { [key: string]: string } = {
+  //     essay: "Essay Writing",
+  //     assignment: "Assignment Writing",
+  //     research: "Research Paper Writing",
+  //     thesis: "Thesis Writing",
+  //     dissertation: "Dissertation Writing",
+  //     proofreading: "Proofreading and Editing of Document",
+  //   };
+
+  //   const paperTypeMap: { [key: string]: string } = {
+  //     essay: "Essay",
+  //     assignment: "Assignment",
+  //     research: "Research Paper",
+  //     thesis: "Thesis",
+  //     dissertation: "Dissertation",
+  //     proofreading: "Edited Document",
+  //   };
+
+  //   const newOrder: Order = {
+  //     id: generateOrderId(),
+  //     fullName: formData.fullName,
+  //     email: formData.email,
+  //     service: serviceTypeMap[formData.serviceType] || formData.serviceType,
+  //     deadline: formData.deadline,
+  //     wordCount: parseInt(formData.wordCount) || 0,
+  //     academicLevel: formData.academicLevel,
+  //     subject: formData.subject,
+  //     paperType: paperTypeMap[formData.serviceType] || "Assignment",
+  //     status: "pending",
+  //     submittedDate: new Date().toISOString().split("T")[0],
+  //     description: formData.assignmentDetails,
+  //     attachments: formData.attachments ? [formData.attachments.name] : [],
+  //     price: parseInt(formData.budget) || 0,
+  //   };
+
+  //   saveOrder(newOrder);
+  //   setIsSubmitted(true);
+
+  //   setTimeout(() => {
+  //     setFormData({
+  //       fullName: "",
+  //       email: "",
+  //       whatsapp: "",
+  //       serviceType: preSelectedService || "essay",
+  //       packageType: preSelectedPackage || "basic",
+  //       wordCount: "",
+  //       deadline: "",
+  //       budget: "",
+  //       academicLevel: "undergraduate",
+  //       subject: "",
+  //       assignmentDetails: "",
+  //       attachments: null as File | null,
+  //     });
+  //     setFileName("");
+  //     setIsSubmitted(false);
+  //     setIsBudgetLocked(true);
+  //     onSuccess?.();
+  //   }, 3000);
+  // };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const serviceTypeMap: { [key: string]: string } = {
-      essay: "Essay Writing",
-      assignment: "Assignment Writing",
-      research: "Research Paper Writing",
-      thesis: "Thesis Writing",
-      dissertation: "Dissertation Writing",
-      proofreading: "Proofreading and Editing of Document",
-    };
+    if(!context?.user?.email && !context?.isLoading){
+      toast.warn("Login first to place order!")
+      return
+    }
 
-    const paperTypeMap: { [key: string]: string } = {
-      essay: "Essay",
-      assignment: "Assignment",
-      research: "Research Paper",
-      thesis: "Thesis",
-      dissertation: "Dissertation",
-      proofreading: "Edited Document",
-    };
+    const fd = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value) fd.append(key, value as any);
+    });
 
-    const newOrder: Order = {
-      id: generateOrderId(),
-      fullName: formData.fullName,
-      email: formData.email,
-      service: serviceTypeMap[formData.serviceType] || formData.serviceType,
-      deadline: formData.deadline,
-      wordCount: parseInt(formData.wordCount) || 0,
-      academicLevel: formData.academicLevel,
-      subject: formData.subject,
-      paperType: paperTypeMap[formData.serviceType] || "Assignment",
-      status: "pending",
-      submittedDate: new Date().toISOString().split("T")[0],
-      description: formData.assignmentDetails,
-      attachments: formData.attachments ? [formData.attachments.name] : [],
-      price: parseInt(formData.budget) || 0,
-    };
+    if (formData.attachments) {
+      fd.append("attachment", formData.attachments);
+    }
 
-    saveOrder(newOrder);
-    setIsSubmitted(true);
-
-    setTimeout(() => {
-      setFormData({
-        fullName: "",
-        email: "",
-        whatsapp: "",
-        serviceType: preSelectedService || "essay",
-        packageType: preSelectedPackage || "basic",
-        wordCount: "",
-        deadline: "",
-        budget: "",
-        academicLevel: "undergraduate",
-        subject: "",
-        assignmentDetails: "",
-        attachments: null as File | null,
+    try {
+      setLoading(true);
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        body: fd,
       });
-      setFileName("");
-      setIsSubmitted(false);
-      setIsBudgetLocked(true);
-      onSuccess?.();
-    }, 3000);
+  
+      if (!res.ok) {
+        alert("Failed to submit order");
+        return;
+      }
+    } catch (err: any) {
+      toast.error(err?.response?.data?.message || err?.messasge)
+    } finally {
+      setLoading(false);
+    }
+
+    setIsSubmitted(true);
   };
+
 
   if (isSubmitted) {
     return (
@@ -467,6 +520,7 @@ export default function OrderForm({
           type="submit"
           className="w-full bg-primary text-white font-bold py-2.5 rounded-lg text-sm hover:bg-primary/90 hover:shadow-glow transition-all transform hover:scale-105 duration-300 flex items-center justify-center gap-2 animate-pulse-bounce"
         >
+          {loading && <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>}
           Submit Order <ArrowRight size={16} />
         </button>
       </div>

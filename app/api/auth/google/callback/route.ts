@@ -125,7 +125,7 @@ export async function GET(req: NextRequest) {
     
       // 🍪 Set cookie
       const response = NextResponse.redirect(
-        new URL("/profile", req.url)
+        new URL("/", req.url)
       );
     
       response.cookies.set("token", jwtToken, {

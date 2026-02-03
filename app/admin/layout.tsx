@@ -23,7 +23,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         }
 
         const data = await res.json();
-        console.log("admin user : ", data)
+        // console.log("admin user : ", data)
         if(data?.user?.role !== "admin"){
           router.replace("/login");
         }

@@ -106,8 +106,7 @@ export async function GET(req: NextRequest) {
     
       await connectDB();
 
-      console.log("########################################### callback function")
-    
+      
       // 🔍 Find or create user
       let user = await User.findOne({ email: googleUser.email });
     

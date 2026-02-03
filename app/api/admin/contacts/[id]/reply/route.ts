@@ -11,7 +11,7 @@ export async function POST(
   try {
     const { message } = await req.json();
 
-    console.log("Message : ", message);
+    // console.log("Message : ", message);
 
     if (!message) {
       return NextResponse.json(

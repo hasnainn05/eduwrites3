@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const data = contactSchema.parse(body);
-    console.log("data : ", data);
+    // console.log("data : ", data);
     await connectDB();
 
     await Contact.create(data);

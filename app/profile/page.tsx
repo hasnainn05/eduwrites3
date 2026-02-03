@@ -157,7 +157,7 @@ export default function Profile() {
         }
 
         const data = await res.json();
-        console.log("data : ", data)
+        // console.log("data : ", data)
         setUserDetail(data?.user);
       } catch (error) {
         console.error("Failed to fetch orders", error);

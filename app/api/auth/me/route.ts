@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken";
 export async function GET() {
   const cookieStore = await cookies(); // ✅ MUST await
   const token = cookieStore.get("token")?.value;
-  console.log("token : ", token)
+  // console.log("token : ", token)
   if (!token) {
     return NextResponse.json(
       { message: "Unauthorized" },

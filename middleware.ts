@@ -28,10 +28,10 @@ import { verifyToken } from "./lib/jwt";
 
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get("token")?.value;
-  console.log("token in middleware ? : ", token)
+  // console.log("token in middleware ? : ", token)
   const { pathname } = req.nextUrl;
 
-  console.log("req. next URL : ", req.nextUrl)
+  // console.log("req. next URL : ", req.nextUrl)
 
   const protectedRoutes = [
     // "/profile", 

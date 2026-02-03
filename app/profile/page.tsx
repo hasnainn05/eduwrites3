@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import { formatDate, getAvatar, getServiceType } from "@/lib/utils";
 import { log } from "console";
 import { ProfileSkeleton } from "@/components/ProfileSkeleton";
+import { useUserContext } from "@/context/useUserContext";
 
 interface Order {
   _id: string;
@@ -38,12 +39,14 @@ type TUser = {
 }
 
 export default function Profile() {
-  const [user, setUser] = useState<TUser | null>(null);
+  const [user, setUserDetail] = useState<TUser | null>(null);
 
   const router = useRouter();
 
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(1);
+
+  const { setUser } = useUserContext()
 
   // const orders = [
   //   {
@@ -83,8 +86,7 @@ export default function Profile() {
   const stats = [
     { label: "Total Orders", value: totalOrders.toString(), icon: FileText, color: "indigo" },
     { label: "Completed", value: completedOrders.toString(), icon: CheckCircle, color: "emerald" },
-    { label: "Total Spent", value: `${totalSpent.toFixed(2)}`, icon: DollarSign, color: "violet" },
-    { label: "Rating", value: "0.00", icon: Star, color: "amber" },
+    { label: "Total Spent", value: `${totalSpent.toFixed(2)}`, icon: DollarSign, color: "violet" },    
   ];
 
   // const handleLogout = () => {
@@ -98,6 +100,7 @@ export default function Profile() {
       setLoading(3)
       await fetch("/api/auth/logout", { method: "POST" });
       
+      setUser(null);
       router.replace("/login");
     } catch (err) {
       console.log("Error : ", err)
@@ -155,7 +158,7 @@ export default function Profile() {
 
         const data = await res.json();
         console.log("data : ", data)
-        setUser(data?.user);
+        setUserDetail(data?.user);
       } catch (error) {
         console.error("Failed to fetch orders", error);
       } finally {
@@ -188,7 +191,7 @@ export default function Profile() {
                   className="p-2 rounded-full bg-white text-red-600 hover:bg-red-50 transition-all shadow-sm hover:shadow-md border border-slate-200"
                   title="Logout"
                 >
-                  {loading === 3 && <div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>}
+                  {loading === 3 && (<div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>)}
                   <LogOut size={20} />
                 </button>
               </div>
@@ -244,7 +247,7 @@ export default function Profile() {
         </div>
 
         {/* Stats Grid - Compact for Mobile */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (

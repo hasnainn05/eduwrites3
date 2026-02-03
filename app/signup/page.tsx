@@ -11,6 +11,8 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useUserContext } from "@/context/useUserContext";
 
 export default function Signup() {
   const [step, setStep] = useState<"form" | "verify" | "success">("form");
@@ -26,6 +28,10 @@ export default function Signup() {
     agreeToTerms: false,
   });
   const [verificationCode, setVerificationCode] = useState("");
+
+  const { setUser } = useUserContext();
+
+  const router = useRouter();
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -87,8 +93,13 @@ export default function Signup() {
         return;
       }
 
+      if(data?.user?.role === "user"){
+        setUser(data?.user);
+        router.push("/");
+      }
+
       // Success
-      setStep("success");
+      // setStep("success");
     } catch (err) {
       console.log("error: ", err);
       setError("Something went wrong. Please try again.");

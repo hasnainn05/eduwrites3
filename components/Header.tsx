@@ -39,7 +39,7 @@ export default function Header() {
       setUser(res.data?.user);
       console.log("Response  : : ", res)
     } catch (err: any) {
-      toast.error(err?.message || err?.response?.data?.message)
+      // toast.error(err?.message || err?.response?.data?.message)
       setUser(null);
     } 
   };
@@ -121,7 +121,7 @@ export default function Header() {
     try {
       setLoading(true);
       await fetch("/api/auth/logout", { method: "POST" });
-      
+      setUser(null);
       router.replace("/login");
     } catch (err: any) {
       console.log("Error : ", err)

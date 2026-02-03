@@ -72,7 +72,7 @@ export default function Login() {
       }
       if(data?.user?.role === "user"){
         setUser(data?.user);
-        router.push("/profile");
+        router.push("/");
       }        
     } catch (err) {
       setError("Something went wrong. Please try again.");

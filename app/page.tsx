@@ -369,7 +369,7 @@ export default function Home() {
                         4.9/5 Average Rating
                       </p>
                       <p className="text-sm text-foreground/60 mt-2">
-                        From 2,500+ verified reviews
+                        From 15,000+ verified reviews
                       </p>
                     </div>
                   </div>

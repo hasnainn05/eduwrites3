@@ -27,6 +27,7 @@ import {
   PROOFREADING_PRICING_PLANS,
 } from "@/lib/pricing";
 import { PricingSwitch } from "@/client/components/PricingSwitch";
+import { useRouter } from "next/navigation";
 export default function Home() {
   const containerRef = useScrollAnimation();
   const [isSupportModalOpen, setIsSupportModalOpen] = useState(false);
@@ -34,6 +35,8 @@ export default function Home() {
   const [pricingType, setPricingType] = useState<"writing" | "proofreading">(
     "writing",
   );
+
+  const router = useRouter();
 
   const services = [
     {
@@ -976,7 +979,8 @@ export default function Home() {
                 your field isn't listed, we still support it.
               </p>
               <button
-                onClick={() => setIsSupportModalOpen(true)}
+                // onClick={() => setIsSupportModalOpen(true)}
+                onClick={() => router.push(`/contact`)}
                 className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-6 py-2 rounded-lg text-sm font-semibold hover:bg-primary/5 transition-all duration-300"
               >
                 Contact Support
@@ -1179,7 +1183,8 @@ export default function Home() {
               Still have questions? Our support team is here to help.
             </p>
             <button
-              onClick={() => setIsSupportModalOpen(true)}
+              // onClick={() => setIsSupportModalOpen(true)}
+              onClick={() => router.push(`/contact`)}
               className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-all duration-300"
             >
               Contact Support

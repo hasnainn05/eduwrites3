@@ -39,7 +39,7 @@ export default function OrderForm({
     budget: "",
     academicLevel: "undergraduate",
     subject: "",
-    assignmentDetails: "",
+    description: "",
     attachments: null as File | null,
   });
 
@@ -461,8 +461,8 @@ export default function OrderForm({
               Assignment Details & Requirements *
             </label>
             <textarea
-              name="assignmentDetails"
-              value={formData.assignmentDetails}
+              name="description"
+              value={formData.description}
               onChange={handleChange}
               required
               placeholder="Describe your assignment, requirements, guidelines, and any specific instructions..."

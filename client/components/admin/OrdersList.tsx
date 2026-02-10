@@ -6,7 +6,7 @@ import { ChevronDown, Download } from "lucide-react";
 import { updateOrderStatus } from "@/lib/orders";
 
 import React from "react";
-import { getServiceType } from "@/lib/utils";
+import { formatDate, getServiceType } from "@/lib/utils";
 
 interface OrdersListProps {
   orders: Order[];
@@ -27,6 +27,8 @@ export function OrdersList({
   const toggleExpand = (orderId: string) => {
     setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
   };
+
+  console.log("status tab : ", status)
 
   // const handleApprove = (orderId: string) => {
   //   updateOrderStatus(orderId, "in-progress");
@@ -110,7 +112,7 @@ export function OrdersList({
                     </h3>
                     <p className="text-foreground/60 text-[10px] sm:text-xs mt-0.5 line-clamp-2">
                       {getServiceType(order.service)} • {order.wordCount.toLocaleString()} words
-                      • ${order.budget}
+                      • ${order.budget} • {formatDate(order?.deadline)}
                     </p>
                   </div>
                   <button
@@ -175,7 +177,7 @@ export function OrdersList({
                     <p className="text-foreground/60 text-[10px] font-bold uppercase tracking-wide mb-2">
                       Service Information
                     </p>
-                    <div className="space-y-1">
+                    <div className="space-y-1">                      
                       <div>
                         <p className="text-foreground/60 text-[10px] mb-0.5">
                           Subject/Topic
@@ -259,7 +261,7 @@ export function OrdersList({
                     </div>
                   )} */}
 
-                  {status === "pending" && (
+                  {order?.status === "pending" && (
                     <div className="border-t-2 border-border pt-3 flex gap-2 justify-end">
                       <button
                         onClick={() => handleApprove(order._id)}
@@ -277,7 +279,7 @@ export function OrdersList({
                     </div>
                   )}
 
-                  {status === "in-progress" && (
+                  {order?.status === "in-progress" && (
                     <div className="border-t-2 border-border pt-3 flex justify-end">
                       <button
                         onClick={() => handleComplete(order._id)}

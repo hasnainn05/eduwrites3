@@ -29,6 +29,7 @@ export function OrdersList({
   };
 
   console.log("status tab : ", status)
+  console.log("orders : ", orders);
 
   // const handleApprove = (orderId: string) => {
   //   updateOrderStatus(orderId, "in-progress");
@@ -225,7 +226,7 @@ export function OrdersList({
                             className="flex items-center justify-between p-2 bg-white border-2 border-border rounded-lg hover:shadow-sm transition-all group"
                           >
                             <span className="text-foreground text-xs truncate flex-1">
-                              File                            </span>
+                              {file?.filename}                            </span>
                             <a
                               // href={`data:application/octet-stream;base64,${btoa("Sample file content")}`}
                               href={file?.url}
